@@ -67,7 +67,7 @@ const HeroSection: React.FC = () => {
             { value: '6', label: '覆盖国家（持续拓展中）' },
             { value: '19,370', label: '法规条文收录' },
             { value: '7', label: '高频合规场景' },
-            { value: '68', label: '合作合规机构' },
+            { value: '50+', label: '合作合规机构' },
           ].map((stat, index) => (
             <div
               key={index}
