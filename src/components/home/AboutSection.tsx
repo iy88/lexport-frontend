@@ -40,16 +40,11 @@ const AboutSection: React.FC = () => {
         <div className="max-w-3xl mx-auto mb-16">
           <Card className="shadow-card">
             <CardContent className="p-6 md:p-10">
-              <p className="text-base md:text-lg text-foreground leading-relaxed mb-6 text-pretty">
+              <p className="text-base md:text-lg text-foreground leading-relaxed text-pretty">
                 律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供
                 <span className="font-semibold text-primary">低成本、可追踪、嵌入式</span>
                 的合规支持服务。
               </p>
-              <div className="bg-primary/5 border-l-4 border-l-primary rounded-r-lg p-5">
-                <p className="text-base md:text-lg text-foreground font-medium text-pretty">
-                  我们的使命，是让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。
-                </p>
-              </div>
             </CardContent>
           </Card>
         </div>
