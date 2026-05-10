@@ -64,10 +64,10 @@ const HeroSection: React.FC = () => {
         {/* Stats */}
         <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
           {[
-            { value: '50+', label: '非洲国家覆盖' },
-            { value: '2,000+', label: '法规条文收录' },
+            { value: '6', label: '覆盖国家（持续拓展中）' },
+            { value: '19,370', label: '法规条文收录' },
             { value: '7', label: '高频合规场景' },
-            { value: '100+', label: '合作合规机构' },
+            { value: '68', label: '合作合规机构' },
           ].map((stat, index) => (
             <div
               key={index}
