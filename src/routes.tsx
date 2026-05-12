@@ -1,5 +1,6 @@
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import ReportPage from './pages/ReportPage';
 import type { ReactNode } from 'react';
 
 export interface RouteConfig {
@@ -22,6 +23,12 @@ export const routes: RouteConfig[] = [
     name: '登录',
     path: '/login',
     element: <LoginPage />,
+    public: true,
+  },
+  {
+    name: '合规报告',
+    path: '/report',
+    element: <ReportPage />,
     public: true,
   },
 ];

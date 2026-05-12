@@ -1,0 +1,3916 @@
+
+<action>
+**MessageAction** (source=EventSource.AGENT)
+CONTENT: 收到，我将根据您提供的完整文案为您创建「律航出海」法律AI智能体网站，请稍候
+</action>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h', start=0, end=-1, thought="I'll start by exploring the existing project structure and then generate the PRD before implementing the app.", action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h is successful.]
+Here's the files and directories up to 2 levels deep in /workspace/app-bjm4peyd3x8h, excluding hidden:
+/workspace/app-bjm4peyd3x8h
+/workspace/app-bjm4peyd3x8h/tasks
+
+
+</observation>
+<action>
+**MCPAction**
+NAME: aesthetic_template
+ARGUMENTS: {'input': '法律AI智能体，非洲制造业合规平台，专业商务风格，深色调蓝色系', 'appId': 'app-bjm4peyd3x8h', 'userId': 'user-b9uiw66jbj0g', 'appType': 'Web'}
+</action>
+<observation>
+**MCPObservation**
+NAME: aesthetic_template
+RESULTS: 未生成相关模板信息
+</observation>
+<action>
+SubagentAction(subagent_name='PRDAgent', instruction='请为「律航出海·法律AI智能体」网站生成完整的PRD文档。\n\n## 项目概述\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n\n## 网站结构与完整文案\n\n### 导航栏\n首页 | 法规库 | 资讯库 | 机构推荐 | 关于我们 | 登录\n\n### 首屏 Hero 区\n- 主标题：律航出海·法律AI智能体\n- 副标题：非洲制造业法律数据整合 + 合规机构智能筛选匹配\n- 平台简介：依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供低成本、可追踪、嵌入式全流程合规支持，高效打通非洲出海合规「最后一公里」。\n- 行动按钮：立即体验合规初诊、了解我们的服务\n\n### 法规库模块\n- 模块标题：非洲制造业合规法规库\n- 模块说明：聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\n- 核心功能：\n  1. 人工标注+法规整合：基于非洲本地权威数据库，结合执业律师人工标注，收录制造业高频法规与判例；标注信息含适用场景、效力层级、处罚条款、生效/修订时间\n  2. 制造业高频场景分类：覆盖海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权七大场景；按场景标签快速筛选\n  3. 合规初诊工具：输入目的国、企业规模、业务场景、预算区间，系统自动匹配法规要点，生成定制化合规初诊报告，附法规原文链接与高风险提示\n\n### 资讯库模块\n- 模块标题：非洲合规动态资讯库\n- 模块说明：实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\n- 核心功能：\n  1. 中非合作新闻：收录中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态；按国家、行业、政策类型分类\n  2. 合规热点追踪：基于行业热议度识别热点事件，人工核实，提炼事件背景、涉事法规与企业应对案例；生成「热点合规风险提示」\n  3. 法规更新动态：由非洲本地成员实时搜集各国法规修订信息，捕捉"修订/新增/废止"关键词；统一模板呈现更新内容\n\n### 机构推荐模块\n- 模块标题：非洲本地合规机构推荐\n- 模块说明：联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\n- 核心功能：\n  1. 商会背书的本地机构名单：收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等；自动抓取并整理机构核心信息\n  2. 按制造业场景精准分类：按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类；支持按目的国、服务场景、预算区间筛选\n  3. 透明化信息呈现：每个机构附简介、服务范围、典型案例与联系方式入口\n\n### 关于我们模块\n- 模块标题：关于律航出海\n- 内容：律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。使命：让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\n\n### 底部版权栏\n© 2026 律航出海 | 浙ICP备XXXXXXXX号 | 隐私政策 | 使用条款\n\n## 技术要求\n- 单页面网站（SPA），使用React构建\n- 专业商务风格，深蓝色调为主色\n- 响应式设计，支持PC和移动端\n- 导航栏固定顶部，支持锚点跳转\n- 各模块展示具体功能卡片，图文并茂\n- 合规初诊工具有可交互的表单\n', input={'lang_env': 'Chinese', 'lang_user': 'Chinese', 'prd': '', 'app_type': '', 'is_generated': False, 'metadata': {'a2a': [{'kind': 'text', 'metadata': None, 'text': '我懂了，你要的是**直接可以放进秒哒、能直接呈现的完整文案稿**，不需要中间流程和表格。下面是按网页模块分好、可直接复制使用的终版文案，你粘贴进去就能生成页面。\n\n---\n\n## 🏠 导航栏\n首页 | 法规库 | 资讯库 | 机构推荐 | 关于我们 | 登录\n\n---\n\n## 🎯 首屏 Hero 区\n### 主标题\n律航出海·法律AI智能体\n\n### 副标题\n非洲制造业法律数据整合 + 合规机构智能筛选匹配\n\n### 平台简介\n依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供**低成本、可追踪、嵌入式**全流程合规支持，高效打通非洲出海合规「最后一公里」。\n\n### 行动按钮\n- 立即体验合规初诊\n- 了解我们的服务\n\n---\n\n## 📚 法规库模块\n### 模块标题\n非洲制造业合规法规库\n\n### 模块说明\n聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\n\n### 核心功能点\n1.  **人工标注+法规整合**\n    - 基于非洲本地权威数据库，结合执业律师人工标注，收录制造业高频法规与判例\n    - 标注信息含：适用场景、效力层级、处罚条款、生效/修订时间，一眼看懂关键风险\n\n2.  **制造业高频场景分类**\n    - 覆盖海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权七大场景\n    - 按场景标签快速筛选，一键获取对应国家的核心合规要求与高频风险清单\n\n3.  **合规初诊工具**\n    - 输入目的国、企业规模、业务场景、预算区间\n    - 系统自动匹配法规要点，生成定制化合规初诊报告，附法规原文链接与高风险提示\n\n---\n\n## 📰 资讯库模块\n### 模块标题\n非洲合规动态资讯库\n\n### 模块说明\n实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\n\n### 核心功能点\n1.  **中非合作新闻**\n    - 收录中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态\n    - 按国家、行业、政策类型分类，快速找到对你有用的投资机遇与政策支持信息\n\n2.  **合规热点追踪**\n    - 基于行业热议度识别热点事件，人工核实真实性与相关性，提炼事件背景、涉事法规与企业应对案例\n    - 生成「热点合规风险提示」，帮你快速了解行业共性风险与应对思路\n\n3.  **法规更新动态**\n    - 由非洲本地成员实时搜集各国法规修订信息，捕捉“修订/新增/废止”关键词\n    - 用统一模板呈现更新内容：法规名称+核心更新点+对制造业企业的影响+合规建议，一目了然\n\n---\n\n## 🏢 机构推荐模块\n### 模块标题\n非洲本地合规机构推荐\n\n### 模块说明\n联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\n\n### 核心功能点\n1.  **商会背书的本地机构名单**\n    - 收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等\n    - 自动抓取并整理机构核心信息：业务领域、服务国家、制造业服务案例、收费区间\n\n2.  **按制造业场景精准分类**\n    - 按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类展示\n    - 支持按目的国、服务场景、预算区间筛选，快速匹配你的企业需求\n\n3.  **透明化信息呈现**\n    - 每个机构附简介、服务范围、典型案例与联系方式入口，帮你高效对接本地合规资源\n\n---\n\n## ℹ️ 关于我们模块\n### 模块标题\n关于律航出海\n\n### 内容文案\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n\n我们的使命，是让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\n\n---\n\n### 底部版权栏\n© 2026 律航出海 | 浙ICP备XXXXXXXX号 | 隐私政策 | 使用条款\n'}], 'defaultAgent': 'AdaProCodeactAgent', 'agentConfig': {}, 'runtime': 'miaoda', 'lang': 'zh-CN', 'queryMode': 'deep_mode', 'appStatus': 'not_generate', 'hasAgent': False, 'cur_version_last_event_id': -1, 'supportSupabase': 'true', 'subscription_plan': 'pro', 'senderUserId': 'user-b9uiw66jbj0g', 'is_user_input': True, 'firstMessage': '我懂了，你要的是**直接可以放进秒哒、能直接呈现的完整文案稿**，不需要中间流程和表格。下面是按网页模块分好、可直接复制使用的终版文案，你粘贴进去就能生成页面。\n\n---\n\n## 🏠 导航栏\n首页 | 法规库 | 资讯库 | 机构推荐 | 关于我们 | 登录\n\n---\n\n## 🎯 首屏 Hero 区\n### 主标题\n律航出海·法律AI智能体\n\n### 副标题\n非洲制造业法律数据整合 + 合规机构智能筛选匹配\n\n### 平台简介\n依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供**低成本、可追踪、嵌入式**全流程合规支持，高效打通非洲出海合规「最后一公里」。\n\n### 行动按钮\n- 立即体验合规初诊\n- 了解我们的服务\n\n---\n\n## 📚 法规库模块\n### 模块标题\n非洲制造业合规法规库\n\n### 模块说明\n聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\n\n### 核心功能点\n1.  **人工标注+法规整合**\n    - 基于非洲本地权威数据库，结合执业律师人工标注，收录制造业高频法规与判例\n    - 标注信息含：适用场景、效力层级、处罚条款、生效/修订时间，一眼看懂关键风险\n\n2.  **制造业高频场景分类**\n    - 覆盖海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权七大场景\n    - 按场景标签快速筛选，一键获取对应国家的核心合规要求与高频风险清单\n\n3.  **合规初诊工具**\n    - 输入目的国、企业规模、业务场景、预算区间\n    - 系统自动匹配法规要点，生成定制化合规初诊报告，附法规原文链接与高风险提示\n\n---\n\n## 📰 资讯库模块\n### 模块标题\n非洲合规动态资讯库\n\n### 模块说明\n实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\n\n### 核心功能点\n1.  **中非合作新闻**\n    - 收录中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态\n    - 按国家、行业、政策类型分类，快速找到对你有用的投资机遇与政策支持信息\n\n2.  **合规热点追踪**\n    - 基于行业热议度识别热点事件，人工核实真实性与相关性，提炼事件背景、涉事法规与企业应对案例\n    - 生成「热点合规风险提示」，帮你快速了解行业共性风险与应对思路\n\n3.  **法规更新动态**\n    - 由非洲本地成员实时搜集各国法规修订信息，捕捉“修订/新增/废止”关键词\n    - 用统一模板呈现更新内容：法规名称+核心更新点+对制造业企业的影响+合规建议，一目了然\n\n---\n\n## 🏢 机构推荐模块\n### 模块标题\n非洲本地合规机构推荐\n\n### 模块说明\n联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\n\n### 核心功能点\n1.  **商会背书的本地机构名单**\n    - 收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等\n    - 自动抓取并整理机构核心信息：业务领域、服务国家、制造业服务案例、收费区间\n\n2.  **按制造业场景精准分类**\n    - 按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类展示\n    - 支持按目的国、服务场景、预算区间筛选，快速匹配你的企业需求\n\n3.  **透明化信息呈现**\n    - 每个机构附简介、服务范围、典型案例与联系方式入口，帮你高效对接本地合规资源\n\n---\n\n## ℹ️ 关于我们模块\n### 模块标题\n关于律航出海\n\n### 内容文案\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n\n我们的使命，是让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\n\n---\n\n### 底部版权栏\n© 2026 律航出海 | 浙ICP备XXXXXXXX号 | 隐私政策 | 使用条款\n'}, 'generate_app_requested': False}, context_strategy='clean', context_agent_names=[], thought='Delegating to PRDAgent', action=<ActionType.SUBAGENT: 'subagent'>)
+</action>
+<observation>
+SubagentObservation(content='Subagent \'PRDAgent\' (conv-bjm4peyd3x8g/subagent-PRDAgent-ID15) successfully completed. Summary: , Output: {\'actions\': [{\'type\': \'button\', \'label\': \'立即创作\', \'value\': \'立即创作\', \'event\': {\'name\': \'generateApp\'}}], \'appInfo\': {\'requirementType\': \'Web\'}, \'appType\': \'Web\', \'prd\': \'# 需求文档\\n\\n## 1. 应用概述\\n\\n### 1.1 应用名称\\n律航出海·法律AI智能体\\n\\n### 1.2 应用描述\\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\\n\\n## 2. 用户与使用场景\\n\\n### 2.1 目标用户\\n- 计划或已在非洲开展制造业务的中国企业\\n- 需要了解非洲制造业合规要求的企业决策者\\n- 寻找非洲本地合规服务机构的企业\\n\\n### 2.2 核心使用场景\\n- 企业出海前期：查询目的国法规要求，使用合规初诊工具评估合规风险\\n- 企业运营期间：追踪法规更新动态，获取合规资讯\\n- 寻求专业服务：筛选匹配本地合规服务机构\\n\\n## 3. 页面结构与功能说明\\n\\n### 3.1 页面结构\\n\\n```\\n律航出海网站（单页面应用）\\n├── 导航栏（固定顶部）\\n├── 首屏 Hero 区\\n├── 法规库模块\\n├── 资讯库模块\\n├── 机构推荐模块\\n├── 关于我们模块\\n├── 底部版权栏\\n└── 登录/注册页面\\n```\\n\\n### 3.2 导航栏\\n\\n**功能说明**\\n- 固定在页面顶部，支持锚点跳转至各模块\\n- 导航项：首页、法规库、资讯库、机构推荐、关于我们、登录\\n- 点击导航项平滑滚动至对应模块\\n- 点击「登录」跳转至登录页面\\n\\n### 3.3 首屏 Hero 区\\n\\n**功能说明**\\n- 展示平台核心信息与价值主张\\n- 内容包含：\\n  - 主标题：律航出海·法律AI智能体\\n  - 副标题：非洲制造业法律数据整合 + 合规机构智能筛选匹配\\n  - 平台简介：依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供低成本、可追踪、嵌入式全流程合规支持，高效打通非洲出海合规「最后一公里」。\\n  - 两个行动按钮：\\n    - 「立即体验合规初诊」：点击后跳转至法规库模块的合规初诊工具\\n    - 「了解我们的服务」：点击后跳转至关于我们模块\\n\\n### 3.4 法规库模块\\n\\n**3.4.1 模块标题与说明**\\n- 模块标题：非洲制造业合规法规库\\n- 模块说明：聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\\n\\n**3.4.2 核心功能**\\n\\n**功能1：人工标注+法规整合**\\n- 展示基于非洲本地权威数据库收录的制造业高频法规与判例\\n- 每条法规包含以下标注信息：\\n  - 适用场景\\n  - 效力层级\\n  - 处罚条款\\n  - 生效/修订时间\\n- 支持查看法规原文\\n\\n**功能2：制造业高频场景分类**\\n- 提供七大场景分类标签：海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权\\n- 用户可按场景标签筛选法规\\n- 展示符合筛选条件的法规列表\\n\\n**功能3：合规初诊工具**\\n- 提供可交互表单，用户输入以下信息：\\n  - 目的国（下拉选择）\\n  - 企业规模（下拉选择）\\n  - 业务场景（多选，对应七大场景分类）\\n  - 预算区间（下拉选择）\\n- 用户提交表单后，系统自动匹配法规要点\\n- 生成定制化合规初诊报告，报告内容包含：\\n  - 匹配的法规要点\\n  - 法规原文链接\\n  - 高风险提示\\n- 支持下载或查看报告\\n\\n### 3.5 资讯库模块\\n\\n**3.5.1 模块标题与说明**\\n- 模块标题：非洲合规动态资讯库\\n- 模块说明：实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\\n\\n**3.5.2 核心功能**\\n\\n**功能1：中非合作新闻**\\n- 展示收录的中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态\\n- 支持按国家、行业、政策类型分类筛选\\n- 每条新闻包含标题、摘要、发布时间、来源\\n- 点击新闻可查看详细内容\\n\\n**功能2：合规热点追踪**\\n- 展示基于行业热议度识别的热点事件\\n- 每条热点包含：\\n  - 事件背景\\n  - 涉事法规\\n  - 企业应对案例\\n  - 「热点合规风险提示」\\n- 点击热点可查看详细内容\\n\\n**功能3：法规更新动态**\\n- 展示非洲各国法规修订信息（修订/新增/废止）\\n- 每条更新动态包含：\\n  - 国家\\n  - 法规名称\\n  - 更新类型（修订/新增/废止）\\n  - 更新内容摘要\\n  - 更新时间\\n- 点击动态可查看详细内容\\n\\n### 3.6 机构推荐模块\\n\\n**3.6.1 模块标题与说明**\\n- 模块标题：非洲本地合规机构推荐\\n- 模块说明：联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\\n\\n**3.6.2 核心功能**\\n\\n**功能1：商会背书的本地机构名单**\\n- 展示经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等机构\\n- 每个机构展示核心信息：\\n  - 机构名称\\n  - 机构类型\\n  - 所在国家\\n  - 推荐商会/协会\\n\\n**功能2：按制造业场景精准分类**\\n- 提供场景标签分类：劳工合规、税务咨询、海关报关、知识产权、环保认证等\\n- 支持按目的国、服务场景、预算区间筛选机构\\n- 展示符合筛选条件的机构列表\\n\\n**功能3：透明化信息呈现**\\n- 每个机构附详细信息：\\n  - 机构简介\\n  - 服务范围\\n  - 典型案例\\n  - 联系方式入口（点击后显示联系方式或跳转至外部链接）\\n\\n### 3.7 关于我们模块\\n\\n**功能说明**\\n- 模块标题：关于律航出海\\n- 展示平台介绍与使命：\\n  - 律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\\n  - 使命：让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\\n\\n### 3.8 底部版权栏\\n\\n**功能说明**\\n- 展示版权信息与相关链接：\\n  - © 2026 律航出海\\n  - 浙ICP备XXXXXXXX号\\n  - 隐私政策（点击跳转至隐私政策页面）\\n  - 使用条款（点击跳转至使用条款页面）\\n\\n### 3.9 登录/注册页面\\n\\n**3.9.1 登录页面**\\n- 用户输入用户名、密码完成登录\\n- 提供「忘记密码」入口\\n- 提供「还没有账号？立即注册」入口，点击跳转至注册页面\\n\\n**3.9.2 注册页面**\\n- 用户输入用户名、密码、确认密码、邮箱完成注册\\n- 提供「已有账号？立即登录」入口，点击跳转至登录页面\\n\\n## 4. 业务规则与逻辑\\n\\n### 4.1 合规初诊工具逻辑\\n- 用户提交表单后，系统根据用户输入的目的国、企业规模、业务场景、预算区间，自动匹配法规库中的相关法规\\n- 匹配规则：\\n  - 目的国：精确匹配\\n  - 业务场景：匹配用户选择的场景标签\\n  - 企业规模与预算区间：作为辅助筛选条件\\n- 生成报告时，优先展示高风险法规，附法规原文链接\\n\\n### 4.2 资讯库更新逻辑\\n- 中非合作新闻、合规热点追踪、法规更新动态由后端定期更新\\n- 用户访问资讯库时，展示最新内容\\n\\n### 4.3 机构推荐筛选逻辑\\n- 用户选择筛选条件后，系统根据目的国、服务场景、预算区间匹配机构\\n- 匹配规则：\\n  - 目的国：精确匹配\\n  - 服务场景：匹配机构的服务范围标签\\n  - 预算区间：匹配机构的服务价格区间\\n\\n### 4.4 登录/注册逻辑\\n- 注册时，系统验证用户名唯一性、密码强度、邮箱格式\\n- 登录时，系统验证用户名与密码匹配\\n- 登录成功后，用户可访问需要登录权限的功能（如保存合规初诊报告）\\n\\n## 5. 异常与边界情况\\n\\n| 场景 | 异常情况 | 处理方式 |\\n|------|----------|----------|\\n| 合规初诊工具 | 用户未填写必填项 | 提示用户补全信息 |\\n| 合规初诊工具 | 系统无法匹配到相关法规 | 提示「暂无匹配结果，请调整筛选条件」 |\\n| 资讯库 | 暂无资讯内容 | 提示「暂无资讯，敬请期待」 |\\n| 机构推荐 | 筛选条件无匹配机构 | 提示「暂无匹配机构，请调整筛选条件」 |\\n| 登录 | 用户名或密码错误 | 提示「用户名或密码错误，请重试」 |\\n| 注册 | 用户名已存在 | 提示「用户名已被注册，请更换」 |\\n| 注册 | 密码强度不足 | 提示「密码需包含字母、数字，长度不少于8位」 |\\n| 注册 | 邮箱格式错误 | 提示「请输入正确的邮箱格式」 |\\n\\n## 6. 验收标准\\n\\n1. 用户访问网站首页，查看首屏 Hero 区的平台介绍\\n2. 用户点击「立即体验合规初诊」按钮，跳转至法规库模块的合规初诊工具\\n3. 用户填写目的国、企业规模、业务场景、预算区间，提交表单\\n4. 系统生成定制化合规初诊报告，用户查看报告内容（包含法规要点、法规原文链接、高风险提示）\\n5. 用户通过导航栏跳转至机构推荐模块，按目的国、服务场景筛选机构\\n6. 用户查看符合条件的机构列表，点击某个机构查看详细信息（简介、服务范围、典型案例、联系方式）\\n\\n## 7. 本期不实现功能\\n\\n- 用户个人中心（如保存历史报告、收藏机构等）\\n- 在线支付功能\\n- 机构评价与评分系统\\n- 多语言版本（仅支持中文）\\n- 移动端独立App\\n- 用户之间的社交互动功能（如论坛、问答社区）\\n- 法规库的用户自定义标注功能\\n- 资讯库的订阅推送功能\\n- 机构推荐的在线预约功能\', \'intent_query\': \'请为「律航出海·法律AI智能体」网站生成完整的PRD文档。\\n\\n## 项目概述\\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\\n\\n## 网站结构与完整文案\\n\\n### 导航栏\\n首页 | 法规库 | 资讯库 | 机构推荐 | 关于我们 | 登录\\n\\n### 首屏 Hero 区\\n- 主标题：律航出海·法律AI智能体\\n- 副标题：非洲制造业法律数据整合 + 合规机构智能筛选匹配\\n- 平台简介：依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供低成本、可追踪、嵌入式全流程合规支持，高效打通非洲出海合规「最后一公里」。\\n- 行动按钮：立即体验合规初诊、了解我们的服务\\n\\n### 法规库模块\\n- 模块标题：非洲制造业合规法规库\\n- 模块说明：聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\\n- 核心功能：\\n  1. 人工标注+法规整合：基于非洲本地权威数据库，结合执业律师人工标注，收录制造业高频法规与判例；标注信息含适用场景、效力层级、处罚条款、生效/修订时间\\n  2. 制造业高频场景分类：覆盖海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权七大场景；按场景标签快速筛选\\n  3. 合规初诊工具：输入目的国、企业规模、业务场景、预算区间，系统自动匹配法规要点，生成定制化合规初诊报告，附法规原文链接与高风险提示\\n\\n### 资讯库模块\\n- 模块标题：非洲合规动态资讯库\\n- 模块说明：实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\\n- 核心功能：\\n  1. 中非合作新闻：收录中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态；按国家、行业、政策类型分类\\n  2. 合规热点追踪：基于行业热议度识别热点事件，人工核实，提炼事件背景、涉事法规与企业应对案例；生成「热点合规风险提示」\\n  3. 法规更新动态：由非洲本地成员实时搜集各国法规修订信息，捕捉"修订/新增/废止"关键词；统一模板呈现更新内容\\n\\n### 机构推荐模块\\n- 模块标题：非洲本地合规机构推荐\\n- 模块说明：联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\\n- 核心功能：\\n  1. 商会背书的本地机构名单：收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等；自动抓取并整理机构核心信息\\n  2. 按制造业场景精准分类：按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类；支持按目的国、服务场景、预算区间筛选\\n  3. 透明化信息呈现：每个机构附简介、服务范围、典型案例与联系方式入口\\n\\n### 关于我们模块\\n- 模块标题：关于律航出海\\n- 内容：律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。使命：让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\\n\\n### 底部版权栏\\n© 2026 律航出海 | 浙ICP备XXXXXXXX号 | 隐私政策 | 使用条款\\n\\n## 技术要求\\n- 单页面网站（SPA），使用React构建\\n- 专业商务风格，深蓝色调为主色\\n- 响应式设计，支持PC和移动端\\n- 导航栏固定顶部，支持锚点跳转\\n- 各模块展示具体功能卡片，图文并茂\\n- 合规初诊工具有可交互的表单\', \'type\': \'prdAgentAction\', \'app_name\': \'律航出海·法律AI智能体\', \'app_desc\': \'律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\', \'should_refuse_answer\': False, \'status\': \'success\', \'is_generated\': False, \'summary\': \'\'}', subagent_id='conv-bjm4peyd3x8g/subagent-PRDAgent-ID15', subagent_name='PRDAgent', status='completed', summary='', files_changed=[], error=None, input={'lang_env': 'Chinese', 'lang_user': 'Chinese', 'prd': '', 'app_type': '', 'is_generated': False, 'metadata': {'a2a': [{'kind': 'text', 'metadata': None, 'text': '我懂了，你要的是**直接可以放进秒哒、能直接呈现的完整文案稿**，不需要中间流程和表格。下面是按网页模块分好、可直接复制使用的终版文案，你粘贴进去就能生成页面。\n\n---\n\n## 🏠 导航栏\n首页 | 法规库 | 资讯库 | 机构推荐 | 关于我们 | 登录\n\n---\n\n## 🎯 首屏 Hero 区\n### 主标题\n律航出海·法律AI智能体\n\n### 副标题\n非洲制造业法律数据整合 + 合规机构智能筛选匹配\n\n### 平台简介\n依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供**低成本、可追踪、嵌入式**全流程合规支持，高效打通非洲出海合规「最后一公里」。\n\n### 行动按钮\n- 立即体验合规初诊\n- 了解我们的服务\n\n---\n\n## 📚 法规库模块\n### 模块标题\n非洲制造业合规法规库\n\n### 模块说明\n聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\n\n### 核心功能点\n1.  **人工标注+法规整合**\n    - 基于非洲本地权威数据库，结合执业律师人工标注，收录制造业高频法规与判例\n    - 标注信息含：适用场景、效力层级、处罚条款、生效/修订时间，一眼看懂关键风险\n\n2.  **制造业高频场景分类**\n    - 覆盖海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权七大场景\n    - 按场景标签快速筛选，一键获取对应国家的核心合规要求与高频风险清单\n\n3.  **合规初诊工具**\n    - 输入目的国、企业规模、业务场景、预算区间\n    - 系统自动匹配法规要点，生成定制化合规初诊报告，附法规原文链接与高风险提示\n\n---\n\n## 📰 资讯库模块\n### 模块标题\n非洲合规动态资讯库\n\n### 模块说明\n实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\n\n### 核心功能点\n1.  **中非合作新闻**\n    - 收录中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态\n    - 按国家、行业、政策类型分类，快速找到对你有用的投资机遇与政策支持信息\n\n2.  **合规热点追踪**\n    - 基于行业热议度识别热点事件，人工核实真实性与相关性，提炼事件背景、涉事法规与企业应对案例\n    - 生成「热点合规风险提示」，帮你快速了解行业共性风险与应对思路\n\n3.  **法规更新动态**\n    - 由非洲本地成员实时搜集各国法规修订信息，捕捉“修订/新增/废止”关键词\n    - 用统一模板呈现更新内容：法规名称+核心更新点+对制造业企业的影响+合规建议，一目了然\n\n---\n\n## 🏢 机构推荐模块\n### 模块标题\n非洲本地合规机构推荐\n\n### 模块说明\n联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\n\n### 核心功能点\n1.  **商会背书的本地机构名单**\n    - 收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等\n    - 自动抓取并整理机构核心信息：业务领域、服务国家、制造业服务案例、收费区间\n\n2.  **按制造业场景精准分类**\n    - 按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类展示\n    - 支持按目的国、服务场景、预算区间筛选，快速匹配你的企业需求\n\n3.  **透明化信息呈现**\n    - 每个机构附简介、服务范围、典型案例与联系方式入口，帮你高效对接本地合规资源\n\n---\n\n## ℹ️ 关于我们模块\n### 模块标题\n关于律航出海\n\n### 内容文案\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n\n我们的使命，是让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\n\n---\n\n### 底部版权栏\n© 2026 律航出海 | 浙ICP备XXXXXXXX号 | 隐私政策 | 使用条款\n'}], 'defaultAgent': 'AdaProCodeactAgent', 'agentConfig': {}, 'runtime': 'miaoda', 'lang': 'zh-CN', 'queryMode': 'deep_mode', 'appStatus': 'not_generate', 'hasAgent': False, 'cur_version_last_event_id': -1, 'supportSupabase': 'true', 'subscription_plan': 'pro', 'senderUserId': 'user-b9uiw66jbj0g', 'is_user_input': True, 'firstMessage': '我懂了，你要的是**直接可以放进秒哒、能直接呈现的完整文案稿**，不需要中间流程和表格。下面是按网页模块分好、可直接复制使用的终版文案，你粘贴进去就能生成页面。\n\n---\n\n## 🏠 导航栏\n首页 | 法规库 | 资讯库 | 机构推荐 | 关于我们 | 登录\n\n---\n\n## 🎯 首屏 Hero 区\n### 主标题\n律航出海·法律AI智能体\n\n### 副标题\n非洲制造业法律数据整合 + 合规机构智能筛选匹配\n\n### 平台简介\n依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供**低成本、可追踪、嵌入式**全流程合规支持，高效打通非洲出海合规「最后一公里」。\n\n### 行动按钮\n- 立即体验合规初诊\n- 了解我们的服务\n\n---\n\n## 📚 法规库模块\n### 模块标题\n非洲制造业合规法规库\n\n### 模块说明\n聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\n\n### 核心功能点\n1.  **人工标注+法规整合**\n    - 基于非洲本地权威数据库，结合执业律师人工标注，收录制造业高频法规与判例\n    - 标注信息含：适用场景、效力层级、处罚条款、生效/修订时间，一眼看懂关键风险\n\n2.  **制造业高频场景分类**\n    - 覆盖海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权七大场景\n    - 按场景标签快速筛选，一键获取对应国家的核心合规要求与高频风险清单\n\n3.  **合规初诊工具**\n    - 输入目的国、企业规模、业务场景、预算区间\n    - 系统自动匹配法规要点，生成定制化合规初诊报告，附法规原文链接与高风险提示\n\n---\n\n## 📰 资讯库模块\n### 模块标题\n非洲合规动态资讯库\n\n### 模块说明\n实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\n\n### 核心功能点\n1.  **中非合作新闻**\n    - 收录中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态\n    - 按国家、行业、政策类型分类，快速找到对你有用的投资机遇与政策支持信息\n\n2.  **合规热点追踪**\n    - 基于行业热议度识别热点事件，人工核实真实性与相关性，提炼事件背景、涉事法规与企业应对案例\n    - 生成「热点合规风险提示」，帮你快速了解行业共性风险与应对思路\n\n3.  **法规更新动态**\n    - 由非洲本地成员实时搜集各国法规修订信息，捕捉“修订/新增/废止”关键词\n    - 用统一模板呈现更新内容：法规名称+核心更新点+对制造业企业的影响+合规建议，一目了然\n\n---\n\n## 🏢 机构推荐模块\n### 模块标题\n非洲本地合规机构推荐\n\n### 模块说明\n联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\n\n### 核心功能点\n1.  **商会背书的本地机构名单**\n    - 收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等\n    - 自动抓取并整理机构核心信息：业务领域、服务国家、制造业服务案例、收费区间\n\n2.  **按制造业场景精准分类**\n    - 按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类展示\n    - 支持按目的国、服务场景、预算区间筛选，快速匹配你的企业需求\n\n3.  **透明化信息呈现**\n    - 每个机构附简介、服务范围、典型案例与联系方式入口，帮你高效对接本地合规资源\n\n---\n\n## ℹ️ 关于我们模块\n### 模块标题\n关于律航出海\n\n### 内容文案\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n\n我们的使命，是让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\n\n---\n\n### 底部版权栏\n© 2026 律航出海 | 浙ICP备XXXXXXXX号 | 隐私政策 | 使用条款\n'}, 'generate_app_requested': False}, output={'actions': [{'type': 'button', 'label': '立即创作', 'value': '立即创作', 'event': {'name': 'generateApp'}}], 'appInfo': {'requirementType': 'Web'}, 'appType': 'Web', 'prd': '# 需求文档\n\n## 1. 应用概述\n\n### 1.1 应用名称\n律航出海·法律AI智能体\n\n### 1.2 应用描述\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n\n## 2. 用户与使用场景\n\n### 2.1 目标用户\n- 计划或已在非洲开展制造业务的中国企业\n- 需要了解非洲制造业合规要求的企业决策者\n- 寻找非洲本地合规服务机构的企业\n\n### 2.2 核心使用场景\n- 企业出海前期：查询目的国法规要求，使用合规初诊工具评估合规风险\n- 企业运营期间：追踪法规更新动态，获取合规资讯\n- 寻求专业服务：筛选匹配本地合规服务机构\n\n## 3. 页面结构与功能说明\n\n### 3.1 页面结构\n\n```\n律航出海网站（单页面应用）\n├── 导航栏（固定顶部）\n├── 首屏 Hero 区\n├── 法规库模块\n├── 资讯库模块\n├── 机构推荐模块\n├── 关于我们模块\n├── 底部版权栏\n└── 登录/注册页面\n```\n\n### 3.2 导航栏\n\n**功能说明**\n- 固定在页面顶部，支持锚点跳转至各模块\n- 导航项：首页、法规库、资讯库、机构推荐、关于我们、登录\n- 点击导航项平滑滚动至对应模块\n- 点击「登录」跳转至登录页面\n\n### 3.3 首屏 Hero 区\n\n**功能说明**\n- 展示平台核心信息与价值主张\n- 内容包含：\n  - 主标题：律航出海·法律AI智能体\n  - 副标题：非洲制造业法律数据整合 + 合规机构智能筛选匹配\n  - 平台简介：依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供低成本、可追踪、嵌入式全流程合规支持，高效打通非洲出海合规「最后一公里」。\n  - 两个行动按钮：\n    - 「立即体验合规初诊」：点击后跳转至法规库模块的合规初诊工具\n    - 「了解我们的服务」：点击后跳转至关于我们模块\n\n### 3.4 法规库模块\n\n**3.4.1 模块标题与说明**\n- 模块标题：非洲制造业合规法规库\n- 模块说明：聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\n\n**3.4.2 核心功能**\n\n**功能1：人工标注+法规整合**\n- 展示基于非洲本地权威数据库收录的制造业高频法规与判例\n- 每条法规包含以下标注信息：\n  - 适用场景\n  - 效力层级\n  - 处罚条款\n  - 生效/修订时间\n- 支持查看法规原文\n\n**功能2：制造业高频场景分类**\n- 提供七大场景分类标签：海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权\n- 用户可按场景标签筛选法规\n- 展示符合筛选条件的法规列表\n\n**功能3：合规初诊工具**\n- 提供可交互表单，用户输入以下信息：\n  - 目的国（下拉选择）\n  - 企业规模（下拉选择）\n  - 业务场景（多选，对应七大场景分类）\n  - 预算区间（下拉选择）\n- 用户提交表单后，系统自动匹配法规要点\n- 生成定制化合规初诊报告，报告内容包含：\n  - 匹配的法规要点\n  - 法规原文链接\n  - 高风险提示\n- 支持下载或查看报告\n\n### 3.5 资讯库模块\n\n**3.5.1 模块标题与说明**\n- 模块标题：非洲合规动态资讯库\n- 模块说明：实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\n\n**3.5.2 核心功能**\n\n**功能1：中非合作新闻**\n- 展示收录的中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态\n- 支持按国家、行业、政策类型分类筛选\n- 每条新闻包含标题、摘要、发布时间、来源\n- 点击新闻可查看详细内容\n\n**功能2：合规热点追踪**\n- 展示基于行业热议度识别的热点事件\n- 每条热点包含：\n  - 事件背景\n  - 涉事法规\n  - 企业应对案例\n  - 「热点合规风险提示」\n- 点击热点可查看详细内容\n\n**功能3：法规更新动态**\n- 展示非洲各国法规修订信息（修订/新增/废止）\n- 每条更新动态包含：\n  - 国家\n  - 法规名称\n  - 更新类型（修订/新增/废止）\n  - 更新内容摘要\n  - 更新时间\n- 点击动态可查看详细内容\n\n### 3.6 机构推荐模块\n\n**3.6.1 模块标题与说明**\n- 模块标题：非洲本地合规机构推荐\n- 模块说明：联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\n\n**3.6.2 核心功能**\n\n**功能1：商会背书的本地机构名单**\n- 展示经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等机构\n- 每个机构展示核心信息：\n  - 机构名称\n  - 机构类型\n  - 所在国家\n  - 推荐商会/协会\n\n**功能2：按制造业场景精准分类**\n- 提供场景标签分类：劳工合规、税务咨询、海关报关、知识产权、环保认证等\n- 支持按目的国、服务场景、预算区间筛选机构\n- 展示符合筛选条件的机构列表\n\n**功能3：透明化信息呈现**\n- 每个机构附详细信息：\n  - 机构简介\n  - 服务范围\n  - 典型案例\n  - 联系方式入口（点击后显示联系方式或跳转至外部链接）\n\n### 3.7 关于我们模块\n\n**功能说明**\n- 模块标题：关于律航出海\n- 展示平台介绍与使命：\n  - 律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n  - 使命：让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\n\n### 3.8 底部版权栏\n\n**功能说明**\n- 展示版权信息与相关链接：\n  - © 2026 律航出海\n  - 浙ICP备XXXXXXXX号\n  - 隐私政策（点击跳转至隐私政策页面）\n  - 使用条款（点击跳转至使用条款页面）\n\n### 3.9 登录/注册页面\n\n**3.9.1 登录页面**\n- 用户输入用户名、密码完成登录\n- 提供「忘记密码」入口\n- 提供「还没有账号？立即注册」入口，点击跳转至注册页面\n\n**3.9.2 注册页面**\n- 用户输入用户名、密码、确认密码、邮箱完成注册\n- 提供「已有账号？立即登录」入口，点击跳转至登录页面\n\n## 4. 业务规则与逻辑\n\n### 4.1 合规初诊工具逻辑\n- 用户提交表单后，系统根据用户输入的目的国、企业规模、业务场景、预算区间，自动匹配法规库中的相关法规\n- 匹配规则：\n  - 目的国：精确匹配\n  - 业务场景：匹配用户选择的场景标签\n  - 企业规模与预算区间：作为辅助筛选条件\n- 生成报告时，优先展示高风险法规，附法规原文链接\n\n### 4.2 资讯库更新逻辑\n- 中非合作新闻、合规热点追踪、法规更新动态由后端定期更新\n- 用户访问资讯库时，展示最新内容\n\n### 4.3 机构推荐筛选逻辑\n- 用户选择筛选条件后，系统根据目的国、服务场景、预算区间匹配机构\n- 匹配规则：\n  - 目的国：精确匹配\n  - 服务场景：匹配机构的服务范围标签\n  - 预算区间：匹配机构的服务价格区间\n\n### 4.4 登录/注册逻辑\n- 注册时，系统验证用户名唯一性、密码强度、邮箱格式\n- 登录时，系统验证用户名与密码匹配\n- 登录成功后，用户可访问需要登录权限的功能（如保存合规初诊报告）\n\n## 5. 异常与边界情况\n\n| 场景 | 异常情况 | 处理方式 |\n|------|----------|----------|\n| 合规初诊工具 | 用户未填写必填项 | 提示用户补全信息 |\n| 合规初诊工具 | 系统无法匹配到相关法规 | 提示「暂无匹配结果，请调整筛选条件」 |\n| 资讯库 | 暂无资讯内容 | 提示「暂无资讯，敬请期待」 |\n| 机构推荐 | 筛选条件无匹配机构 | 提示「暂无匹配机构，请调整筛选条件」 |\n| 登录 | 用户名或密码错误 | 提示「用户名或密码错误，请重试」 |\n| 注册 | 用户名已存在 | 提示「用户名已被注册，请更换」 |\n| 注册 | 密码强度不足 | 提示「密码需包含字母、数字，长度不少于8位」 |\n| 注册 | 邮箱格式错误 | 提示「请输入正确的邮箱格式」 |\n\n## 6. 验收标准\n\n1. 用户访问网站首页，查看首屏 Hero 区的平台介绍\n2. 用户点击「立即体验合规初诊」按钮，跳转至法规库模块的合规初诊工具\n3. 用户填写目的国、企业规模、业务场景、预算区间，提交表单\n4. 系统生成定制化合规初诊报告，用户查看报告内容（包含法规要点、法规原文链接、高风险提示）\n5. 用户通过导航栏跳转至机构推荐模块，按目的国、服务场景筛选机构\n6. 用户查看符合条件的机构列表，点击某个机构查看详细信息（简介、服务范围、典型案例、联系方式）\n\n## 7. 本期不实现功能\n\n- 用户个人中心（如保存历史报告、收藏机构等）\n- 在线支付功能\n- 机构评价与评分系统\n- 多语言版本（仅支持中文）\n- 移动端独立App\n- 用户之间的社交互动功能（如论坛、问答社区）\n- 法规库的用户自定义标注功能\n- 资讯库的订阅推送功能\n- 机构推荐的在线预约功能', 'intent_query': '请为「律航出海·法律AI智能体」网站生成完整的PRD文档。\n\n## 项目概述\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n\n## 网站结构与完整文案\n\n### 导航栏\n首页 | 法规库 | 资讯库 | 机构推荐 | 关于我们 | 登录\n\n### 首屏 Hero 区\n- 主标题：律航出海·法律AI智能体\n- 副标题：非洲制造业法律数据整合 + 合规机构智能筛选匹配\n- 平台简介：依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供低成本、可追踪、嵌入式全流程合规支持，高效打通非洲出海合规「最后一公里」。\n- 行动按钮：立即体验合规初诊、了解我们的服务\n\n### 法规库模块\n- 模块标题：非洲制造业合规法规库\n- 模块说明：聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\n- 核心功能：\n  1. 人工标注+法规整合：基于非洲本地权威数据库，结合执业律师人工标注，收录制造业高频法规与判例；标注信息含适用场景、效力层级、处罚条款、生效/修订时间\n  2. 制造业高频场景分类：覆盖海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权七大场景；按场景标签快速筛选\n  3. 合规初诊工具：输入目的国、企业规模、业务场景、预算区间，系统自动匹配法规要点，生成定制化合规初诊报告，附法规原文链接与高风险提示\n\n### 资讯库模块\n- 模块标题：非洲合规动态资讯库\n- 模块说明：实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\n- 核心功能：\n  1. 中非合作新闻：收录中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态；按国家、行业、政策类型分类\n  2. 合规热点追踪：基于行业热议度识别热点事件，人工核实，提炼事件背景、涉事法规与企业应对案例；生成「热点合规风险提示」\n  3. 法规更新动态：由非洲本地成员实时搜集各国法规修订信息，捕捉"修订/新增/废止"关键词；统一模板呈现更新内容\n\n### 机构推荐模块\n- 模块标题：非洲本地合规机构推荐\n- 模块说明：联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\n- 核心功能：\n  1. 商会背书的本地机构名单：收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等；自动抓取并整理机构核心信息\n  2. 按制造业场景精准分类：按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类；支持按目的国、服务场景、预算区间筛选\n  3. 透明化信息呈现：每个机构附简介、服务范围、典型案例与联系方式入口\n\n### 关于我们模块\n- 模块标题：关于律航出海\n- 内容：律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。使命：让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\n\n### 底部版权栏\n© 2026 律航出海 | 浙ICP备XXXXXXXX号 | 隐私政策 | 使用条款\n\n## 技术要求\n- 单页面网站（SPA），使用React构建\n- 专业商务风格，深蓝色调为主色\n- 响应式设计，支持PC和移动端\n- 导航栏固定顶部，支持锚点跳转\n- 各模块展示具体功能卡片，图文并茂\n- 合规初诊工具有可交互的表单', 'type': 'prdAgentAction', 'app_name': '律航出海·法律AI智能体', 'app_desc': '律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。', 'should_refuse_answer': False, 'status': 'success', 'is_generated': False, 'summary': ''}, observation=<ObservationType.SUBAGENT: 'subagent'>)
+</observation>
+<action>
+**MessageAction** (source=EventSource.AGENT)
+CONTENT: 
+</action>
+<action>
+**MessageAction** (source=EventSource.USER)
+CONTENT: 立即创作
+</action>
+<action>
+**RecallAction**
+QUERY: 立即创作
+</action>
+<action>
+**MessageAction** (source=EventSource.AGENT)
+CONTENT: 我将根据你的想法创建一个网页，它包含多个页面和功能，让我先梳理整体实现方案。
+</action>
+<action>
+**MCPAction**
+NAME: generate_start
+ARGUMENTS: {'appId': 'app-bjm4peyd3x8h', 'userId': 'user-b9uiw66jbj0g', 'requirementType': 'Web', 'hasAgent': False, 'hasCodeTemplate': 'NONE', 'codeTemplateZipUrl': '', 'isBoilerplate': False, 'isFirstGeneration': True, 'use_supabase': False}
+</action>
+<observation>
+**MCPObservation**
+NAME: generate_start
+RESULTS: {"code":0,"message":"success"}
+</observation>
+<action>
+TodoAction(todos=[TodoItem(id='1', status='pending', priority='high', content='初始化项目并配置设计系统（颜色、字体、全局样式）', details='', group=None, agent_name=None), TodoItem(id='2', status='pending', priority='high', content='创建页面布局和导航组件', details='', group=None, agent_name=None), TodoItem(id='3', status='pending', priority='high', content='实现首屏 Hero 区', details='', group=None, agent_name=None), TodoItem(id='4', status='pending', priority='high', content='实现法规库模块（含合规初诊工具）', details='', group=None, agent_name=None), TodoItem(id='5', status='pending', priority='high', content='实现资讯库模块', details='', group=None, agent_name=None), TodoItem(id='6', status='pending', priority='high', content='实现机构推荐模块', details='', group=None, agent_name=None), TodoItem(id='7', status='pending', priority='high', content='实现关于我们模块和底部版权栏', details='', group=None, agent_name=None), TodoItem(id='8', status='pending', priority='medium', content='实现登录/注册页面', details='', group=None, agent_name=None), TodoItem(id='9', status='pending', priority='high', content='配置路由并完善响应式设计', details='', group=None, agent_name=None), TodoItem(id='10', status='pending', priority='high', content='运行lint检查并修复问题', details='', group=None, agent_name=None)], command='create', thought='', action=<ActionType.TODO: 'todo'>, content='')
+</action>
+<observation>
+TodoObservation(content='<system-reminder>\nYour todo list has changed. Here are the latest contents of your todo list:\n\n1. 初始化项目并配置设计系统（颜色、字体、全局样式） *high* [pending]\n\n2. 创建页面布局和导航组件 *high* [pending]\n\n3. 实现首屏 Hero 区 *high* [pending]\n\n4. 实现法规库模块（含合规初诊工具） *high* [pending]\n\n5. 实现资讯库模块 *high* [pending]\n\n6. 实现机构推荐模块 *high* [pending]\n\n7. 实现关于我们模块和底部版权栏 *high* [pending]\n\n8. 实现登录/注册页面 *medium* [pending]\n\n9. 配置路由并完善响应式设计 *high* [pending]\n\n10. 运行lint检查并修复问题 *high* [pending]\n</system-reminder>', state=TodoState(items=[TodoItem(id='1', status='pending', priority='high', content='初始化项目并配置设计系统（颜色、字体、全局样式）', details='', group=None, agent_name=None), TodoItem(id='2', status='pending', priority='high', content='创建页面布局和导航组件', details='', group=None, agent_name=None), TodoItem(id='3', status='pending', priority='high', content='实现首屏 Hero 区', details='', group=None, agent_name=None), TodoItem(id='4', status='pending', priority='high', content='实现法规库模块（含合规初诊工具）', details='', group=None, agent_name=None), TodoItem(id='5', status='pending', priority='high', content='实现资讯库模块', details='', group=None, agent_name=None), TodoItem(id='6', status='pending', priority='high', content='实现机构推荐模块', details='', group=None, agent_name=None), TodoItem(id='7', status='pending', priority='high', content='实现关于我们模块和底部版权栏', details='', group=None, agent_name=None), TodoItem(id='8', status='pending', priority='medium', content='实现登录/注册页面', details='', group=None, agent_name=None), TodoItem(id='9', status='pending', priority='high', content='配置路由并完善响应式设计', details='', group=None, agent_name=None), TodoItem(id='10', status='pending', priority='high', content='运行lint检查并修复问题', details='', group=None, agent_name=None)], updated_at='2026-05-10T12:42:36.812305+00:00'), system_reminder='', observation=<ObservationType.TODO: 'todo'>)
+</observation>
+<action>
+**CmdRunAction (source=EventSource.AGENT, is_input=False)**
+COMMAND:
+ls -la /workspace/app-bjm4peyd3x8h && echo "---" && find /workspace/app-bjm4peyd3x8h -type f -name "*.json" -o -name "*.ts" -o -name "*.tsx" -o -name "*.css" -o -name "*.html" 2>/dev/null | head -50
+</action>
+<observation>
+**CmdOutputObservation (source=EventSource.AGENT, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": null,
+  "hostname": null,
+  "working_dir": "/workspace",
+  "py_interpreter_path": null,
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+total 384
+drwxr-xr-x 10 root root   4096 May 10 20:42 .
+drwxrwxrwx  8 root root   4096 May 10 20:42 ..
+-rw-r--r--  1 root root    861 Apr 28 21:52 biome.json
+-rw-r--r--  1 root root    442 Apr 28 21:52 components.json
+drwxr-xr-x  2 root root   4096 May 10 20:41 docs
+-rw-r--r--  1 root root     29 May 10 20:42 .env
+drwxr-xr-x  8 root root   4096 May 10 20:42 .git
+-rw-r--r--  1 root root    311 Apr 28 21:52 .gitignore
+-rw-r--r--  1 root root    332 Apr 28 21:52 index.html
+drwxr-xr-x  4 root root   4096 May 10 20:42 node_modules
+-rw-r--r--  1 root root   3285 May 10 20:42 package.json
+-rw-r--r--  1 root root 271302 Apr 28 21:52 pnpm-lock.yaml
+-rw-r--r--  1 root root    192 May 10 20:42 pnpm-workspace.yaml
+-rw-r--r--  1 root root     81 Apr 28 21:52 postcss.config.js
+drwxr-xr-x  3 root root   4096 Apr 28 21:52 public
+-rw-r--r--  1 root root   3504 Apr 28 21:52 README.md
+drwxr-xr-x  2 root root   4096 Apr 28 21:52 .rules
+-rw-r--r--  1 root root     74 Apr 28 21:52 sgconfig.yml
+drwxr-xr-x 76 root root   4096 May 10 20:40 .skills
+drwxr-xr-x  9 root root   4096 Apr 28 21:52 src
+-rw-r--r--  1 root root   6581 Apr 28 21:52 tailwind.config.js
+drwxr-xr-x  2 root root   4096 May 10 20:40 tasks
+-rw-r--r--  1 root root    834 Apr 28 21:52 tsconfig.app.json
+-rw-r--r--  1 root root    452 Apr 28 21:52 tsconfig.check.json
+-rw-r--r--  1 root root    370 Apr 28 21:52 tsconfig.json
+-rw-r--r--  1 root root    593 Apr 28 21:52 tsconfig.node.json
+-rw-r--r--  1 root root   4149 May 10 20:42 vite.config.dev.ts
+-rw-r--r--  1 root root    530 Apr 28 21:52 vite.config.ts
+---
+/workspace/app-bjm4peyd3x8h/node_modules/.vite/deps/_metadata.json
+/workspace/app-bjm4peyd3x8h/node_modules/.vite/deps/package.json
+/workspace/app-bjm4peyd3x8h/biome.json
+/workspace/app-bjm4peyd3x8h/vite.config.ts
+/workspace/app-bjm4peyd3x8h/tsconfig.check.json
+/workspace/app-bjm4peyd3x8h/package.json
+/workspace/app-bjm4peyd3x8h/tsconfig.node.json
+/workspace/app-bjm4peyd3x8h/src/hooks/use-debounce.ts
+/workspace/app-bjm4peyd3x8h/src/hooks/use-go-back.ts
+/workspace/app-bjm4peyd3x8h/src/hooks/use-supabase-upload.ts
+/workspace/app-bjm4peyd3x8h/src/hooks/use-mobile.tsx
+/workspace/app-bjm4peyd3x8h/src/pages/SamplePage.tsx
+/workspace/app-bjm4peyd3x8h/src/pages/NotFound.tsx
+/workspace/app-bjm4peyd3x8h/src/components/dropzone.tsx
+/workspace/app-bjm4peyd3x8h/src/components/common/IntersectObserver.tsx
+/workspace/app-bjm4peyd3x8h/src/components/common/PageMeta.tsx
+/workspace/app-bjm4peyd3x8h/src/components/common/RouteGuard.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/slider.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/carousel.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/button.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/radio-group.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/select.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/skeleton.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/breadcrumb.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/avatar.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/drawer.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/context-menu.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/textarea.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/label.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/toggle-group.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/scroll-area.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/sonner.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/video.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/table.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/calendar.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/pagination.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/multi-select.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/accordion.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/separator.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/resizable.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/input-otp.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/sheet.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/tooltip.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/chart.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/tabs.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/form.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/hover-card.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/badge.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/dialog.tsx
+/workspace/app-bjm4peyd3x8h/src/components/ui/toggle.tsx
+[The command completed with exit code 0.]
+[Current working directory: /workspace]
+--END AGENT OBSERVATION--
+</observation>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h/src/index.css', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h/src/index.css is successful.]
+Here's the result of running `cat -n` on the file: /workspace/app-bjm4peyd3x8h/src/index.css:
+     1 /* stylelint-disable */
+     2 @tailwind base;
+     3 @tailwind components;
+     4 @tailwind utilities;
+     5 
+     6 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+     7 All colors MUST be HSL.
+     8 */
+     9 
+    10 @layer base {
+    11   :root {
+    12     --radius: 0.5rem;
+    13     --background: 0 0% 100%;
+    14     --foreground: 222.2 84% 4.9%;
+    15     --card: 0 0% 100%;
+    16     --card-foreground: 222.2 84% 4.9%;
+    17     --popover: 0 0% 100%;
+    18     --popover-foreground: 222.2 84% 4.9%;
+    19     --primary: 222.2 47.4% 11.2%;
+    20     --primary-foreground: 210 40% 98%;
+    21     --secondary: 210 40% 96.1%;
+    22     --secondary-foreground: 222.2 47.4% 11.2%;
+    23     --muted: 210 40% 96.1%;
+    24     --muted-foreground: 215.4 16.3% 46.9%;
+    25     --accent: 210 40% 96.1%;
+    26     --accent-foreground: 222.2 47.4% 11.2%;
+    27     --destructive: 0 84.2% 60.2%;
+    28     --border: 214.3 31.8% 91.4%;
+    29     --input: 214.3 31.8% 91.4%;
+    30     --ring: 222.2 84% 4.9%;
+    31     --chart-1: 12 76% 61%;
+    32     --chart-2: 173 58% 39%;
+    33     --chart-3: 197 37% 24%;
+    34     --chart-4: 43 74% 66%;
+    35     --chart-5: 27 87% 67%;
+    36     --sidebar-background: 0 0% 98%;
+    37     --sidebar-foreground: 240 5.3% 26.1%;
+    38     --sidebar-primary: 240 5.9% 10%;
+    39     --sidebar-primary-foreground: 0 0% 98%;
+    40     --sidebar-accent: 240 4.8% 95.9%;
+    41     --sidebar-accent-foreground: 240 5.9% 10%;
+    42     --sidebar-border: 220 13% 91%;
+    43     --sidebar-ring: 217.2 91.2% 59.8%;
+    44     --destructive-foreground: 210 40% 98%;
+    45   }
+    46 
+    47   .dark {
+    48     --background: 222.2 84% 4.9%;
+    49     --foreground: 210 40% 98%;
+    50     --card: 222.2 84% 4.9%;
+    51     --card-foreground: 210 40% 98%;
+    52     --popover: 222.2 84% 4.9%;
+    53     --popover-foreground: 210 40% 98%;
+    54     --primary: 210 40% 98%;
+    55     --primary-foreground: 222.2 47.4% 11.2%;
+    56     --secondary: 217.2 32.6% 17.5%;
+    57     --secondary-foreground: 210 40% 98%;
+    58     --muted: 217.2 32.6% 17.5%;
+    59     --muted-foreground: 215 20.2% 65.1%;
+    60     --accent: 217.2 32.6% 17.5%;
+    61     --accent-foreground: 210 40% 98%;
+    62     --destructive: 0 62.8% 30.6%;
+    63     --border: 217.2 32.6% 17.5%;
+    64     --input: 217.2 32.6% 17.5%;
+    65     --ring: 212.7 26.8% 83.9%;
+    66     --chart-1: 220 70% 50%;
+    67     --chart-2: 160 60% 45%;
+    68     --chart-3: 30 80% 55%;
+    69     --chart-4: 280 65% 60%;
+    70     --chart-5: 340 75% 55%;
+    71     --sidebar-background: 240 5.9% 10%;
+    72     --sidebar-foreground: 240 4.8% 95.9%;
+    73     --sidebar-primary: 224.3 76.3% 48%;
+    74     --sidebar-primary-foreground: 0 0% 100%;
+    75     --sidebar-accent: 240 3.7% 15.9%;
+    76     --sidebar-accent-foreground: 240 4.8% 95.9%;
+    77     --sidebar-border: 240 3.7% 15.9%;
+    78     --sidebar-ring: 217.2 91.2% 59.8%;
+    79     --destructive-foreground: 210 40% 98%;
+    80   }
+    81 }
+    82 
+    83 @layer base {
+    84   * {
+    85     @apply border-border;
+    86   }
+    87 
+    88   body {
+    89     @apply bg-background text-foreground;
+    90   }
+    91 }
+    92 
+
+
+</observation>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h/src/App.tsx', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h/src/App.tsx is successful.]
+Here's the result of running `cat -n` on the file: /workspace/app-bjm4peyd3x8h/src/App.tsx:
+     1 import React from 'react';
+     2 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+     3 import IntersectObserver from '@/components/common/IntersectObserver';
+     4 import { Toaster } from '@/components/ui/sonner';
+     5 
+     6 import { routes } from './routes';
+     7 
+     8 // import { AuthProvider } from '@/contexts/AuthContext';
+     9 // import { RouteGuard } from '@/components/common/RouteGuard';
+    10 
+    11 const App: React.FC = () => {
+    12   return (
+    13     <Router>
+    14       {/*<AuthProvider>*/}
+    15       {/*<RouteGuard>*/}
+    16       <IntersectObserver />
+    17       <div className="flex flex-col min-h-screen">
+    18         {/*<Header />*/}
+    19         <main className="flex-grow">
+    20           <Routes>
+    21           {routes.map((route, index) => (
+    22             <Route
+    23               key={index}
+    24               path={route.path}
+    25               element={route.element}
+    26             />
+    27           ))}
+    28           <Route path="*" element={<Navigate to="/" replace />} />
+    29           </Routes>
+    30         </main>
+    31       </div>
+    32       <Toaster />
+    33       {/*</RouteGuard>*/}
+    34       {/*</AuthProvider>*/}
+    35     </Router>
+    36   );
+    37 };
+    38 
+    39 export default App;
+    40 
+
+
+</observation>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h/tailwind.config.js', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h/tailwind.config.js is successful.]
+Here's the result of running `cat -n` on the file: /workspace/app-bjm4peyd3x8h/tailwind.config.js:
+     1 import tailwindAnimate from 'tailwindcss-animate';
+     2 import containerQuery from '@tailwindcss/container-queries';
+     3 import intersect from 'tailwindcss-intersect';
+     4 
+     5 export default {
+     6     darkMode: ['class'],
+     7     content: [
+     8         './index.html',
+     9         './pages/**/*.{ts,tsx}',
+    10         './components/**/*.{ts,tsx}',
+    11         './app/**/*.{ts,tsx}',
+    12         './src/**/*.{ts,tsx}',
+    13         './node_modules/streamdown/dist/**/*.js'
+    14     ],
+    15     safelist: ['border', 'border-border'],
+    16     prefix: '',
+    17     theme: {
+    18         container: {
+    19             center: true,
+    20             padding: '2rem',
+    21             screens: {
+    22                 '2xl': '1400px'
+    23             }
+    24         },
+    25         extend: {
+    26             colors: {
+    27                 border: 'hsl(var(--border))',
+    28                 borderColor: {
+    29                     border: 'hsl(var(--border))'
+    30                 },
+    31                 input: 'hsl(var(--input))',
+    32                 ring: 'hsl(var(--ring))',
+    33                 background: 'hsl(var(--background))',
+    34                 foreground: 'hsl(var(--foreground))',
+    35                 primary: {
+    36                     DEFAULT: 'hsl(var(--primary))',
+    37                     foreground: 'hsl(var(--primary-foreground))'
+    38                 },
+    39                 secondary: {
+    40                     DEFAULT: 'hsl(var(--secondary))',
+    41                     foreground: 'hsl(var(--secondary-foreground))'
+    42                 },
+    43                 destructive: {
+    44                     DEFAULT: 'hsl(var(--destructive))',
+    45                     foreground: 'hsl(var(--destructive-foreground))'
+    46                 },
+    47                 muted: {
+    48                     DEFAULT: 'hsl(var(--muted))',
+    49                     foreground: 'hsl(var(--muted-foreground))'
+    50                 },
+    51                 accent: {
+    52                     DEFAULT: 'hsl(var(--accent))',
+    53                     foreground: 'hsl(var(--accent-foreground))'
+    54                 },
+    55                 popover: {
+    56                     DEFAULT: 'hsl(var(--popover))',
+    57                     foreground: 'hsl(var(--popover-foreground))'
+    58                 },
+    59                 card: {
+    60                     DEFAULT: 'hsl(var(--card))',
+    61                     foreground: 'hsl(var(--card-foreground))'
+    62                 },
+    63                 education: {
+    64                     blue: 'hsl(var(--education-blue))',
+    65                     green: 'hsl(var(--education-green))'
+    66                 },
+    67                 success: 'hsl(var(--success))',
+    68                 warning: 'hsl(var(--warning))',
+    69                 info: 'hsl(var(--info))',
+    70                 sidebar: {
+    71                     DEFAULT: 'hsl(var(--sidebar-background))',
+    72                     background: 'hsl(var(--sidebar-background))',
+    73                     foreground: 'hsl(var(--sidebar-foreground))',
+    74                     primary: 'hsl(var(--sidebar-primary))',
+    75                     'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+    76                     accent: 'hsl(var(--sidebar-accent))',
+    77                     'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+    78                     border: 'hsl(var(--sidebar-border))',
+    79                     ring: 'hsl(var(--sidebar-ring))'
+    80                 },
+    81                 chart: {
+    82                     '1': 'hsl(var(--chart-1))',
+    83                     '2': 'hsl(var(--chart-2))',
+    84                     '3': 'hsl(var(--chart-3))',
+    85                     '4': 'hsl(var(--chart-4))',
+    86                     '5': 'hsl(var(--chart-5))'
+    87                 }
+    88             },
+    89             borderRadius: {
+    90                 lg: 'var(--radius)',
+    91                 md: 'calc(var(--radius) - 2px)',
+    92                 sm: 'calc(var(--radius) - 4px)'
+    93             },
+    94             backgroundImage: {
+    95                 'gradient-primary': 'var(--gradient-primary)',
+    96                 'gradient-card': 'var(--gradient-card)',
+    97                 'gradient-background': 'var(--gradient-background)'
+    98             },
+    99             boxShadow: {
+   100                 card: 'var(--shadow-card)',
+   101                 hover: 'var(--shadow-hover)'
+   102             },
+   103             keyframes: {
+   104                 'accordion-down': {
+   105                     from: {
+   106                         height: '0'
+   107                     },
+   108                     to: {
+   109                         height: 'var(--radix-accordion-content-height)'
+   110                     }
+   111                 },
+   112                 'accordion-up': {
+   113                     from: {
+   114                         height: 'var(--radix-accordion-content-height)'
+   115                     },
+   116                     to: {
+   117                         height: '0'
+   118                     }
+   119                 },
+   120                 'fade-in': {
+   121                     from: {
+   122                         opacity: '0',
+   123                         transform: 'translateY(10px)'
+   124                     },
+   125                     to: {
+   126                         opacity: '1',
+   127                         transform: 'translateY(0)'
+   128                     }
+   129                 },
+   130                 'slide-in': {
+   131                     from: {
+   132                         opacity: '0',
+   133                         transform: 'translateX(-20px)'
+   134                     },
+   135                     to: {
+   136                         opacity: '1',
+   137                         transform: 'translateX(0)'
+   138                     }
+   139                 }
+   140             },
+   141             animation: {
+   142                 'accordion-down': 'accordion-down 0.2s ease-out',
+   143                 'accordion-up': 'accordion-up 0.2s ease-out',
+   144                 'fade-in': 'fade-in 0.5s ease-out',
+   145                 'slide-in': 'slide-in 0.5s ease-out'
+   146             }
+   147         }
+   148     },
+   149     plugins: [
+   150         tailwindAnimate,
+   151         containerQuery,
+   152         intersect,
+   153         function ({addUtilities}) {
+   154             addUtilities(
+   155                 {
+   156                     '.border-t-solid': {'border-top-style': 'solid'},
+   157                     '.border-r-solid': {'border-right-style': 'solid'},
+   158                     '.border-b-solid': {'border-bottom-style': 'solid'},
+   159                     '.border-l-solid': {'border-left-style': 'solid'},
+   160                     '.border-t-dashed': {'border-top-style': 'dashed'},
+   161                     '.border-r-dashed': {'border-right-style': 'dashed'},
+   162                     '.border-b-dashed': {'border-bottom-style': 'dashed'},
+   163                     '.border-l-dashed': {'border-left-style': 'dashed'},
+   164                     '.border-t-dotted': {'border-top-style': 'dotted'},
+   165                     '.border-r-dotted': {'border-right-style': 'dotted'},
+   166                     '.border-b-dotted': {'border-bottom-style': 'dotted'},
+   167                     '.border-l-dotted': {'border-left-style': 'dotted'},
+   168                 },
+   169                 ['responsive']
+   170             );
+   171         },
+   172     ],
+   173 };
+   174 
+
+
+</observation>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h/package.json', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h/package.json is successful.]
+Here's the result of running `cat -n` on the file: /workspace/app-bjm4peyd3x8h/package.json:
+     1 {
+     2   "name": "miaoda-react-admin",
+     3   "version": "0.0.1",
+     4   "type": "module",
+     5   "scripts": {
+     6     "dev": "echo 'Do not use this command, only use lint to check'",
+     7     "build": "echo 'Do not use this command, only use lint to check'",
+     8     "lint": "tsgo -p tsconfig.check.json; npx biome lint; .rules/check.sh;npx tailwindcss -i ./src/index.css -o /dev/null 2>&1 | grep -E '^(CssSyntaxError|Error):.*' || true;.rules/testBuild.sh"
+     9   },
+    10   "dependencies": {
+    11     "@hookform/resolvers": "^5.2.2",
+    12     "@radix-ui/react-accordion": "^1.2.12",
+    13     "@radix-ui/react-alert-dialog": "^1.1.15",
+    14     "@radix-ui/react-aspect-ratio": "^1.1.7",
+    15     "@radix-ui/react-avatar": "^1.1.10",
+    16     "@radix-ui/react-checkbox": "^1.3.3",
+    17     "@radix-ui/react-collapsible": "^1.1.12",
+    18     "@radix-ui/react-context-menu": "^2.2.16",
+    19     "@radix-ui/react-dialog": "^1.1.15",
+    20     "@radix-ui/react-dropdown-menu": "^2.1.16",
+    21     "@radix-ui/react-hover-card": "^1.1.15",
+    22     "@radix-ui/react-icons": "^1.3.2",
+    23     "@radix-ui/react-label": "^2.1.7",
+    24     "@radix-ui/react-menubar": "^1.1.16",
+    25     "@radix-ui/react-navigation-menu": "^1.2.14",
+    26     "@radix-ui/react-popover": "^1.1.15",
+    27     "@radix-ui/react-progress": "^1.1.7",
+    28     "@radix-ui/react-radio-group": "^1.3.8",
+    29     "@radix-ui/react-scroll-area": "^1.2.10",
+    30     "@radix-ui/react-select": "^2.2.6",
+    31     "@radix-ui/react-separator": "^1.1.7",
+    32     "@radix-ui/react-slider": "^1.3.6",
+    33     "@radix-ui/react-slot": "^1.2.3",
+    34     "@radix-ui/react-switch": "^1.2.6",
+    35     "@radix-ui/react-tabs": "^1.1.13",
+    36     "@radix-ui/react-toast": "^1.2.15",
+    37     "@radix-ui/react-toggle": "^1.1.10",
+    38     "@radix-ui/react-toggle-group": "^1.1.11",
+    39     "@radix-ui/react-tooltip": "^1.2.8",
+    40     "@supabase/supabase-js": "2.103.1",
+    41     "axios": "^1.13.1",
+    42     "class-variance-authority": "^0.7.1",
+    43     "clsx": "^2.1.1",
+    44     "cmdk": "^1.1.1",
+    45     "date-fns": "^3.6.0",
+    46     "embla-carousel-react": "^8.6.0",
+    47     "eventsource-parser": "^3.0.6",
+    48     "input-otp": "^1.4.2",
+    49     "ky": "^1.13.0",
+    50     "lucide-react": "^0.576.0",
+    51     "miaoda-auth-react": "2.0.6",
+    52     "miaoda-sc-plugin": "1.0.61",
+    53     "motion": "^12.23.25",
+    54     "next-themes": "^0.4.6",
+    55     "qrcode": "^1.5.4",
+    56     "react": "^18.0.0",
+    57     "react-day-picker": "^9.13.0",
+    58     "react-dom": "^18.0.0",
+    59     "react-dropzone": "^14.3.8",
+    60     "react-helmet-async": "^2.0.5",
+    61     "react-hook-form": "^7.66.0",
+    62     "react-resizable-panels": "^2.1.8",
+    63     "react-router": "^7.9.5",
+    64     "react-router-dom": "^7.9.5",
+    65     "recharts": "2.15.4",
+    66     "sonner": "^2.0.7",
+    67     "streamdown": "^1.4.0",
+    68     "tailwind-merge": "^3.3.1",
+    69     "tailwindcss-animate": "^1.0.7",
+    70     "tailwindcss-intersect": "^2.2.0",
+    71     "vaul": "^1.1.2",
+    72     "video-react": "^0.16.0",
+    73     "zod": "^3.25.76"
+    74   },
+    75   "devDependencies": {
+    76     "@biomejs/biome": "2.4.5",
+    77     "@tailwindcss/container-queries": "^0.1.1",
+    78     "@types/bmapgl": "^0.0.7",
+    79     "@types/lodash": "^4.17.24",
+    80     "@types/react": "^19.2.2",
+    81     "@types/react-dom": "^19.2.2",
+    82     "@types/video-react": "^0.15.8",
+    83     "@typescript/native-preview": "7.0.0-dev.20260303.1",
+    84     "@vitejs/plugin-react": "^5.1.4",
+    85     "autoprefixer": "^10.4.27",
+    86     "postcss": "^8.5.6",
+    87     "tailwindcss": "^3.4.11",
+    88     "typescript": "~5.9.3",
+    89     "vite": "npm:rolldown-vite@latest",
+    90     "vite-plugin-svgr": "^4.5.0"
+    91   }
+    92 }
+    93 
+
+
+</observation>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h/src/routes.tsx', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h/src/routes.tsx is successful.]
+Here's the result of running `cat -n` on the file: /workspace/app-bjm4peyd3x8h/src/routes.tsx:
+     1 import SamplePage from './pages/SamplePage';
+     2 import type { ReactNode } from 'react';
+     3 
+     4 export interface RouteConfig {
+     5   name: string;
+     6   path: string;
+     7   element: ReactNode;
+     8   visible?: boolean;
+     9   /** Accessible without login. Routes without this flag require authentication. Has no effect when RouteGuard is not in use. */
+    10   public?: boolean;
+    11 }
+    12 
+    13 export const routes: RouteConfig[] = [
+    14   {
+    15     name: 'Sample Page',
+    16     path: '/',
+    17     element: <SamplePage />,
+    18     public: true,
+    19   }
+    20 ];
+    21 
+
+
+</observation>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h/src/pages', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h/src/pages is successful.]
+Here's the files and directories up to 2 levels deep in /workspace/app-bjm4peyd3x8h/src/pages, excluding hidden:
+/workspace/app-bjm4peyd3x8h/src/pages
+/workspace/app-bjm4peyd3x8h/src/pages/SamplePage.tsx
+/workspace/app-bjm4peyd3x8h/src/pages/NotFound.tsx
+
+
+</observation>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h/index.html', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h/index.html is successful.]
+Here's the result of running `cat -n` on the file: /workspace/app-bjm4peyd3x8h/index.html:
+     1 <!DOCTYPE html>
+     2 <html lang="en">
+     3   <head>
+     4     <meta charset="UTF-8" />
+     5     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+     6     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     7   </head>
+     8   <body>
+     9     <div id="root"></div>
+    10     <script type="module" src="/src/main.tsx"></script>
+    11   </body>
+    12 </html>
+    13 
+
+
+</observation>
+<action>
+TodoAction(todos=[TodoItem(id='1', status='in_progress', priority='high', content='初始化项目并配置设计系统（颜色、字体、全局样式）', details='', group=None, agent_name=None), TodoItem(id='2', status='pending', priority='high', content='创建页面布局和导航组件', details='', group=None, agent_name=None), TodoItem(id='3', status='pending', priority='high', content='实现首屏 Hero 区', details='', group=None, agent_name=None), TodoItem(id='4', status='pending', priority='high', content='实现法规库模块（含合规初诊工具）', details='', group=None, agent_name=None), TodoItem(id='5', status='pending', priority='high', content='实现资讯库模块', details='', group=None, agent_name=None), TodoItem(id='6', status='pending', priority='high', content='实现机构推荐模块', details='', group=None, agent_name=None), TodoItem(id='7', status='pending', priority='high', content='实现关于我们模块和底部版权栏', details='', group=None, agent_name=None), TodoItem(id='8', status='pending', priority='medium', content='实现登录/注册页面', details='', group=None, agent_name=None), TodoItem(id='9', status='pending', priority='high', content='配置路由并完善响应式设计', details='', group=None, agent_name=None), TodoItem(id='10', status='pending', priority='high', content='运行lint检查并修复问题', details='', group=None, agent_name=None)], command='update', thought='', action=<ActionType.TODO: 'todo'>, content='')
+</action>
+<observation>
+TodoObservation(content='<system-reminder>\nYour todo list has changed. Here are the latest contents of your todo list:\n\n1. 初始化项目并配置设计系统（颜色、字体、全局样式） *high* [in_progress]\n\n2. 创建页面布局和导航组件 *high* [pending]\n\n3. 实现首屏 Hero 区 *high* [pending]\n\n4. 实现法规库模块（含合规初诊工具） *high* [pending]\n\n5. 实现资讯库模块 *high* [pending]\n\n6. 实现机构推荐模块 *high* [pending]\n\n7. 实现关于我们模块和底部版权栏 *high* [pending]\n\n8. 实现登录/注册页面 *medium* [pending]\n\n9. 配置路由并完善响应式设计 *high* [pending]\n\n10. 运行lint检查并修复问题 *high* [pending]\n</system-reminder>', state=TodoState(items=[TodoItem(id='1', status='in_progress', priority='high', content='初始化项目并配置设计系统（颜色、字体、全局样式）', details='', group=None, agent_name=None), TodoItem(id='2', status='pending', priority='high', content='创建页面布局和导航组件', details='', group=None, agent_name=None), TodoItem(id='3', status='pending', priority='high', content='实现首屏 Hero 区', details='', group=None, agent_name=None), TodoItem(id='4', status='pending', priority='high', content='实现法规库模块（含合规初诊工具）', details='', group=None, agent_name=None), TodoItem(id='5', status='pending', priority='high', content='实现资讯库模块', details='', group=None, agent_name=None), TodoItem(id='6', status='pending', priority='high', content='实现机构推荐模块', details='', group=None, agent_name=None), TodoItem(id='7', status='pending', priority='high', content='实现关于我们模块和底部版权栏', details='', group=None, agent_name=None), TodoItem(id='8', status='pending', priority='medium', content='实现登录/注册页面', details='', group=None, agent_name=None), TodoItem(id='9', status='pending', priority='high', content='配置路由并完善响应式设计', details='', group=None, agent_name=None), TodoItem(id='10', status='pending', priority='high', content='运行lint检查并修复问题', details='', group=None, agent_name=None)], updated_at='2026-05-10T12:42:56.171707+00:00'), system_reminder='', observation=<ObservationType.TODO: 'todo'>)
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/index.css]
+Thought: 
+Command: str_replace
+Old String: ```
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --destructive-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --destructive-foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+```
+New String: ```
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 220 33% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 34%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 214 32% 91%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 34%;
+    --chart-1: 221 83% 34%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 221 83% 34%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 32% 91%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 221 83% 34%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --info: 217 91% 60%;
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 34%), hsl(210 100% 50%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 33% 98%));
+    --gradient-background: linear-gradient(180deg, hsl(220 33% 98%) 0%, hsl(214 32% 91%) 100%);
+    --shadow-card: 0 4px 6px -1px hsl(222 47% 11% / 0.05), 0 2px 4px -2px hsl(222 47% 11% / 0.05);
+    --shadow-hover: 0 10px 15px -3px hsl(222 47% 11% / 0.08), 0 4px 6px -4px hsl(222 47% 11% / 0.08);
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 223 47% 14%;
+    --card-foreground: 210 40% 98%;
+    --popover: 223 47% 14%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 217 91% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --info: 217 91% 60%;
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(221 83% 34%));
+    --gradient-card: linear-gradient(180deg, hsl(223 47% 14%), hsl(222 47% 11%));
+    --gradient-background: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(223 47% 8%) 100%);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -4px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+```
+
+</action>
+<observation>
+The file /workspace/app-bjm4peyd3x8h/src/index.css has been edited.
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/index.html]
+Thought: 
+Command: str_replace
+Old String: ```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+```
+New String: ```
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>律航出海 · 法律AI智能体</title>
+    <meta name="description" content="律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，提供低成本、可追踪、嵌入式的合规支持服务。" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+```
+
+</action>
+<observation>
+The file /workspace/app-bjm4peyd3x8h/index.html has been edited.
+
+</observation>
+<action>
+FileReadAction(path='/workspace/app-bjm4peyd3x8h/src/main.tsx', start=0, end=-1, thought='', action=<ActionType.READ: 'read'>, security_risk=None, impl_source='oh_aci', view_range=None, user_hidden=False)
+</action>
+<observation>
+[Read from /workspace/app-bjm4peyd3x8h/src/main.tsx is successful.]
+Here's the result of running `cat -n` on the file: /workspace/app-bjm4peyd3x8h/src/main.tsx:
+     1 import { createRoot } from "react-dom/client";
+     2 import "./index.css";
+     3 import App from "./App.tsx";
+     4 import { AppWrapper } from "./components/common/PageMeta.tsx";
+     5 
+     6 createRoot(document.getElementById("root")!).render(
+     7   <AppWrapper>
+     8     <App />
+     9   </AppWrapper>
+    10 );
+    11 
+
+
+</observation>
+<action>
+**CmdRunAction (source=EventSource.AGENT, is_input=False)**
+COMMAND:
+mkdir -p /workspace/app-bjm4peyd3x8h/src/components/home /workspace/app-bjm4peyd3x8h/src/components/layouts
+</action>
+<observation>
+**CmdOutputObservation (source=EventSource.AGENT, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": null,
+  "hostname": null,
+  "working_dir": "/workspace",
+  "py_interpreter_path": null,
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+
+[The command completed with exit code 0.]
+[Current working directory: /workspace]
+--END AGENT OBSERVATION--
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/layouts/Navbar.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Menu, X, Scale } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+
+const navItems = [
+  { label: '首页', href: '#hero' },
+  { label: '法规库', href: '#laws' },
+  { label: '资讯库', href: '#news' },
+  { label: '机构推荐', href: '#agencies' },
+  { label: '关于我们', href: '#about' },
+];
+
+const Navbar: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMobileOpen(false);
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-background/95 backdrop-blur-md shadow-sm border-b border-border'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 shrink-0">
+            <Scale className="w-7 h-7 text-primary" />
+            <span className="text-lg md:text-xl font-bold text-foreground whitespace-nowrap">
+              律航出海
+            </span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Desktop Login */}
+          <div className="hidden md:flex items-center gap-3">
+            <Button
+              variant="ghost"
+              className="text-sm font-medium"
+              onClick={() => navigate('/login')}
+            >
+              登录
+            </Button>
+            <Button
+              className="text-sm font-medium bg-primary hover:bg-primary/90"
+              onClick={() => {
+                const el = document.getElementById('laws');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              立即体验
+            </Button>
+          </div>
+
+          {/* Mobile Menu */}
+          <div className="md:hidden flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-sm"
+              onClick={() => navigate('/login')}
+            >
+              登录
+            </Button>
+            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-9 w-9">
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] p-0">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between p-4 border-b border-border">
+                    <Link to="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+                      <Scale className="w-6 h-6 text-primary" />
+                      <span className="text-lg font-bold">律航出海</span>
+                    </Link>
+                  </div>
+                  <nav className="flex flex-col p-4 gap-1">
+                    {navItems.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item.href)}
+                        className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/components/layouts/Navbar.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/layouts/Footer.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React from 'react';
+import { Scale } from 'lucide-react';
+
+const Footer: React.FC = () => {
+  return (
+    <footer className="bg-secondary/50 border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-2">
+            <Scale className="w-5 h-5 text-primary" />
+            <span className="text-sm font-semibold text-foreground">律航出海</span>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <span>© 2026 律航出海</span>
+            <span className="hidden md:inline">|</span>
+            <span>浙ICP备XXXXXXXX号</span>
+            <span className="hidden md:inline">|</span>
+            <button className="hover:text-foreground transition-colors">隐私政策</button>
+            <span className="hidden md:inline">|</span>
+            <button className="hover:text-foreground transition-colors">使用条款</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/components/layouts/Footer.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/layouts/MainLayout.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
+
+interface MainLayoutProps {
+  children: React.ReactNode;
+  showFooter?: boolean;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children, showFooter = true }) => {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-1 pt-16 md:pt-20">
+        {children}
+      </main>
+      {showFooter && <Footer />}
+    </div>
+  );
+};
+
+export default MainLayout;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/components/layouts/MainLayout.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/home/HeroSection.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Sparkles } from 'lucide-react';
+
+const HeroSection: React.FC = () => {
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <section id="hero" className="relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background pointer-events-none" />
+      <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-info/5 rounded-full blur-[80px] pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-32 lg:py-40">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-primary/10 text-primary text-sm font-medium">
+            <Sparkles className="w-4 h-4" />
+            <span>高校法学专业团队打造</span>
+          </div>
+
+          {/* Main Title */}
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 text-balance">
+            律航出海 · 法律AI智能体
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl lg:text-2xl text-primary font-semibold mb-6 text-balance">
+            非洲制造业法律数据整合 + 合规机构智能筛选匹配
+          </p>
+
+          {/* Description */}
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto text-pretty">
+            依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供
+            <span className="text-foreground font-medium">低成本、可追踪、嵌入式</span>
+            全流程合规支持，高效打通非洲出海合规「最后一公里」。
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              size="lg"
+              className="w-full sm:w-auto text-base font-semibold bg-primary hover:bg-primary/90 px-8 h-12"
+              onClick={() => scrollToSection('laws')}
+            >
+              立即体验合规初诊
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto text-base font-semibold px-8 h-12"
+              onClick={() => scrollToSection('about')}
+            >
+              了解我们的服务
+            </Button>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
+          {[
+            { value: '50+', label: '非洲国家覆盖' },
+            { value: '2,000+', label: '法规条文收录' },
+            { value: '7', label: '高频合规场景' },
+            { value: '100+', label: '合作合规机构' },
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="text-center p-4 md:p-6 rounded-xl bg-card border border-border shadow-card"
+            >
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
+              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/components/home/HeroSection.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/home/LawSection.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  FileText,
+  Tag,
+  Stethoscope,
+  Shield,
+  Search,
+  Gavel,
+  AlertTriangle,
+  CheckCircle,
+  ChevronRight,
+} from 'lucide-react';
+
+const scenes = [
+  { id: 'customs', label: '海关进出口', icon: FileText },
+  { id: 'labor', label: '劳工雇佣', icon: Shield },
+  { id: 'data', label: '数据安全', icon: Search },
+  { id: 'env', label: '环保合规', icon: CheckCircle },
+  { id: 'tax', label: '税务', icon: Gavel },
+  { id: 'cert', label: '产品认证', icon: Tag },
+  { id: 'ip', label: '知识产权', icon: FileText },
+];
+
+const demoLaws = [
+  {
+    id: 1,
+    title: '尼日利亚海关管理法（修订版）',
+    country: '尼日利亚',
+    scene: 'customs',
+    level: '国家级',
+    penalty: '货物扣押 + 罚款20-50%货值',
+    date: '2024-01-15',
+    risk: 'high',
+    summary: '制造业进口原材料需提前30天备案，未备案货物将被扣押并处以货值20-50%的罚款。',
+  },
+  {
+    id: 2,
+    title: '肯尼亚劳工法典（2023年修订）',
+    country: '肯尼亚',
+    scene: 'labor',
+    level: '国家级',
+    penalty: '每项违规最高罚款50万肯尼亚先令',
+    date: '2023-11-20',
+    risk: 'high',
+    summary: '外籍员工与本地员工比例不得低于1:4，加班工资为正常工资的1.5倍。',
+  },
+  {
+    id: 3,
+    title: '南非数据保护法（POPIA）',
+    country: '南非',
+    scene: 'data',
+    level: '国家级',
+    penalty: '最高罚款1000万南非兰特或营业额10%',
+    date: '2021-07-01',
+    risk: 'medium',
+    summary: '处理个人数据的企业须注册信息官，数据跨境传输须通过合规评估。',
+  },
+  {
+    id: 4,
+    title: '埃塞俄比亚环境保护法',
+    country: '埃塞俄比亚',
+    scene: 'env',
+    level: '国家级',
+    penalty: '项目暂停 + 环境修复费用',
+    date: '2022-06-10',
+    risk: 'high',
+    summary: '制造业项目须通过环境影响评估（EIA），未取得环评批复不得开工。',
+  },
+  {
+    id: 5,
+    title: '埃及增值税法实施细则',
+    country: '埃及',
+    scene: 'tax',
+    level: '部门规章',
+    penalty: '滞纳金每日0.5%，最高不超过本金',
+    date: '2024-03-01',
+    risk: 'medium',
+    summary: '标准增值税率14%，出口适用零税率，须保留完整税务凭证至少5年。',
+  },
+  {
+    id: 6,
+    title: '坦桑尼亚产品认证标准（TBS）',
+    country: '坦桑尼亚',
+    scene: 'cert',
+    level: '国家标准',
+    penalty: '产品下架 + 销毁不合格批次',
+    date: '2023-09-15',
+    risk: 'medium',
+    summary: '进口工业产品须取得TBS认证标志，每批次须附合格检验报告。',
+  },
+];
+
+const countries = ['尼日利亚', '肯尼亚', '南非', '埃塞俄比亚', '埃及', '坦桑尼亚', '加纳', '乌干达'];
+const companySizes = ['微型企业（<10人）', '小型企业（10-50人）', '中型企业（50-200人）', '大型企业（>200人）'];
+const budgetRanges = ['< 10万元', '10-50万元', '50-200万元', '> 200万元'];
+
+const LawSection: React.FC = () => {
+  const [activeScene, setActiveScene] = useState<string | null>(null);
+  const [diagnoseOpen, setDiagnoseOpen] = useState(false);
+  const [diagnoseResult, setDiagnoseResult] = useState<typeof demoLaws>([]);
+  const [formData, setFormData] = useState({
+    country: '',
+    size: '',
+    scenes: [] as string[],
+    budget: '',
+  });
+
+  const filteredLaws = activeScene
+    ? demoLaws.filter((l) => l.scene === activeScene)
+    : demoLaws;
+
+  const handleSceneToggle = (sceneId: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      scenes: prev.scenes.includes(sceneId)
+        ? prev.scenes.filter((s) => s !== sceneId)
+        : [...prev.scenes, sceneId],
+    }));
+  };
+
+  const handleDiagnose = () => {
+    let results = demoLaws;
+    if (formData.country) {
+      results = results.filter((l) => l.country === formData.country);
+    }
+    if (formData.scenes.length > 0) {
+      results = results.filter((l) => formData.scenes.includes(l.scene));
+    }
+    setDiagnoseResult(results);
+  };
+
+  const getRiskBadge = (risk: string) => {
+    if (risk === 'high')
+      return <Badge variant="destructive" className="text-xs">高风险</Badge>;
+    if (risk === 'medium')
+      return <Badge className="bg-warning text-warning-foreground text-xs hover:bg-warning">中风险</Badge>;
+    return <Badge className="bg-success text-success-foreground text-xs hover:bg-success">低风险</Badge>;
+  };
+
+  return (
+    <section id="laws" className="py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+            非洲制造业合规法规库
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。
+          </p>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <FileText className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">人工标注+法规整合</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                基于非洲本地权威数据库，结合执业律师人工标注，收录制造业高频法规与判例。标注信息含：适用场景、效力层级、处罚条款、生效/修订时间，一眼看懂关键风险。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Tag className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">制造业高频场景分类</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                覆盖海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权七大场景。按场景标签快速筛选，一键获取对应国家的核心合规要求与高频风险清单。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Stethoscope className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">合规初诊工具</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                输入目的国、企业规模、业务场景、预算区间，系统自动匹配法规要点，生成定制化合规初诊报告，附法规原文链接与高风险提示。
+              </p>
+              <Button
+                className="mt-4 w-full bg-primary hover:bg-primary/90"
+                onClick={() => {
+                  setDiagnoseOpen(true);
+                  setDiagnoseResult([]);
+                  setFormData({ country: '', size: '', scenes: [], budget: '' });
+                }}
+              >
+                <Stethoscope className="w-4 h-4 mr-2" />
+                立即体验合规初诊
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Scene Filter */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold mb-4">按场景筛选法规</h3>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant={activeScene === null ? 'default' : 'outline'}
+              size="sm"
+              className={activeScene === null ? 'bg-primary' : ''}
+              onClick={() => setActiveScene(null)}
+            >
+              全部
+            </Button>
+            {scenes.map((scene) => (
+              <Button
+                key={scene.id}
+                variant={activeScene === scene.id ? 'default' : 'outline'}
+                size="sm"
+                className={activeScene === scene.id ? 'bg-primary' : ''}
+                onClick={() => setActiveScene(scene.id)}
+              >
+                <scene.icon className="w-3.5 h-3.5 mr-1.5" />
+                {scene.label}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        {/* Law List */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {filteredLaws.map((law) => (
+            <Card key={law.id} className="shadow-card hover:shadow-hover transition-shadow">
+              <CardContent className="p-5">
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-foreground text-base mb-1 truncate">{law.title}</h4>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <Badge variant="secondary" className="text-xs">{law.country}</Badge>
+                      <Badge variant="outline" className="text-xs">{law.level}</Badge>
+                      {getRiskBadge(law.risk)}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground mb-3 text-pretty">{law.summary}</p>
+                <div className="flex items-center justify-between text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <AlertTriangle className="w-3.5 h-3.5" />
+                    <span>处罚：{law.penalty}</span>
+                  </div>
+                  <span>{law.date}</span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Diagnose Dialog */}
+      <Dialog open={diagnoseOpen} onOpenChange={setDiagnoseOpen}>
+        <DialogContent className="max-w-[calc(100%-2rem)] md:max-w-lg max-h-[90dvh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-xl">合规初诊工具</DialogTitle>
+          </DialogHeader>
+
+          {diagnoseResult.length === 0 ? (
+            <div className="space-y-5 py-2">
+              <div>
+                <Label className="text-sm font-medium mb-2 block">目的国</Label>
+                <Select
+                  value={formData.country}
+                  onValueChange={(v) => setFormData((p) => ({ ...p, country: v }))}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="选择目的国" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {countries.map((c) => (
+                      <SelectItem key={c} value={c}>{c}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label className="text-sm font-medium mb-2 block">企业规模</Label>
+                <Select
+                  value={formData.size}
+                  onValueChange={(v) => setFormData((p) => ({ ...p, size: v }))}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="选择企业规模" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {companySizes.map((s) => (
+                      <SelectItem key={s} value={s}>{s}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label className="text-sm font-medium mb-2 block">业务场景（可多选）</Label>
+                <div className="flex flex-wrap gap-2">
+                  {scenes.map((scene) => (
+                    <Button
+                      key={scene.id}
+                      type="button"
+                      variant={formData.scenes.includes(scene.id) ? 'default' : 'outline'}
+                      size="sm"
+                      className={formData.scenes.includes(scene.id) ? 'bg-primary' : ''}
+                      onClick={() => handleSceneToggle(scene.id)}
+                    >
+                      {scene.label}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <Label className="text-sm font-medium mb-2 block">预算区间</Label>
+                <Select
+                  value={formData.budget}
+                  onValueChange={(v) => setFormData((p) => ({ ...p, budget: v }))}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="选择预算区间" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {budgetRanges.map((b) => (
+                      <SelectItem key={b} value={b}>{b}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <Button
+                className="w-full bg-primary hover:bg-primary/90 h-11"
+                onClick={handleDiagnose}
+                disabled={!formData.country || formData.scenes.length === 0}
+              >
+                <Stethoscope className="w-4 h-4 mr-2" />
+                生成合规初诊报告
+              </Button>
+            </div>
+          ) : (
+            <div className="space-y-4 py-2">
+              <div className="flex items-center gap-2 p-3 bg-primary/5 rounded-lg">
+                <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                <p className="text-sm text-foreground">
+                  已为 <span className="font-semibold">{formData.country}</span> 匹配到{' '}
+                  <span className="font-semibold">{diagnoseResult.length}</span> 条相关法规
+                </p>
+              </div>
+
+              {diagnoseResult.map((law) => (
+                <Card key={law.id} className="border-l-4 border-l-primary">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h4 className="font-semibold text-sm">{law.title}</h4>
+                      {getRiskBadge(law.risk)}
+                    </div>
+                    <p className="text-xs text-muted-foreground mb-2 text-pretty">{law.summary}</p>
+                    <div className="text-xs text-muted-foreground">
+                      <span className="font-medium">处罚：</span>{law.penalty}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={() => {
+                  setDiagnoseResult([]);
+                  setFormData({ country: '', size: '', scenes: [], budget: '' });
+                }}
+              >
+                重新初诊
+              </Button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </section>
+  );
+};
+
+export default LawSection;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/components/home/LawSection.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/home/NewsSection.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Newspaper, TrendingUp, FileEdit, Calendar, ExternalLink } from 'lucide-react';
+
+const newsItems = [
+  {
+    id: 1,
+    type: 'cooperation',
+    title: '中非合作论坛达成制造业投资新共识',
+    source: '中国驻非使馆',
+    date: '2026-05-08',
+    summary: '中非合作论坛部长级会议就制造业投资便利化达成新共识，中国企业赴非投资将享受更优惠的关税待遇和更简化的审批流程。',
+    country: '全非洲',
+    tags: ['政策利好', '关税优惠'],
+  },
+  {
+    id: 2,
+    type: 'cooperation',
+    title: '肯尼亚推出制造业外资税收减免计划',
+    source: '肯尼亚投资局',
+    date: '2026-04-22',
+    summary: '肯尼亚政府发布新的制造业外资激励政策，符合条件的制造业企业可享受前5年企业所得税减免50%的优惠。',
+    country: '肯尼亚',
+    tags: ['税收优惠', '制造业'],
+  },
+  {
+    id: 3,
+    type: 'cooperation',
+    title: '尼日利亚与中国签署双边投资保护协定更新版',
+    source: '商务部',
+    date: '2026-03-15',
+    summary: '新版双边投资保护协定扩大了投资者保护范围，增加了争端解决机制条款，为中国制造业企业提供更强法律保障。',
+    country: '尼日利亚',
+    tags: ['投资保护', '双边协定'],
+  },
+  {
+    id: 4,
+    type: 'hotspot',
+    title: '南非数据跨境传输合规风波：多家制造企业被罚',
+    source: '合规追踪',
+    date: '2026-04-30',
+    summary: '南非信息监管机构对未履行数据跨境传输评估义务的企业开出罚单，涉及制造业企业需立即自查数据处理流程。',
+    riskLevel: 'high',
+    involvedLaws: '南非数据保护法（POPIA）',
+    response: '立即注册信息官，完成数据跨境传输影响评估',
+    tags: ['数据安全', '行政处罚'],
+  },
+  {
+    id: 5,
+    type: 'hotspot',
+    title: '埃塞俄比亚环保新规导致多个工业项目停工',
+    source: '合规追踪',
+    date: '2026-03-20',
+    summary: '埃塞俄比亚环境部强化环评执法，多个未取得完整环评批复的制造业项目被勒令停工整顿。',
+    riskLevel: 'high',
+    involvedLaws: '埃塞俄比亚环境保护法',
+    response: '开工前必须完成EIA并取得正式批复文件',
+    tags: ['环保合规', '项目停工'],
+  },
+  {
+    id: 6,
+    type: 'hotspot',
+    title: '埃及新劳动法外籍员工配额争议',
+    source: '合规追踪',
+    date: '2026-02-28',
+    summary: '埃及劳工部加强外籍员工配额检查，制造业企业需确保本地员工比例符合新修订的劳动法要求。',
+    riskLevel: 'medium',
+    involvedLaws: '埃及劳动法（2025年修订）',
+    response: '调整人力资源结构，确保本地员工占比不低于60%',
+    tags: ['劳工合规', '外籍员工'],
+  },
+  {
+    id: 7,
+    type: 'update',
+    title: '尼日利亚增值税法实施细则修订',
+    country: '尼日利亚',
+    updateType: '修订',
+    date: '2026-05-01',
+    change: '进口原材料增值税抵扣条件放宽，企业可凭进口报关单直接抵扣',
+    impact: '降低制造业进口原材料税务成本约5-8%',
+    advice: '及时更新税务申报流程，确保合规享受新抵扣政策',
+  },
+  {
+    id: 8,
+    type: 'update',
+    title: '肯尼亚新增产品强制认证目录',
+    country: '肯尼亚',
+    updateType: '新增',
+    date: '2026-04-10',
+    change: '12类工业制成品纳入KEBS强制认证范围，未认证产品禁止销售',
+    impact: '出口肯尼亚的制造业企业需额外申请产品认证',
+    advice: '核查产品是否在新增目录内，提前3个月启动认证申请',
+  },
+  {
+    id: 9,
+    type: 'update',
+    title: '南非废止旧版工业产权法',
+    country: '南非',
+    updateType: '废止',
+    date: '2026-03-01',
+    change: '2010年版工业产权法正式废止，统一适用新版知识产权法',
+    impact: '专利申请和知识产权保护程序发生变更',
+    advice: '已在旧法下申请的专利需在新法框架下补充材料',
+  },
+];
+
+const NewsSection: React.FC = () => {
+  const [activeTab, setActiveTab] = useState('cooperation');
+
+  const getUpdateTypeBadge = (type: string) => {
+    switch (type) {
+      case '修订':
+        return <Badge className="bg-info text-info-foreground text-xs hover:bg-info">修订</Badge>;
+      case '新增':
+        return <Badge className="bg-success text-success-foreground text-xs hover:bg-success">新增</Badge>;
+      case '废止':
+        return <Badge variant="destructive" className="text-xs">废止</Badge>;
+      default:
+        return null;
+    }
+  };
+
+  const filteredNews = newsItems.filter((n) => n.type === activeTab);
+
+  return (
+    <section id="news" className="py-16 md:py-24 bg-secondary/30">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+            非洲合规动态资讯库
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。
+          </p>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Newspaper className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">中非合作新闻</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                收录中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态。按国家、行业、政策类型分类，快速找到对你有用的投资机遇与政策支持信息。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <TrendingUp className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">合规热点追踪</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                基于行业热议度识别热点事件，人工核实真实性与相关性，提炼事件背景、涉事法规与企业应对案例。生成「热点合规风险提示」，帮你快速了解行业共性风险与应对思路。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <FileEdit className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">法规更新动态</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                由非洲本地成员实时搜集各国法规修订信息，捕捉"修订/新增/废止"关键词。用统一模板呈现更新内容：法规名称+核心更新点+对制造业企业的影响+合规建议，一目了然。
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* News Tabs */}
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsTrigger value="cooperation" className="text-sm md:text-base">
+              <Newspaper className="w-4 h-4 mr-2 hidden md:inline" />
+              中非合作新闻
+            </TabsTrigger>
+            <TabsTrigger value="hotspot" className="text-sm md:text-base">
+              <TrendingUp className="w-4 h-4 mr-2 hidden md:inline" />
+              合规热点追踪
+            </TabsTrigger>
+            <TabsTrigger value="update" className="text-sm md:text-base">
+              <FileEdit className="w-4 h-4 mr-2 hidden md:inline" />
+              法规更新动态
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="cooperation" className="mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredNews.map((item) => (
+                <Card key={item.id} className="shadow-card hover:shadow-hover transition-shadow h-full flex flex-col">
+                  <CardContent className="p-5 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-3 flex-wrap">
+                      <Badge variant="secondary" className="text-xs">{item.country}</Badge>
+                      {item.tags?.map((tag) => (
+                        <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
+                      ))}
+                    </div>
+                    <h4 className="font-semibold text-foreground text-base mb-2 text-balance">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground mb-4 flex-1 text-pretty">{item.summary}</p>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto">
+                      <span>{item.source}</span>
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {item.date}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="hotspot" className="mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredNews.map((item) => (
+                <Card key={item.id} className="shadow-card hover:shadow-hover transition-shadow h-full flex flex-col">
+                  <CardContent className="p-5 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-3">
+                      {item.riskLevel === 'high' ? (
+                        <Badge variant="destructive" className="text-xs">高风险</Badge>
+                      ) : (
+                        <Badge className="bg-warning text-warning-foreground text-xs hover:bg-warning">中风险</Badge>
+                      )}
+                      {item.tags?.map((tag) => (
+                        <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
+                      ))}
+                    </div>
+                    <h4 className="font-semibold text-foreground text-base mb-2 text-balance">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground mb-3 text-pretty">{item.summary}</p>
+                    <div className="space-y-2 text-xs bg-secondary/50 rounded-lg p-3 mb-3">
+                      <div className="flex gap-2">
+                        <span className="font-medium text-foreground shrink-0">涉事法规：</span>
+                        <span className="text-muted-foreground">{item.involvedLaws}</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="font-medium text-foreground shrink-0">应对建议：</span>
+                        <span className="text-muted-foreground">{item.response}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground mt-auto">
+                      <Calendar className="w-3 h-3" />
+                      {item.date}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="update" className="mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredNews.map((item) => (
+                <Card key={item.id} className="shadow-card hover:shadow-hover transition-shadow h-full flex flex-col">
+                  <CardContent className="p-5 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-3">
+                      {getUpdateTypeBadge(item.updateType || '')}
+                      <Badge variant="secondary" className="text-xs">{item.country}</Badge>
+                    </div>
+                    <h4 className="font-semibold text-foreground text-base mb-3 text-balance">{item.title}</h4>
+                    <div className="space-y-2 text-sm flex-1">
+                      <div className="flex gap-2">
+                        <span className="font-medium text-foreground shrink-0">核心更新：</span>
+                        <span className="text-muted-foreground text-pretty">{item.change}</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="font-medium text-foreground shrink-0">对企业影响：</span>
+                        <span className="text-muted-foreground text-pretty">{item.impact}</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="font-medium text-foreground shrink-0">合规建议：</span>
+                        <span className="text-muted-foreground text-pretty">{item.advice}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground mt-4">
+                      <Calendar className="w-3 h-3" />
+                      {item.date}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </section>
+  );
+};
+
+export default NewsSection;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/components/home/NewsSection.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/home/AgencySection.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  Building2,
+  Users,
+  Filter,
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  Award,
+  Briefcase,
+  Star,
+} from 'lucide-react';
+
+const serviceScenes = [
+  { id: 'labor', label: '劳工合规' },
+  { id: 'tax', label: '税务咨询' },
+  { id: 'customs', label: '海关报关' },
+  { id: 'ip', label: '知识产权' },
+  { id: 'env', label: '环保认证' },
+  { id: 'legal', label: '法律诉讼' },
+];
+
+const agencies = [
+  {
+    id: 1,
+    name: 'Nigerian Business Law Associates',
+    type: '律师事务所',
+    country: '尼日利亚',
+    city: '拉各斯',
+    scenes: ['labor', 'ip', 'legal'],
+    budgetRange: '50-200万元',
+    endorser: '尼日利亚制造商协会（MAN）',
+    description: '成立于2005年，专注于为制造业企业提供全流程法律服务，在劳工纠纷和知识产权领域拥有丰富经验。',
+    cases: '曾代理某中资纺织企业成功处理200人规模的劳工集体诉讼案',
+    rating: 4.8,
+    contact: {
+      phone: '+234 1 277 8888',
+      email: 'contact@nbla.ng',
+      website: 'www.nbla.ng',
+    },
+  },
+  {
+    id: 2,
+    name: 'Kenya Compliance Partners',
+    type: '合规咨询公司',
+    country: '肯尼亚',
+    city: '内罗毕',
+    scenes: ['tax', 'customs', 'env'],
+    budgetRange: '10-50万元',
+    endorser: '肯尼亚投促局（KenInvest）',
+    description: '专注于税务合规和海关事务，拥有15名持牌税务顾问，服务覆盖东非共同体所有成员国。',
+    cases: '帮助50+制造企业完成税务优化，平均节省税务成本15%',
+    rating: 4.6,
+    contact: {
+      phone: '+254 20 222 3333',
+      email: 'info@kcp.co.ke',
+      website: 'www.kcp.co.ke',
+    },
+  },
+  {
+    id: 3,
+    name: 'South Africa IP & Legal Services',
+    type: '律师事务所',
+    country: '南非',
+    city: '约翰内斯堡',
+    scenes: ['ip', 'legal', 'env'],
+    budgetRange: '50-200万元',
+    endorser: '南非制造商协会（MANSA）',
+    description: '南非领先的知识产权法律服务机构，擅长专利注册、商标保护和商业秘密管理。',
+    cases: '代理某中资汽车零部件企业完成南非全套专利布局，覆盖12项核心技术',
+    rating: 4.9,
+    contact: {
+      phone: '+27 11 333 4444',
+      email: 'consult@saipls.co.za',
+      website: 'www.saipls.co.za',
+    },
+  },
+  {
+    id: 4,
+    name: 'Ethiopia Tax & Advisory Group',
+    type: '会计师事务所',
+    country: '埃塞俄比亚',
+    city: '亚的斯亚贝巴',
+    scenes: ['tax', 'customs'],
+    budgetRange: '< 10万元',
+    endorser: '埃塞俄比亚商会',
+    description: '本地化税务和会计服务团队，精通埃塞俄比亚投资法和税务法规，为中资企业提供双语服务。',
+    cases: '协助30+中资制造企业完成税务登记和年度审计',
+    rating: 4.5,
+    contact: {
+      phone: '+251 11 555 6666',
+      email: 'service@etag.et',
+      website: 'www.etag.et',
+    },
+  },
+  {
+    id: 5,
+    name: 'Egypt Labor & Employment Experts',
+    type: '律师事务所',
+    country: '埃及',
+    city: '开罗',
+    scenes: ['labor', 'legal'],
+    budgetRange: '10-50万元',
+    endorser: '埃及工业联合会',
+    description: '专注埃及劳动法领域，为企业提供劳动合同审核、劳动争议调解和仲裁代理服务。',
+    cases: '成功调解多起中埃合资企业劳资纠纷，保持100%和解率',
+    rating: 4.7,
+    contact: {
+      phone: '+20 2 777 8888',
+      email: 'office@elee.eg',
+      website: 'www.elee.eg',
+    },
+  },
+  {
+    id: 6,
+    name: 'Tanzania Environmental Compliance Ltd',
+    type: '合规咨询公司',
+    country: '坦桑尼亚',
+    city: '达累斯萨拉姆',
+    scenes: ['env', 'customs'],
+    budgetRange: '10-50万元',
+    endorser: '坦桑尼亚制造商协会',
+    description: '坦桑尼亚首家专注环保合规的咨询机构，拥有国家级环评资质，可提供一站式环评和认证服务。',
+    cases: '完成40+制造业项目环评，通过率100%',
+    rating: 4.4,
+    contact: {
+      phone: '+255 22 999 0000',
+      email: 'projects@tecl.co.tz',
+      website: 'www.tecl.co.tz',
+    },
+  },
+];
+
+const countries = ['全部', '尼日利亚', '肯尼亚', '南非', '埃塞俄比亚', '埃及', '坦桑尼亚'];
+const budgets = ['全部', '< 10万元', '10-50万元', '50-200万元', '> 200万元'];
+
+const AgencySection: React.FC = () => {
+  const [selectedCountry, setSelectedCountry] = useState('全部');
+  const [selectedScene, setSelectedScene] = useState<string | null>(null);
+  const [selectedBudget, setSelectedBudget] = useState('全部');
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selectedAgency, setSelectedAgency] = useState<typeof agencies[0] | null>(null);
+
+  const filteredAgencies = agencies.filter((a) => {
+    const countryMatch = selectedCountry === '全部' || a.country === selectedCountry;
+    const sceneMatch = !selectedScene || a.scenes.includes(selectedScene);
+    const budgetMatch = selectedBudget === '全部' || a.budgetRange === selectedBudget;
+    return countryMatch && sceneMatch && budgetMatch;
+  });
+
+  const handleOpenDetail = (agency: typeof agencies[0]) => {
+    setSelectedAgency(agency);
+    setDetailOpen(true);
+  };
+
+  return (
+    <section id="agencies" className="py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+            非洲本地合规机构推荐
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。
+          </p>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Building2 className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">商会背书的本地机构名单</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等。自动抓取并整理机构核心信息：业务领域、服务国家、制造业服务案例、收费区间。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Filter className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">按制造业场景精准分类</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类展示。支持按目的国、服务场景、预算区间筛选，快速匹配你的企业需求。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Users className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">透明化信息呈现</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                每个机构附简介、服务范围、典型案例与联系方式入口，帮你高效对接本地合规资源。
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Filters */}
+        <div className="mb-8 space-y-4">
+          <h3 className="text-lg font-semibold">筛选条件</h3>
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full md:w-auto">
+              <label className="text-xs text-muted-foreground mb-1.5 block">目的国</label>
+              <Select value={selectedCountry} onValueChange={setSelectedCountry}>
+                <SelectTrigger className="w-full md:w-[180px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {countries.map((c) => (
+                    <SelectItem key={c} value={c}>{c}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="w-full md:w-auto">
+              <label className="text-xs text-muted-foreground mb-1.5 block">服务场景</label>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  variant={selectedScene === null ? 'default' : 'outline'}
+                  size="sm"
+                  className={selectedScene === null ? 'bg-primary' : ''}
+                  onClick={() => setSelectedScene(null)}
+                >
+                  全部
+                </Button>
+                {serviceScenes.map((scene) => (
+                  <Button
+                    key={scene.id}
+                    variant={selectedScene === scene.id ? 'default' : 'outline'}
+                    size="sm"
+                    className={selectedScene === scene.id ? 'bg-primary' : ''}
+                    onClick={() => setSelectedScene(scene.id)}
+                  >
+                    {scene.label}
+                  </Button>
+                ))}
+              </div>
+            </div>
+            <div className="w-full md:w-auto">
+              <label className="text-xs text-muted-foreground mb-1.5 block">预算区间</label>
+              <Select value={selectedBudget} onValueChange={setSelectedBudget}>
+                <SelectTrigger className="w-full md:w-[180px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {budgets.map((b) => (
+                    <SelectItem key={b} value={b}>{b}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+        </div>
+
+        {/* Agency Grid */}
+        {filteredAgencies.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredAgencies.map((agency) => (
+              <Card key={agency.id} className="shadow-card hover:shadow-hover transition-shadow h-full flex flex-col cursor-pointer" onClick={() => handleOpenDetail(agency)}>
+                <CardContent className="p-5 flex flex-col h-full">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-foreground text-base mb-1 truncate">{agency.name}</h4>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <Badge variant="secondary" className="text-xs">{agency.type}</Badge>
+                        <Badge variant="outline" className="text-xs">{agency.country}</Badge>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 shrink-0 ml-2">
+                      <Star className="w-3.5 h-3.5 text-warning fill-warning" />
+                      <span className="text-sm font-medium">{agency.rating}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground mb-3">
+                    <MapPin className="w-3.5 h-3.5 shrink-0" />
+                    <span className="truncate">{agency.city}</span>
+                  </div>
+
+                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2 text-pretty flex-1">{agency.description}</p>
+
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {agency.scenes.map((sceneId) => {
+                      const scene = serviceScenes.find((s) => s.id === sceneId);
+                      return scene ? (
+                        <Badge key={sceneId} variant="outline" className="text-xs">{scene.label}</Badge>
+                      ) : null;
+                    })}
+                  </div>
+
+                  <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
+                    <span className="text-xs text-muted-foreground">
+                      收费：{agency.budgetRange}
+                    </span>
+                    <span className="text-xs text-primary font-medium">查看详情</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">暂无匹配机构，请调整筛选条件</p>
+          </div>
+        )}
+      </div>
+
+      {/* Detail Dialog */}
+      <Dialog open={detailOpen} onOpenChange={setDetailOpen}>
+        <DialogContent className="max-w-[calc(100%-2rem)] md:max-w-lg max-h-[90dvh] overflow-y-auto">
+          {selectedAgency && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-xl">{selectedAgency.name}</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4 py-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <Badge variant="secondary">{selectedAgency.type}</Badge>
+                  <Badge variant="outline">{selectedAgency.country}</Badge>
+                  <div className="flex items-center gap-1">
+                    <Star className="w-4 h-4 text-warning fill-warning" />
+                    <span className="text-sm font-medium">{selectedAgency.rating}</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <span>{selectedAgency.city}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Award className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">背书机构：{selectedAgency.endorser}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Briefcase className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">收费区间：{selectedAgency.budgetRange}</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-medium text-sm mb-2">机构简介</h4>
+                  <p className="text-sm text-muted-foreground text-pretty">{selectedAgency.description}</p>
+                </div>
+
+                <div>
+                  <h4 className="font-medium text-sm mb-2">服务场景</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedAgency.scenes.map((sceneId) => {
+                      const scene = serviceScenes.find((s) => s.id === sceneId);
+                      return scene ? (
+                        <Badge key={sceneId} variant="outline" className="text-xs">{scene.label}</Badge>
+                      ) : null;
+                    })}
+                  </div>
+                </div>
+
+                <div className="bg-secondary/50 rounded-lg p-4">
+                  <h4 className="font-medium text-sm mb-2">典型案例</h4>
+                  <p className="text-sm text-muted-foreground text-pretty">{selectedAgency.cases}</p>
+                </div>
+
+                <div>
+                  <h4 className="font-medium text-sm mb-2">联系方式</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <span>{selectedAgency.contact.phone}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <span>{selectedAgency.contact.email}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Globe className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <span>{selectedAgency.contact.website}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+    </section>
+  );
+};
+
+export default AgencySection;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/components/home/AgencySection.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/home/AboutSection.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Target, Shield, Zap, BookOpen } from 'lucide-react';
+
+const values = [
+  {
+    icon: BookOpen,
+    title: '权威数据',
+    desc: '整合非洲本地权威法律数据库与执业律师专业标注，确保信息准确可靠。',
+  },
+  {
+    icon: Zap,
+    title: 'AI赋能',
+    desc: '运用AI技术实现法规智能匹配、风险自动识别和初诊报告自动生成。',
+  },
+  {
+    icon: Shield,
+    title: '全程合规',
+    desc: '覆盖出海前、运营中、纠纷后全流程，提供嵌入式合规支持服务。',
+  },
+  {
+    icon: Target,
+    title: '精准匹配',
+    desc: '根据企业规模、业务场景和预算，精准匹配合规要求与服务机构。',
+  },
+];
+
+const AboutSection: React.FC = () => {
+  return (
+    <section id="about" className="py-16 md:py-24 bg-secondary/30">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+            关于律航出海
+          </h2>
+        </div>
+
+        {/* About Content */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <Card className="shadow-card">
+            <CardContent className="p-6 md:p-10">
+              <p className="text-base md:text-lg text-foreground leading-relaxed mb-6 text-pretty">
+                律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供
+                <span className="font-semibold text-primary">低成本、可追踪、嵌入式</span>
+                的合规支持服务。
+              </p>
+              <div className="bg-primary/5 border-l-4 border-l-primary rounded-r-lg p-5">
+                <p className="text-base md:text-lg text-foreground font-medium text-pretty">
+                  我们的使命，是让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Value Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {values.map((value, index) => (
+            <Card key={index} className="shadow-card hover:shadow-hover transition-shadow h-full flex flex-col">
+              <CardContent className="p-5 flex flex-col h-full">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <value.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
+                <p className="text-sm text-muted-foreground flex-1 text-pretty">{value.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutSection;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/components/home/AboutSection.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/pages/HomePage.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React from 'react';
+import HeroSection from '@/components/home/HeroSection';
+import LawSection from '@/components/home/LawSection';
+import NewsSection from '@/components/home/NewsSection';
+import AgencySection from '@/components/home/AgencySection';
+import AboutSection from '@/components/home/AboutSection';
+
+const HomePage: React.FC = () => {
+  return (
+    <>
+      <HeroSection />
+      <LawSection />
+      <NewsSection />
+      <AgencySection />
+      <AboutSection />
+    </>
+  );
+};
+
+export default HomePage;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/pages/HomePage.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/pages/LoginPage.tsx]
+Thought: 
+Command: create
+Created File with Text:
+```
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Scale, Eye, EyeOff, ArrowLeft } from 'lucide-react';
+import { toast } from 'sonner';
+
+const LoginPage: React.FC = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loginForm, setLoginForm] = useState({ username: '', password: '' });
+  const [registerForm, setRegisterForm] = useState({
+    username: '',
+    password: '',
+    confirmPassword: '',
+    email: '',
+  });
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!loginForm.username || !loginForm.password) {
+      toast.error('请填写用户名和密码');
+      return;
+    }
+    toast.success('登录成功（演示模式）');
+  };
+
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!registerForm.username || !registerForm.password || !registerForm.email) {
+      toast.error('请填写所有必填项');
+      return;
+    }
+    if (registerForm.password !== registerForm.confirmPassword) {
+      toast.error('两次输入的密码不一致');
+      return;
+    }
+    if (registerForm.password.length < 8) {
+      toast.error('密码长度不少于8位');
+      return;
+    }
+    toast.success('注册成功（演示模式）');
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-b from-primary/5 to-background">
+      <div className="w-full max-w-md">
+        <div className="mb-8 text-center">
+          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6">
+            <ArrowLeft className="w-4 h-4" />
+            <span className="text-sm">返回首页</span>
+          </Link>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Scale className="w-8 h-8 text-primary" />
+            <span className="text-2xl font-bold text-foreground">律航出海</span>
+          </div>
+          <p className="text-sm text-muted-foreground">法律AI智能体 · 非洲制造业合规平台</p>
+        </div>
+
+        <Card className="shadow-card">
+          <Tabs defaultValue="login" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="login">登录</TabsTrigger>
+              <TabsTrigger value="register">注册</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="login">
+              <form onSubmit={handleLogin}>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl">欢迎回来</CardTitle>
+                  <CardDescription>登录后体验完整的合规初诊与机构推荐服务</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="login-username">用户名</Label>
+                    <Input
+                      id="login-username"
+                      placeholder="请输入用户名"
+                      value={loginForm.username}
+                      onChange={(e) => setLoginForm((p) => ({ ...p, username: e.target.value }))}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor="login-password">密码</Label>
+                      <button type="button" className="text-xs text-primary hover:underline">
+                        忘记密码？
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <Input
+                        id="login-password"
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="请输入密码"
+                        value={loginForm.password}
+                        onChange={(e) => setLoginForm((p) => ({ ...p, password: e.target.value }))}
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  </div>
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 h-11">
+                    登录
+                  </Button>
+                </CardContent>
+              </form>
+            </TabsContent>
+
+            <TabsContent value="register">
+              <form onSubmit={handleRegister}>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl">创建账号</CardTitle>
+                  <CardDescription>注册后即可使用合规初诊与机构匹配服务</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="register-username">用户名</Label>
+                    <Input
+                      id="register-username"
+                      placeholder="请输入用户名"
+                      value={registerForm.username}
+                      onChange={(e) => setRegisterForm((p) => ({ ...p, username: e.target.value }))}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="register-email">邮箱</Label>
+                    <Input
+                      id="register-email"
+                      type="email"
+                      placeholder="请输入邮箱"
+                      value={registerForm.email}
+                      onChange={(e) => setRegisterForm((p) => ({ ...p, email: e.target.value }))}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="register-password">密码</Label>
+                    <div className="relative">
+                      <Input
+                        id="register-password"
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="密码不少于8位"
+                        value={registerForm.password}
+                        onChange={(e) => setRegisterForm((p) => ({ ...p, password: e.target.value }))}
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="register-confirm">确认密码</Label>
+                    <div className="relative">
+                      <Input
+                        id="register-confirm"
+                        type={showConfirmPassword ? 'text' : 'password'}
+                        placeholder="请再次输入密码"
+                        value={registerForm.confirmPassword}
+                        onChange={(e) => setRegisterForm((p) => ({ ...p, confirmPassword: e.target.value }))}
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      >
+                        {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  </div>
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 h-11">
+                    注册
+                  </Button>
+                </CardContent>
+              </form>
+            </TabsContent>
+          </Tabs>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default LoginPage;
+
+```
+
+</action>
+<observation>
+File created successfully at: /workspace/app-bjm4peyd3x8h/src/pages/LoginPage.tsx
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/routes.tsx]
+Thought: 
+Command: str_replace
+Old String: ```
+import SamplePage from './pages/SamplePage';
+import type { ReactNode } from 'react';
+
+export interface RouteConfig {
+  name: string;
+  path: string;
+  element: ReactNode;
+  visible?: boolean;
+  /** Accessible without login. Routes without this flag require authentication. Has no effect when RouteGuard is not in use. */
+  public?: boolean;
+}
+
+export const routes: RouteConfig[] = [
+  {
+    name: 'Sample Page',
+    path: '/',
+    element: <SamplePage />,
+    public: true,
+  }
+];
+
+```
+New String: ```
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import type { ReactNode } from 'react';
+
+export interface RouteConfig {
+  name: string;
+  path: string;
+  element: ReactNode;
+  visible?: boolean;
+  /** Accessible without login. Routes without this flag require authentication. Has no effect when RouteGuard is not in use. */
+  public?: boolean;
+}
+
+export const routes: RouteConfig[] = [
+  {
+    name: '首页',
+    path: '/',
+    element: <HomePage />,
+    public: true,
+  },
+  {
+    name: '登录',
+    path: '/login',
+    element: <LoginPage />,
+    public: true,
+  },
+];
+
+```
+
+</action>
+<observation>
+The file /workspace/app-bjm4peyd3x8h/src/routes.tsx has been edited.
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/App.tsx]
+Thought: 
+Command: str_replace
+Old String: ```
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import IntersectObserver from '@/components/common/IntersectObserver';
+import { Toaster } from '@/components/ui/sonner';
+
+import { routes } from './routes';
+
+// import { AuthProvider } from '@/contexts/AuthContext';
+// import { RouteGuard } from '@/components/common/RouteGuard';
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      {/*<AuthProvider>*/}
+      {/*<RouteGuard>*/}
+      <IntersectObserver />
+      <div className="flex flex-col min-h-screen">
+        {/*<Header />*/}
+        <main className="flex-grow">
+          <Routes>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={route.element}
+            />
+          ))}
+          <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+      </div>
+      <Toaster />
+      {/*</RouteGuard>*/}
+      {/*</AuthProvider>*/}
+    </Router>
+  );
+};
+
+export default App;
+
+```
+New String: ```
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import IntersectObserver from '@/components/common/IntersectObserver';
+import { Toaster } from '@/components/ui/sonner';
+import MainLayout from '@/components/layouts/MainLayout';
+
+import { routes } from './routes';
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <IntersectObserver />
+      <div className="flex flex-col min-h-screen">
+        <Toaster />
+        <Routes>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={
+                route.path === '/login' ? (
+                  route.element
+                ) : (
+                  <MainLayout showFooter={route.path === '/'}>
+                    {route.element}
+                  </MainLayout>
+                )
+              }
+            />
+          ))}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+export default App;
+
+```
+
+</action>
+<observation>
+The file /workspace/app-bjm4peyd3x8h/src/App.tsx has been edited.
+
+</observation>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/index.css]
+Thought: 
+Command: str_replace
+Old String: ```
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --info: 217 91% 60%;
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 34%), hsl(210 100% 50%));
+```
+New String: ```
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 34%), hsl(210 100% 50%));
+```
+
+</action>
+<observation>
+The file /workspace/app-bjm4peyd3x8h/src/index.css has been edited.
+
+</observation>
+<action>
+**CmdRunAction (source=EventSource.AGENT, is_input=False)**
+COMMAND:
+cd /workspace/app-bjm4peyd3x8h && npm run lint 2>&1
+</action>
+<observation>
+**CmdOutputObservation (source=EventSource.AGENT, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": null,
+  "hostname": null,
+  "working_dir": "/workspace/app-bjm4peyd3x8h",
+  "py_interpreter_path": null,
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+Checked 82 files in 166ms. No fixes applied.
+[The command completed with exit code 0.]
+[Current working directory: /workspace/app-bjm4peyd3x8h]
+--END AGENT OBSERVATION--
+</observation>
+<action>
+TodoAction(todos=[TodoItem(id='1', status='completed', priority='high', content='初始化项目并配置设计系统（颜色、字体、全局样式）', details='', group=None, agent_name=None), TodoItem(id='2', status='completed', priority='high', content='创建页面布局和导航组件', details='', group=None, agent_name=None), TodoItem(id='3', status='completed', priority='high', content='实现首屏 Hero 区', details='', group=None, agent_name=None), TodoItem(id='4', status='completed', priority='high', content='实现法规库模块（含合规初诊工具）', details='', group=None, agent_name=None), TodoItem(id='5', status='completed', priority='high', content='实现资讯库模块', details='', group=None, agent_name=None), TodoItem(id='6', status='completed', priority='high', content='实现机构推荐模块', details='', group=None, agent_name=None), TodoItem(id='7', status='completed', priority='high', content='实现关于我们模块和底部版权栏', details='', group=None, agent_name=None), TodoItem(id='8', status='completed', priority='medium', content='实现登录/注册页面', details='', group=None, agent_name=None), TodoItem(id='9', status='completed', priority='high', content='配置路由并完善响应式设计', details='', group=None, agent_name=None), TodoItem(id='10', status='completed', priority='high', content='运行lint检查并修复问题', details='', group=None, agent_name=None)], command='update', thought='', action=<ActionType.TODO: 'todo'>, content='')
+</action>
+<observation>
+TodoObservation(content='<system-reminder>\nYour todo list has changed. Here are the latest contents of your todo list:\n\n1. 初始化项目并配置设计系统（颜色、字体、全局样式） *high* [completed]\n\n2. 创建页面布局和导航组件 *high* [completed]\n\n3. 实现首屏 Hero 区 *high* [completed]\n\n4. 实现法规库模块（含合规初诊工具） *high* [completed]\n\n5. 实现资讯库模块 *high* [completed]\n\n6. 实现机构推荐模块 *high* [completed]\n\n7. 实现关于我们模块和底部版权栏 *high* [completed]\n\n8. 实现登录/注册页面 *medium* [completed]\n\n9. 配置路由并完善响应式设计 *high* [completed]\n\n10. 运行lint检查并修复问题 *high* [completed]\n</system-reminder>', state=TodoState(items=[TodoItem(id='1', status='completed', priority='high', content='初始化项目并配置设计系统（颜色、字体、全局样式）', details='', group=None, agent_name=None), TodoItem(id='2', status='completed', priority='high', content='创建页面布局和导航组件', details='', group=None, agent_name=None), TodoItem(id='3', status='completed', priority='high', content='实现首屏 Hero 区', details='', group=None, agent_name=None), TodoItem(id='4', status='completed', priority='high', content='实现法规库模块（含合规初诊工具）', details='', group=None, agent_name=None), TodoItem(id='5', status='completed', priority='high', content='实现资讯库模块', details='', group=None, agent_name=None), TodoItem(id='6', status='completed', priority='high', content='实现机构推荐模块', details='', group=None, agent_name=None), TodoItem(id='7', status='completed', priority='high', content='实现关于我们模块和底部版权栏', details='', group=None, agent_name=None), TodoItem(id='8', status='completed', priority='medium', content='实现登录/注册页面', details='', group=None, agent_name=None), TodoItem(id='9', status='completed', priority='high', content='配置路由并完善响应式设计', details='', group=None, agent_name=None), TodoItem(id='10', status='completed', priority='high', content='运行lint检查并修复问题', details='', group=None, agent_name=None)], updated_at='2026-05-10T12:47:22.326205+00:00'), system_reminder='', observation=<ObservationType.TODO: 'todo'>)
+</observation>
+<observation>
+Command `bash /workspace/.miaoda/commit.sh app-bjm4peyd3x8h SVNTVUU6ICMgSXNzdWUK5a6e546w5b6L6Iiq5Ye65rW35rOV5b6LQUnmmbrog73kvZPnvZHnq5kK` executed with exit code 0.
+</observation>
+<action>
+**MCPAction**
+NAME: generate_success
+ARGUMENTS: {'appId': 'app-bjm4peyd3x8h', 'userId': 'user-b9uiw66jbj0g', 'prd_content': '# 需求文档\n\n## 1. 应用概述\n\n### 1.1 应用名称\n律航出海·法律AI智能体\n\n### 1.2 应用描述\n律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n\n## 2. 用户与使用场景\n\n### 2.1 目标用户\n- 计划或已在非洲开展制造业务的中国企业\n- 需要了解非洲制造业合规要求的企业决策者\n- 寻找非洲本地合规服务机构的企业\n\n### 2.2 核心使用场景\n- 企业出海前期：查询目的国法规要求，使用合规初诊工具评估合规风险\n- 企业运营期间：追踪法规更新动态，获取合规资讯\n- 寻求专业服务：筛选匹配本地合规服务机构\n\n## 3. 页面结构与功能说明\n\n### 3.1 页面结构\n\n```\n律航出海网站（单页面应用）\n├── 导航栏（固定顶部）\n├── 首屏 Hero 区\n├── 法规库模块\n├── 资讯库模块\n├── 机构推荐模块\n├── 关于我们模块\n├── 底部版权栏\n└── 登录/注册页面\n```\n\n### 3.2 导航栏\n\n**功能说明**\n- 固定在页面顶部，支持锚点跳转至各模块\n- 导航项：首页、法规库、资讯库、机构推荐、关于我们、登录\n- 点击导航项平滑滚动至对应模块\n- 点击「登录」跳转至登录页面\n\n### 3.3 首屏 Hero 区\n\n**功能说明**\n- 展示平台核心信息与价值主张\n- 内容包含：\n  - 主标题：律航出海·法律AI智能体\n  - 副标题：非洲制造业法律数据整合 + 合规机构智能筛选匹配\n  - 平台简介：依托高校法学专业资源，融合AI技术与权威法律数据库，为出海企业提供低成本、可追踪、嵌入式全流程合规支持，高效打通非洲出海合规「最后一公里」。\n  - 两个行动按钮：\n    - 「立即体验合规初诊」：点击后跳转至法规库模块的合规初诊工具\n    - 「了解我们的服务」：点击后跳转至关于我们模块\n\n### 3.4 法规库模块\n\n**3.4.1 模块标题与说明**\n- 模块标题：非洲制造业合规法规库\n- 模块说明：聚焦非洲重点制造业国家，提供结构化、可检索、带场景标注的法律原文，帮你快速定位合规要点，避免踩坑。\n\n**3.4.2 核心功能**\n\n**功能1：人工标注+法规整合**\n- 展示基于非洲本地权威数据库收录的制造业高频法规与判例\n- 每条法规包含以下标注信息：\n  - 适用场景\n  - 效力层级\n  - 处罚条款\n  - 生效/修订时间\n- 支持查看法规原文\n\n**功能2：制造业高频场景分类**\n- 提供七大场景分类标签：海关进出口、劳工雇佣、数据安全、环保合规、税务、产品认证、知识产权\n- 用户可按场景标签筛选法规\n- 展示符合筛选条件的法规列表\n\n**功能3：合规初诊工具**\n- 提供可交互表单，用户输入以下信息：\n  - 目的国（下拉选择）\n  - 企业规模（下拉选择）\n  - 业务场景（多选，对应七大场景分类）\n  - 预算区间（下拉选择）\n- 用户提交表单后，系统自动匹配法规要点\n- 生成定制化合规初诊报告，报告内容包含：\n  - 匹配的法规要点\n  - 法规原文链接\n  - 高风险提示\n- 支持下载或查看报告\n\n### 3.5 资讯库模块\n\n**3.5.1 模块标题与说明**\n- 模块标题：非洲合规动态资讯库\n- 模块说明：实时更新中非合作政策、法规修订动态与行业合规热点，让你随时掌握出海环境变化。\n\n**3.5.2 核心功能**\n\n**功能1：中非合作新闻**\n- 展示收录的中非合作论坛、中国驻非使馆公告、主流财经媒体发布的制造业投资政策与合作动态\n- 支持按国家、行业、政策类型分类筛选\n- 每条新闻包含标题、摘要、发布时间、来源\n- 点击新闻可查看详细内容\n\n**功能2：合规热点追踪**\n- 展示基于行业热议度识别的热点事件\n- 每条热点包含：\n  - 事件背景\n  - 涉事法规\n  - 企业应对案例\n  - 「热点合规风险提示」\n- 点击热点可查看详细内容\n\n**功能3：法规更新动态**\n- 展示非洲各国法规修订信息（修订/新增/废止）\n- 每条更新动态包含：\n  - 国家\n  - 法规名称\n  - 更新类型（修订/新增/废止）\n  - 更新内容摘要\n  - 更新时间\n- 点击动态可查看详细内容\n\n### 3.6 机构推荐模块\n\n**3.6.1 模块标题与说明**\n- 模块标题：非洲本地合规机构推荐\n- 模块说明：联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。\n\n**3.6.2 核心功能**\n\n**功能1：商会背书的本地机构名单**\n- 展示经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等机构\n- 每个机构展示核心信息：\n  - 机构名称\n  - 机构类型\n  - 所在国家\n  - 推荐商会/协会\n\n**功能2：按制造业场景精准分类**\n- 提供场景标签分类：劳工合规、税务咨询、海关报关、知识产权、环保认证等\n- 支持按目的国、服务场景、预算区间筛选机构\n- 展示符合筛选条件的机构列表\n\n**功能3：透明化信息呈现**\n- 每个机构附详细信息：\n  - 机构简介\n  - 服务范围\n  - 典型案例\n  - 联系方式入口（点击后显示联系方式或跳转至外部链接）\n\n### 3.7 关于我们模块\n\n**功能说明**\n- 模块标题：关于律航出海\n- 展示平台介绍与使命：\n  - 律航出海是由高校法学专业团队打造的法律AI智能体，聚焦非洲制造业出海企业的合规痛点，通过整合权威法律数据库、AI技术与本地合规资源，提供低成本、可追踪、嵌入式的合规支持服务。\n  - 使命：让中小制造企业在非洲出海路上，合规不再成为门槛，让每一步都走得更稳、更安心。\n\n### 3.8 底部版权栏\n\n**功能说明**\n- 展示版权信息与相关链接：\n  - © 2026 律航出海\n  - 浙ICP备XXXXXXXX号\n  - 隐私政策（点击跳转至隐私政策页面）\n  - 使用条款（点击跳转至使用条款页面）\n\n### 3.9 登录/注册页面\n\n**3.9.1 登录页面**\n- 用户输入用户名、密码完成登录\n- 提供「忘记密码」入口\n- 提供「还没有账号？立即注册」入口，点击跳转至注册页面\n\n**3.9.2 注册页面**\n- 用户输入用户名、密码、确认密码、邮箱完成注册\n- 提供「已有账号？立即登录」入口，点击跳转至登录页面\n\n## 4. 业务规则与逻辑\n\n### 4.1 合规初诊工具逻辑\n- 用户提交表单后，系统根据用户输入的目的国、企业规模、业务场景、预算区间，自动匹配法规库中的相关法规\n- 匹配规则：\n  - 目的国：精确匹配\n  - 业务场景：匹配用户选择的场景标签\n  - 企业规模与预算区间：作为辅助筛选条件\n- 生成报告时，优先展示高风险法规，附法规原文链接\n\n### 4.2 资讯库更新逻辑\n- 中非合作新闻、合规热点追踪、法规更新动态由后端定期更新\n- 用户访问资讯库时，展示最新内容\n\n### 4.3 机构推荐筛选逻辑\n- 用户选择筛选条件后，系统根据目的国、服务场景、预算区间匹配机构\n- 匹配规则：\n  - 目的国：精确匹配\n  - 服务场景：匹配机构的服务范围标签\n  - 预算区间：匹配机构的服务价格区间\n\n### 4.4 登录/注册逻辑\n- 注册时，系统验证用户名唯一性、密码强度、邮箱格式\n- 登录时，系统验证用户名与密码匹配\n- 登录成功后，用户可访问需要登录权限的功能（如保存合规初诊报告）\n\n## 5. 异常与边界情况\n\n| 场景 | 异常情况 | 处理方式 |\n|------|----------|----------|\n| 合规初诊工具 | 用户未填写必填项 | 提示用户补全信息 |\n| 合规初诊工具 | 系统无法匹配到相关法规 | 提示「暂无匹配结果，请调整筛选条件」 |\n| 资讯库 | 暂无资讯内容 | 提示「暂无资讯，敬请期待」 |\n| 机构推荐 | 筛选条件无匹配机构 | 提示「暂无匹配机构，请调整筛选条件」 |\n| 登录 | 用户名或密码错误 | 提示「用户名或密码错误，请重试」 |\n| 注册 | 用户名已存在 | 提示「用户名已被注册，请更换」 |\n| 注册 | 密码强度不足 | 提示「密码需包含字母、数字，长度不少于8位」 |\n| 注册 | 邮箱格式错误 | 提示「请输入正确的邮箱格式」 |\n\n## 6. 验收标准\n\n1. 用户访问网站首页，查看首屏 Hero 区的平台介绍\n2. 用户点击「立即体验合规初诊」按钮，跳转至法规库模块的合规初诊工具\n3. 用户填写目的国、企业规模、业务场景、预算区间，提交表单\n4. 系统生成定制化合规初诊报告，用户查看报告内容（包含法规要点、法规原文链接、高风险提示）\n5. 用户通过导航栏跳转至机构推荐模块，按目的国、服务场景筛选机构\n6. 用户查看符合条件的机构列表，点击某个机构查看详细信息（简介、服务范围、典型案例、联系方式）\n\n## 7. 本期不实现功能\n\n- 用户个人中心（如保存历史报告、收藏机构等）\n- 在线支付功能\n- 机构评价与评分系统\n- 多语言版本（仅支持中文）\n- 移动端独立App\n- 用户之间的社交互动功能（如论坛、问答社区）\n- 法规库的用户自定义标注功能\n- 资讯库的订阅推送功能\n- 机构推荐的在线预约功能'}
+</action>
+<observation>
+**MCPObservation**
+NAME: generate_success
+RESULTS: {"hasConfigStripe":false,"hasConfigWechat":false,"pluginConfigs":[],"supportStripe":false,"supportWechat":false,"versionDesc":"实现律航出海法律AI智能体网站","versionId":"app_version-bjm9xycopeyo","versionLabel":"v1"}
+</observation>
+<action>
+AgentFinishAction(final_thought='# Summary\n律航出海·法律AI智能体网站已开发完成，包含完整的单页面应用（SPA），涵盖导航栏、Hero首屏、法规库（含可交互合规初诊工具）、资讯库（中非合作新闻/合规热点/法规更新三栏切换）、机构推荐（多维度筛选）及关于我们模块。采用深蓝色商务风格设计，支持PC与移动端响应式布局，lint检查零报错。', commit_message='# Issue\n实现律航出海法律AI智能体网站', task_completed='true', outputs={'status': 'success', 'behavior': 'generate_app', 'suggested_questions': [{'title': '添加用户中心', 'query': '添加用户个人中心页面，支持保存历史初诊报告和收藏机构'}, {'title': '接入AI问答', 'query': '添加AI智能客服功能，支持法规咨询和合规建议问答'}, {'title': '多语言版本', 'query': '添加英文版本，支持中英文切换'}], 'type': 'standard_script', 'finish_type': 'end_code', 'button_actions': [{'type': 'button', 'event': {'args': {'versionId': 'app_version-bjm9xycopeyo', 'versionDesc': '实现律航出海法律AI智能体网站', 'versionLabel': 'v1'}, 'name': 'rollback'}, 'label': '恢复', 'value': '恢复'}], 'app_id': 'app-bjm4peyd3x8h', 'version_id': 'app_version-bjm9xycopeyo', 'user_id': 'user-b9uiw66jbj0g'}, thought='', action=<ActionType.FINISH: 'finish'>)
+</action>
+<action>
+**MessageAction** (source=EventSource.USER)
+CONTENT: 机构推荐板块：一、律师事务所（按制造业场景分类）
+### 1. 投资设立 / 公司注册合规
+- ENS
+- Bowmans
+- Cliffe Dekker Hofmeyr
+- ALN 网络成员所
+- DLA Piper Africa 成员所
+
+### 2. 劳工用工 / 雇佣合规
+- ENS
+- Webber Wentzel
+- Bentsi-Enchill（加纳）
+- G. Elias（尼日利亚）
+- 本地华人律所
+
+### 3. 海关贸易 / 进出口合规
+- ENS
+- Bowmans
+- ALN 网络成员所
+- DLA Piper Africa 成员所
+
+### 4. 税务合规 / 争议解决
+- ENS
+- Cliffe Dekker Hofmeyr
+- Webber Wentzel
+- 各国本土头部律所
+
+### 5. 环保合规 / 安全生产
+- ENS
+- Bowmans
+- Webber Wentzel
+- 本地资质律所
+
+---
+
+## 二、会计师事务所（按制造业场景分类）
+### 1. 财务审计 / 年度报表
+- Deloitte
+- KPMG
+- EY
+- PwC
+- Akintola Williams Deloitte
+
+### 2. 制造业税务筹划 / 申报
+- Deloitte
+- KPMG
+- 法语区本土头部事务所
+- 本地中小会计师事务所（适配中资）
+
+### 3. 跨境财税 / 外汇合规
+- Deloitte
+- KPMG
+- EY
+- PwC
+
+### 4. 成本核算 / 薪酬记账
+- 四大会计师事务所
+- 各国本土财税机构
+
+---
+
+## 三、人力资源匹配机构（按制造业场景分类）
+### 1. 普工 / 技工 / 操作工招聘
+- Adcorp Group
+- 9cv9
+- 各国本地劳务派遣机构
+
+### 2. 技术人才 / 管理岗招聘
+- Andela
+- TalentQL
+- 9cv9
+- Adcorp Group
+
+### 3. 薪酬发放 / 社保公积金
+- Adcorp Group
+- 本地正规人力机构
+
+### 4. 用工外包 / 岗位派遣
+- 各国本地持证猎头与派遣公司
+- Adcorp Group
+
+</action>
+<action>
+**RecallAction**
+QUERY: 机构推荐板块：一、律师事务所（按制造业场景分类）
+### 1. 投资设立 / 公司注册合规
+- EN
+</action>
+<action>
+**MessageAction** (source=EventSource.AGENT)
+CONTENT: 收到，我将根据您提供的机构推荐数据更新对应板块，请稍候
+</action>
+<action>
+**FileEditAction**
+Path: [/workspace/app-bjm4peyd3x8h/src/components/home/AgencySection.tsx]
+Thought: 
+Command: str_replace
+Old String: ```
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  Building2,
+  Users,
+  Filter,
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  Award,
+  Briefcase,
+  Star,
+} from 'lucide-react';
+
+const serviceScenes = [
+  { id: 'labor', label: '劳工合规' },
+  { id: 'tax', label: '税务咨询' },
+  { id: 'customs', label: '海关报关' },
+  { id: 'ip', label: '知识产权' },
+  { id: 'env', label: '环保认证' },
+  { id: 'legal', label: '法律诉讼' },
+];
+
+const agencies = [
+  {
+    id: 1,
+    name: 'Nigerian Business Law Associates',
+    type: '律师事务所',
+    country: '尼日利亚',
+    city: '拉各斯',
+    scenes: ['labor', 'ip', 'legal'],
+    budgetRange: '50-200万元',
+    endorser: '尼日利亚制造商协会（MAN）',
+    description: '成立于2005年，专注于为制造业企业提供全流程法律服务，在劳工纠纷和知识产权领域拥有丰富经验。',
+    cases: '曾代理某中资纺织企业成功处理200人规模的劳工集体诉讼案',
+    rating: 4.8,
+    contact: {
+      phone: '+234 1 277 8888',
+      email: 'contact@nbla.ng',
+      website: 'www.nbla.ng',
+    },
+  },
+  {
+    id: 2,
+    name: 'Kenya Compliance Partners',
+    type: '合规咨询公司',
+    country: '肯尼亚',
+    city: '内罗毕',
+    scenes: ['tax', 'customs', 'env'],
+    budgetRange: '10-50万元',
+    endorser: '肯尼亚投促局（KenInvest）',
+    description: '专注于税务合规和海关事务，拥有15名持牌税务顾问，服务覆盖东非共同体所有成员国。',
+    cases: '帮助50+制造企业完成税务优化，平均节省税务成本15%',
+    rating: 4.6,
+    contact: {
+      phone: '+254 20 222 3333',
+      email: 'info@kcp.co.ke',
+      website: 'www.kcp.co.ke',
+    },
+  },
+  {
+    id: 3,
+    name: 'South Africa IP & Legal Services',
+    type: '律师事务所',
+    country: '南非',
+    city: '约翰内斯堡',
+    scenes: ['ip', 'legal', 'env'],
+    budgetRange: '50-200万元',
+    endorser: '南非制造商协会（MANSA）',
+    description: '南非领先的知识产权法律服务机构，擅长专利注册、商标保护和商业秘密管理。',
+    cases: '代理某中资汽车零部件企业完成南非全套专利布局，覆盖12项核心技术',
+    rating: 4.9,
+    contact: {
+      phone: '+27 11 333 4444',
+      email: 'consult@saipls.co.za',
+      website: 'www.saipls.co.za',
+    },
+  },
+  {
+    id: 4,
+    name: 'Ethiopia Tax & Advisory Group',
+    type: '会计师事务所',
+    country: '埃塞俄比亚',
+    city: '亚的斯亚贝巴',
+    scenes: ['tax', 'customs'],
+    budgetRange: '< 10万元',
+    endorser: '埃塞俄比亚商会',
+    description: '本地化税务和会计服务团队，精通埃塞俄比亚投资法和税务法规，为中资企业提供双语服务。',
+    cases: '协助30+中资制造企业完成税务登记和年度审计',
+    rating: 4.5,
+    contact: {
+      phone: '+251 11 555 6666',
+      email: 'service@etag.et',
+      website: 'www.etag.et',
+    },
+  },
+  {
+    id: 5,
+    name: 'Egypt Labor & Employment Experts',
+    type: '律师事务所',
+    country: '埃及',
+    city: '开罗',
+    scenes: ['labor', 'legal'],
+    budgetRange: '10-50万元',
+    endorser: '埃及工业联合会',
+    description: '专注埃及劳动法领域，为企业提供劳动合同审核、劳动争议调解和仲裁代理服务。',
+    cases: '成功调解多起中埃合资企业劳资纠纷，保持100%和解率',
+    rating: 4.7,
+    contact: {
+      phone: '+20 2 777 8888',
+      email: 'office@elee.eg',
+      website: 'www.elee.eg',
+    },
+  },
+  {
+    id: 6,
+    name: 'Tanzania Environmental Compliance Ltd',
+    type: '合规咨询公司',
+    country: '坦桑尼亚',
+    city: '达累斯萨拉姆',
+    scenes: ['env', 'customs'],
+    budgetRange: '10-50万元',
+    endorser: '坦桑尼亚制造商协会',
+    description: '坦桑尼亚首家专注环保合规的咨询机构，拥有国家级环评资质，可提供一站式环评和认证服务。',
+    cases: '完成40+制造业项目环评，通过率100%',
+    rating: 4.4,
+    contact: {
+      phone: '+255 22 999 0000',
+      email: 'projects@tecl.co.tz',
+      website: 'www.tecl.co.tz',
+    },
+  },
+];
+
+const countries = ['全部', '尼日利亚', '肯尼亚', '南非', '埃塞俄比亚', '埃及', '坦桑尼亚'];
+const budgets = ['全部', '< 10万元', '10-50万元', '50-200万元', '> 200万元'];
+
+const AgencySection: React.FC = () => {
+  const [selectedCountry, setSelectedCountry] = useState('全部');
+  const [selectedScene, setSelectedScene] = useState<string | null>(null);
+  const [selectedBudget, setSelectedBudget] = useState('全部');
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selectedAgency, setSelectedAgency] = useState<typeof agencies[0] | null>(null);
+
+  const filteredAgencies = agencies.filter((a) => {
+    const countryMatch = selectedCountry === '全部' || a.country === selectedCountry;
+    const sceneMatch = !selectedScene || a.scenes.includes(selectedScene);
+    const budgetMatch = selectedBudget === '全部' || a.budgetRange === selectedBudget;
+    return countryMatch && sceneMatch && budgetMatch;
+  });
+
+  const handleOpenDetail = (agency: typeof agencies[0]) => {
+    setSelectedAgency(agency);
+    setDetailOpen(true);
+  };
+
+  return (
+    <section id="agencies" className="py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+            非洲本地合规机构推荐
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。
+          </p>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Building2 className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">商会背书的本地机构名单</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                收录经非洲本地商会、行业协会推荐的律师事务所、合规咨询公司、会计师事务所等。自动抓取并整理机构核心信息：业务领域、服务国家、制造业服务案例、收费区间。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Filter className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">按制造业场景精准分类</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                按劳工合规、税务咨询、海关报关、知识产权、环保认证等场景标签分类展示。支持按目的国、服务场景、预算区间筛选，快速匹配你的企业需求。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Users className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">透明化信息呈现</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                每个机构附简介、服务范围、典型案例与联系方式入口，帮你高效对接本地合规资源。
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Filters */}
+        <div className="mb-8 space-y-4">
+          <h3 className="text-lg font-semibold">筛选条件</h3>
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full md:w-auto">
+              <label className="text-xs text-muted-foreground mb-1.5 block">目的国</label>
+              <Select value={selectedCountry} onValueChange={setSelectedCountry}>
+                <SelectTrigger className="w-full md:w-[180px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {countries.map((c) => (
+                    <SelectItem key={c} value={c}>{c}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="w-full md:w-auto">
+              <label className="text-xs text-muted-foreground mb-1.5 block">服务场景</label>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  variant={selectedScene === null ? 'default' : 'outline'}
+                  size="sm"
+                  className={selectedScene === null ? 'bg-primary' : ''}
+                  onClick={() => setSelectedScene(null)}
+                >
+                  全部
+                </Button>
+                {serviceScenes.map((scene) => (
+                  <Button
+                    key={scene.id}
+                    variant={selectedScene === scene.id ? 'default' : 'outline'}
+                    size="sm"
+                    className={selectedScene === scene.id ? 'bg-primary' : ''}
+                    onClick={() => setSelectedScene(scene.id)}
+                  >
+                    {scene.label}
+                  </Button>
+                ))}
+              </div>
+            </div>
+            <div className="w-full md:w-auto">
+              <label className="text-xs text-muted-foreground mb-1.5 block">预算区间</label>
+              <Select value={selectedBudget} onValueChange={setSelectedBudget}>
+                <SelectTrigger className="w-full md:w-[180px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {budgets.map((b) => (
+                    <SelectItem key={b} value={b}>{b}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+        </div>
+
+        {/* Agency Grid */}
+        {filteredAgencies.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredAgencies.map((agency) => (
+              <Card key={agency.id} className="shadow-card hover:shadow-hover transition-shadow h-full flex flex-col cursor-pointer" onClick={() => handleOpenDetail(agency)}>
+                <CardContent className="p-5 flex flex-col h-full">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-foreground text-base mb-1 truncate">{agency.name}</h4>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <Badge variant="secondary" className="text-xs">{agency.type}</Badge>
+                        <Badge variant="outline" className="text-xs">{agency.country}</Badge>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 shrink-0 ml-2">
+                      <Star className="w-3.5 h-3.5 text-warning fill-warning" />
+                      <span className="text-sm font-medium">{agency.rating}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground mb-3">
+                    <MapPin className="w-3.5 h-3.5 shrink-0" />
+                    <span className="truncate">{agency.city}</span>
+                  </div>
+
+                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2 text-pretty flex-1">{agency.description}</p>
+
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {agency.scenes.map((sceneId) => {
+                      const scene = serviceScenes.find((s) => s.id === sceneId);
+                      return scene ? (
+                        <Badge key={sceneId} variant="outline" className="text-xs">{scene.label}</Badge>
+                      ) : null;
+                    })}
+                  </div>
+
+                  <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
+                    <span className="text-xs text-muted-foreground">
+                      收费：{agency.budgetRange}
+                    </span>
+                    <span className="text-xs text-primary font-medium">查看详情</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">暂无匹配机构，请调整筛选条件</p>
+          </div>
+        )}
+      </div>
+
+      {/* Detail Dialog */}
+      <Dialog open={detailOpen} onOpenChange={setDetailOpen}>
+        <DialogContent className="max-w-[calc(100%-2rem)] md:max-w-lg max-h-[90dvh] overflow-y-auto">
+          {selectedAgency && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-xl">{selectedAgency.name}</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4 py-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <Badge variant="secondary">{selectedAgency.type}</Badge>
+                  <Badge variant="outline">{selectedAgency.country}</Badge>
+                  <div className="flex items-center gap-1">
+                    <Star className="w-4 h-4 text-warning fill-warning" />
+                    <span className="text-sm font-medium">{selectedAgency.rating}</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <span>{selectedAgency.city}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Award className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">背书机构：{selectedAgency.endorser}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Briefcase className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">收费区间：{selectedAgency.budgetRange}</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-medium text-sm mb-2">机构简介</h4>
+                  <p className="text-sm text-muted-foreground text-pretty">{selectedAgency.description}</p>
+                </div>
+
+                <div>
+                  <h4 className="font-medium text-sm mb-2">服务场景</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedAgency.scenes.map((sceneId) => {
+                      const scene = serviceScenes.find((s) => s.id === sceneId);
+                      return scene ? (
+                        <Badge key={sceneId} variant="outline" className="text-xs">{scene.label}</Badge>
+                      ) : null;
+                    })}
+                  </div>
+                </div>
+
+                <div className="bg-secondary/50 rounded-lg p-4">
+                  <h4 className="font-medium text-sm mb-2">典型案例</h4>
+                  <p className="text-sm text-muted-foreground text-pretty">{selectedAgency.cases}</p>
+                </div>
+
+                <div>
+                  <h4 className="font-medium text-sm mb-2">联系方式</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <span>{selectedAgency.contact.phone}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <span>{selectedAgency.contact.email}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Globe className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <span>{selectedAgency.contact.website}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+    </section>
+  );
+};
+
+export default AgencySection;
+```
+New String: ```
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import {
+  Scale,
+  Calculator,
+  Users,
+  Building2,
+  Filter,
+  Briefcase,
+  Landmark,
+  Globe,
+} from 'lucide-react';
+
+interface AgencyScene {
+  id: string;
+  label: string;
+  agencies: string[];
+}
+
+interface AgencyCategory {
+  id: string;
+  label: string;
+  icon: React.ElementType;
+  scenes: AgencyScene[];
+}
+
+const agencyData: AgencyCategory[] = [
+  {
+    id: 'law',
+    label: '律师事务所',
+    icon: Scale,
+    scenes: [
+      {
+        id: 'law-establishment',
+        label: '投资设立 / 公司注册合规',
+        agencies: ['ENS', 'Bowmans', 'Cliffe Dekker Hofmeyr', 'ALN 网络成员所', 'DLA Piper Africa 成员所'],
+      },
+      {
+        id: 'law-labor',
+        label: '劳工用工 / 雇佣合规',
+        agencies: ['ENS', 'Webber Wentzel', 'Bentsi-Enchill（加纳）', 'G. Elias（尼日利亚）', '本地华人律所'],
+      },
+      {
+        id: 'law-customs',
+        label: '海关贸易 / 进出口合规',
+        agencies: ['ENS', 'Bowmans', 'ALN 网络成员所', 'DLA Piper Africa 成员所'],
+      },
+      {
+        id: 'law-tax',
+        label: '税务合规 / 争议解决',
+        agencies: ['ENS', 'Cliffe Dekker Hofmeyr', 'Webber Wentzel', '各国本土头部律所'],
+      },
+      {
+        id: 'law-env',
+        label: '环保合规 / 安全生产',
+        agencies: ['ENS', 'Bowmans', 'Webber Wentzel', '本地资质律所'],
+      },
+    ],
+  },
+  {
+    id: 'accounting',
+    label: '会计师事务所',
+    icon: Calculator,
+    scenes: [
+      {
+        id: 'acct-audit',
+        label: '财务审计 / 年度报表',
+        agencies: ['Deloitte', 'KPMG', 'EY', 'PwC', 'Akintola Williams Deloitte'],
+      },
+      {
+        id: 'acct-tax',
+        label: '制造业税务筹划 / 申报',
+        agencies: ['Deloitte', 'KPMG', '法语区本土头部事务所', '本地中小会计师事务所（适配中资）'],
+      },
+      {
+        id: 'acct-crossborder',
+        label: '跨境财税 / 外汇合规',
+        agencies: ['Deloitte', 'KPMG', 'EY', 'PwC'],
+      },
+      {
+        id: 'acct-cost',
+        label: '成本核算 / 薪酬记账',
+        agencies: ['四大会计师事务所', '各国本土财税机构'],
+      },
+    ],
+  },
+  {
+    id: 'hr',
+    label: '人力资源匹配机构',
+    icon: Users,
+    scenes: [
+      {
+        id: 'hr-worker',
+        label: '普工 / 技工 / 操作工招聘',
+        agencies: ['Adcorp Group', '9cv9', '各国本地劳务派遣机构'],
+      },
+      {
+        id: 'hr-talent',
+        label: '技术人才 / 管理岗招聘',
+        agencies: ['Andela', 'TalentQL', '9cv9', 'Adcorp Group'],
+      },
+      {
+        id: 'hr-payroll',
+        label: '薪酬发放 / 社保公积金',
+        agencies: ['Adcorp Group', '本地正规人力机构'],
+      },
+      {
+        id: 'hr-outsourcing',
+        label: '用工外包 / 岗位派遣',
+        agencies: ['各国本地持证猎头与派遣公司', 'Adcorp Group'],
+      },
+    ],
+  },
+];
+
+const getAgencyTagColor = (name: string): string => {
+  const lower = name.toLowerCase();
+  if (lower.includes('四大')) return 'bg-primary/10 text-primary border-primary/20';
+  if (lower.includes('deloitte') || lower.includes('kpmg') || lower.includes('ey') || lower.includes('pwc')) return 'bg-primary/10 text-primary border-primary/20';
+  if (lower.includes('ens')) return 'bg-info/10 text-info border-info/20';
+  if (lower.includes('bowmans')) return 'bg-info/10 text-info border-info/20';
+  if (lower.includes('webber')) return 'bg-info/10 text-info border-info/20';
+  if (lower.includes('cliffe')) return 'bg-info/10 text-info border-info/20';
+  if (lower.includes('aln') || lower.includes('dla')) return 'bg-info/10 text-info border-info/20';
+  if (lower.includes('本地') || lower.includes('各国') || lower.includes('法语区')) return 'bg-secondary text-secondary-foreground border-border';
+  if (lower.includes('adcorp')) return 'bg-success/10 text-success border-success/20';
+  if (lower.includes('9cv9')) return 'bg-success/10 text-success border-success/20';
+  if (lower.includes('andela') || lower.includes('talent')) return 'bg-success/10 text-success border-success/20';
+  return 'bg-secondary text-secondary-foreground border-border';
+};
+
+const AgencySection: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState('law');
+  const [expandedScene, setExpandedScene] = useState<string | null>(null);
+
+  const currentCategory = agencyData.find((c) => c.id === activeCategory);
+
+  const toggleScene = (sceneId: string) => {
+    setExpandedScene((prev) => (prev === sceneId ? null : sceneId));
+  };
+
+  return (
+    <section id="agencies" className="py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+            非洲本地合规机构推荐
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            联合非洲本地商会与行业协会，为你推荐经过筛选的合规服务机构，覆盖制造业全场景需求。
+          </p>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Scale className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">律师事务所</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                覆盖投资设立、劳工用工、海关贸易、税务合规、环保安全五大场景。涵盖ENS、Bowmans、Webber Wentzel等非洲头部律所及ALN、DLA Piper Africa等跨国网络成员所。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Calculator className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">会计师事务所</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                覆盖财务审计、税务筹划、跨境财税、成本核算四大场景。涵盖Deloitte、KPMG、EY、PwC等四大会计师事务所及各国本土适配机构。
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-full flex flex-col shadow-card hover:shadow-hover transition-shadow">
+            <CardHeader className="pb-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <Users className="w-5 h-5 text-primary" />
+              </div>
+              <CardTitle className="text-lg">人力资源匹配机构</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed text-pretty">
+                覆盖普工招聘、技术人才招聘、薪酬发放、用工外包四大场景。涵盖Adcorp Group、Andela、TalentQL、9cv9等专业人力机构及各国本地派遣公司。
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Category Tabs */}
+        <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
+            {agencyData.map((cat) => (
+              <TabsTrigger
+                key={cat.id}
+                value={cat.id}
+                className="text-sm md:text-base flex items-center gap-2"
+              >
+                <cat.icon className="w-4 h-4 hidden md:inline" />
+                {cat.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          {agencyData.map((category) => (
+            <TabsContent key={category.id} value={category.id} className="mt-0">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                {category.scenes.map((scene) => (
+                  <Card
+                    key={scene.id}
+                    className={`shadow-card hover:shadow-hover transition-all cursor-pointer border-l-4 ${
+                      expandedScene === scene.id
+                        ? 'border-l-primary bg-primary/5'
+                        : 'border-l-transparent'
+                    }`}
+                    onClick={() => toggleScene(scene.id)}
+                  >
+                    <CardContent className="p-5">
+                      <div className="flex items-center justify-between mb-4">
+                        <h4 className="font-semibold text-foreground text-base text-balance">
+                          {scene.label}
+                        </h4>
+                        <Badge variant="secondary" className="text-xs shrink-0">
+                          {scene.agencies.length} 家机构
+                        </Badge>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {scene.agencies.map((agencyName) => (
+                          <span
+                            key={agencyName}
+                            className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium border ${getAgencyTagColor(
+                              agencyName
+                            )}`}
+                          >
+                            {agencyName}
+                          </span>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Legend */}
+              <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-sm bg-primary/10 border border-primary/20" />
+                  <span>国际头部机构</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-sm bg-info/10 border border-info/20" />
+                  <span>非洲头部律所</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-sm bg-success/10 border border-success/20" />
+                  <span>专业人力机构</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-sm bg-secondary border border-border" />
+                  <span>本地适配机构</span>
+                </div>
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </div>
+    </section>
+  );
+};
+
+export default AgencySection;
+```
+
+</action>
+<observation>
+The file /workspace/app-bjm4peyd3x8h/src/components/home/AgencySection.tsx has been edited.
+
+</observation>
+<action>
+**CmdRunAction (source=EventSource.AGENT, is_input=False)**
+COMMAND:
+cd /workspace/app-bjm4peyd3x8h && npm run lint 2>&1
+</action>
+<observation>
+**CmdOutputObservation (source=EventSource.AGENT, exit code=0, metadata={
+  "exit_code": 0,
+  "pid": -1,
+  "username": null,
+  "hostname": null,
+  "working_dir": "/workspace/app-bjm4peyd3x8h",
+  "py_interpreter_path": null,
+  "prefix": "",
+  "suffix": "\n[The command completed with exit code 0.]"
+})**
+--BEGIN AGENT OBSERVATION--
+Checked 82 files in 137ms. No fixes applied.
+[The command completed with exit code 0.]
+[Current working directory: /workspace/app-bjm4peyd3x8h]
+--END AGENT OBSERVATION--
+</observation>
+<observation>
+Command `bash /workspace/.miaoda/commit.sh app-bjm4peyd3x8h SVNTVUU6ICMgSXNzdWUK6YeN5p6E5py65p6E5o6o6I2Q5p2/5Z2X5Li65LiJ5aSn5YiG57G75LiOMTPkuKrliLbpgKDkuJrlnLrmma8K` executed with exit code 0.
+</observation>
+<action>
+**MCPAction**
+NAME: get_app_detail
+ARGUMENTS: {'appId': 'app-bjm4peyd3x8h', 'userId': 'user-b9uiw66jbj0g'}
+</action>
+<observation>
+**MCPObservation**
+NAME: get_app_detail
+RESULTS: {"appCreateWay":"SOURCECODE","appDesc":"聚焦非洲制造业合规，智能匹配法规与本地机构，让出海之路更安心。","appFocus":"DESIGNING","appId":"app-bjm4peyd3x8h","name":"非洲出海法律合规平台","pluginConfigs":[],"type":"WEB","versionDesc":"重构机构推荐板块为三大分类与13个制造业场景","versionId":"app_version-bjmgy2iuwsu8","versionLabel":"v2"}
+</observation>
+<action>
+AgentFinishAction(final_thought='# Summary\n机构推荐板块已按照最新数据完成重构。新增三大机构分类（律师事务所、会计师事务所、人力资源匹配机构），每个大类下按制造业场景细分，共13个场景卡片。律师事务所涵盖投资设立、劳工用工、海关贸易、税务合规、环保安全5大场景；会计师事务所涵盖财务审计、税务筹划、跨境财税、成本核算4大场景；人力资源匹配机构涵盖普工招聘、技术人才招聘、薪酬发放、用工外包4大场景。机构名称按国际头部/非洲头部/专业人力/本地适配四色标注，一目了然。', commit_message='# Issue\n重构机构推荐板块为三大分类与13个制造业场景', task_completed='true', outputs={'status': 'success', 'behavior': 'code_tool', 'suggested_questions': [{'title': '添加机构详情页', 'query': '为每个推荐机构添加详细页面，包含简介、服务范围、联系方式'}, {'title': '添加机构搜索', 'query': '添加全局搜索功能，可按机构名称或场景关键词搜索'}, {'title': '接入在线咨询', 'query': '为机构推荐添加在线预约咨询功能'}], 'type': 'standard_script', 'finish_type': 'end_code', 'button_actions': [{'type': 'button', 'event': {'args': {'versionId': 'app_version-bjmgy2iuwsu8', 'versionDesc': '重构机构推荐板块为三大分类与13个制造业场景', 'versionLabel': 'v2'}, 'name': 'rollback'}, 'label': '恢复', 'value': '恢复'}], 'app_id': 'app-bjm4peyd3x8h', 'version_id': 'app_version-bjmgy2iuwsu8', 'user_id': 'user-b9uiw66jbj0g'}, thought='', action=<ActionType.FINISH: 'finish'>)
+</action>

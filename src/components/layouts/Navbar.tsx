@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, Scale } from 'lucide-react';
+import { Menu, Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navItems = [
-  { label: '首页', href: '#hero' },
-  { label: '法规库', href: '#laws' },
-  { label: '资讯库', href: '#news' },
-  { label: '机构推荐', href: '#agencies' },
-  { label: '关于我们', href: '#about' },
+  { label: '首页', href: '#hero', type: 'anchor' },
+  { label: '法规库', href: '#laws', type: 'anchor' },
+  { label: '资讯库', href: '#news', type: 'anchor' },
+  { label: '机构推荐', href: '#agencies', type: 'anchor' },
+  { label: '合规报告', href: '/report', type: 'route' },
+  { label: '关于我们', href: '#about', type: 'anchor' },
 ];
 
 const Navbar: React.FC = () => {
@@ -25,9 +26,15 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent, href: string) => {
+  const handleNavClick = (e: React.MouseEvent, item: (typeof navItems)[number]) => {
+    if (item.type === 'route') {
+      e.preventDefault();
+      navigate(item.href);
+      setMobileOpen(false);
+      return;
+    }
     e.preventDefault();
-    const id = href.replace('#', '');
+    const id = item.href.replace('#', '');
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -59,7 +66,7 @@ const Navbar: React.FC = () => {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
+                onClick={(e) => handleNavClick(e, item)}
                 className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
               >
                 {item.label}
@@ -116,7 +123,7 @@ const Navbar: React.FC = () => {
                       <a
                         key={item.href}
                         href={item.href}
-                        onClick={(e) => handleNavClick(e, item.href)}
+                        onClick={(e) => handleNavClick(e, item)}
                         className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
                       >
                         {item.label}
