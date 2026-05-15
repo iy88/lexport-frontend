@@ -13,6 +13,16 @@ const navItems = [
   { label: '关于我们', href: '#about', type: 'anchor' },
 ];
 
+const NAV_OFFSET = 80;
+
+function scrollToHash(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+}
+
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -35,10 +45,8 @@ const Navbar: React.FC = () => {
     }
     e.preventDefault();
     const id = item.href.replace('#', '');
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.history.pushState(null, '', `#${id}`);
+    scrollToHash(id);
     setMobileOpen(false);
   };
 
@@ -86,8 +94,8 @@ const Navbar: React.FC = () => {
             <Button
               className="text-sm font-medium bg-primary hover:bg-primary/90"
               onClick={() => {
-                const el = document.getElementById('laws');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                window.history.pushState(null, '', '#laws');
+                scrollToHash('laws');
               }}
             >
               立即体验

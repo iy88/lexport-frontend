@@ -18,7 +18,7 @@ const App: React.FC = () => {
               key={index}
               path={route.path}
               element={
-                route.path === '/login' ? (
+                (route.path === '/login' || route.path === '/report') ? (
                   route.element
                 ) : (
                   <MainLayout showFooter={route.path === '/'}>

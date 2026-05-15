@@ -5,7 +5,12 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 const HeroSection: React.FC = () => {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      const NAV_OFFSET = 80;
+      const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      window.history.pushState(null, '', `#${id}`);
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   };
 
   return (
