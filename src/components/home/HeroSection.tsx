@@ -4,17 +4,11 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const NAV_OFFSET = 80;
-      const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
-      window.history.pushState(null, '', `#${id}`);
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+    window.location.hash = id;
   };
 
   return (
-    <section id="hero" className="relative overflow-hidden">
+    <section id="hero" className="relative overflow-hidden scroll-mt-20">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background pointer-events-none" />
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />

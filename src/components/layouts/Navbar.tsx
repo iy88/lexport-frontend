@@ -5,23 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navItems = [
-  { label: '首页', href: '#hero', type: 'anchor' },
-  { label: '法规库', href: '#laws', type: 'anchor' },
-  { label: '资讯库', href: '#news', type: 'anchor' },
-  { label: '机构推荐', href: '#agencies', type: 'anchor' },
-  { label: '合规报告', href: '/report', type: 'route' },
-  { label: '关于我们', href: '#about', type: 'anchor' },
+  { label: '首页', href: '#hero' },
+  { label: '法规库', href: '#laws' },
+  { label: '资讯库', href: '#news' },
+  { label: '机构推荐', href: '#agencies' },
+  { label: '合规报告', href: '#report-section' },
+  { label: '关于我们', href: '#about' },
 ];
-
-const NAV_OFFSET = 80;
-
-function scrollToHash(id: string) {
-  const el = document.getElementById(id);
-  if (el) {
-    const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
-    window.scrollTo({ top: y, behavior: 'smooth' });
-  }
-}
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -36,19 +26,7 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent, item: (typeof navItems)[number]) => {
-    if (item.type === 'route') {
-      e.preventDefault();
-      navigate(item.href);
-      setMobileOpen(false);
-      return;
-    }
-    e.preventDefault();
-    const id = item.href.replace('#', '');
-    window.history.pushState(null, '', `#${id}`);
-    scrollToHash(id);
-    setMobileOpen(false);
-  };
+  const handleNavClick = () => setMobileOpen(false);
 
   return (
     <header
@@ -74,7 +52,7 @@ const Navbar: React.FC = () => {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item)}
+                onClick={handleNavClick}
                 className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
               >
                 {item.label}
@@ -94,8 +72,7 @@ const Navbar: React.FC = () => {
             <Button
               className="text-sm font-medium bg-primary hover:bg-primary/90"
               onClick={() => {
-                window.history.pushState(null, '', '#laws');
-                scrollToHash('laws');
+                window.location.hash = 'laws';
               }}
             >
               立即体验
@@ -131,7 +108,7 @@ const Navbar: React.FC = () => {
                       <a
                         key={item.href}
                         href={item.href}
-                        onClick={(e) => handleNavClick(e, item)}
+                        onClick={handleNavClick}
                         className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
                       >
                         {item.label}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import IntersectObserver from '@/components/common/IntersectObserver';
+import ScrollToTop from '@/components/common/ScrollToTop';
 import { Toaster } from '@/components/ui/sonner';
 import MainLayout from '@/components/layouts/MainLayout';
 
@@ -9,6 +10,7 @@ import { routes } from './routes';
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <IntersectObserver />
       <div className="flex flex-col min-h-screen">
         <Toaster />
