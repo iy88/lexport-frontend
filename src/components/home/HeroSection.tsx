@@ -1,8 +1,33 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import api from '@/lib/api';
 
-const HeroSection: React.FC = () => {
+const labels: Record<string, string> = {
+  countries: '覆盖国家（持续拓展中）',
+  laws: '法规条文收录',
+  scenes: '高频合规场景',
+  agencies: '合作合规机构',
+};
+
+const fallback = [
+  { id: 'countries', value: '6' },
+  { id: 'laws', value: '19,370' },
+  { id: 'scenes', value: '7' },
+  { id: 'agencies', value: '50+' },
+];
+
+const HeroSection = () => {
+  const [stats, setStats] = useState(fallback);
+
+  useEffect(() => {
+    api.get('/stats').then(({ data }) => {
+      if (data.success && data.data.stats) {
+        setStats(data.data.stats);
+      }
+    }).catch(() => {});
+  }, []);
+
   const scrollToSection = (id: string) => {
     window.location.hash = id;
   };
@@ -44,7 +69,7 @@ const HeroSection: React.FC = () => {
             <Button
               size="lg"
               className="w-full sm:w-auto text-base font-semibold bg-primary hover:bg-primary/90 px-8 h-12"
-              onClick={() => scrollToSection('laws')}
+              onClick={() => scrollToSection('report-section')}
             >
               立即体验合规初诊
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -62,18 +87,13 @@ const HeroSection: React.FC = () => {
 
         {/* Stats */}
         <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
-          {[
-            { value: '6', label: '覆盖国家（持续拓展中）' },
-            { value: '19,370', label: '法规条文收录' },
-            { value: '7', label: '高频合规场景' },
-            { value: '50+', label: '合作合规机构' },
-          ].map((stat, index) => (
+          {stats.map((stat) => (
             <div
-              key={index}
+              key={stat.id}
               className="text-center p-4 md:p-6 rounded-xl bg-card border border-border shadow-card"
             >
               <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="text-sm text-muted-foreground">{labels[stat.id]}</div>
             </div>
           ))}
         </div>

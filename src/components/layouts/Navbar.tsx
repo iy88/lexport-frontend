@@ -1,37 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Menu, Scale } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Menu, Scale, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import type { RootState } from '@/store';
 
 const navItems = [
-  { label: '首页', href: '#hero' },
-  { label: '法规库', href: '#laws' },
-  { label: '资讯库', href: '#news' },
-  { label: '机构推荐', href: '#agencies' },
-  { label: '合规报告', href: '#report-section' },
-  { label: '关于我们', href: '#about' },
+  { label: '首页', href: '#hero', type: 'anchor' as const },
+  { label: '法规库', href: '/laws', type: 'route' as const },
+  { label: '资讯库', href: '/news', type: 'route' as const },
+  { label: '机构推荐', href: '/agencies', type: 'route' as const },
+  { label: '合规报告', href: '#report-section', type: 'anchor' as const },
+  { label: '关于我们', href: '#about', type: 'anchor' as const },
 ];
 
-const Navbar: React.FC = () => {
+function scrollToAnchor(id: string) {
+  requestAnimationFrame(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const user = useSelector((s: RootState) => s.auth.user);
+  const isHome = pathname === '/';
 
   useEffect(() => {
+    if (!isHome) return;
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
-  const handleNavClick = () => setMobileOpen(false);
+  const handleAnchorClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    if (pathname === '/') {
+      window.history.replaceState(null, '', `#${id}`);
+      scrollToAnchor(id);
+    } else {
+      navigate(`/#${id}`);
+    }
+    setMobileOpen(false);
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        !isHome || scrolled
           ? 'bg-background/95 backdrop-blur-md shadow-sm border-b border-border'
           : 'bg-transparent'
       }`}
@@ -48,47 +70,71 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={handleNavClick}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.type === 'route' ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={`/${item.href}`}
+                  onClick={(e) => handleAnchorClick(e, item.href.slice(1))}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                >
+                  {item.label}
+                </a>
+              )
+            )}
           </nav>
 
-          {/* Desktop Login */}
+          {/* Desktop Auth Button */}
           <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant="ghost"
-              className="text-sm font-medium"
-              onClick={() => navigate('/login')}
-            >
-              登录
-            </Button>
-            <Button
-              className="text-sm font-medium bg-primary hover:bg-primary/90"
-              onClick={() => {
-                window.location.hash = 'laws';
-              }}
-            >
-              立即体验
-            </Button>
+            {user ? (
+              <Button
+                variant="ghost"
+                className="text-sm font-medium"
+                onClick={() => navigate('/user')}
+              >
+                <User className="w-4 h-4 mr-2" />
+                {user.username}
+              </Button>
+            ) : (
+              <Button
+                className="text-sm font-medium bg-primary hover:bg-primary/90"
+                onClick={() => navigate('/login')}
+              >
+                登录
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu */}
           <div className="md:hidden flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-sm"
-              onClick={() => navigate('/login')}
-            >
-              登录
-            </Button>
+            {user ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-sm"
+                onClick={() => navigate('/user')}
+              >
+                <User className="w-4 h-4 mr-1" />
+                {user.username}
+              </Button>
+            ) : (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-sm"
+                onClick={() => navigate('/login')}
+              >
+                登录
+              </Button>
+            )}
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="h-9 w-9">
@@ -104,16 +150,27 @@ const Navbar: React.FC = () => {
                     </Link>
                   </div>
                   <nav className="flex flex-col p-4 gap-1">
-                    {navItems.map((item) => (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        onClick={handleNavClick}
-                        className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
-                      >
-                        {item.label}
-                      </a>
-                    ))}
+                    {navItems.map((item) =>
+                      item.type === 'route' ? (
+                        <Link
+                          key={item.href}
+                          to={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <a
+                          key={item.href}
+                          href={`/${item.href}`}
+                          onClick={(e) => handleAnchorClick(e, item.href.slice(1))}
+                          className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                        >
+                          {item.label}
+                        </a>
+                      )
+                    )}
                   </nav>
                 </div>
               </SheetContent>

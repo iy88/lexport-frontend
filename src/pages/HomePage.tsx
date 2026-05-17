@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import LawSection from '@/components/home/LawSection';
 import NewsSection from '@/components/home/NewsSection';
@@ -7,16 +7,25 @@ import ReportSection from '@/components/home/ReportSection';
 import AboutSection from '@/components/home/AboutSection';
 
 const HomePage: React.FC = () => {
-  return (
-    <>
-      <HeroSection />
-      <LawSection />
-      <NewsSection />
-      <AgencySection />
-      <ReportSection />
-      <AboutSection />
-    </>
-  );
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            requestAnimationFrame(() => {
+                const el = document.querySelector(hash);
+                if (el) el.scrollIntoView({behavior: 'smooth'});
+            });
+        }
+    }, []);
+    return (
+        <>
+            <HeroSection/>
+            <LawSection/>
+            <NewsSection/>
+            <AgencySection/>
+            <ReportSection/>
+            <AboutSection/>
+        </>
+    );
 };
 
 export default HomePage;
