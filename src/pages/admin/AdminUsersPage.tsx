@@ -6,10 +6,13 @@ import {
 } from '@/components/ui/select';
 import api from '@/lib/api';
 import { usePageSize } from '@/hooks/use-page-size';
+import {
+  Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
+} from '@/components/ui/table';
 import { Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function AdminUsersPage() {
-  const perPage = usePageSize();
+  const { size, ready } = usePageSize();
   const [users, setUsers] = useState<any[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -17,58 +20,56 @@ export default function AdminUsersPage() {
 
   const fetchUsers = useCallback(async () => {
     setLoading(true);
-    const { data } = await api.get('/admin/users', { params: { page, per_page: perPage } });
+    const { data } = await api.get('/admin/users', { params: { page, per_page: size } });
     setUsers(data.data.items);
     setTotal(data.data.meta.total);
     setLoading(false);
-  }, [page, perPage]);
+  }, [page, size]);
 
-  useEffect(() => { fetchUsers(); }, [fetchUsers]);
+  useEffect(() => { if (ready) fetchUsers(); }, [fetchUsers, ready]);
 
   const handleRoleChange = async (userId: number, role: string) => {
     await api.put(`/admin/users/${userId}`, { role });
     setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, role } : u)));
   };
 
-  const totalPages = Math.max(1, Math.ceil(total / perPage));
+  const totalPages = Math.max(1, Math.ceil(total / size));
 
   return (
     <div className="flex flex-col flex-1 min-h-0">
       <h2 className="text-xl font-bold mb-4 shrink-0">用户管理</h2>
       {loading ? <div className="flex justify-center py-20"><Loader2 className="w-8 h-8 animate-spin" /></div> : (
         <div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead><tr className="border-b text-left text-muted-foreground">
-                <th className="p-3">ID</th><th className="p-3">用户名</th><th className="p-3">邮箱</th><th className="p-3">邮箱验证</th><th className="p-3">角色</th><th className="p-3">注册时间</th>
-              </tr></thead>
-              <tbody>
-                {users.map((u) => (
-                  <tr key={u.id} className="border-b hover:bg-muted/30">
-                    <td className="p-3">{u.id}</td>
-                    <td className="p-3 font-medium">{u.username}</td>
-                    <td className="p-3 text-muted-foreground">{u.email || '-'}</td>
-                    <td className="p-3">
-                      <Badge variant={u.email_verified ? 'default' : 'secondary'} className="text-xs">{u.email_verified ? '已验证' : '未验证'}</Badge>
-                    </td>
-                    <td className="p-3">
-                      <Select value={u.role} onValueChange={(v) => handleRoleChange(u.id, v)}>
-                        <SelectTrigger className="w-24 h-8 text-xs">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="user">用户</SelectItem>
-                          <SelectItem value="editor">编辑</SelectItem>
-                          <SelectItem value="admin">管理员</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </td>
-                    <td className="p-3 text-muted-foreground text-xs">{u.created_at ? new Date(u.created_at).toLocaleDateString('zh-CN') : '-'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>ID</TableHead><TableHead>用户名</TableHead><TableHead>邮箱</TableHead><TableHead>邮箱验证</TableHead><TableHead>角色</TableHead><TableHead>注册时间</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {users.map((u) => (
+                <TableRow key={u.id}>
+                  <TableCell>{u.id}</TableCell>
+                  <TableCell className="font-medium">{u.username}</TableCell>
+                  <TableCell className="text-muted-foreground">{u.email || '-'}</TableCell>
+                  <TableCell>
+                    <Badge variant={u.email_verified ? 'default' : 'secondary'} className="text-xs">{u.email_verified ? '已验证' : '未验证'}</Badge>
+                  </TableCell>
+                  <TableCell>
+                    <Select value={u.role} onValueChange={(v) => handleRoleChange(u.id, v)}>
+                      <SelectTrigger className="w-24 h-8 text-xs"><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="user">用户</SelectItem>
+                        <SelectItem value="editor">编辑</SelectItem>
+                        <SelectItem value="admin">管理员</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </TableCell>
+                  <TableCell className="text-muted-foreground text-xs">{u.created_at ? new Date(u.created_at).toLocaleDateString('zh-CN') : '-'}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         </div>
       )}
       {totalPages > 1 && (

@@ -20,7 +20,7 @@ const empty = { type: 'cooperation', title: '', country_id: '', source: '', date
 export default function AdminNewsPage() {
   const role = useSelector((s: RootState) => s.auth.user?.role);
   const isAdmin = role === 'admin';
-  const perPage = usePageSize();
+  const { size, ready } = usePageSize();
   const [items, setItems] = useState<any[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -35,7 +35,7 @@ export default function AdminNewsPage() {
 
   const fetchList = useCallback(async () => {
     setLoading(true);
-    const params: Record<string, string | number> = { page, per_page: perPage };
+    const params: Record<string, string | number> = { page, per_page: size };
     if (statusFilter !== 'all') params.status = statusFilter;
     const { data } = await api.get('/admin/news', { params });
     setItems(data.data.items || []);
@@ -46,9 +46,9 @@ export default function AdminNewsPage() {
       if (data.data.meta?.types) setTypes(data.data.meta.types);
     }
     setLoading(false);
-  }, [page, statusFilter, perPage]);
+  }, [page, statusFilter, size]);
 
-  useEffect(() => { fetchList(); }, [fetchList]);
+  useEffect(() => { if (ready) fetchList(); }, [fetchList, ready]);
 
   const openNew = () => { setEditId(null); setForm(empty); setDlgOpen(true); };
   const openEdit = (item: any) => { setEditId(item.id); setForm({ type: item.type, title: item.title, country_id: item.country_id || '', source: item.source || '', date: item.date || '', summary: item.summary || '', risk_level: item.risk_level || '', involved_laws: item.involved_laws || '', response: item.response || '', update_type: item.update_type || '', change_desc: item.change_desc || '', impact: item.impact || '', advice: item.advice || '' }); setDlgOpen(true); };
@@ -69,7 +69,7 @@ export default function AdminNewsPage() {
   const handleApprove = async (id: number) => { await api.post(`/admin/news/${id}/approve`); fetchList(); };
   const handleDelete = async (id: number) => { if (!confirm('确定删除？')) return; await api.delete(`/admin/news/${id}`); fetchList(); };
 
-  const totalPages = Math.max(1, Math.ceil(total / perPage));
+  const totalPages = Math.max(1, Math.ceil(total / size));
 
   return (
     <div className="flex flex-col flex-1 min-h-0">

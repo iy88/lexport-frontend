@@ -20,7 +20,7 @@ const empty = { name_zh: '', scene_id: '', region: '', phone: '', email: '', bus
 export default function AdminAgenciesPage() {
   const role = useSelector((s: RootState) => s.auth.user?.role);
   const isAdmin = role === 'admin';
-  const perPage = usePageSize();
+  const { size, ready } = usePageSize();
   const [items, setItems] = useState<any[]>([]);
   const [scenes, setScenes] = useState<any[]>([]);
   const [total, setTotal] = useState(0);
@@ -34,7 +34,7 @@ export default function AdminAgenciesPage() {
 
   const fetchList = useCallback(async () => {
     setLoading(true);
-    const params: Record<string, string | number> = { page, per_page: perPage };
+    const params: Record<string, string | number> = { page, per_page: size };
     if (statusFilter !== 'all') params.status = statusFilter;
     const { data } = await api.get('/admin/agencies', { params });
     setItems(data.data.items || []);
@@ -45,9 +45,9 @@ export default function AdminAgenciesPage() {
       setScenes(allScenes);
     }
     setLoading(false);
-  }, [page, statusFilter, perPage]);
+  }, [page, statusFilter, size]);
 
-  useEffect(() => { fetchList(); }, [fetchList]);
+  useEffect(() => { if (ready) fetchList(); }, [fetchList, ready]);
 
   const openNew = () => { setEditId(null); setForm(empty); setDlgOpen(true); };
   const openEdit = (item: any) => { setEditId(item.id); setForm({ name_zh: item.name_zh, scene_id: item.scene_id, region: item.region || '', phone: item.phone || '', email: item.email || '', business: item.business || '', advantage: item.advantage || '', highlight: item.highlight || '' }); setDlgOpen(true); };
@@ -62,7 +62,7 @@ export default function AdminAgenciesPage() {
   const handleApprove = async (id: number) => { await api.post(`/admin/agencies/${id}/approve`); fetchList(); };
   const handleDelete = async (id: number) => { if (!confirm('确定删除？')) return; await api.delete(`/admin/agencies/${id}`); fetchList(); };
 
-  const totalPages = Math.max(1, Math.ceil(total / perPage));
+  const totalPages = Math.max(1, Math.ceil(total / size));
 
   return (
     <div className="flex flex-col flex-1 min-h-0">

@@ -1,22 +1,31 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect, useCallback} from 'react';
 
-const ROW_HEIGHT = 49; // table row height in px
-const OVERHEAD = 280 + 30;  // sidebar header(64) + padding(32) + title(40) + thead(49) + pagination(48) + buffer
-const MIN_SIZE = 5;
-const MAX_SIZE = 30;
+const ROW_HEIGHT = 65;
+const HEADER_HEIGHT = 100; // title + filters + table header
+const PAGINATION_HEIGHT = 52;
 
 export function usePageSize() {
-  const [size, setSize] = useState(15);
+    const [size, setSize] = useState(10);
+    const [ready, setReady] = useState(false);
 
-  useEffect(() => {
-    const calc = () => {
-      const available = window.innerHeight - OVERHEAD;
-      setSize(Math.max(MIN_SIZE, Math.min(MAX_SIZE, Math.floor(available / ROW_HEIGHT))));
-    };
-    calc();
-    window.addEventListener('resize', calc);
-    return () => window.removeEventListener('resize', calc);
-  }, []);
+    const measure = useCallback(() => {
+        // find the scrollable area (main content inside UserLayout)
+        const main = document.querySelector('main');
+        if (!main) return;
+        const available = main.clientHeight - HEADER_HEIGHT - PAGINATION_HEIGHT;
+        const calc = Math.max(5, Math.min(25, Math.floor(available / ROW_HEIGHT)));
+        setSize(calc);
+        setReady(true);
+    }, []);
 
-  return size;
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            measure();
+            setReady(true);
+        });
+        window.addEventListener('resize', measure);
+        return () => window.removeEventListener('resize', measure);
+    }, [measure]);
+
+    return {size, ready};
 }

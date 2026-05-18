@@ -20,7 +20,7 @@ const empty = { title: '', country_id: '', scene_id: '', level: '', penalty: '',
 export default function AdminLawsPage() {
   const role = useSelector((s: RootState) => s.auth.user?.role);
   const isAdmin = role === 'admin';
-  const perPage = usePageSize();
+  const { size, ready } = usePageSize();
   const [items, setItems] = useState<any[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -35,7 +35,7 @@ export default function AdminLawsPage() {
 
   const fetchList = useCallback(async () => {
     setLoading(true);
-    const params: Record<string, string | number> = { page, per_page: perPage };
+    const params: Record<string, string | number> = { page, per_page: size };
     if (statusFilter !== 'all') params.status = statusFilter;
     const { data } = await api.get('/admin/laws', { params });
     setItems(data.data.items || []);
@@ -46,9 +46,9 @@ export default function AdminLawsPage() {
       if (data.data.meta?.scenes) setScenes(data.data.meta.scenes);
     }
     setLoading(false);
-  }, [page, statusFilter, perPage]);
+  }, [page, statusFilter, size]);
 
-  useEffect(() => { fetchList(); }, [fetchList]);
+  useEffect(() => { if (ready) fetchList(); }, [fetchList, ready]);
 
   const openNew = () => { setEditId(null); setForm(empty); setDlgOpen(true); };
   const openEdit = (item: any) => { setEditId(item.id); setForm({ title: item.title, country_id: item.country_id, scene_id: item.scene_id, level: item.level || '', penalty: item.penalty || '', effective_date: item.effective_date || '', summary: item.summary || '' }); setDlgOpen(true); };
@@ -75,7 +75,7 @@ export default function AdminLawsPage() {
     fetchList();
   };
 
-  const totalPages = Math.max(1, Math.ceil(total / perPage));
+  const totalPages = Math.max(1, Math.ceil(total / size));
 
   return (
     <div className="flex flex-col flex-1 min-h-0">

@@ -34,7 +34,7 @@ export default function AgenciesPage() {
   const [agencies, setAgencies] = useState<Agency[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState('');
+  const [activeCategory, setActiveCategory] = useState('law');
   const [sceneId, setSceneId] = useState<string | null>(null);
   const [keyword, setKeyword] = useState('');
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -56,7 +56,7 @@ export default function AgenciesPage() {
       if (!initialized.current) {
         initialized.current = true;
         const cats: AgencyCategory[] = res.data.meta.categories;
-        if (cats.length > 0) { setActiveCategory(cats[0].id); setCategories(cats); }
+        if (cats.length > 0) { setCategories(cats); }
       }
     } finally {
       setLoading(false);
