@@ -37,7 +37,9 @@
   },
   "overrides": [
     {
-      "includes": ["tailwind.config.js"],
+      "includes": [
+        "tailwind.config.js"
+      ],
       "linter": {
         "rules": {
           "style": {

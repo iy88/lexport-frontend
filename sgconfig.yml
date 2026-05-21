@@ -1,5 +1,5 @@
 ruleDirs:
-- .rules
+  - .rules
 languageGlobs:
-  TypeScript: ["*.ts"]
-  Tsx: ["*.tsx"]
+  TypeScript: [ "*.ts" ]
+  Tsx: [ "*.tsx" ]

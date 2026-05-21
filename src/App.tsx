@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import IntersectObserver from '@/components/common/IntersectObserver';
 import ScrollToTop from '@/components/common/ScrollToTop';
 import AuthGuard from '@/components/common/AuthGuard';
@@ -25,33 +25,33 @@ const App: React.FC = () => {
                 <div className="flex flex-col min-h-screen">
                     <Toaster/>
                     <Routes>
-                    {routes.map((route, index) => (
-                        <Route
-                            key={index}
-                            path={route.path}
-                            element={
-                                (route.path === '/login' || route.path === '/report') ? (
-                                    route.element
-                                ) : (
-                                    <MainLayout>
-                                        {route.element}
-                                    </MainLayout>
-                                )
-                            }
-                        />
-                    ))}
-                    <Route path="/user" element={<RequireAuth><UserLayout/></RequireAuth>}>
-                        <Route index element={<UserDashboard/>}/>
-                    </Route>
-                    <Route path="/admin" element={<RequireAuth><UserLayout/></RequireAuth>}>
-                        <Route path="laws" element={<AdminLawsPage/>}/>
-                        <Route path="news" element={<AdminNewsPage/>}/>
-                        <Route path="agencies" element={<AdminAgenciesPage/>}/>
-                        <Route path="users" element={<AdminUsersPage/>}/>
-                    </Route>
-                    <Route path="*" element={<NotFound/>}/>
-                </Routes>
-            </div>
+                        {routes.map((route, index) => (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    (route.path === '/login' || route.path === '/report') ? (
+                                        route.element
+                                    ) : (
+                                        <MainLayout>
+                                            {route.element}
+                                        </MainLayout>
+                                    )
+                                }
+                            />
+                        ))}
+                        <Route path="/user" element={<RequireAuth><UserLayout/></RequireAuth>}>
+                            <Route index element={<UserDashboard/>}/>
+                        </Route>
+                        <Route path="/admin" element={<RequireAuth><UserLayout/></RequireAuth>}>
+                            <Route path="laws" element={<AdminLawsPage/>}/>
+                            <Route path="news" element={<AdminNewsPage/>}/>
+                            <Route path="agencies" element={<AdminAgenciesPage/>}/>
+                            <Route path="users" element={<AdminUsersPage/>}/>
+                        </Route>
+                        <Route path="*" element={<NotFound/>}/>
+                    </Routes>
+                </div>
             </AuthGuard>
         </Router>
     );

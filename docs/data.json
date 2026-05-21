@@ -1,69 +1,318 @@
 {
   "countries": [
-    { "id": "ZA", "name_zh": "南非", "name_en": "South Africa", "sort_order": 1 },
-    { "id": "CD", "name_zh": "刚果（金）", "name_en": "DR Congo", "sort_order": 2 },
-    { "id": "NG", "name_zh": "尼日利亚", "name_en": "Nigeria", "sort_order": 3 },
-    { "id": "AO", "name_zh": "安哥拉", "name_en": "Angola", "sort_order": 4 },
-    { "id": "EG", "name_zh": "埃及", "name_en": "Egypt", "sort_order": 5 },
-    { "id": "GH", "name_zh": "加纳", "name_en": "Ghana", "sort_order": 6 },
-    { "id": "KE", "name_zh": "肯尼亚", "name_en": "Kenya", "sort_order": 7 },
-    { "id": "ET", "name_zh": "埃塞俄比亚", "name_en": "Ethiopia", "sort_order": 8 }
+    {
+      "id": "ZA",
+      "name_zh": "南非",
+      "name_en": "South Africa",
+      "sort_order": 1
+    },
+    {
+      "id": "CD",
+      "name_zh": "刚果（金）",
+      "name_en": "DR Congo",
+      "sort_order": 2
+    },
+    {
+      "id": "NG",
+      "name_zh": "尼日利亚",
+      "name_en": "Nigeria",
+      "sort_order": 3
+    },
+    {
+      "id": "AO",
+      "name_zh": "安哥拉",
+      "name_en": "Angola",
+      "sort_order": 4
+    },
+    {
+      "id": "EG",
+      "name_zh": "埃及",
+      "name_en": "Egypt",
+      "sort_order": 5
+    },
+    {
+      "id": "GH",
+      "name_zh": "加纳",
+      "name_en": "Ghana",
+      "sort_order": 6
+    },
+    {
+      "id": "KE",
+      "name_zh": "肯尼亚",
+      "name_en": "Kenya",
+      "sort_order": 7
+    },
+    {
+      "id": "ET",
+      "name_zh": "埃塞俄比亚",
+      "name_en": "Ethiopia",
+      "sort_order": 8
+    }
   ],
-
   "compliance_scenes": [
-    { "id": "customs", "label_zh": "海关进出口", "icon_name": "FileText", "sort_order": 1 },
-    { "id": "labor", "label_zh": "劳工雇佣", "icon_name": "Shield", "sort_order": 2 },
-    { "id": "data", "label_zh": "数据安全", "icon_name": "Search", "sort_order": 3 },
-    { "id": "env", "label_zh": "环保合规", "icon_name": "CheckCircle", "sort_order": 4 },
-    { "id": "tax", "label_zh": "税务", "icon_name": "Gavel", "sort_order": 5 },
-    { "id": "cert", "label_zh": "产品认证", "icon_name": "Tag", "sort_order": 6 },
-    { "id": "ip", "label_zh": "知识产权", "icon_name": "FileText", "sort_order": 7 }
+    {
+      "id": "customs",
+      "label_zh": "海关进出口",
+      "icon_name": "FileText",
+      "sort_order": 1
+    },
+    {
+      "id": "labor",
+      "label_zh": "劳工雇佣",
+      "icon_name": "Shield",
+      "sort_order": 2
+    },
+    {
+      "id": "data",
+      "label_zh": "数据安全",
+      "icon_name": "Search",
+      "sort_order": 3
+    },
+    {
+      "id": "env",
+      "label_zh": "环保合规",
+      "icon_name": "CheckCircle",
+      "sort_order": 4
+    },
+    {
+      "id": "tax",
+      "label_zh": "税务",
+      "icon_name": "Gavel",
+      "sort_order": 5
+    },
+    {
+      "id": "cert",
+      "label_zh": "产品认证",
+      "icon_name": "Tag",
+      "sort_order": 6
+    },
+    {
+      "id": "ip",
+      "label_zh": "知识产权",
+      "icon_name": "FileText",
+      "sort_order": 7
+    }
   ],
-
   "company_sizes": [
-    { "id": "micro", "label_zh": "微型企业（<10人）", "min_employees": 0, "max_employees": 9, "sort_order": 1 },
-    { "id": "small", "label_zh": "小型企业（10-50人）", "min_employees": 10, "max_employees": 50, "sort_order": 2 },
-    { "id": "medium", "label_zh": "中型企业（50-200人）", "min_employees": 51, "max_employees": 200, "sort_order": 3 },
-    { "id": "large", "label_zh": "大型企业（>200人）", "min_employees": 201, "max_employees": null, "sort_order": 4 }
+    {
+      "id": "micro",
+      "label_zh": "微型企业（<10人）",
+      "min_employees": 0,
+      "max_employees": 9,
+      "sort_order": 1
+    },
+    {
+      "id": "small",
+      "label_zh": "小型企业（10-50人）",
+      "min_employees": 10,
+      "max_employees": 50,
+      "sort_order": 2
+    },
+    {
+      "id": "medium",
+      "label_zh": "中型企业（50-200人）",
+      "min_employees": 51,
+      "max_employees": 200,
+      "sort_order": 3
+    },
+    {
+      "id": "large",
+      "label_zh": "大型企业（>200人）",
+      "min_employees": 201,
+      "max_employees": null,
+      "sort_order": 4
+    }
   ],
-
   "budget_ranges": [
-    { "id": "lt100k", "label_zh": "< 10万元", "min_amount": 0, "max_amount": 10, "sort_order": 1 },
-    { "id": "100k-500k", "label_zh": "10-50万元", "min_amount": 10, "max_amount": 50, "sort_order": 2 },
-    { "id": "500k-2m", "label_zh": "50-200万元", "min_amount": 50, "max_amount": 200, "sort_order": 3 },
-    { "id": "gt2m", "label_zh": "> 200万元", "min_amount": 200, "max_amount": null, "sort_order": 4 }
+    {
+      "id": "lt100k",
+      "label_zh": "< 10万元",
+      "min_amount": 0,
+      "max_amount": 10,
+      "sort_order": 1
+    },
+    {
+      "id": "100k-500k",
+      "label_zh": "10-50万元",
+      "min_amount": 10,
+      "max_amount": 50,
+      "sort_order": 2
+    },
+    {
+      "id": "500k-2m",
+      "label_zh": "50-200万元",
+      "min_amount": 50,
+      "max_amount": 200,
+      "sort_order": 3
+    },
+    {
+      "id": "gt2m",
+      "label_zh": "> 200万元",
+      "min_amount": 200,
+      "max_amount": null,
+      "sort_order": 4
+    }
   ],
-
   "laws": [
-    { "title": "南非海关管理法（修订版）", "country_id": "ZA", "scene_id": "customs", "level": "国家级", "penalty": "货物扣押 + 罚款20-50%货值", "effective_date": "2024-01-15", "summary": "制造业进口原材料需提前30天备案，未备案货物将被扣押并处以货值20-50%的罚款。" },
-    { "title": "南非劳工法典（2023年修订）", "country_id": "ZA", "scene_id": "labor", "level": "国家级", "penalty": "每项违规最高罚款100万南非兰特", "effective_date": "2023-11-20", "summary": "外籍员工与本地员工比例需符合要求，加班工资为正常工资的1.5倍，制造业须遵守最低工资规范。" },
-    { "title": "刚果（金）矿业法及制造业配套法规", "country_id": "CD", "scene_id": "env", "level": "国家级", "penalty": "项目暂停 + 环境修复费用", "effective_date": "2022-06-10", "summary": "制造业项目须通过环境影响评估（EIA），未取得环评批复不得开工，采矿配套制造业须特别许可。" },
-    { "title": "刚果（金）增值税法实施细则", "country_id": "CD", "scene_id": "tax", "level": "部门规章", "penalty": "滞纳金每日0.5%，最高不超过本金", "effective_date": "2024-03-01", "summary": "标准增值税率16%，出口适用零税率，须保留完整税务凭证至少5年，制造业进口设备可退税。" },
-    { "title": "尼日利亚海关管理法（修订版）", "country_id": "NG", "scene_id": "customs", "level": "国家级", "penalty": "货物扣押 + 罚款20-50%货值", "effective_date": "2024-01-15", "summary": "制造业进口原材料需提前30天备案，未备案货物将被扣押并处以货值20-50%的罚款。" },
-    { "title": "尼日利亚数据保护法（NDPR）", "country_id": "NG", "scene_id": "data", "level": "国家级", "penalty": "最高罚款年营业额2%或1000万奈拉", "effective_date": "2021-07-01", "summary": "处理个人数据的企业须注册数据保护官，数据跨境传输须通过合规评估，制造业须保护员工数据。" },
-    { "title": "安哥拉制造业投资法", "country_id": "AO", "scene_id": "customs", "level": "国家级", "penalty": "投资许可撤销 + 资产冻结", "effective_date": "2023-09-15", "summary": "制造业外资投资须取得私人投资局（ANIP）许可，进口设备享受关税减免，须提交年度投资报告。" },
-    { "title": "安哥拉劳动法（2022年修订）", "country_id": "AO", "scene_id": "labor", "level": "国家级", "penalty": "每项违规最高罚款500万宽扎", "effective_date": "2022-11-01", "summary": "本地员工比例须达70%以上，外籍员工须申请工作许可，制造业须为本地员工提供职业培训。" },
-    { "title": "埃及增值税法实施细则", "country_id": "EG", "scene_id": "tax", "level": "部门规章", "penalty": "滞纳金每日0.5%，最高不超过本金", "effective_date": "2024-03-01", "summary": "标准增值税率14%，出口适用零税率，须保留完整税务凭证至少5年，苏伊士运河经济区制造业享税收优惠。" },
-    { "title": "埃及环境保护法", "country_id": "EG", "scene_id": "env", "level": "国家级", "penalty": "项目暂停 + 环境修复费用", "effective_date": "2022-06-10", "summary": "制造业项目须通过环境影响评估（EIA），未取得环评批复不得开工，工业废水须达到排放标准。" },
-    { "title": "加纳海关关税法", "country_id": "GH", "scene_id": "customs", "level": "国家级", "penalty": "货物扣押 + 罚款25-50%货值", "effective_date": "2023-08-20", "summary": "制造业进口原材料须在海关提前申报，未申报货物将被扣押，自由贸易区企业享受关税豁免。" },
-    { "title": "加纳劳动法（2023年修订）", "country_id": "GH", "scene_id": "labor", "level": "国家级", "penalty": "每项违规最高罚款10万塞地", "effective_date": "2023-12-01", "summary": "制造业须遵守每日8小时工作制，加班须支付1.5倍工资，须为本地员工缴纳社保及养老金。" }
+    {
+      "title": "南非海关管理法（修订版）",
+      "country_id": "ZA",
+      "scene_id": "customs",
+      "level": "国家级",
+      "penalty": "货物扣押 + 罚款20-50%货值",
+      "effective_date": "2024-01-15",
+      "summary": "制造业进口原材料需提前30天备案，未备案货物将被扣押并处以货值20-50%的罚款。"
+    },
+    {
+      "title": "南非劳工法典（2023年修订）",
+      "country_id": "ZA",
+      "scene_id": "labor",
+      "level": "国家级",
+      "penalty": "每项违规最高罚款100万南非兰特",
+      "effective_date": "2023-11-20",
+      "summary": "外籍员工与本地员工比例需符合要求，加班工资为正常工资的1.5倍，制造业须遵守最低工资规范。"
+    },
+    {
+      "title": "刚果（金）矿业法及制造业配套法规",
+      "country_id": "CD",
+      "scene_id": "env",
+      "level": "国家级",
+      "penalty": "项目暂停 + 环境修复费用",
+      "effective_date": "2022-06-10",
+      "summary": "制造业项目须通过环境影响评估（EIA），未取得环评批复不得开工，采矿配套制造业须特别许可。"
+    },
+    {
+      "title": "刚果（金）增值税法实施细则",
+      "country_id": "CD",
+      "scene_id": "tax",
+      "level": "部门规章",
+      "penalty": "滞纳金每日0.5%，最高不超过本金",
+      "effective_date": "2024-03-01",
+      "summary": "标准增值税率16%，出口适用零税率，须保留完整税务凭证至少5年，制造业进口设备可退税。"
+    },
+    {
+      "title": "尼日利亚海关管理法（修订版）",
+      "country_id": "NG",
+      "scene_id": "customs",
+      "level": "国家级",
+      "penalty": "货物扣押 + 罚款20-50%货值",
+      "effective_date": "2024-01-15",
+      "summary": "制造业进口原材料需提前30天备案，未备案货物将被扣押并处以货值20-50%的罚款。"
+    },
+    {
+      "title": "尼日利亚数据保护法（NDPR）",
+      "country_id": "NG",
+      "scene_id": "data",
+      "level": "国家级",
+      "penalty": "最高罚款年营业额2%或1000万奈拉",
+      "effective_date": "2021-07-01",
+      "summary": "处理个人数据的企业须注册数据保护官，数据跨境传输须通过合规评估，制造业须保护员工数据。"
+    },
+    {
+      "title": "安哥拉制造业投资法",
+      "country_id": "AO",
+      "scene_id": "customs",
+      "level": "国家级",
+      "penalty": "投资许可撤销 + 资产冻结",
+      "effective_date": "2023-09-15",
+      "summary": "制造业外资投资须取得私人投资局（ANIP）许可，进口设备享受关税减免，须提交年度投资报告。"
+    },
+    {
+      "title": "安哥拉劳动法（2022年修订）",
+      "country_id": "AO",
+      "scene_id": "labor",
+      "level": "国家级",
+      "penalty": "每项违规最高罚款500万宽扎",
+      "effective_date": "2022-11-01",
+      "summary": "本地员工比例须达70%以上，外籍员工须申请工作许可，制造业须为本地员工提供职业培训。"
+    },
+    {
+      "title": "埃及增值税法实施细则",
+      "country_id": "EG",
+      "scene_id": "tax",
+      "level": "部门规章",
+      "penalty": "滞纳金每日0.5%，最高不超过本金",
+      "effective_date": "2024-03-01",
+      "summary": "标准增值税率14%，出口适用零税率，须保留完整税务凭证至少5年，苏伊士运河经济区制造业享税收优惠。"
+    },
+    {
+      "title": "埃及环境保护法",
+      "country_id": "EG",
+      "scene_id": "env",
+      "level": "国家级",
+      "penalty": "项目暂停 + 环境修复费用",
+      "effective_date": "2022-06-10",
+      "summary": "制造业项目须通过环境影响评估（EIA），未取得环评批复不得开工，工业废水须达到排放标准。"
+    },
+    {
+      "title": "加纳海关关税法",
+      "country_id": "GH",
+      "scene_id": "customs",
+      "level": "国家级",
+      "penalty": "货物扣押 + 罚款25-50%货值",
+      "effective_date": "2023-08-20",
+      "summary": "制造业进口原材料须在海关提前申报，未申报货物将被扣押，自由贸易区企业享受关税豁免。"
+    },
+    {
+      "title": "加纳劳动法（2023年修订）",
+      "country_id": "GH",
+      "scene_id": "labor",
+      "level": "国家级",
+      "penalty": "每项违规最高罚款10万塞地",
+      "effective_date": "2023-12-01",
+      "summary": "制造业须遵守每日8小时工作制，加班须支付1.5倍工资，须为本地员工缴纳社保及养老金。"
+    }
   ],
-
   "news_tags": [
-    { "id": 1, "name_zh": "政策利好" },
-    { "id": 2, "name_zh": "关税优惠" },
-    { "id": 3, "name_zh": "税收优惠" },
-    { "id": 4, "name_zh": "制造业" },
-    { "id": 5, "name_zh": "投资保护" },
-    { "id": 6, "name_zh": "双边协定" },
-    { "id": 7, "name_zh": "数据安全" },
-    { "id": 8, "name_zh": "行政处罚" },
-    { "id": 9, "name_zh": "环保合规" },
-    { "id": 10, "name_zh": "项目停工" },
-    { "id": 11, "name_zh": "劳工合规" },
-    { "id": 12, "name_zh": "外籍员工" }
+    {
+      "id": 1,
+      "name_zh": "政策利好"
+    },
+    {
+      "id": 2,
+      "name_zh": "关税优惠"
+    },
+    {
+      "id": 3,
+      "name_zh": "税收优惠"
+    },
+    {
+      "id": 4,
+      "name_zh": "制造业"
+    },
+    {
+      "id": 5,
+      "name_zh": "投资保护"
+    },
+    {
+      "id": 6,
+      "name_zh": "双边协定"
+    },
+    {
+      "id": 7,
+      "name_zh": "数据安全"
+    },
+    {
+      "id": 8,
+      "name_zh": "行政处罚"
+    },
+    {
+      "id": 9,
+      "name_zh": "环保合规"
+    },
+    {
+      "id": 10,
+      "name_zh": "项目停工"
+    },
+    {
+      "id": 11,
+      "name_zh": "劳工合规"
+    },
+    {
+      "id": 12,
+      "name_zh": "外籍员工"
+    }
   ],
-
   "news": [
     {
       "type": "cooperation",
@@ -72,7 +321,10 @@
       "country_id": null,
       "date": "2026-05-08",
       "summary": "中非合作论坛部长级会议就制造业投资便利化达成新共识，中国企业赴非投资将享受更优惠的关税待遇和更简化的审批流程。",
-      "tag_ids": [1, 2]
+      "tag_ids": [
+        1,
+        2
+      ]
     },
     {
       "type": "cooperation",
@@ -81,7 +333,10 @@
       "country_id": "KE",
       "date": "2026-04-22",
       "summary": "肯尼亚政府发布新的制造业外资激励政策，符合条件的制造业企业可享受前5年企业所得税减免50%的优惠。",
-      "tag_ids": [3, 4]
+      "tag_ids": [
+        3,
+        4
+      ]
     },
     {
       "type": "cooperation",
@@ -90,7 +345,10 @@
       "country_id": "NG",
       "date": "2026-03-15",
       "summary": "新版双边投资保护协定扩大了投资者保护范围，增加了争端解决机制条款，为中国制造业企业提供更强法律保障。",
-      "tag_ids": [5, 6]
+      "tag_ids": [
+        5,
+        6
+      ]
     },
     {
       "type": "hotspot",
@@ -102,7 +360,10 @@
       "risk_level": "high",
       "involved_laws": "南非数据保护法（POPIA）",
       "response": "立即注册信息官，完成数据跨境传输影响评估",
-      "tag_ids": [7, 8]
+      "tag_ids": [
+        7,
+        8
+      ]
     },
     {
       "type": "hotspot",
@@ -114,7 +375,10 @@
       "risk_level": "high",
       "involved_laws": "埃塞俄比亚环境保护法",
       "response": "开工前必须完成EIA并取得正式批复文件",
-      "tag_ids": [9, 10]
+      "tag_ids": [
+        9,
+        10
+      ]
     },
     {
       "type": "hotspot",
@@ -126,7 +390,10 @@
       "risk_level": "medium",
       "involved_laws": "埃及劳动法（2025年修订）",
       "response": "调整人力资源结构，确保本地员工占比不低于60%",
-      "tag_ids": [11, 12]
+      "tag_ids": [
+        11,
+        12
+      ]
     },
     {
       "type": "update",
@@ -159,104 +426,812 @@
       "advice": "已在旧法下申请的专利需在新法框架下补充材料"
     }
   ],
-
   "agency_categories": [
-    { "id": "law", "label_zh": "律师事务所", "icon_name": "Scale", "sort_order": 1 },
-    { "id": "accounting", "label_zh": "会计师事务所", "icon_name": "Calculator", "sort_order": 2 },
-    { "id": "hr", "label_zh": "人力资源匹配机构", "icon_name": "Users", "sort_order": 3 }
+    {
+      "id": "law",
+      "label_zh": "律师事务所",
+      "icon_name": "Scale",
+      "sort_order": 1
+    },
+    {
+      "id": "accounting",
+      "label_zh": "会计师事务所",
+      "icon_name": "Calculator",
+      "sort_order": 2
+    },
+    {
+      "id": "hr",
+      "label_zh": "人力资源匹配机构",
+      "icon_name": "Users",
+      "sort_order": 3
+    }
   ],
-
   "agency_scenes": [
-    { "id": "law-establishment", "category_id": "law", "label_zh": "投资设立 / 公司注册合规", "sort_order": 1 },
-    { "id": "law-labor", "category_id": "law", "label_zh": "劳工用工 / 雇佣合规", "sort_order": 2 },
-    { "id": "law-customs", "category_id": "law", "label_zh": "海关贸易 / 进出口合规", "sort_order": 3 },
-    { "id": "law-tax", "category_id": "law", "label_zh": "税务合规 / 争议解决", "sort_order": 4 },
-    { "id": "law-env", "category_id": "law", "label_zh": "环保合规 / 安全生产", "sort_order": 5 },
-    { "id": "acct-audit", "category_id": "accounting", "label_zh": "财务审计 / 年度报表", "sort_order": 1 },
-    { "id": "acct-tax", "category_id": "accounting", "label_zh": "制造业税务筹划 / 申报", "sort_order": 2 },
-    { "id": "acct-crossborder", "category_id": "accounting", "label_zh": "跨境财税 / 外汇合规", "sort_order": 3 },
-    { "id": "acct-cost", "category_id": "accounting", "label_zh": "成本核算 / 薪酬记账", "sort_order": 4 },
-    { "id": "hr-worker", "category_id": "hr", "label_zh": "普工 / 技工 / 操作工招聘", "sort_order": 1 },
-    { "id": "hr-talent", "category_id": "hr", "label_zh": "技术人才 / 管理岗招聘", "sort_order": 2 },
-    { "id": "hr-payroll", "category_id": "hr", "label_zh": "薪酬发放 / 社保公积金", "sort_order": 3 },
-    { "id": "hr-outsourcing", "category_id": "hr", "label_zh": "用工外包 / 岗位派遣", "sort_order": 4 }
+    {
+      "id": "law-establishment",
+      "category_id": "law",
+      "label_zh": "投资设立 / 公司注册合规",
+      "sort_order": 1
+    },
+    {
+      "id": "law-labor",
+      "category_id": "law",
+      "label_zh": "劳工用工 / 雇佣合规",
+      "sort_order": 2
+    },
+    {
+      "id": "law-customs",
+      "category_id": "law",
+      "label_zh": "海关贸易 / 进出口合规",
+      "sort_order": 3
+    },
+    {
+      "id": "law-tax",
+      "category_id": "law",
+      "label_zh": "税务合规 / 争议解决",
+      "sort_order": 4
+    },
+    {
+      "id": "law-env",
+      "category_id": "law",
+      "label_zh": "环保合规 / 安全生产",
+      "sort_order": 5
+    },
+    {
+      "id": "acct-audit",
+      "category_id": "accounting",
+      "label_zh": "财务审计 / 年度报表",
+      "sort_order": 1
+    },
+    {
+      "id": "acct-tax",
+      "category_id": "accounting",
+      "label_zh": "制造业税务筹划 / 申报",
+      "sort_order": 2
+    },
+    {
+      "id": "acct-crossborder",
+      "category_id": "accounting",
+      "label_zh": "跨境财税 / 外汇合规",
+      "sort_order": 3
+    },
+    {
+      "id": "acct-cost",
+      "category_id": "accounting",
+      "label_zh": "成本核算 / 薪酬记账",
+      "sort_order": 4
+    },
+    {
+      "id": "hr-worker",
+      "category_id": "hr",
+      "label_zh": "普工 / 技工 / 操作工招聘",
+      "sort_order": 1
+    },
+    {
+      "id": "hr-talent",
+      "category_id": "hr",
+      "label_zh": "技术人才 / 管理岗招聘",
+      "sort_order": 2
+    },
+    {
+      "id": "hr-payroll",
+      "category_id": "hr",
+      "label_zh": "薪酬发放 / 社保公积金",
+      "sort_order": 3
+    },
+    {
+      "id": "hr-outsourcing",
+      "category_id": "hr",
+      "label_zh": "用工外包 / 岗位派遣",
+      "sort_order": 4
+    }
   ],
-
   "agencies": [
-    { "name_zh": "ENS (ENSafrica)", "scene_id": "law-establishment", "region": "南非、尼日利亚、肯尼亚、加纳、全非", "phone": "+27 11 888 8000", "email": "info@ensafrica.com", "business": "制造业投资架构、公司注册、准入合规、跨境设立", "advantage": "全非最大律所，多国执业，大型制造项目落地能力强", "highlight": "全非最大" },
-    { "name_zh": "Bowmans", "scene_id": "law-establishment", "region": "南非、肯尼亚、坦桑尼亚、乌干达、西非", "phone": "+27 21 657 2000", "email": "info@bowmanslaw.com", "business": "跨国收并购、工业项目选址、合规架构设计", "advantage": "泛非顶尖律所，国际权威榜单推荐", "highlight": "泛非顶尖" },
-    { "name_zh": "Shalakany Law Office", "scene_id": "law-establishment", "region": "埃及、北非", "phone": "+20 2 2574 4440", "email": "info@shalakany.com", "business": "北非工业准入、外资设立、自贸区合规", "advantage": "埃及权威，北非制造业头部律所", "highlight": "北非权威" },
-    { "name_zh": "Anjarwalla & Khanna (A&K)", "scene_id": "law-establishment", "region": "肯尼亚、东非", "phone": "+254 20 287 3000", "email": "info@ak.co.ke", "business": "东非外资准入、制造企业设立、合规落地", "advantage": "东非门户律所，深耕制造业", "highlight": "东非门户" },
-    { "name_zh": "Udo Udoma & Belo-Osagie (UUBO)", "scene_id": "law-establishment", "region": "尼日利亚、西非", "phone": "+234 1 460 6600", "email": "info@uubo.com", "business": "公司注册、商业合规、制造业准入", "advantage": "尼日利亚顶级商业律所", "highlight": "尼日利亚顶级" },
-    { "name_zh": "Webber Wentzel", "scene_id": "law-labor", "region": "南非", "phone": "+27 10 800 3000", "email": "info@webberwentzel.com", "business": "劳工纠纷、罢工谈判、大规模用工合规", "advantage": "南非劳工法第一，服务大型制造企业", "highlight": "劳工第一" },
-    { "name_zh": "Bentsi-Enchill", "scene_id": "law-labor", "region": "加纳、西非", "phone": "+233 302 779 000", "email": "info@bentsi-enchill.com", "business": "雇佣合规、劳工福利、工厂用工管理", "advantage": "西非金牌律所，中资友好", "highlight": "西非金牌" },
-    { "name_zh": "Kaplan & Stratton", "scene_id": "law-labor", "region": "肯尼亚、东非", "phone": "+254 20 271 7000", "email": "info@kaplanstratton.com", "business": "雇佣法、福利体系、用工合规", "advantage": "东非资深劳工法专家", "highlight": "东非资深" },
-    { "name_zh": "Sy & Partners", "scene_id": "law-labor", "region": "塞内加尔、几内亚、法语区西非", "phone": "+221 33 867 7000", "email": "contact@sy-partners.sn", "business": "法语区劳动合规、用工管理", "advantage": "法语区制造业劳工权威", "highlight": "法语区" },
-    { "name_zh": "非洲重点华人律所", "scene_id": "law-labor", "region": "全非重点国家", "phone": "400-888-9999（预留）", "email": "africalaw@163.com（预留）", "business": "中文服务、用工对接、合规翻译", "advantage": "无语言障碍，适配中资管理", "highlight": "华人律所" },
-    { "name_zh": "Cliffe Dekker Hofmeyr (CDH)", "scene_id": "law-customs", "region": "南非、肯尼亚、纳米比亚", "phone": "+27 11 888 7000", "email": "info@cdhlegal.com", "business": "自贸区合规、贸易壁垒、进出口审核", "advantage": "泛非贸易合规头部", "highlight": "贸易头部" },
-    { "name_zh": "DLA Piper Africa", "scene_id": "law-customs", "region": "全非", "phone": "+44 (0) 20 7321 3000", "email": "africa@dlapiper.com", "business": "跨国贸易、内部贸易合规、关税咨询", "advantage": "全球网络，全非洲覆盖", "highlight": "全球网络" },
-    { "name_zh": "Aelex", "scene_id": "law-customs", "region": "尼日利亚、加纳", "phone": "+234 1 461 3333", "email": "info@aelex.com", "business": "跨境贸易、物流、关税、进出口许可", "advantage": "西非贸易法律专家", "highlight": "西非专家" },
-    { "name_zh": "Coulson Harney", "scene_id": "law-customs", "region": "东非、南非", "phone": "+254 20 287 1000", "email": "info@coulsonharney.com", "business": "制造业进出口许可、原产地规则", "advantage": "专注制造企业贸易合规", "highlight": "专注制造" },
-    { "name_zh": "Trilegal Africa", "scene_id": "law-customs", "region": "东非、南部非洲", "phone": "+254 20 221 1000", "email": "info@trilegal.africa", "business": "新兴市场贸易准入、审查", "advantage": "灵活高效，适配中小制造企业", "highlight": "灵活高效" },
-    { "name_zh": "TripleOKLaw", "scene_id": "law-tax", "region": "肯尼亚、东非", "phone": "+254 20 273 1000", "email": "info@tripleoklaw.com", "business": "税务诉讼、转让定价、税务争议", "advantage": "东非税务顶尖", "highlight": "税务顶尖" },
-    { "name_zh": "Sarkis & Associates", "scene_id": "law-tax", "region": "埃及、北非", "phone": "+20 2 2578 1110", "email": "info@sarkis-law.com", "business": "税务复议、制造业税务合规", "advantage": "北非税务权威", "highlight": "北非权威" },
-    { "name_zh": "Templars", "scene_id": "law-tax", "region": "尼日利亚", "phone": "+234 1 460 5500", "email": "info@templars-law.com", "business": "税务筹划、税务审计应对", "advantage": "尼日利亚税务领军", "highlight": "税务领军" },
-    { "name_zh": "Werksmans Attorneys", "scene_id": "law-tax", "region": "南非", "phone": "+27 11 571 1111", "email": "info@werksmans.com", "business": "商税、制造业税务架构", "advantage": "南非资深税法律所", "highlight": "南非资深" },
-    { "name_zh": "Savjani & Co", "scene_id": "law-tax", "region": "马拉维、东南非", "phone": "+265 1 820 100", "email": "info@savjani.co.mw", "business": "税务合规、申报、筹划", "advantage": "东南非垂直深耕", "highlight": "垂直深耕" },
-    { "name_zh": "Iseme, Kamau & Maema (IKM)", "scene_id": "law-env", "region": "肯尼亚、东非", "phone": "+254 20 271 8000", "email": "info@ikmlaw.com", "business": "环评、安全生产、工业园合规", "advantage": "东非环评专家", "highlight": "环评专家" },
-    { "name_zh": "Banwo & Ighodalo", "scene_id": "law-env", "region": "尼日利亚", "phone": "+234 1 461 2222", "email": "info@bani-law.com", "business": "环境评估、合规审计、生产安全", "advantage": "尼日利亚制造环保权威", "highlight": "环保权威" },
-    { "name_zh": "OAA Law", "scene_id": "law-env", "region": "加纳", "phone": "+233 302 771 000", "email": "info@oaalaw.com", "business": "环境许可、社会责任、安全生产", "advantage": "加纳制造环保专家", "highlight": "加纳专家" },
-    { "name_zh": "Gide Loyrette Nouel", "scene_id": "law-env", "region": "北非、法语区西非", "phone": "+33 1 46 96 96 96", "email": "contact@gide.com", "business": "环境法规、安全生产、合规", "advantage": "法语区环境法头部", "highlight": "法语区头部" },
-    { "name_zh": "Matouk Bassiouny", "scene_id": "law-env", "region": "埃及、北非", "phone": "+20 2 2579 9990", "email": "info@matoukbassiouny.com", "business": "工业项目安全、生产合规", "advantage": "北非大型工业项目顾问", "highlight": "大型项目" },
-    { "name_zh": "Deloitte Africa", "scene_id": "acct-audit", "region": "全非主要工业国", "phone": "+27 11 806 3000", "email": "africa@deloitte.com", "business": "全球标准审计、财报、内控", "advantage": "国际四大，适配大型跨国工厂", "highlight": "国际四大" },
-    { "name_zh": "KPMG Africa", "scene_id": "acct-audit", "region": "南非、安哥拉、埃及、尼日利亚", "phone": "+27 11 647 1000", "email": "info@kpmg.co.za", "business": "审计、税务、合规", "advantage": "国际四大，非洲网络完善", "highlight": "国际四大" },
-    { "name_zh": "EY Africa", "scene_id": "acct-audit", "region": "南非、埃及、尼日利亚、肯尼亚", "phone": "+27 11 773 1000", "email": "info@za.ey.com", "business": "财务审计、税务合规", "advantage": "国际四大，英语区服务稳定", "highlight": "国际四大" },
-    { "name_zh": "PwC Africa", "scene_id": "acct-audit", "region": "南非、尼日利亚、肯尼亚", "phone": "+27 10 797 5000", "email": "info@pwc.com", "business": "跨境税务、审计、制造业咨询", "advantage": "国际四大，制造业经验成熟", "highlight": "国际四大" },
-    { "name_zh": "BDO Africa", "scene_id": "acct-audit", "region": "全非", "phone": "+27 11 658 9000", "email": "info@bdo.africa", "business": "中大型制造企业年度审计", "advantage": "性价比高，覆盖广", "highlight": "性价比高" },
-    { "name_zh": "Grant Thornton Africa", "scene_id": "acct-audit", "region": "全非", "phone": "+27 11 571 3000", "email": "info@za.gt.com", "business": "年度审计、合规财报", "advantage": "流程严谨，非洲深耕", "highlight": "流程严谨" },
-    { "name_zh": "Mazars", "scene_id": "acct-audit", "region": "全非（法语区强势）", "phone": "+33 1 49 97 00 00", "email": "contact@mazars.com", "business": "审计、合规、财报", "advantage": "法语区第一梯队", "highlight": "法语区第一" },
-    { "name_zh": "PKF Africa", "scene_id": "acct-audit", "region": "全非", "phone": "+27 11 286 9000", "email": "info@pkf.africa", "business": "中等制造企业定制审计", "advantage": "灵活、专业、适配中型厂", "highlight": "灵活专业" },
-    { "name_zh": "RSM Africa", "scene_id": "acct-tax", "region": "全非", "phone": "+27 11 783 9000", "email": "info@rsm.africa", "business": "增值税退税、所得税优惠、筹划", "advantage": "制造业税筹精准", "highlight": "税筹精准" },
-    { "name_zh": "Bakertilly", "scene_id": "acct-tax", "region": "全非", "phone": "+1 800 822 1110", "email": "africa@bakertilly.com", "business": "设备折旧、固定资产财税处理", "advantage": "制造企业资产财税专家", "highlight": "资产财税" },
-    { "name_zh": "Crowe Africa", "scene_id": "acct-tax", "region": "全非", "phone": "+27 11 282 9000", "email": "info@crowe.africa", "business": "税务合规、风险评估、申报", "advantage": "全流程税务服务", "highlight": "全流程" },
-    { "name_zh": "Pedabo", "scene_id": "acct-tax", "region": "尼日利亚", "phone": "+234 1 291 2000", "email": "info@pedabo.com", "business": "本土财税申报、合规", "advantage": "尼日利亚名气最大", "highlight": "名气最大" },
-    { "name_zh": "Nexia SAB&T", "scene_id": "acct-tax", "region": "南部非洲", "phone": "+27 11 571 2000", "email": "info@nexiasabt.com", "business": "税优申请、合规、筹划", "advantage": "南部非洲制造税务专家", "highlight": "制造税务" },
-    { "name_zh": "Standard Bank Advisory", "scene_id": "acct-crossborder", "region": "全非", "phone": "+27 11 373 1000", "email": "advisory@standardbank.co.za", "business": "利润汇回、外汇对冲、跨境资金", "advantage": "银行背景，资金安全合规", "highlight": "银行背景" },
-    { "name_zh": "Ecobank 商业服务部", "scene_id": "acct-crossborder", "region": "全非", "phone": "+225 20 20 20 20", "email": "corporate@ecobank.com", "business": "外币清算、资本出入境、外汇合规", "advantage": "全非网络，资金通道稳定", "highlight": "全非网络" },
-    { "name_zh": "Absa Group Advisory", "scene_id": "acct-crossborder", "region": "南部非洲、东非", "phone": "+27 11 284 8000", "email": "advisory@absa.africa", "business": "资本输出、筹资合规、外汇管理", "advantage": "制造业跨境资本专家", "highlight": "跨境资本" },
-    { "name_zh": "Moore Global Africa", "scene_id": "acct-crossborder", "region": "全非", "phone": "+44 (0) 20 7716 1000", "email": "africa@moore-global.com", "business": "利润分配、外汇申报、跨境协调", "advantage": "全球网络，跨国财税专家", "highlight": "全球网络" },
-    { "name_zh": "HLB International Africa", "scene_id": "acct-crossborder", "region": "全非", "phone": "+44 (0) 20 7405 1000", "email": "africa@hlb-global.com", "business": "中小制造企业跨境财税", "advantage": "轻量化、高效、低成本", "highlight": "轻量高效" },
-    { "name_zh": "SNG Grant Thornton", "scene_id": "acct-cost", "region": "全非", "phone": "+27 11 381 3000", "email": "info@snggt.com", "business": "计件工资、成本核算、加班费合规", "advantage": "制造企业财务核算专家", "highlight": "核算专家" },
-    { "name_zh": "ADP Africa", "scene_id": "acct-cost", "region": "全非", "phone": "+1 800 422 7237", "email": "africa@adp.com", "business": "全球薪酬外包、社保、个税", "advantage": "国际级，覆盖非洲各国政策", "highlight": "国际级" },
-    { "name_zh": "Sage 认证服务商", "scene_id": "acct-cost", "region": "全非", "phone": "+27 11 628 2000", "email": "africa@sage.com", "business": "ERP、成本核算、财税系统", "advantage": "系统稳定，本地适配", "highlight": "系统稳定" },
-    { "name_zh": "Wylie & Bisset", "scene_id": "acct-cost", "region": "南部非洲", "phone": "+27 11 883 7000", "email": "info@wyliebisset.com", "business": "库存核算、生产流程审计", "advantage": "制造财务垂直深耕", "highlight": "垂直深耕" },
-    { "name_zh": "TMF Group Africa", "scene_id": "acct-cost", "region": "全非", "phone": "+31 20 778 2888", "email": "africa@tmf-group.com", "business": "多国薪酬代发、合规管理", "advantage": "一站式托管，多国协同", "highlight": "一站式" },
-    { "name_zh": "Adcorp Group", "scene_id": "hr-worker", "region": "南非、南部非洲", "phone": "+27 11 233 7000", "email": "info@adcorp.co.za", "business": "蓝领、技工、操作工批量招聘", "advantage": "南部非洲蓝领第一", "highlight": "蓝领第一" },
-    { "name_zh": "Jobberman", "scene_id": "hr-worker", "region": "尼日利亚、加纳", "phone": "+234 1 454 0000", "email": "info@jobberman.com", "business": "基层工人、操作工招聘", "advantage": "西非最大基层人才平台", "highlight": "西非最大" },
-    { "name_zh": "BrighterMonday", "scene_id": "hr-worker", "region": "肯尼亚、坦桑尼亚", "phone": "+254 20 521 7000", "email": "info@brightermonday.com", "business": "蓝领、技工、测评", "advantage": "东非核心招聘机构", "highlight": "东非核心" },
-    { "name_zh": "KaziNow", "scene_id": "hr-worker", "region": "东非", "phone": "+254 20 224 5000", "email": "info@kazinow.com", "business": "按需雇佣、蓝领匹配", "advantage": "新兴高效，制造业友好", "highlight": "新兴高效" },
-    { "name_zh": "ManpowerGroup Africa", "scene_id": "hr-worker", "region": "全非", "phone": "+1 414 961 1000", "email": "africa@manpowergroup.com", "business": "标准化技工筛选、派遣", "advantage": "全球标准，质量稳定", "highlight": "全球标准" },
-    { "name_zh": "Andela", "scene_id": "hr-talent", "region": "尼日利亚、肯尼亚、加纳、埃及", "phone": "+1 800 123 4567", "email": "hello@andela.com", "business": "自动化工程师、技术管理岗", "advantage": "非洲高端技术人才库第一", "highlight": "技术第一" },
-    { "name_zh": "TalentQL", "scene_id": "hr-talent", "region": "西非、东非", "phone": "+234 801 234 5678", "email": "hello@talentql.com", "business": "高级工程师、管理岗猎聘", "advantage": "精准匹配制造技术岗", "highlight": "精准匹配" },
-    { "name_zh": "Michael Page Africa", "scene_id": "hr-talent", "region": "全非", "phone": "+27 11 284 9000", "email": "africa@michaelpage.com", "business": "高管、外籍专家、制造业管理层", "advantage": "全球猎头，制造领域资深", "highlight": "全球猎头" },
-    { "name_zh": "Robert Walters Africa", "scene_id": "hr-talent", "region": "全非", "phone": "+27 11 282 8000", "email": "africa@robertwalters.com", "business": "中高层招聘、薪酬调研", "advantage": "国际视野，制造业资源丰富", "highlight": "国际视野" },
-    { "name_zh": "Shortlist", "scene_id": "hr-talent", "region": "东非、西非", "phone": "+254 20 224 6000", "email": "hello@shortlist.co", "business": "大数据匹配技术人才、工程师", "advantage": "高效精准，成本可控", "highlight": "高效精准" },
-    { "name_zh": "SeamlessHR", "scene_id": "hr-payroll", "region": "全非", "phone": "+234 1 291 3000", "email": "info@seamlesshr.com", "business": "数字化HR、假勤、社保、薪酬", "advantage": "非洲多国政策适配", "highlight": "多国适配" },
-    { "name_zh": "PaySpace", "scene_id": "hr-payroll", "region": "40+非洲国家", "phone": "+27 11 286 8000", "email": "info@payspace.com", "business": "薪酬管理、个税合规、云系统", "advantage": "覆盖最广的非洲薪酬平台", "highlight": "覆盖最广" },
-    { "name_zh": "Workpay", "scene_id": "hr-payroll", "region": "东非", "phone": "+254 20 224 7000", "email": "hello@workpay.co", "business": "薪酬发放、社保代缴、预支工资", "advantage": "东非本地化最强", "highlight": "东非最强" },
-    { "name_zh": "BrioHR", "scene_id": "hr-payroll", "region": "全非", "phone": "+60 3 2772 8888", "email": "info@briohr.com", "business": "成长型工厂一站式HR、薪酬", "advantage": "轻量化，适合中小制造企业", "highlight": "轻量化" },
-    { "name_zh": "Zambizi Payroll", "scene_id": "hr-payroll", "region": "南部非洲", "phone": "+27 11 783 8000", "email": "info@zambizi.com", "business": "薪酬合规、个税、社保", "advantage": "南部非洲垂直深耕", "highlight": "垂直深耕" },
-    { "name_zh": "Employ Africa", "scene_id": "hr-outsourcing", "region": "全非", "phone": "+27 11 234 7000", "email": "info@employafrica.com", "business": "PEO全托管、用工关系外包", "advantage": "非洲顶尖专业PEO", "highlight": "顶尖PEO" },
-    { "name_zh": "Africa HR Solutions", "scene_id": "hr-outsourcing", "region": "全非", "phone": "+27 11 784 9000", "email": "info@africahr.com", "business": "劳务外包、派遣、合规", "advantage": "全非范围，一站式服务", "highlight": "全非范围" },
-    { "name_zh": "Tower Group", "scene_id": "hr-outsourcing", "region": "南非、南部非洲", "phone": "+27 11 881 7000", "email": "info@towergroup.co.za", "business": "岗位派遣、劳务外包", "advantage": "资深稳定，制造业长期合作", "highlight": "资深稳定" },
-    { "name_zh": "Global PEO Services", "scene_id": "hr-outsourcing", "region": "全非", "phone": "+1 800 822 1110", "email": "africa@globalpeo.com", "business": "名义雇主、初期落地外包", "advantage": "适合新进入非洲企业", "highlight": "新企适配" },
-    { "name_zh": "Elite Resources", "scene_id": "hr-outsourcing", "region": "尼日利亚、西非", "phone": "+234 1 291 4000", "email": "info@eliteresources.com", "business": "工业园劳务派遣、外包", "advantage": "西非制造园区专家", "highlight": "园区专家" }
+    {
+      "name_zh": "ENS (ENSafrica)",
+      "scene_id": "law-establishment",
+      "region": "南非、尼日利亚、肯尼亚、加纳、全非",
+      "phone": "+27 11 888 8000",
+      "email": "info@ensafrica.com",
+      "business": "制造业投资架构、公司注册、准入合规、跨境设立",
+      "advantage": "全非最大律所，多国执业，大型制造项目落地能力强",
+      "highlight": "全非最大"
+    },
+    {
+      "name_zh": "Bowmans",
+      "scene_id": "law-establishment",
+      "region": "南非、肯尼亚、坦桑尼亚、乌干达、西非",
+      "phone": "+27 21 657 2000",
+      "email": "info@bowmanslaw.com",
+      "business": "跨国收并购、工业项目选址、合规架构设计",
+      "advantage": "泛非顶尖律所，国际权威榜单推荐",
+      "highlight": "泛非顶尖"
+    },
+    {
+      "name_zh": "Shalakany Law Office",
+      "scene_id": "law-establishment",
+      "region": "埃及、北非",
+      "phone": "+20 2 2574 4440",
+      "email": "info@shalakany.com",
+      "business": "北非工业准入、外资设立、自贸区合规",
+      "advantage": "埃及权威，北非制造业头部律所",
+      "highlight": "北非权威"
+    },
+    {
+      "name_zh": "Anjarwalla & Khanna (A&K)",
+      "scene_id": "law-establishment",
+      "region": "肯尼亚、东非",
+      "phone": "+254 20 287 3000",
+      "email": "info@ak.co.ke",
+      "business": "东非外资准入、制造企业设立、合规落地",
+      "advantage": "东非门户律所，深耕制造业",
+      "highlight": "东非门户"
+    },
+    {
+      "name_zh": "Udo Udoma & Belo-Osagie (UUBO)",
+      "scene_id": "law-establishment",
+      "region": "尼日利亚、西非",
+      "phone": "+234 1 460 6600",
+      "email": "info@uubo.com",
+      "business": "公司注册、商业合规、制造业准入",
+      "advantage": "尼日利亚顶级商业律所",
+      "highlight": "尼日利亚顶级"
+    },
+    {
+      "name_zh": "Webber Wentzel",
+      "scene_id": "law-labor",
+      "region": "南非",
+      "phone": "+27 10 800 3000",
+      "email": "info@webberwentzel.com",
+      "business": "劳工纠纷、罢工谈判、大规模用工合规",
+      "advantage": "南非劳工法第一，服务大型制造企业",
+      "highlight": "劳工第一"
+    },
+    {
+      "name_zh": "Bentsi-Enchill",
+      "scene_id": "law-labor",
+      "region": "加纳、西非",
+      "phone": "+233 302 779 000",
+      "email": "info@bentsi-enchill.com",
+      "business": "雇佣合规、劳工福利、工厂用工管理",
+      "advantage": "西非金牌律所，中资友好",
+      "highlight": "西非金牌"
+    },
+    {
+      "name_zh": "Kaplan & Stratton",
+      "scene_id": "law-labor",
+      "region": "肯尼亚、东非",
+      "phone": "+254 20 271 7000",
+      "email": "info@kaplanstratton.com",
+      "business": "雇佣法、福利体系、用工合规",
+      "advantage": "东非资深劳工法专家",
+      "highlight": "东非资深"
+    },
+    {
+      "name_zh": "Sy & Partners",
+      "scene_id": "law-labor",
+      "region": "塞内加尔、几内亚、法语区西非",
+      "phone": "+221 33 867 7000",
+      "email": "contact@sy-partners.sn",
+      "business": "法语区劳动合规、用工管理",
+      "advantage": "法语区制造业劳工权威",
+      "highlight": "法语区"
+    },
+    {
+      "name_zh": "非洲重点华人律所",
+      "scene_id": "law-labor",
+      "region": "全非重点国家",
+      "phone": "400-888-9999（预留）",
+      "email": "africalaw@163.com（预留）",
+      "business": "中文服务、用工对接、合规翻译",
+      "advantage": "无语言障碍，适配中资管理",
+      "highlight": "华人律所"
+    },
+    {
+      "name_zh": "Cliffe Dekker Hofmeyr (CDH)",
+      "scene_id": "law-customs",
+      "region": "南非、肯尼亚、纳米比亚",
+      "phone": "+27 11 888 7000",
+      "email": "info@cdhlegal.com",
+      "business": "自贸区合规、贸易壁垒、进出口审核",
+      "advantage": "泛非贸易合规头部",
+      "highlight": "贸易头部"
+    },
+    {
+      "name_zh": "DLA Piper Africa",
+      "scene_id": "law-customs",
+      "region": "全非",
+      "phone": "+44 (0) 20 7321 3000",
+      "email": "africa@dlapiper.com",
+      "business": "跨国贸易、内部贸易合规、关税咨询",
+      "advantage": "全球网络，全非洲覆盖",
+      "highlight": "全球网络"
+    },
+    {
+      "name_zh": "Aelex",
+      "scene_id": "law-customs",
+      "region": "尼日利亚、加纳",
+      "phone": "+234 1 461 3333",
+      "email": "info@aelex.com",
+      "business": "跨境贸易、物流、关税、进出口许可",
+      "advantage": "西非贸易法律专家",
+      "highlight": "西非专家"
+    },
+    {
+      "name_zh": "Coulson Harney",
+      "scene_id": "law-customs",
+      "region": "东非、南非",
+      "phone": "+254 20 287 1000",
+      "email": "info@coulsonharney.com",
+      "business": "制造业进出口许可、原产地规则",
+      "advantage": "专注制造企业贸易合规",
+      "highlight": "专注制造"
+    },
+    {
+      "name_zh": "Trilegal Africa",
+      "scene_id": "law-customs",
+      "region": "东非、南部非洲",
+      "phone": "+254 20 221 1000",
+      "email": "info@trilegal.africa",
+      "business": "新兴市场贸易准入、审查",
+      "advantage": "灵活高效，适配中小制造企业",
+      "highlight": "灵活高效"
+    },
+    {
+      "name_zh": "TripleOKLaw",
+      "scene_id": "law-tax",
+      "region": "肯尼亚、东非",
+      "phone": "+254 20 273 1000",
+      "email": "info@tripleoklaw.com",
+      "business": "税务诉讼、转让定价、税务争议",
+      "advantage": "东非税务顶尖",
+      "highlight": "税务顶尖"
+    },
+    {
+      "name_zh": "Sarkis & Associates",
+      "scene_id": "law-tax",
+      "region": "埃及、北非",
+      "phone": "+20 2 2578 1110",
+      "email": "info@sarkis-law.com",
+      "business": "税务复议、制造业税务合规",
+      "advantage": "北非税务权威",
+      "highlight": "北非权威"
+    },
+    {
+      "name_zh": "Templars",
+      "scene_id": "law-tax",
+      "region": "尼日利亚",
+      "phone": "+234 1 460 5500",
+      "email": "info@templars-law.com",
+      "business": "税务筹划、税务审计应对",
+      "advantage": "尼日利亚税务领军",
+      "highlight": "税务领军"
+    },
+    {
+      "name_zh": "Werksmans Attorneys",
+      "scene_id": "law-tax",
+      "region": "南非",
+      "phone": "+27 11 571 1111",
+      "email": "info@werksmans.com",
+      "business": "商税、制造业税务架构",
+      "advantage": "南非资深税法律所",
+      "highlight": "南非资深"
+    },
+    {
+      "name_zh": "Savjani & Co",
+      "scene_id": "law-tax",
+      "region": "马拉维、东南非",
+      "phone": "+265 1 820 100",
+      "email": "info@savjani.co.mw",
+      "business": "税务合规、申报、筹划",
+      "advantage": "东南非垂直深耕",
+      "highlight": "垂直深耕"
+    },
+    {
+      "name_zh": "Iseme, Kamau & Maema (IKM)",
+      "scene_id": "law-env",
+      "region": "肯尼亚、东非",
+      "phone": "+254 20 271 8000",
+      "email": "info@ikmlaw.com",
+      "business": "环评、安全生产、工业园合规",
+      "advantage": "东非环评专家",
+      "highlight": "环评专家"
+    },
+    {
+      "name_zh": "Banwo & Ighodalo",
+      "scene_id": "law-env",
+      "region": "尼日利亚",
+      "phone": "+234 1 461 2222",
+      "email": "info@bani-law.com",
+      "business": "环境评估、合规审计、生产安全",
+      "advantage": "尼日利亚制造环保权威",
+      "highlight": "环保权威"
+    },
+    {
+      "name_zh": "OAA Law",
+      "scene_id": "law-env",
+      "region": "加纳",
+      "phone": "+233 302 771 000",
+      "email": "info@oaalaw.com",
+      "business": "环境许可、社会责任、安全生产",
+      "advantage": "加纳制造环保专家",
+      "highlight": "加纳专家"
+    },
+    {
+      "name_zh": "Gide Loyrette Nouel",
+      "scene_id": "law-env",
+      "region": "北非、法语区西非",
+      "phone": "+33 1 46 96 96 96",
+      "email": "contact@gide.com",
+      "business": "环境法规、安全生产、合规",
+      "advantage": "法语区环境法头部",
+      "highlight": "法语区头部"
+    },
+    {
+      "name_zh": "Matouk Bassiouny",
+      "scene_id": "law-env",
+      "region": "埃及、北非",
+      "phone": "+20 2 2579 9990",
+      "email": "info@matoukbassiouny.com",
+      "business": "工业项目安全、生产合规",
+      "advantage": "北非大型工业项目顾问",
+      "highlight": "大型项目"
+    },
+    {
+      "name_zh": "Deloitte Africa",
+      "scene_id": "acct-audit",
+      "region": "全非主要工业国",
+      "phone": "+27 11 806 3000",
+      "email": "africa@deloitte.com",
+      "business": "全球标准审计、财报、内控",
+      "advantage": "国际四大，适配大型跨国工厂",
+      "highlight": "国际四大"
+    },
+    {
+      "name_zh": "KPMG Africa",
+      "scene_id": "acct-audit",
+      "region": "南非、安哥拉、埃及、尼日利亚",
+      "phone": "+27 11 647 1000",
+      "email": "info@kpmg.co.za",
+      "business": "审计、税务、合规",
+      "advantage": "国际四大，非洲网络完善",
+      "highlight": "国际四大"
+    },
+    {
+      "name_zh": "EY Africa",
+      "scene_id": "acct-audit",
+      "region": "南非、埃及、尼日利亚、肯尼亚",
+      "phone": "+27 11 773 1000",
+      "email": "info@za.ey.com",
+      "business": "财务审计、税务合规",
+      "advantage": "国际四大，英语区服务稳定",
+      "highlight": "国际四大"
+    },
+    {
+      "name_zh": "PwC Africa",
+      "scene_id": "acct-audit",
+      "region": "南非、尼日利亚、肯尼亚",
+      "phone": "+27 10 797 5000",
+      "email": "info@pwc.com",
+      "business": "跨境税务、审计、制造业咨询",
+      "advantage": "国际四大，制造业经验成熟",
+      "highlight": "国际四大"
+    },
+    {
+      "name_zh": "BDO Africa",
+      "scene_id": "acct-audit",
+      "region": "全非",
+      "phone": "+27 11 658 9000",
+      "email": "info@bdo.africa",
+      "business": "中大型制造企业年度审计",
+      "advantage": "性价比高，覆盖广",
+      "highlight": "性价比高"
+    },
+    {
+      "name_zh": "Grant Thornton Africa",
+      "scene_id": "acct-audit",
+      "region": "全非",
+      "phone": "+27 11 571 3000",
+      "email": "info@za.gt.com",
+      "business": "年度审计、合规财报",
+      "advantage": "流程严谨，非洲深耕",
+      "highlight": "流程严谨"
+    },
+    {
+      "name_zh": "Mazars",
+      "scene_id": "acct-audit",
+      "region": "全非（法语区强势）",
+      "phone": "+33 1 49 97 00 00",
+      "email": "contact@mazars.com",
+      "business": "审计、合规、财报",
+      "advantage": "法语区第一梯队",
+      "highlight": "法语区第一"
+    },
+    {
+      "name_zh": "PKF Africa",
+      "scene_id": "acct-audit",
+      "region": "全非",
+      "phone": "+27 11 286 9000",
+      "email": "info@pkf.africa",
+      "business": "中等制造企业定制审计",
+      "advantage": "灵活、专业、适配中型厂",
+      "highlight": "灵活专业"
+    },
+    {
+      "name_zh": "RSM Africa",
+      "scene_id": "acct-tax",
+      "region": "全非",
+      "phone": "+27 11 783 9000",
+      "email": "info@rsm.africa",
+      "business": "增值税退税、所得税优惠、筹划",
+      "advantage": "制造业税筹精准",
+      "highlight": "税筹精准"
+    },
+    {
+      "name_zh": "Bakertilly",
+      "scene_id": "acct-tax",
+      "region": "全非",
+      "phone": "+1 800 822 1110",
+      "email": "africa@bakertilly.com",
+      "business": "设备折旧、固定资产财税处理",
+      "advantage": "制造企业资产财税专家",
+      "highlight": "资产财税"
+    },
+    {
+      "name_zh": "Crowe Africa",
+      "scene_id": "acct-tax",
+      "region": "全非",
+      "phone": "+27 11 282 9000",
+      "email": "info@crowe.africa",
+      "business": "税务合规、风险评估、申报",
+      "advantage": "全流程税务服务",
+      "highlight": "全流程"
+    },
+    {
+      "name_zh": "Pedabo",
+      "scene_id": "acct-tax",
+      "region": "尼日利亚",
+      "phone": "+234 1 291 2000",
+      "email": "info@pedabo.com",
+      "business": "本土财税申报、合规",
+      "advantage": "尼日利亚名气最大",
+      "highlight": "名气最大"
+    },
+    {
+      "name_zh": "Nexia SAB&T",
+      "scene_id": "acct-tax",
+      "region": "南部非洲",
+      "phone": "+27 11 571 2000",
+      "email": "info@nexiasabt.com",
+      "business": "税优申请、合规、筹划",
+      "advantage": "南部非洲制造税务专家",
+      "highlight": "制造税务"
+    },
+    {
+      "name_zh": "Standard Bank Advisory",
+      "scene_id": "acct-crossborder",
+      "region": "全非",
+      "phone": "+27 11 373 1000",
+      "email": "advisory@standardbank.co.za",
+      "business": "利润汇回、外汇对冲、跨境资金",
+      "advantage": "银行背景，资金安全合规",
+      "highlight": "银行背景"
+    },
+    {
+      "name_zh": "Ecobank 商业服务部",
+      "scene_id": "acct-crossborder",
+      "region": "全非",
+      "phone": "+225 20 20 20 20",
+      "email": "corporate@ecobank.com",
+      "business": "外币清算、资本出入境、外汇合规",
+      "advantage": "全非网络，资金通道稳定",
+      "highlight": "全非网络"
+    },
+    {
+      "name_zh": "Absa Group Advisory",
+      "scene_id": "acct-crossborder",
+      "region": "南部非洲、东非",
+      "phone": "+27 11 284 8000",
+      "email": "advisory@absa.africa",
+      "business": "资本输出、筹资合规、外汇管理",
+      "advantage": "制造业跨境资本专家",
+      "highlight": "跨境资本"
+    },
+    {
+      "name_zh": "Moore Global Africa",
+      "scene_id": "acct-crossborder",
+      "region": "全非",
+      "phone": "+44 (0) 20 7716 1000",
+      "email": "africa@moore-global.com",
+      "business": "利润分配、外汇申报、跨境协调",
+      "advantage": "全球网络，跨国财税专家",
+      "highlight": "全球网络"
+    },
+    {
+      "name_zh": "HLB International Africa",
+      "scene_id": "acct-crossborder",
+      "region": "全非",
+      "phone": "+44 (0) 20 7405 1000",
+      "email": "africa@hlb-global.com",
+      "business": "中小制造企业跨境财税",
+      "advantage": "轻量化、高效、低成本",
+      "highlight": "轻量高效"
+    },
+    {
+      "name_zh": "SNG Grant Thornton",
+      "scene_id": "acct-cost",
+      "region": "全非",
+      "phone": "+27 11 381 3000",
+      "email": "info@snggt.com",
+      "business": "计件工资、成本核算、加班费合规",
+      "advantage": "制造企业财务核算专家",
+      "highlight": "核算专家"
+    },
+    {
+      "name_zh": "ADP Africa",
+      "scene_id": "acct-cost",
+      "region": "全非",
+      "phone": "+1 800 422 7237",
+      "email": "africa@adp.com",
+      "business": "全球薪酬外包、社保、个税",
+      "advantage": "国际级，覆盖非洲各国政策",
+      "highlight": "国际级"
+    },
+    {
+      "name_zh": "Sage 认证服务商",
+      "scene_id": "acct-cost",
+      "region": "全非",
+      "phone": "+27 11 628 2000",
+      "email": "africa@sage.com",
+      "business": "ERP、成本核算、财税系统",
+      "advantage": "系统稳定，本地适配",
+      "highlight": "系统稳定"
+    },
+    {
+      "name_zh": "Wylie & Bisset",
+      "scene_id": "acct-cost",
+      "region": "南部非洲",
+      "phone": "+27 11 883 7000",
+      "email": "info@wyliebisset.com",
+      "business": "库存核算、生产流程审计",
+      "advantage": "制造财务垂直深耕",
+      "highlight": "垂直深耕"
+    },
+    {
+      "name_zh": "TMF Group Africa",
+      "scene_id": "acct-cost",
+      "region": "全非",
+      "phone": "+31 20 778 2888",
+      "email": "africa@tmf-group.com",
+      "business": "多国薪酬代发、合规管理",
+      "advantage": "一站式托管，多国协同",
+      "highlight": "一站式"
+    },
+    {
+      "name_zh": "Adcorp Group",
+      "scene_id": "hr-worker",
+      "region": "南非、南部非洲",
+      "phone": "+27 11 233 7000",
+      "email": "info@adcorp.co.za",
+      "business": "蓝领、技工、操作工批量招聘",
+      "advantage": "南部非洲蓝领第一",
+      "highlight": "蓝领第一"
+    },
+    {
+      "name_zh": "Jobberman",
+      "scene_id": "hr-worker",
+      "region": "尼日利亚、加纳",
+      "phone": "+234 1 454 0000",
+      "email": "info@jobberman.com",
+      "business": "基层工人、操作工招聘",
+      "advantage": "西非最大基层人才平台",
+      "highlight": "西非最大"
+    },
+    {
+      "name_zh": "BrighterMonday",
+      "scene_id": "hr-worker",
+      "region": "肯尼亚、坦桑尼亚",
+      "phone": "+254 20 521 7000",
+      "email": "info@brightermonday.com",
+      "business": "蓝领、技工、测评",
+      "advantage": "东非核心招聘机构",
+      "highlight": "东非核心"
+    },
+    {
+      "name_zh": "KaziNow",
+      "scene_id": "hr-worker",
+      "region": "东非",
+      "phone": "+254 20 224 5000",
+      "email": "info@kazinow.com",
+      "business": "按需雇佣、蓝领匹配",
+      "advantage": "新兴高效，制造业友好",
+      "highlight": "新兴高效"
+    },
+    {
+      "name_zh": "ManpowerGroup Africa",
+      "scene_id": "hr-worker",
+      "region": "全非",
+      "phone": "+1 414 961 1000",
+      "email": "africa@manpowergroup.com",
+      "business": "标准化技工筛选、派遣",
+      "advantage": "全球标准，质量稳定",
+      "highlight": "全球标准"
+    },
+    {
+      "name_zh": "Andela",
+      "scene_id": "hr-talent",
+      "region": "尼日利亚、肯尼亚、加纳、埃及",
+      "phone": "+1 800 123 4567",
+      "email": "hello@andela.com",
+      "business": "自动化工程师、技术管理岗",
+      "advantage": "非洲高端技术人才库第一",
+      "highlight": "技术第一"
+    },
+    {
+      "name_zh": "TalentQL",
+      "scene_id": "hr-talent",
+      "region": "西非、东非",
+      "phone": "+234 801 234 5678",
+      "email": "hello@talentql.com",
+      "business": "高级工程师、管理岗猎聘",
+      "advantage": "精准匹配制造技术岗",
+      "highlight": "精准匹配"
+    },
+    {
+      "name_zh": "Michael Page Africa",
+      "scene_id": "hr-talent",
+      "region": "全非",
+      "phone": "+27 11 284 9000",
+      "email": "africa@michaelpage.com",
+      "business": "高管、外籍专家、制造业管理层",
+      "advantage": "全球猎头，制造领域资深",
+      "highlight": "全球猎头"
+    },
+    {
+      "name_zh": "Robert Walters Africa",
+      "scene_id": "hr-talent",
+      "region": "全非",
+      "phone": "+27 11 282 8000",
+      "email": "africa@robertwalters.com",
+      "business": "中高层招聘、薪酬调研",
+      "advantage": "国际视野，制造业资源丰富",
+      "highlight": "国际视野"
+    },
+    {
+      "name_zh": "Shortlist",
+      "scene_id": "hr-talent",
+      "region": "东非、西非",
+      "phone": "+254 20 224 6000",
+      "email": "hello@shortlist.co",
+      "business": "大数据匹配技术人才、工程师",
+      "advantage": "高效精准，成本可控",
+      "highlight": "高效精准"
+    },
+    {
+      "name_zh": "SeamlessHR",
+      "scene_id": "hr-payroll",
+      "region": "全非",
+      "phone": "+234 1 291 3000",
+      "email": "info@seamlesshr.com",
+      "business": "数字化HR、假勤、社保、薪酬",
+      "advantage": "非洲多国政策适配",
+      "highlight": "多国适配"
+    },
+    {
+      "name_zh": "PaySpace",
+      "scene_id": "hr-payroll",
+      "region": "40+非洲国家",
+      "phone": "+27 11 286 8000",
+      "email": "info@payspace.com",
+      "business": "薪酬管理、个税合规、云系统",
+      "advantage": "覆盖最广的非洲薪酬平台",
+      "highlight": "覆盖最广"
+    },
+    {
+      "name_zh": "Workpay",
+      "scene_id": "hr-payroll",
+      "region": "东非",
+      "phone": "+254 20 224 7000",
+      "email": "hello@workpay.co",
+      "business": "薪酬发放、社保代缴、预支工资",
+      "advantage": "东非本地化最强",
+      "highlight": "东非最强"
+    },
+    {
+      "name_zh": "BrioHR",
+      "scene_id": "hr-payroll",
+      "region": "全非",
+      "phone": "+60 3 2772 8888",
+      "email": "info@briohr.com",
+      "business": "成长型工厂一站式HR、薪酬",
+      "advantage": "轻量化，适合中小制造企业",
+      "highlight": "轻量化"
+    },
+    {
+      "name_zh": "Zambizi Payroll",
+      "scene_id": "hr-payroll",
+      "region": "南部非洲",
+      "phone": "+27 11 783 8000",
+      "email": "info@zambizi.com",
+      "business": "薪酬合规、个税、社保",
+      "advantage": "南部非洲垂直深耕",
+      "highlight": "垂直深耕"
+    },
+    {
+      "name_zh": "Employ Africa",
+      "scene_id": "hr-outsourcing",
+      "region": "全非",
+      "phone": "+27 11 234 7000",
+      "email": "info@employafrica.com",
+      "business": "PEO全托管、用工关系外包",
+      "advantage": "非洲顶尖专业PEO",
+      "highlight": "顶尖PEO"
+    },
+    {
+      "name_zh": "Africa HR Solutions",
+      "scene_id": "hr-outsourcing",
+      "region": "全非",
+      "phone": "+27 11 784 9000",
+      "email": "info@africahr.com",
+      "business": "劳务外包、派遣、合规",
+      "advantage": "全非范围，一站式服务",
+      "highlight": "全非范围"
+    },
+    {
+      "name_zh": "Tower Group",
+      "scene_id": "hr-outsourcing",
+      "region": "南非、南部非洲",
+      "phone": "+27 11 881 7000",
+      "email": "info@towergroup.co.za",
+      "business": "岗位派遣、劳务外包",
+      "advantage": "资深稳定，制造业长期合作",
+      "highlight": "资深稳定"
+    },
+    {
+      "name_zh": "Global PEO Services",
+      "scene_id": "hr-outsourcing",
+      "region": "全非",
+      "phone": "+1 800 822 1110",
+      "email": "africa@globalpeo.com",
+      "business": "名义雇主、初期落地外包",
+      "advantage": "适合新进入非洲企业",
+      "highlight": "新企适配"
+    },
+    {
+      "name_zh": "Elite Resources",
+      "scene_id": "hr-outsourcing",
+      "region": "尼日利亚、西非",
+      "phone": "+234 1 291 4000",
+      "email": "info@eliteresources.com",
+      "business": "工业园劳务派遣、外包",
+      "advantage": "西非制造园区专家",
+      "highlight": "园区专家"
+    }
   ],
-
   "platform_stats": [
-    { "id": "countries", "value": "6", "label_zh": "覆盖国家（持续拓展中）", "sort_order": 1 },
-    { "id": "laws", "value": "19,370", "label_zh": "法规条文收录", "sort_order": 2 },
-    { "id": "scenes", "value": "7", "label_zh": "高频合规场景", "sort_order": 3 },
-    { "id": "agencies", "value": "50+", "label_zh": "合作合规机构", "sort_order": 4 }
+    {
+      "id": "countries",
+      "value": "6",
+      "label_zh": "覆盖国家（持续拓展中）",
+      "sort_order": 1
+    },
+    {
+      "id": "laws",
+      "value": "19,370",
+      "label_zh": "法规条文收录",
+      "sort_order": 2
+    },
+    {
+      "id": "scenes",
+      "value": "7",
+      "label_zh": "高频合规场景",
+      "sort_order": 3
+    },
+    {
+      "id": "agencies",
+      "value": "50+",
+      "label_zh": "合作合规机构",
+      "sort_order": 4
+    }
   ]
 }

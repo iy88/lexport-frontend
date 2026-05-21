@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 
 const ROW_HEIGHT = 65;
 const HEADER_HEIGHT = 100; // title + filters + table header
