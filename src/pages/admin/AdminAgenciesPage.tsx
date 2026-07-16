@@ -9,7 +9,7 @@ import {Dialog, DialogContent, DialogHeader, DialogTitle,} from '@/components/ui
 import api from '@/lib/api';
 import type {RootState} from '@/store';
 import {usePageSize} from '@/hooks/use-page-size';
-import {Check, ChevronLeft, ChevronRight, Clock, Loader2, Pause, Pencil, Plus, Search, Trash2} from 'lucide-react';
+import {Check, CheckSquare, ChevronLeft, ChevronRight, Clock, Loader2, Pause, Pencil, Plus, Search, Trash2} from 'lucide-react';
 
 const empty = {name_zh: '', scene_id: '', region: '', phone: '', email: '', business: '', advantage: '', highlight: ''};
 
@@ -35,6 +35,7 @@ export default function AdminAgenciesPage() {
     const [editId, setEditId] = useState<number | null>(null);
     const [form, setForm] = useState(empty);
     const [saving, setSaving] = useState(false);
+    const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
 
     const fetchList = useCallback(async () => {
         setLoading(true);
@@ -105,6 +106,29 @@ export default function AdminAgenciesPage() {
         await api.post(`/admin/agencies/${id}/suspend`);
         fetchList();
     };
+
+    const toggleSelect = (id: number) => {
+        setSelectedIds((prev) => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id); else next.add(id);
+            return next;
+        });
+    };
+    const toggleSelectAll = () => {
+        const drafts = items.filter((i: any) => i.status === 'draft');
+        if (drafts.every((i: any) => selectedIds.has(i.id))) {
+            setSelectedIds(new Set());
+        } else {
+            setSelectedIds(new Set(drafts.map((i: any) => i.id)));
+        }
+    };
+    const handleBatchApprove = async () => {
+        if (selectedIds.size === 0) return;
+        await api.post('/admin/agencies/approve-batch', {ids: [...selectedIds]});
+        setSelectedIds(new Set());
+        fetchList();
+    };
+
     const handleDelete = async (id: number) => {
         if (!confirm('确定删除？')) return;
         await api.delete(`/admin/agencies/${id}`);
@@ -117,7 +141,14 @@ export default function AdminAgenciesPage() {
         <div className="flex flex-col flex-1 min-h-0">
             <div className="flex items-center justify-between mb-2 shrink-0">
                 <h2 className="text-xl font-bold">机构管理</h2>
-                <Button size="sm" onClick={openNew}><Plus className="w-4 h-4 mr-1"/>新建</Button>
+                <div className="flex items-center gap-2">
+                    {isAdmin && selectedIds.size > 0 && (
+                        <Button size="sm" variant="outline" onClick={handleBatchApprove}>
+                            <CheckSquare className="w-4 h-4 mr-1"/>批量审核({selectedIds.size})
+                        </Button>
+                    )}
+                    <Button size="sm" onClick={openNew}><Plus className="w-4 h-4 mr-1"/>新建</Button>
+                </div>
             </div>
             {/* Filters */}
             <div className="flex items-center gap-2 mb-4 flex-wrap">
@@ -173,6 +204,7 @@ export default function AdminAgenciesPage() {
                         <table className="w-full text-sm">
                             <thead>
                             <tr className="border-b text-left text-muted-foreground">
+                                {isAdmin && <th className="p-3 w-8"><input type="checkbox" className="w-4 h-4 accent-primary cursor-pointer" onChange={toggleSelectAll} checked={items.filter((i: any) => i.status === 'draft').length > 0 && items.filter((i: any) => i.status === 'draft').every((i: any) => selectedIds.has(i.id))}/></th>}
                                 <th className="p-3">名称</th>
                                 <th className="p-3">场景</th>
                                 <th className="p-3">区域</th>
@@ -184,6 +216,7 @@ export default function AdminAgenciesPage() {
                             <tbody>
                             {items.map((item: any) => (
                                 <tr key={item.id} className="border-b hover:bg-muted/30">
+                                    {isAdmin && <td className="p-3 w-8">{item.status === 'draft' ? <input type="checkbox" className="w-4 h-4 accent-primary cursor-pointer" checked={selectedIds.has(item.id)} onChange={() => toggleSelect(item.id)}/> : null}</td>}
                                     <td className="p-3 font-medium">{item.name_zh}</td>
                                     <td className="p-3">{scenes.find((s: any) => s.id === item.scene_id)?.label_zh}</td>
                                     <td className="p-3 text-xs text-muted-foreground">{item.region}</td>

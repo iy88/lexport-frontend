@@ -10,7 +10,7 @@ import api from '@/lib/api';
 import apiFile from '@/lib/api-file';
 import type {RootState} from '@/store';
 import {usePageSize} from '@/hooks/use-page-size';
-import {Check, ChevronLeft, ChevronRight, Clock, Loader2, Pause, Pencil, Plus, Search, Trash2, Upload} from 'lucide-react';
+import {Check, CheckSquare, ChevronLeft, ChevronRight, Clock, Loader2, Pause, Pencil, Plus, Search, Trash2, Upload} from 'lucide-react';
 
 const empty = {
     title_cn: '',
@@ -42,6 +42,7 @@ export default function AdminLawsPage() {
     const [editId, setEditId] = useState<number | null>(null);
     const [form, setForm] = useState(empty);
     const [saving, setSaving] = useState(false);
+    const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
     const fileRef = useRef<HTMLInputElement>(null);
 
     const fetchList = useCallback(async () => {
@@ -129,12 +130,39 @@ export default function AdminLawsPage() {
         fetchList();
     };
 
+    const toggleSelect = (id: number) => {
+        setSelectedIds((prev) => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id); else next.add(id);
+            return next;
+        });
+    };
+    const toggleSelectAll = () => {
+        const drafts = items.filter((i: any) => i.status === 'draft');
+        if (drafts.every((i: any) => selectedIds.has(i.id))) {
+            setSelectedIds(new Set());
+        } else {
+            setSelectedIds(new Set(drafts.map((i: any) => i.id)));
+        }
+    };
+    const handleBatchApprove = async () => {
+        if (selectedIds.size === 0) return;
+        await api.post('/admin/laws/approve-batch', {ids: [...selectedIds]});
+        setSelectedIds(new Set());
+        fetchList();
+    };
+
     const totalPages = Math.max(1, Math.ceil(total / size));
 
     return (
         <div className="flex flex-col flex-1 min-h-0">
             <div className="flex items-center justify-between mb-2 shrink-0">
                 <h2 className="text-xl font-bold">法规管理</h2>
+                {isAdmin && selectedIds.size > 0 && (
+                    <Button size="sm" variant="outline" onClick={handleBatchApprove}>
+                        <CheckSquare className="w-4 h-4 mr-1"/>批量审核({selectedIds.size})
+                    </Button>
+                )}
                 <Button size="sm" onClick={openNew}><Plus className="w-4 h-4 mr-1"/>新建</Button>
             </div>
             {/* Filters */}
@@ -181,6 +209,7 @@ export default function AdminLawsPage() {
                         <table className="w-full text-sm">
                             <thead>
                             <tr className="border-b text-left text-muted-foreground">
+                                {isAdmin && <th className="p-3 w-8"><input type="checkbox" className="w-4 h-4 accent-primary cursor-pointer" onChange={toggleSelectAll} checked={items.filter((i: any) => i.status === 'draft').length > 0 && items.filter((i: any) => i.status === 'draft').every((i: any) => selectedIds.has(i.id))}/></th>}
                                 <th className="p-3">标题</th>
                                 <th className="p-3">国家</th>
                                 <th className="p-3">场景</th>
@@ -193,6 +222,7 @@ export default function AdminLawsPage() {
                             <tbody>
                             {items.map((item: any) => (
                                 <tr key={item.id} className="border-b hover:bg-muted/30">
+                                    {isAdmin && <td className="p-3 w-8">{item.status === 'draft' ? <input type="checkbox" className="w-4 h-4 accent-primary cursor-pointer" checked={selectedIds.has(item.id)} onChange={() => toggleSelect(item.id)}/> : null}</td>}
                                     <td className="p-3 font-medium">{item.title_cn}</td>
                                     <td className="p-3">{countries.find((c) => c.id === item.country_id)?.name_zh}</td>
                                     <td className="p-3"><Badge variant="outline"
