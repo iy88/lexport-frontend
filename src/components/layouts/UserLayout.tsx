@@ -1,9 +1,10 @@
 import {Link, Outlet, useLocation, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {Building2, FileText, LayoutDashboard, LogOut, Newspaper, Scale, Users} from 'lucide-react';
+import {Building2, Database, FileText, LayoutDashboard, LogOut, Newspaper, Scale, Users} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {logout} from '@/store/authSlice';
 import type {AppDispatch, RootState} from '@/store';
+import {referenceConfigs} from '@/lib/reference-config';
 
 const adminLinks = [
     {to: '/admin/laws', icon: FileText, label: '法规管理'},
@@ -65,6 +66,25 @@ export default function UserLayout() {
                                     {label}
                                 </Link>
                             ))}
+                        </>
+                    )}
+                    {showAdmin && (
+                        <>
+                            <div
+                                className="pt-4 pb-1 px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">数据管理
+                            </div>
+                            {referenceConfigs
+                                .filter((c) => user?.role === 'admin' || c.editorAllowed)
+                                .map((c) => (
+                                    <Link
+                                        key={c.resourceKey}
+                                        to={`/admin/reference/${c.resourceKey}`}
+                                        className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-md transition-colors ${pathname.startsWith(`/admin/reference/${c.resourceKey}`) ? 'text-foreground bg-primary/10' : 'text-muted-foreground hover:text-foreground hover:bg-accent'}`}
+                                    >
+                                        <Database className="w-4 h-4"/>
+                                        {c.title}
+                                    </Link>
+                                ))}
                         </>
                     )}
                 </nav>

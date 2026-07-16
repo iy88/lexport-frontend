@@ -23,7 +23,7 @@ const initialState: AuthState = {
     token: localStorage.getItem('token'),
     loading: false,
     error: null,
-    init: false,
+    init: !localStorage.getItem('token'),
 };
 
 export const login = createAsyncThunk(

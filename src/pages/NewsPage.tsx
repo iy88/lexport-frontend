@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
+import {Link} from 'react-router-dom';
 import {Card, CardContent} from '@/components/ui/card';
 import {Badge} from '@/components/ui/badge';
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
@@ -152,7 +153,9 @@ export default function NewsPage() {
                                                         {item.tags?.map((t) => <Badge key={t.id} variant="outline"
                                                                                       className="text-xs">{t.name_zh}</Badge>)}
                                                     </div>
-                                                    <h4 className="font-semibold text-foreground text-base mb-2">{item.title}</h4>
+                                                    <Link to={`/news/${item.id}`} className="hover:underline">
+                                                        <h4 className="font-semibold text-foreground text-base mb-2">{item.title}</h4>
+                                                    </Link>
                                                     <p className="text-sm text-muted-foreground mb-4">{item.summary}</p>
                                                     <div
                                                         className="flex items-center justify-between text-xs text-muted-foreground">
@@ -171,7 +174,9 @@ export default function NewsPage() {
                                                         {item.tags?.map((t) => <Badge key={t.id} variant="outline"
                                                                                       className="text-xs">{t.name_zh}</Badge>)}
                                                     </div>
-                                                    <h4 className="font-semibold text-foreground text-base mb-2">{item.title}</h4>
+                                                    <Link to={`/news/${item.id}`} className="hover:underline">
+                                                        <h4 className="font-semibold text-foreground text-base mb-2">{item.title}</h4>
+                                                    </Link>
                                                     <p className="text-sm text-muted-foreground mb-3">{item.summary}</p>
                                                     <div
                                                         className="space-y-2 text-xs bg-secondary/50 rounded-lg p-3 mb-3">
@@ -194,7 +199,9 @@ export default function NewsPage() {
                                                         {item.country_id && <Badge variant="secondary"
                                                                                    className="text-xs">{countries.find((c) => c.id === item.country_id)?.name_zh}</Badge>}
                                                     </div>
-                                                    <h4 className="font-semibold text-foreground text-base mb-3">{item.title}</h4>
+                                                    <Link to={`/news/${item.id}`} className="hover:underline">
+                                                        <h4 className="font-semibold text-foreground text-base mb-3">{item.title}</h4>
+                                                    </Link>
                                                     <div className="space-y-2 text-sm mb-3">
                                                         {item.change_desc &&
                                                             <div><span className="font-medium">核心更新：</span><span

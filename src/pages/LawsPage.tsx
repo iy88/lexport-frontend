@@ -4,19 +4,20 @@ import {Card, CardContent} from '@/components/ui/card';
 import {Badge} from '@/components/ui/badge';
 import {Input} from '@/components/ui/input';
 import api from '@/lib/api';
-import {AlertTriangle, ChevronLeft, ChevronRight, Globe, Loader2, Search,} from 'lucide-react';
+import {ChevronLeft, ChevronRight, FileText, Globe, Loader2, Search,} from 'lucide-react';
 
 const PAGE_SIZE = 6;
 
 interface Law {
     id: number;
-    title: string;
+    title_cn: string;
+    title_en: string | null;
+    law_number: string | null;
     country_id: string;
     scene_id: string;
-    level: string;
-    penalty: string;
-    effective_date: string;
-    summary: string;
+    effective_date: string | null;
+    summary: string | null;
+    filename: string | null;
 }
 
 export default function LawsPage() {
@@ -146,12 +147,12 @@ export default function LawsPage() {
                         {laws.map((law) => (
                             <Card key={law.id} className="shadow-card">
                                 <CardContent className="p-5">
-                                    <h4 className="font-semibold text-foreground text-base mb-2">{law.title}</h4>
+                                    <h4 className="font-semibold text-foreground text-base mb-2">{law.title_cn}</h4>
                                     <div className="flex items-center gap-2 flex-wrap mb-3">
                                         <Badge variant="secondary" className="text-xs">
                                             {countries.find((c) => c.id === law.country_id)?.name_zh ?? law.country_id}
                                         </Badge>
-                                        <Badge variant="outline" className="text-xs">{law.level}</Badge>
+                                        {law.law_number && <Badge variant="outline" className="text-xs">{law.law_number}</Badge>}
                                         {(() => {
                                             const s = scenes.find((sc) => sc.id === law.scene_id);
                                             return s ? <Badge
@@ -160,11 +161,8 @@ export default function LawsPage() {
                                     </div>
                                     <p className="text-sm text-muted-foreground mb-3 text-pretty">{law.summary}</p>
                                     <div className="flex items-center justify-between text-xs text-muted-foreground">
-                                        <div className="flex items-center gap-1">
-                                            <AlertTriangle className="w-3.5 h-3.5"/>
-                                            <span>处罚：{law.penalty}</span>
-                                        </div>
                                         <span>{law.effective_date}</span>
+                                        {law.filename && <span className="flex items-center gap-1"><FileText className="w-3 h-3"/>{law.filename}</span>}
                                     </div>
                                 </CardContent>
                             </Card>

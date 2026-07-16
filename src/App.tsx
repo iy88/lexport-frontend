@@ -14,6 +14,9 @@ import AdminLawsPage from "@/pages/admin/AdminLawsPage.tsx";
 import AdminNewsPage from "@/pages/admin/AdminNewsPage.tsx";
 import AdminAgenciesPage from "@/pages/admin/AdminAgenciesPage.tsx";
 import AdminUsersPage from "@/pages/admin/AdminUsersPage.tsx";
+import AdminReferencePage from "@/pages/admin/AdminReferencePage.tsx";
+import NewsDetailPage from "@/pages/NewsDetailPage.tsx";
+import {referenceConfigs} from '@/lib/reference-config';
 import NotFound from "@/pages/NotFound.tsx";
 
 const App: React.FC = () => {
@@ -40,6 +43,11 @@ const App: React.FC = () => {
                                 }
                             />
                         ))}
+                        <Route path="/news/:id" element={
+                            <MainLayout>
+                                <NewsDetailPage/>
+                            </MainLayout>
+                        }/>
                         <Route path="/user" element={<RequireAuth><UserLayout/></RequireAuth>}>
                             <Route index element={<UserDashboard/>}/>
                         </Route>
@@ -48,6 +56,13 @@ const App: React.FC = () => {
                             <Route path="news" element={<AdminNewsPage/>}/>
                             <Route path="agencies" element={<AdminAgenciesPage/>}/>
                             <Route path="users" element={<AdminUsersPage/>}/>
+                            {referenceConfigs.map((c) => (
+                                <Route
+                                    key={c.resourceKey}
+                                    path={`reference/${c.resourceKey}`}
+                                    element={<AdminReferencePage config={c}/>}
+                                />
+                            ))}
                         </Route>
                         <Route path="*" element={<NotFound/>}/>
                     </Routes>

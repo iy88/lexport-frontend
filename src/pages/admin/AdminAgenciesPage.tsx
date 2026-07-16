@@ -9,7 +9,7 @@ import {Dialog, DialogContent, DialogHeader, DialogTitle,} from '@/components/ui
 import api from '@/lib/api';
 import type {RootState} from '@/store';
 import {usePageSize} from '@/hooks/use-page-size';
-import {Check, ChevronLeft, ChevronRight, Clock, Loader2, Pencil, Plus, Trash2} from 'lucide-react';
+import {Check, ChevronLeft, ChevronRight, Clock, Loader2, Pause, Pencil, Plus, Search, Trash2} from 'lucide-react';
 
 const empty = {name_zh: '', scene_id: '', region: '', phone: '', email: '', business: '', advantage: '', highlight: ''};
 
@@ -23,25 +23,38 @@ export default function AdminAgenciesPage() {
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [statusFilter, setStatusFilter] = useState('all');
+    const [categoryFilter, setCategoryFilter] = useState('all');
+    const [sceneFilter, setSceneFilter] = useState('all');
+    const [regionFilter, setRegionFilter] = useState('');
+    const [searchRegion, setSearchRegion] = useState('');
+    const [keyword, setKeyword] = useState('');
+    const [searchKeyword, setSearchKeyword] = useState('');
+    const [categories, setCategories] = useState<any[]>([]);
     const metaLoaded = useRef(false);
     const [dlgOpen, setDlgOpen] = useState(false);
     const [editId, setEditId] = useState<number | null>(null);
     const [form, setForm] = useState(empty);
+    const [saving, setSaving] = useState(false);
 
     const fetchList = useCallback(async () => {
         setLoading(true);
         const params: Record<string, string | number> = {page, per_page: size};
         if (statusFilter !== 'all') params.status = statusFilter;
+        if (categoryFilter !== 'all') params.category_id = categoryFilter;
+        if (sceneFilter !== 'all') params.scene_id = sceneFilter;
+        if (searchRegion.trim()) params.region = searchRegion.trim();
+        if (searchKeyword.trim()) params.keyword = searchKeyword.trim();
         const {data} = await api.get('/admin/agencies', {params});
         setItems(data.data.items || []);
         setTotal(data.data.meta?.total || 0);
         if (!metaLoaded.current && data.data.meta?.categories) {
             metaLoaded.current = true;
+            setCategories(data.data.meta.categories);
             const allScenes = data.data.meta.categories.flatMap((c: any) => c.scenes || []);
             setScenes(allScenes);
         }
         setLoading(false);
-    }, [page, statusFilter, size]);
+    }, [page, statusFilter, categoryFilter, sceneFilter, searchRegion, searchKeyword, size]);
 
     useEffect(() => {
         if (ready) fetchList();
@@ -68,18 +81,28 @@ export default function AdminAgenciesPage() {
     };
 
     const handleSave = async () => {
+        if (saving) return;
         if (!form.name_zh || !form.scene_id) return;
-        if (editId) {
-            await api.put(`/admin/agencies/${editId}`, form);
-        } else {
-            await api.post('/admin/agencies', form);
+        setSaving(true);
+        try {
+            if (editId) {
+                await api.put(`/admin/agencies/${editId}`, form);
+            } else {
+                await api.post('/admin/agencies', form);
+            }
+            setDlgOpen(false);
+            fetchList();
+        } finally {
+            setSaving(false);
         }
-        setDlgOpen(false);
-        fetchList();
     };
 
     const handleApprove = async (id: number) => {
         await api.post(`/admin/agencies/${id}/approve`);
+        fetchList();
+    };
+    const handleSuspend = async (id: number) => {
+        await api.post(`/admin/agencies/${id}/suspend`);
         fetchList();
     };
     const handleDelete = async (id: number) => {
@@ -92,25 +115,57 @@ export default function AdminAgenciesPage() {
 
     return (
         <div className="flex flex-col flex-1 min-h-0">
-            <div className="flex items-center justify-between mb-4 shrink-0">
+            <div className="flex items-center justify-between mb-2 shrink-0">
                 <h2 className="text-xl font-bold">机构管理</h2>
-                <div className="flex items-center gap-2">
-                    {isAdmin && (
-                        <Select value={statusFilter} onValueChange={(v) => {
-                            setStatusFilter(v);
-                            setPage(1);
-                        }}>
-                            <SelectTrigger className="w-28 h-8 text-xs"><SelectValue
-                                placeholder="全部"/></SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="all">全部</SelectItem>
-                                <SelectItem value="draft">待审核</SelectItem>
-                                <SelectItem value="published">已发布</SelectItem>
-                            </SelectContent>
-                        </Select>
-                    )}
-                    <Button size="sm" onClick={openNew}><Plus className="w-4 h-4 mr-1"/>新建</Button>
-                </div>
+                <Button size="sm" onClick={openNew}><Plus className="w-4 h-4 mr-1"/>新建</Button>
+            </div>
+            {/* Filters */}
+            <div className="flex items-center gap-2 mb-4 flex-wrap">
+                {isAdmin && (
+                    <Select value={statusFilter} onValueChange={(v) => { setStatusFilter(v); setPage(1); }}>
+                        <SelectTrigger className="w-24 h-8 text-xs"><SelectValue placeholder="状态"/></SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="all">全部状态</SelectItem>
+                            <SelectItem value="draft">待审核</SelectItem>
+                            <SelectItem value="published">已发布</SelectItem>
+                        </SelectContent>
+                    </Select>
+                )}
+                <Select value={categoryFilter} onValueChange={(v) => { setCategoryFilter(v); setSceneFilter('all'); setPage(1); }}>
+                    <SelectTrigger className="w-28 h-8 text-xs"><SelectValue placeholder="大类"/></SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">全部大类</SelectItem>
+                        {categories.map((c: any) => <SelectItem key={c.id} value={c.id}>{c.label_zh}</SelectItem>)}
+                    </SelectContent>
+                </Select>
+                <Select value={sceneFilter} onValueChange={(v) => { setSceneFilter(v); setPage(1); }}>
+                    <SelectTrigger className="w-28 h-8 text-xs"><SelectValue placeholder="场景"/></SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">全部场景</SelectItem>
+                        {(categoryFilter === 'all'
+                            ? scenes
+                            : categories.find((c: any) => c.id === categoryFilter)?.scenes || []
+                        ).map((s: any) => <SelectItem key={s.id} value={s.id}>{s.label_zh}</SelectItem>)}
+                    </SelectContent>
+                </Select>
+                <Input
+                    placeholder="区域..."
+                    value={regionFilter}
+                    onChange={(e) => setRegionFilter(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') { setSearchRegion(regionFilter.trim()); setPage(1); } }}
+                    className="w-24 h-8 text-xs"
+                />
+                <Input
+                    placeholder="搜索名称..."
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') { setSearchKeyword(keyword.trim()); setPage(1); } }}
+                    className="w-36 h-8 text-xs"
+                />
+                <Button variant="outline" size="sm" className="h-8"
+                        onClick={() => { setSearchRegion(regionFilter.trim()); setSearchKeyword(keyword.trim()); setPage(1); }}>
+                    <Search className="w-3.5 h-3.5"/>
+                </Button>
             </div>
             {loading ? <div className="flex justify-center py-20"><Loader2 className="w-8 h-8 animate-spin"/></div> : (
                 <div>
@@ -122,6 +177,7 @@ export default function AdminAgenciesPage() {
                                 <th className="p-3">场景</th>
                                 <th className="p-3">区域</th>
                                 <th className="p-3">状态</th>
+                                <th className="p-3">更新时间</th>
                                 <th className="p-3">操作</th>
                             </tr>
                             </thead>
@@ -138,6 +194,7 @@ export default function AdminAgenciesPage() {
                                             : <Badge
                                                 className="bg-success/10 text-success border-success/20 text-xs">已发布</Badge>}
                                     </td>
+                                    <td className="p-3 text-xs text-muted-foreground">{item.updated_at ? new Date(item.updated_at).toLocaleString('zh-CN') : '-'}</td>
                                     <td className="p-3">
                                         <div className="flex gap-1">
                                             <Button variant="ghost" size="sm" onClick={() => openEdit(item)}><Pencil
@@ -145,7 +202,10 @@ export default function AdminAgenciesPage() {
                                             {isAdmin && item.status === 'draft' && <Button variant="ghost" size="sm"
                                                                                            onClick={() => handleApprove(item.id)}><Check
                                                 className="w-3.5 h-3.5 text-success"/></Button>}
-                                            {isAdmin &&
+                                            {isAdmin && item.status === 'published' && <Button variant="ghost" size="sm"
+                                                                                               onClick={() => handleSuspend(item.id)}><Pause
+                                                className="w-3.5 h-3.5 text-warning"/></Button>}
+                                            {(isAdmin || item.status === 'draft') &&
                                                 <Button variant="ghost" size="sm" onClick={() => handleDelete(item.id)}><Trash2
                                                     className="w-3.5 h-3.5 text-destructive"/></Button>}
                                         </div>
@@ -209,7 +269,7 @@ export default function AdminAgenciesPage() {
                             highlight: e.target.value
                         }))}/></div>
                         <Button className="w-full" onClick={handleSave}
-                                disabled={!form.name_zh || !form.scene_id}>保存</Button>
+                                disabled={saving || !form.name_zh || !form.scene_id}>{saving ? '保存中...' : '保存'}</Button>
                     </div>
                 </DialogContent>
             </Dialog>

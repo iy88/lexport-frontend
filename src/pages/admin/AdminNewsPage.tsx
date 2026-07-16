@@ -4,12 +4,14 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
 import {Badge} from '@/components/ui/badge';
+import {Textarea} from '@/components/ui/textarea';
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue,} from '@/components/ui/select';
 import {Dialog, DialogContent, DialogHeader, DialogTitle,} from '@/components/ui/dialog';
+import MultiSelect from '@/components/ui/multi-select';
 import api from '@/lib/api';
 import type {RootState} from '@/store';
 import {usePageSize} from '@/hooks/use-page-size';
-import {Check, ChevronLeft, ChevronRight, Clock, Loader2, Pencil, Plus, Trash2} from 'lucide-react';
+import {Check, ChevronLeft, ChevronRight, Clock, Loader2, Pause, Pencil, Plus, Search, Trash2} from 'lucide-react';
 
 const empty = {
     type: 'cooperation',
@@ -24,7 +26,9 @@ const empty = {
     update_type: '',
     change_desc: '',
     impact: '',
-    advice: ''
+    advice: '',
+    content: '',
+    tag_ids: [] as number[],
 };
 
 export default function AdminNewsPage() {
@@ -36,17 +40,30 @@ export default function AdminNewsPage() {
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [statusFilter, setStatusFilter] = useState('all');
+    const [typeFilter, setTypeFilter] = useState('all');
+    const [countryFilter, setCountryFilter] = useState('all');
+    const [dateFrom, setDateFrom] = useState('');
+    const [dateTo, setDateTo] = useState('');
+    const [keyword, setKeyword] = useState('');
+    const [searchKeyword, setSearchKeyword] = useState('');
     const [countries, setCountries] = useState<{ id: string; name_zh: string }[]>([]);
     const [types, setTypes] = useState<{ value: string; label_zh: string }[]>([]);
+    const [tags, setTags] = useState<{ id: number; name_zh: string }[]>([]);
     const metaLoaded = useRef(false);
     const [dlgOpen, setDlgOpen] = useState(false);
     const [editId, setEditId] = useState<number | null>(null);
     const [form, setForm] = useState(empty);
+    const [saving, setSaving] = useState(false);
 
     const fetchList = useCallback(async () => {
         setLoading(true);
         const params: Record<string, string | number> = {page, per_page: size};
         if (statusFilter !== 'all') params.status = statusFilter;
+        if (typeFilter !== 'all') params.type = typeFilter;
+        if (countryFilter !== 'all') params.country_id = countryFilter;
+        if (dateFrom) params.date_from = dateFrom;
+        if (dateTo) params.date_to = dateTo;
+        if (searchKeyword.trim()) params.keyword = searchKeyword.trim();
         const {data} = await api.get('/admin/news', {params});
         setItems(data.data.items || []);
         setTotal(data.data.meta?.total || 0);
@@ -54,9 +71,10 @@ export default function AdminNewsPage() {
             metaLoaded.current = true;
             if (data.data.meta?.countries) setCountries(data.data.meta.countries);
             if (data.data.meta?.types) setTypes(data.data.meta.types);
+            if (data.data.meta?.tags) setTags(data.data.meta.tags);
         }
         setLoading(false);
-    }, [page, statusFilter, size]);
+    }, [page, statusFilter, typeFilter, countryFilter, dateFrom, dateTo, searchKeyword, size]);
 
     useEffect(() => {
         if (ready) fetchList();
@@ -82,17 +100,22 @@ export default function AdminNewsPage() {
             update_type: item.update_type || '',
             change_desc: item.change_desc || '',
             impact: item.impact || '',
-            advice: item.advice || ''
+            advice: item.advice || '',
+            content: item.content || '',
+            tag_ids: item.tags ? item.tags.map((t: any) => t.id) : [],
         });
         setDlgOpen(true);
     };
 
     const handleSave = async () => {
+        if (saving) return;
         if (!form.title) return;
         const body: any = {type: form.type, title: form.title, date: form.date || undefined};
         if (form.country_id) body.country_id = form.country_id;
         if (form.source) body.source = form.source;
         if (form.summary) body.summary = form.summary;
+        if (form.content) body.content = form.content;
+        if (form.tag_ids.length > 0) body.tag_ids = form.tag_ids;
         if (form.type === 'hotspot') {
             Object.assign(body, {
                 risk_level: form.risk_level,
@@ -108,17 +131,26 @@ export default function AdminNewsPage() {
                 advice: form.advice
             });
         }
-        if (editId) {
-            await api.put(`/admin/news/${editId}`, body);
-        } else {
-            await api.post('/admin/news', body);
+        setSaving(true);
+        try {
+            if (editId) {
+                await api.put(`/admin/news/${editId}`, body);
+            } else {
+                await api.post('/admin/news', body);
+            }
+            setDlgOpen(false);
+            fetchList();
+        } finally {
+            setSaving(false);
         }
-        setDlgOpen(false);
-        fetchList();
     };
 
     const handleApprove = async (id: number) => {
         await api.post(`/admin/news/${id}/approve`);
+        fetchList();
+    };
+    const handleSuspend = async (id: number) => {
+        await api.post(`/admin/news/${id}/suspend`);
         fetchList();
     };
     const handleDelete = async (id: number) => {
@@ -131,25 +163,51 @@ export default function AdminNewsPage() {
 
     return (
         <div className="flex flex-col flex-1 min-h-0">
-            <div className="flex items-center justify-between mb-4 shrink-0">
+            <div className="flex items-center justify-between mb-2 shrink-0">
                 <h2 className="text-xl font-bold">资讯管理</h2>
-                <div className="flex items-center gap-2">
-                    {isAdmin && (
-                        <Select value={statusFilter} onValueChange={(v) => {
-                            setStatusFilter(v);
-                            setPage(1);
-                        }}>
-                            <SelectTrigger className="w-28 h-8 text-xs"><SelectValue
-                                placeholder="全部"/></SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="all">全部</SelectItem>
-                                <SelectItem value="draft">待审核</SelectItem>
-                                <SelectItem value="published">已发布</SelectItem>
-                            </SelectContent>
-                        </Select>
-                    )}
-                    <Button size="sm" onClick={openNew}><Plus className="w-4 h-4 mr-1"/>新建</Button>
-                </div>
+                <Button size="sm" onClick={openNew}><Plus className="w-4 h-4 mr-1"/>新建</Button>
+            </div>
+            {/* Filters */}
+            <div className="flex items-center gap-2 mb-4 flex-wrap">
+                {isAdmin && (
+                    <Select value={statusFilter} onValueChange={(v) => { setStatusFilter(v); setPage(1); }}>
+                        <SelectTrigger className="w-24 h-8 text-xs"><SelectValue placeholder="状态"/></SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="all">全部状态</SelectItem>
+                            <SelectItem value="draft">待审核</SelectItem>
+                            <SelectItem value="published">已发布</SelectItem>
+                        </SelectContent>
+                    </Select>
+                )}
+                <Select value={typeFilter} onValueChange={(v) => { setTypeFilter(v); setPage(1); }}>
+                    <SelectTrigger className="w-24 h-8 text-xs"><SelectValue placeholder="类型"/></SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">全部类型</SelectItem>
+                        {types.map((t) => <SelectItem key={t.value} value={t.value}>{t.label_zh}</SelectItem>)}
+                    </SelectContent>
+                </Select>
+                <Select value={countryFilter} onValueChange={(v) => { setCountryFilter(v); setPage(1); }}>
+                    <SelectTrigger className="w-24 h-8 text-xs"><SelectValue placeholder="国家"/></SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">全部国家</SelectItem>
+                        {countries.map((c) => <SelectItem key={c.id} value={c.id}>{c.name_zh}</SelectItem>)}
+                    </SelectContent>
+                </Select>
+                <Input type="date" value={dateFrom} onChange={(e) => { setDateFrom(e.target.value); setPage(1); }}
+                       className="w-36 h-8 text-xs"/>
+                <span className="text-xs text-muted-foreground">至</span>
+                <Input type="date" value={dateTo} onChange={(e) => { setDateTo(e.target.value); setPage(1); }}
+                       className="w-36 h-8 text-xs"/>
+                <Input
+                    placeholder="搜索标题..."
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') { setSearchKeyword(keyword.trim()); setPage(1); } }}
+                    className="w-40 h-8 text-xs"
+                />
+                <Button variant="outline" size="sm" className="h-8" onClick={() => { setSearchKeyword(keyword.trim()); setPage(1); }}>
+                    <Search className="w-3.5 h-3.5"/>
+                </Button>
             </div>
             {loading ? <div className="flex justify-center py-20"><Loader2 className="w-8 h-8 animate-spin"/></div> : (
                 <div>
@@ -161,6 +219,7 @@ export default function AdminNewsPage() {
                                 <th className="p-3">类型</th>
                                 <th className="p-3">国家</th>
                                 <th className="p-3">状态</th>
+                                <th className="p-3">更新时间</th>
                                 <th className="p-3">操作</th>
                             </tr>
                             </thead>
@@ -179,6 +238,7 @@ export default function AdminNewsPage() {
                                             : <Badge
                                                 className="bg-success/10 text-success border-success/20 text-xs">已发布</Badge>}
                                     </td>
+                                    <td className="p-3 text-xs text-muted-foreground">{item.updated_at ? new Date(item.updated_at).toLocaleString('zh-CN') : '-'}</td>
                                     <td className="p-3">
                                         <div className="flex gap-1">
                                             <Button variant="ghost" size="sm" onClick={() => openEdit(item)}><Pencil
@@ -186,7 +246,10 @@ export default function AdminNewsPage() {
                                             {isAdmin && item.status === 'draft' && <Button variant="ghost" size="sm"
                                                                                            onClick={() => handleApprove(item.id)}><Check
                                                 className="w-3.5 h-3.5 text-success"/></Button>}
-                                            {isAdmin &&
+                                            {isAdmin && item.status === 'published' && <Button variant="ghost" size="sm"
+                                                                                               onClick={() => handleSuspend(item.id)}><Pause
+                                                className="w-3.5 h-3.5 text-warning"/></Button>}
+                                            {(isAdmin || item.status === 'draft') &&
                                                 <Button variant="ghost" size="sm" onClick={() => handleDelete(item.id)}><Trash2
                                                     className="w-3.5 h-3.5 text-destructive"/></Button>}
                                         </div>
@@ -245,6 +308,17 @@ export default function AdminNewsPage() {
                             ...p,
                             summary: e.target.value
                         }))}/></div>
+                        <div><Label>正文</Label><Textarea value={form.content} onChange={(e) => setForm((p) => ({
+                            ...p,
+                            content: e.target.value
+                        }))} rows={5} placeholder="正文内容（支持 Markdown）"/></div>
+                        <div><Label>标签</Label>
+                            <MultiSelect
+                                options={tags.map((t) => ({value: String(t.id), label: t.name_zh}))}
+                                value={form.tag_ids.map(String)}
+                                onChange={(v) => setForm((p) => ({...p, tag_ids: v.map(Number)}))}
+                            />
+                        </div>
                         {form.type === 'hotspot' && <>
                             <div><Label>风险等级</Label><Select value={form.risk_level}
                                                                 onValueChange={(v) => setForm((p) => ({
@@ -287,7 +361,7 @@ export default function AdminNewsPage() {
                                 advice: e.target.value
                             }))}/></div>
                         </>}
-                        <Button className="w-full" onClick={handleSave} disabled={!form.title}>保存</Button>
+                        <Button className="w-full" onClick={handleSave} disabled={saving || !form.title}>{saving ? '保存中...' : '保存'}</Button>
                     </div>
                 </DialogContent>
             </Dialog>

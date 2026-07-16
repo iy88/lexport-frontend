@@ -6,6 +6,7 @@ import api from '@/lib/api';
 import {usePageSize} from '@/hooks/use-page-size';
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from '@/components/ui/table';
 import {ChevronLeft, ChevronRight, Loader2} from 'lucide-react';
+import {toast} from 'sonner';
 
 export default function AdminUsersPage() {
     const {size, ready} = usePageSize();
@@ -27,8 +28,15 @@ export default function AdminUsersPage() {
     }, [fetchUsers, ready]);
 
     const handleRoleChange = async (userId: number, role: string) => {
-        await api.put(`/admin/users/${userId}`, {role});
-        setUsers((prev) => prev.map((u) => (u.id === userId ? {...u, role} : u)));
+        try {
+            await api.put(`/admin/users/${userId}`, {role});
+            setUsers((prev) => prev.map((u) => (u.id === userId ? {...u, role} : u)));
+        } catch (err: any) {
+            const msg = err.response?.status === 403
+                ? '不能修改管理员权限'
+                : err.response?.data?.error?.message || '操作失败';
+            toast.error(msg);
+        }
     };
 
     const totalPages = Math.max(1, Math.ceil(total / size));
@@ -41,7 +49,7 @@ export default function AdminUsersPage() {
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead>ID</TableHead><TableHead>用户名</TableHead><TableHead>邮箱</TableHead><TableHead>邮箱验证</TableHead><TableHead>角色</TableHead><TableHead>注册时间</TableHead>
+                                <TableHead>ID</TableHead><TableHead>用户名</TableHead><TableHead>邮箱</TableHead><TableHead>邮箱验证</TableHead><TableHead>角色</TableHead><TableHead>注册时间</TableHead><TableHead>更新时间</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -65,7 +73,9 @@ export default function AdminUsersPage() {
                                         </Select>
                                     </TableCell>
                                     <TableCell
-                                        className="text-muted-foreground text-xs">{u.created_at ? new Date(u.created_at).toLocaleDateString('zh-CN') : '-'}</TableCell>
+                                        className="text-muted-foreground text-xs">{u.created_at ? new Date(u.created_at).toLocaleString('zh-CN') : '-'}</TableCell>
+                                    <TableCell
+                                        className="text-muted-foreground text-xs">{u.updated_at ? new Date(u.updated_at).toLocaleString('zh-CN') : '-'}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

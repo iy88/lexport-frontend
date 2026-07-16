@@ -70,12 +70,20 @@ const Navbar = () => {
 
                     {/* Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-1">
-                        {navItems.map((item) =>
-                            item.type === 'route' ? (
+                        {navItems.map((item) => {
+                            const isActive =
+                                item.type === 'route'
+                                    ? pathname === item.href
+                                    : item.href === '#hero' && pathname === '/';
+                            return item.type === 'route' ? (
                                 <Link
                                     key={item.href}
                                     to={item.href}
-                                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                                    className={`px-4 py-2 text-sm font-medium transition-colors rounded-md ${
+                                        isActive
+                                            ? 'text-foreground bg-accent'
+                                            : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                                    }`}
                                 >
                                     {item.label}
                                 </Link>
@@ -84,12 +92,16 @@ const Navbar = () => {
                                     key={item.href}
                                     href={`/${item.href}`}
                                     onClick={(e) => handleAnchorClick(e, item.href.slice(1))}
-                                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                                    className={`px-4 py-2 text-sm font-medium transition-colors rounded-md ${
+                                        isActive
+                                            ? 'text-foreground bg-accent'
+                                            : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                                    }`}
                                 >
                                     {item.label}
                                 </a>
-                            )
-                        )}
+                            );
+                        })}
                     </nav>
 
                     {/* Desktop Auth Button */}
@@ -151,13 +163,21 @@ const Navbar = () => {
                                         </Link>
                                     </div>
                                     <nav className="flex flex-col p-4 gap-1">
-                                        {navItems.map((item) =>
-                                            item.type === 'route' ? (
+                                        {navItems.map((item) => {
+                                            const isActive =
+                                                item.type === 'route'
+                                                    ? pathname === item.href
+                                                    : item.href === '#hero' && pathname === '/';
+                                            return item.type === 'route' ? (
                                                 <Link
                                                     key={item.href}
                                                     to={item.href}
                                                     onClick={() => setMobileOpen(false)}
-                                                    className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                                                    className={`px-4 py-3 text-base font-medium rounded-md transition-colors ${
+                                                        isActive
+                                                            ? 'text-foreground bg-accent'
+                                                            : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                                                    }`}
                                                 >
                                                     {item.label}
                                                 </Link>
@@ -166,12 +186,16 @@ const Navbar = () => {
                                                     key={item.href}
                                                     href={`/${item.href}`}
                                                     onClick={(e) => handleAnchorClick(e, item.href.slice(1))}
-                                                    className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                                                    className={`px-4 py-3 text-base font-medium rounded-md transition-colors ${
+                                                        isActive
+                                                            ? 'text-foreground bg-accent'
+                                                            : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                                                    }`}
                                                 >
                                                     {item.label}
                                                 </a>
-                                            )
-                                        )}
+                                            );
+                                        })}
                                     </nav>
                                 </div>
                             </SheetContent>
