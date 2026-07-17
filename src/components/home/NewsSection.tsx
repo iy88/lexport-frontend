@@ -5,7 +5,7 @@ import {ArrowRight, FileEdit, Newspaper, TrendingUp} from 'lucide-react';
 
 const NewsSection = () => {
     return (
-        <section id="news" className="py-16 md:py-24 bg-secondary/30 scroll-mt-20">
+        <section id="news" className="py-16 md:py-24 scroll-mt-20">
             <div className="max-w-7xl mx-auto px-4 md:px-6">
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance">

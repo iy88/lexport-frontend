@@ -34,7 +34,7 @@ export default function VerifyEmailPage() {
 
     return (
         <div
-            className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-b from-primary/5 to-background">
+            className="min-h-screen flex items-center justify-center px-4 py-12 bg-background">
             <Card className="w-full max-w-md shadow-card">
                 <CardContent className="p-8 text-center">
                     <div className="mb-6">

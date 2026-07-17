@@ -10,7 +10,7 @@ import api from '@/lib/api';
 import apiFile from '@/lib/api-file';
 import type {RootState} from '@/store';
 import {usePageSize} from '@/hooks/use-page-size';
-import {Check, CheckSquare, ChevronLeft, ChevronRight, Clock, Loader2, Pause, Pencil, Plus, Search, Trash2, Upload} from 'lucide-react';
+import {Check, CheckSquare, ChevronLeft, ChevronRight, Clock, Download, Loader2, Pause, Pencil, Plus, Search, Trash2, Upload} from 'lucide-react';
 
 const empty = {
     title_cn: '',
@@ -228,7 +228,7 @@ export default function AdminLawsPage() {
                                     <td className="p-3"><Badge variant="outline"
                                                                className="text-xs">{scenes.find((s) => s.id === item.scene_id)?.label_zh}</Badge>
                                     </td>
-                                    <td className="p-3 text-xs max-w-[200px]">{item.filename ? <span className="flex items-center gap-1" title={item.filename}><Upload className="w-3 h-3 text-muted-foreground shrink-0"/><span className="overflow-hidden whitespace-nowrap">{item.filename.length > 24 ? `${item.filename.slice(0, 12)}...${item.filename.slice(-10)}` : item.filename}</span></span> : '-'}</td>
+                                    <td className="p-3 text-xs max-w-[200px]">{item.has_file ? <a href={`/api/laws/${item.id}/download`} className="flex items-center gap-1 hover:text-primary transition-colors" title={item.filename}><Upload className="w-3 h-3 text-muted-foreground shrink-0"/><span className="overflow-hidden whitespace-nowrap">{item.filename.length > 24 ? `${item.filename.slice(0, 12)}...${item.filename.slice(-10)}` : item.filename}</span><Download className="w-3 h-3 shrink-0 ml-1"/></a> : '-'}</td>
                                     <td className="p-3">
                                         {item.status === 'draft'
                                             ? <Badge variant="secondary" className="text-xs gap-1"><Clock

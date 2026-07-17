@@ -83,7 +83,7 @@ const LoginPage: React.FC = () => {
 
     return (
         <div
-            className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-b from-primary/5 to-background">
+            className="min-h-screen flex items-center justify-center px-4 py-12 bg-background">
             <div className="w-full max-w-md">
                 <div className="mb-8 text-center">
                     <Link to="/"

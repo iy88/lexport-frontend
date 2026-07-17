@@ -35,14 +35,11 @@ const HeroSection = () => {
 
     return (
         <section id="hero" className="relative overflow-hidden scroll-mt-20">
-            {/* Background gradient */}
+            {/* Background */}
             <div
-                className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background pointer-events-none"/>
+                className="absolute inset-0 bg-primary/5 pointer-events-none"/>
             <div
                 className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"/>
-            <div
-                className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-info/5 rounded-full blur-[80px] pointer-events-none"/>
-
             <div className="relative max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-32 lg:py-40">
                 <div className="max-w-3xl mx-auto text-center">
                     {/* Badge */}

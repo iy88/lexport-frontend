@@ -67,7 +67,11 @@ export default function AdminReferencePage({config}: Props) {
         if (saving) return;
         const pkField = config.fields[0].name;
         const pkValue = editId ?? form[pkField];
-        if (!pkValue) return;
+        if (!pkValue && !editId && !form[pkField]) {
+            // creating new with auto-increment PK: validate first non-PK required field
+            const firstRequired = config.fields.find((f) => f.required && f.name !== pkField);
+            if (firstRequired && !form[firstRequired.name]) return;
+        } else if (!pkValue) return;
 
         const body: Record<string, any> = {};
         config.fields.forEach((f) => {
@@ -186,7 +190,7 @@ export default function AdminReferencePage({config}: Props) {
                         <Button
                             className="w-full"
                             onClick={handleSave}
-                            disabled={saving || !form[config.fields[0].name]}
+                            disabled={saving || (!form[config.fields[0].name] && !config.fields.find((f) => f.required && form[f.name]))}
                         >
                             {saving ? '保存中...' : '保存'}
                         </Button>

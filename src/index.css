@@ -48,9 +48,9 @@ All colors MUST be HSL.
         --warning-foreground: 0 0% 100%;
         --info: 217 91% 60%;
         --info-foreground: 0 0% 100%;
-        --gradient-primary: linear-gradient(135deg, hsl(221 83% 34%), hsl(210 100% 50%));
-        --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 33% 98%));
-        --gradient-background: linear-gradient(180deg, hsl(220 33% 98%) 0%, hsl(214 32% 91%) 100%);
+        --gradient-primary: hsl(221 83% 34%);
+        --gradient-card: hsl(0 0% 100%);
+        --gradient-background: hsl(220 33% 98%);
         --shadow-card: 0 4px 6px -1px hsl(222 47% 11% / 0.05), 0 2px 4px -2px hsl(222 47% 11% / 0.05);
         --shadow-hover: 0 10px 15px -3px hsl(222 47% 11% / 0.08), 0 4px 6px -4px hsl(222 47% 11% / 0.08);
     }
@@ -91,9 +91,9 @@ All colors MUST be HSL.
         --success: 142 71% 45%;
         --warning: 38 92% 50%;
         --info: 217 91% 60%;
-        --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(221 83% 34%));
-        --gradient-card: linear-gradient(180deg, hsl(223 47% 14%), hsl(222 47% 11%));
-        --gradient-background: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(223 47% 8%) 100%);
+        --gradient-primary: hsl(217 91% 60%);
+        --gradient-card: hsl(223 47% 14%);
+        --gradient-background: hsl(222 47% 11%);
         --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
         --shadow-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -4px hsl(0 0% 0% / 0.4);
     }
@@ -130,9 +130,6 @@ All colors MUST be HSL.
 
 @layer utilities {
     .gradient-text {
-        background: var(--gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--gradient-primary);
     }
 }

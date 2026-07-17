@@ -53,6 +53,19 @@ export const referenceConfigs: RefTableConfig[] = [
         ],
     },
     {
+        resourceKey: 'news-tags',
+        title: '资讯标签',
+        editorAllowed: true,
+        columns: [
+            { key: 'id', label: 'ID' },
+            { key: 'name_zh', label: '标签名' },
+        ],
+        fields: [
+            { name: 'id', label: 'ID', type: 'number' },
+            { name: 'name_zh', label: '标签名', type: 'text', required: true },
+        ],
+    },
+    {
         resourceKey: 'agency-categories',
         title: '机构大类',
         editorAllowed: true,

@@ -86,24 +86,27 @@ export default function AdminNewsPage() {
         setForm(empty);
         setDlgOpen(true);
     };
-    const openEdit = (item: any) => {
+    const openEdit = async (item: any) => {
         setEditId(item.id);
+        // fetch detail to get content (list endpoint doesn't include it)
+        const {data} = await api.get(`/admin/news/${item.id}`);
+        const detail = data.data?.item || item;
         setForm({
-            type: item.type,
-            title: item.title,
-            country_id: item.country_id || '',
-            source: item.source || '',
-            date: item.date || '',
-            summary: item.summary || '',
-            risk_level: item.risk_level || '',
-            involved_laws: item.involved_laws || '',
-            response: item.response || '',
-            update_type: item.update_type || '',
-            change_desc: item.change_desc || '',
-            impact: item.impact || '',
-            advice: item.advice || '',
-            content: item.content || '',
-            tag_ids: item.tags ? item.tags.map((t: any) => t.id) : [],
+            type: detail.type || item.type,
+            title: detail.title || item.title,
+            country_id: detail.country_id || item.country_id || '',
+            source: detail.source || item.source || '',
+            date: detail.date || item.date || '',
+            summary: detail.summary || item.summary || '',
+            risk_level: detail.risk_level || item.risk_level || '',
+            involved_laws: detail.involved_laws || item.involved_laws || '',
+            response: detail.response || item.response || '',
+            update_type: detail.update_type || item.update_type || '',
+            change_desc: detail.change_desc || item.change_desc || '',
+            impact: detail.impact || item.impact || '',
+            advice: detail.advice || item.advice || '',
+            content: detail.content || '',
+            tag_ids: detail.tags ? detail.tags.map((t: any) => t.id) : (item.tags ? item.tags.map((t: any) => t.id) : []),
         });
         setDlgOpen(true);
     };

@@ -8,7 +8,7 @@ import {store} from "./store";
 createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
         <AppWrapper>
-            <App/>
+        <App/>
         </AppWrapper>
     </Provider>
 );

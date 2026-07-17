@@ -16,6 +16,7 @@ import AdminAgenciesPage from "@/pages/admin/AdminAgenciesPage.tsx";
 import AdminUsersPage from "@/pages/admin/AdminUsersPage.tsx";
 import AdminReferencePage from "@/pages/admin/AdminReferencePage.tsx";
 import NewsDetailPage from "@/pages/NewsDetailPage.tsx";
+import LawDetailPage from "@/pages/LawDetailPage.tsx";
 import {referenceConfigs} from '@/lib/reference-config';
 import NotFound from "@/pages/NotFound.tsx";
 
@@ -43,6 +44,11 @@ const App: React.FC = () => {
                                 }
                             />
                         ))}
+                        <Route path="/laws/:id" element={
+                            <MainLayout>
+                                <LawDetailPage/>
+                            </MainLayout>
+                        }/>
                         <Route path="/news/:id" element={
                             <MainLayout>
                                 <NewsDetailPage/>

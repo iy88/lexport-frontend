@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import {ArrowLeft, Calendar, Globe, Loader2, Tag} from 'lucide-react';
+import {Streamdown} from 'streamdown';
 import {Button} from '@/components/ui/button';
 import {Badge} from '@/components/ui/badge';
 import {Card, CardContent} from '@/components/ui/card';
@@ -177,7 +178,7 @@ export default function NewsDetailPage() {
             {news.content && (
                 <div className="border-t border-border pt-6 mt-6">
                     <article className="prose prose-slate max-w-none dark:prose-invert">
-                        <div dangerouslySetInnerHTML={{__html: news.content}}/>
+                        <Streamdown>{news.content}</Streamdown>
                     </article>
                 </div>
             )}

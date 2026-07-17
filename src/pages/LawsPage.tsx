@@ -1,10 +1,11 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
+import {Link} from 'react-router-dom';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent} from '@/components/ui/card';
 import {Badge} from '@/components/ui/badge';
 import {Input} from '@/components/ui/input';
 import api from '@/lib/api';
-import {ChevronLeft, ChevronRight, FileText, Globe, Loader2, Search,} from 'lucide-react';
+import {Calendar, ChevronLeft, ChevronRight, Globe, Loader2, Search,} from 'lucide-react';
 
 const PAGE_SIZE = 6;
 
@@ -145,9 +146,9 @@ export default function LawsPage() {
                 <>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {laws.map((law) => (
-                            <Card key={law.id} className="shadow-card">
-                                <CardContent className="p-5">
-                                    <h4 className="font-semibold text-foreground text-base mb-2">{law.title_cn}</h4>
+                            <Card key={law.id} className="shadow-card h-full">
+                                <CardContent className="p-5 flex flex-col h-full">
+                                    <Link to={`/laws/${law.id}`} className="hover:underline"><h4 className="font-semibold text-foreground text-base mb-2">{law.title_cn}</h4></Link>
                                     <div className="flex items-center gap-2 flex-wrap mb-3">
                                         <Badge variant="secondary" className="text-xs">
                                             {countries.find((c) => c.id === law.country_id)?.name_zh ?? law.country_id}
@@ -156,13 +157,12 @@ export default function LawsPage() {
                                         {(() => {
                                             const s = scenes.find((sc) => sc.id === law.scene_id);
                                             return s ? <Badge
-                                                className="bg-primary/10 text-primary border-primary/20 text-xs">{s.label_zh}</Badge> : null;
+                                                className="bg-primary/10 text-primary border-primary/20 text-xs hover:bg-primary/20 cursor-default">{s.label_zh}</Badge> : null;
                                         })()}
                                     </div>
                                     <p className="text-sm text-muted-foreground mb-3 text-pretty">{law.summary}</p>
-                                    <div className="flex items-center justify-between text-xs text-muted-foreground">
-                                        <span>{law.effective_date}</span>
-                                        {law.filename && <span className="flex items-center gap-1"><FileText className="w-3 h-3"/>{law.filename}</span>}
+                                    <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto">
+                                        <span className="flex items-center gap-1"><Calendar className="w-3 h-3"/>{law.effective_date ? law.effective_date.slice(0, 4) : ''}</span>
                                     </div>
                                 </CardContent>
                             </Card>
