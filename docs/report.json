@@ -1,198 +1,244 @@
 {
-"meta": {
-"title": "天顶星科技有限公司出海合规报告",
-"description": "天顶星科技有限公司出海合规报告"
-},
-"header": {
-"title": "天顶星科技有限公司出海合规报告",
-"subtitle": "基于AI大模型深度分析及全球实时法务数据库生成的非洲市场准入与经营合规评估。"
-},
-"basicInfo": {
-"title": "基础信息板块",
-"reportMeta": {
-"title": "报告元数据",
-"fields": [
-{
-"label": "报告编号",
-"icon": "LayoutList",
-"value": "AFR-2025-X892-01"
-},
-{
-"label": "生成时间",
-"icon": "Calendar",
-"value": "2025-02-24 10:00:00"
-},
-{
-"label": "AI版本",
-"icon": "Cpu",
-"value": "Miaoda-Compliance v4.5"
-},
-{
-"label": "数据截止日期",
-"icon": "History",
-"value": "2025-02-21"
-}
-]
-},
-"companyBackground": {
-"title": "企业背景",
-"fields": [
-{
-"label": "企业名称",
-"icon": "Building2",
-"value": "天顶星科技有限公司"
-},
-{
-"label": "所属行业",
-"icon": "Briefcase",
-"value": "互联网、电商"
-},
-{
-"label": "企业规模",
-"icon": "Users",
-"value": "5000-10000人"
-},
-{
-"label": "出海目的国",
-"icon": "MapPin",
-"value": "南非"
-},
-{
-"label": "出海商业模式",
-"icon": "Globe",
-"value": "当地直营 + 跨境电商服务"
-}
-]
-}
-},
-"aiDiagnosis": {
-"title": "AI 初诊结论板块",
-"overallRisk": {
-"level": "中高风险",
-"levelKey": "HIGH",
-"badge": "重点关注"
-},
-"topRisks": {
-"title": "核心风险",
-"items": [
-"南非《全球最低税管理法》(2024)要求跨国企业本地实体提交GloBe信息申报，逾期或漏报将面临严重税务处罚",
-"南非进出口控制及退税许可制度严格，跨境电商货物清关若缺乏合规许可证或存在申报瑕疵，将导致货物扣押及罚款",
-"《2015年税法修正法》对受控外国公司(CFC)关联交易有严格豁免审查，不合规的转移定价将引发税务穿透及补税风险"
-]
-},
-"complianceGap": {
-"title": "当前合规缺口总结",
-"summary": "企业在南非设立直营与跨境电商业务，尚未建立符合《全球最低税管理法》的GloBe信息申报机制；进出口环节缺乏对南非进出口控制及退税许可证的系统性合规审查；同时，跨境关联交易及供应链架构可能未满足《2015年税法修正法》中CFC规则的实质性豁免条件，存在税务穿透隐患。",
-"priorityTitle": "优先级行动建议",
-"actions": [
-"评估集团营收规模，确认是否触发GloBe申报义务并指定本地申报实体",
-"梳理跨境电商商品清单，向南非相关部门申请进出口控制及退税许可证",
-"审查中非关联交易定价及加工实质，确保符合CFC豁免条件"
-]
-}
-},
-"riskAnalysis": {
-"title": "分项风险分析板块",
-"items": [
-{
-"title": "全球最低税申报风险",
-"icon": "Wallet",
-"level": "HIGH",
-"desc": "南非《全球最低税管理法》(2024)要求跨国集团本地实体提交GloBe信息申报表，未按时申报或指定申报实体将面临南非税务局(SARS)的严厉处罚。",
-"impact": "重大税务罚款及企业声誉受损",
-"action": "指定本地实体并在财年后15个月内完成GloBe申报"
-},
-{
-"title": "跨境贸易与清关风险",
-"icon": "Globe",
-"level": "HIGH",
-"desc": "南非实行严格的进出口控制及退税许可证制度，跨境电商及直营进口货物需持证清关，通过欺骗手段获取许可或违规操作将被撤销许可并处罚。",
-"impact": "货物滞留港口及供应链中断",
-"action": "提前申请进出口及退税许可证，确保清关材料真实合规"
-},
-{
-"title": "CFC规则与转移定价风险",
-"icon": "Wallet",
-"level": "MEDIUM",
-"desc": "《2015年税法修正法》对受控外国公司(CFC)的关联交易、实质性加工及本地销售有严格豁免界定，若南非实体仅进行极简包装或无实质加工，利润将被计入南非应税所得。",
-"impact": "双重征税及集团利润侵蚀",
-"action": "优化供应链架构，确保南非实体具备实质性加工或组装功能"
-}
-]
-},
-"agencyMatching": {
-"title": "AI 智能机构匹配结果板块",
-"columns": [
-"推荐机构",
-"适配业务",
-"核心优势"
-],
-"items": [
-{
-"name": "Bowmans (南非分所)",
-"business": "跨境合规、税务筹划、进出口许可申请",
-"advantage": "深耕南非本土市场，精通南非税法及贸易管制政策"
-},
-{
-"name": "PwC 南非",
-"business": "全球最低税(GloBe)申报、转移定价、CFC合规审查",
-"advantage": "具备丰富的跨国企业全球最低税及CFC规则实操经验"
-},
-{
-"name": "Miaoda Legal AI Expert",
-"business": "法律文本实时监控、合规文档自动生成",
-"advantage": "24/7实时政策抓取与智能研判，低成本满足日常合规自查需求"
-}
-]
-},
-"executionChecklist": {
-"title": "落地执行清单板块",
-"items": [
-{
-"date": "T+15天内",
-"owner": "税务总监",
-"task": "GloBe申报义务评估与实体指定",
-"material": "集团全球营收审计报告、南非实体注册文件、集团架构图",
-"warn": "逾期可能导致南非税务局(SARS)的行政罚款及滞纳金"
-},
-{
-"date": "T+30天内",
-"owner": "供应链/关务负责人",
-"task": "进出口控制及退税许可证申请",
-"material": "跨境电商商品HS编码清单、商业发票、物流单据、业务资质证明",
-"warn": "无证进口将导致货物被海关扣押及产生高额滞港费"
-},
-{
-"date": "T+45天内",
-"owner": "财务总监",
-"task": "CFC豁免条件及转移定价审查",
-"material": "关联交易合同、南非本地加工/组装成本核算表、转让定价同期资料",
-"warn": "审查不通过将面临SARS的税务穿透认定及巨额补税处罚"
-}
-]
-},
-"appendix": {
-"title": "附录板块",
-"lawReferences": {
-"title": "引用法规依据列表",
-"items": [
-"Global Minimum Tax Administration Act 47 of 2024",
-"Import and export control permits and rebate permits",
-"Taxation Laws Amendment Act 25 of 2015"
-]
-},
-"dataSources": {
-"title": "数据来源说明",
-"text": "本报告数据源自：目的国官方政府公报、世界银行(World Bank)非洲地区年度营商环境数据库、国际货币基金组织(IMF)外汇管理政策报告、以及知识库检索的法规源文件。AI分析模型通过Miaoda Compliance引擎实时交叉核验。"
-},
-"disclaimer": {
-"title": "专业法律免责声明",
-"items": [
-"本报告仅作为企业决策的参考依据，不构成正式的法律、财务或税务建议。在执行任何具体业务前，请咨询当地持牌执业律师及税务专家。",
-"AI生成内容可能存在一定的时效性滞后，报告中的法规条款应以目的国政府实时公布的官方文件为准。",
-"因使用本报告所载信息而导致的任何直接或间接投资损失，报告生成机构及平台不承担任何法律责任。",
-"本报告版权归\"天顶星科技有限公司\"所有，未经授权不得用于商业转售。"
-]
-},
-"copyright": "© 2025 Miaoda Compliance System. All Rights Reserved."  }
+  "riskAnalysis": {
+    "title": "分项风险分析板块",
+    "items": [
+      {
+        "level": "HIGH",
+        "impact": "重大财务损失及品牌声誉损毁",
+        "icon": "Database",
+        "action": "完成DPIA评估并部署数据本地化加密方案",
+        "title": "数据合规风险",
+        "desc": "NDPA 2023要求所有处理尼日利亚公民数据的企业任命DPO、完成数据保护影响评估(DPIA)并向NDPC备案。未合规者面临全球年收入2%的行政罚款。"
+      },
+      {
+        "level": "CRITICAL",
+        "impact": "资金安全及供应链支付受阻",
+        "icon": "Gavel",
+        "action": "建立境内外联动支付机制，采用对冲策略",
+        "title": "外汇管制风险",
+        "desc": "尼日利亚央行(CBN)对大额美元汇兑实行额度管理，存在资金无法及时汇回国内的流动性风险。"
+      },
+      {
+        "level": "MEDIUM",
+        "impact": "关键岗位人员无法到位",
+        "icon": "ShieldCheck",
+        "action": "制定本地化招聘计划，提前申请外籍配额",
+        "title": "劳动用工风险",
+        "desc": "《劳动法》2004对外籍员工配额和本地化用工有明确规定，未合规企业面临工作许可被拒风险。"
+      },
+      {
+        "level": "HIGH",
+        "impact": "企业设立周期延长，业务启动延迟",
+        "icon": "Globe",
+        "action": "委托当地律所完成公司注册及NIPC外资备案",
+        "title": "市场准入风险",
+        "desc": "CAMA 2020第78条及NIPC Act第19-20条规定，外资企业必须在尼日利亚注册独立法人实体并完成NIPC备案方可开展业务。"
+      },
+      {
+        "level": "MEDIUM",
+        "impact": "税务稽查及滞纳金风险",
+        "icon": "Wallet",
+        "action": "完成FIRS税务登记并建立本地发票系统",
+        "title": "税务合规风险",
+        "desc": "跨境电商服务可能触发尼日利亚增值税(VAT)及数字服务税义务，需依据FIRS规定进行税务登记。"
+      }
+    ]
+  },
+  "appendix": {
+    "copyright": "© 2026 律航出海",
+    "title": "附录板块",
+    "dataSources": {
+      "text": "本报告基于知识库提供的 Nigeria Data Protection Act 2023、CBN Foreign Exchange Manual 2024、Nigeria Labour Act 2004、Companies and Allied Matters Act 2020、Nigerian Investment Promotion Commission Act 1995 及 NITDA Data Protection Implementation Framework 2024 生成，数据覆盖截至2023-12-31。未使用输入材料以外的外部数据源。",
+      "title": "数据来源说明"
+    },
+    "lawReferences": {
+      "title": "引用法规依据列表",
+      "items": [
+        "Nigeria Data Protection Act (NDPA), 2023",
+        "Central Bank of Nigeria (CBN) Foreign Exchange Manual, 2024",
+        "Nigeria Labour Act, 2004 (Revised 2022)",
+        "Companies and Allied Matters Act (CAMA), 2020",
+        "Nigerian Investment Promotion Commission Act, 1995",
+        "NITDA Data Protection Implementation Framework, 2024"
+      ]
+    },
+    "disclaimer": {
+      "title": "专业法律免责声明",
+      "items": [
+        "本报告仅作为企业决策的参考依据，不构成正式的法律、财务或税务建议。在执行任何具体业务前，请咨询当地持牌执业律师及税务专家。",
+        "AI生成内容可能存在一定的时效性滞后，报告中的法规条款应以目的国政府实时公布的官方文件为准。",
+        "因使用本报告所载信息而导致的任何直接或间接投资损失，报告生成机构及平台不承担任何法律责任。",
+        "本报告版权归\"天顶星科技有限公司\"所有，未经授权不得用于商业转售。"
+      ]
+    }
+  },
+  "meta": {
+    "description": "天顶星科技有限公司出海合规报告",
+    "title": "天顶星科技有限公司出海合规报告"
+  },
+  "aiDiagnosis": {
+    "topRisks": {
+      "title": "核心风险",
+      "items": [
+        "尼日利亚《数据保护法》(NDPA 2023)要求任命DPO并完成数据处理备案，违规罚款可达全球年收入2%",
+        "CBN外汇手册(2024)对大额美元结汇实行额度审批，资金回流存在流动性风险",
+        "尼日利亚《劳动法》(2004)规定外籍员工比例上限，Local Content政策持续收紧",
+        "《公司与相关事务法》(CAMA 2020)要求外资企业必须在当地注册独立法人实体方可开展业务"
+      ]
+    },
+    "overallRisk": {
+      "badge": "重点关注",
+      "level": "中高风险",
+      "levelKey": "HIGH"
+    },
+    "complianceGap": {
+      "summary": "企业尚未依据NDPA 2023建立数据保护合规体系，缺少DPO任命和数据处理备案；外汇方面未建立境内外联动支付机制以应对CBN结汇限制；用工方面劳动合同条款与《劳动法》2004存在约15%制度性差异；市场准入层面未完成CAMA 2020项下的本地公司注册及NIPC外资备案。",
+      "priorityTitle": "优先级行动建议",
+      "title": "当前合规缺口总结",
+      "actions": [
+        "依据NDPA第33条，7日内完成DPO任命并向NDPC备案",
+        "建立离岸账户资金划转合规路径，规避CBN额度限制",
+        "修订劳动合同，对齐《劳动法》2004中保险与补贴条款",
+        "委托当地律所完成CAMA公司注册及NIPC外资登记"
+      ]
+    },
+    "title": "AI 初诊结论板块"
+  },
+  "header": {
+    "subtitle": "基于AI大模型深度分析及全球实时法务数据库生成的非洲市场准入与经营合规评估。",
+    "title": "天顶星科技有限公司出海合规报告"
+  },
+  "agencyMatching": {
+    "columns": [
+      "推荐机构",
+      "适配业务",
+      "核心优势"
+    ],
+    "title": "AI 智能机构匹配结果板块",
+    "items": [
+      {
+        "business": "跨境合规、外汇法律、知识产权",
+        "advantage": "全球顶尖法律服务网络，深耕非洲市场30余年",
+        "name": "Baker McKenzie 非洲分所"
+      },
+      {
+        "business": "税务筹划、审计评估、市场准入咨询",
+        "advantage": "熟悉西非地区税制变化，提供一站式财税服务",
+        "name": "PwC 尼日利亚"
+      },
+      {
+        "business": "公司注册、劳动法合规、数据保护",
+        "advantage": "尼日利亚本土顶级律所，CAC及NIPC备案经验丰富",
+        "name": "Udo Udoma & Belo-Osagie"
+      },
+      {
+        "business": "法律文本实时监控、合规文档自动生成",
+        "advantage": "24/7实时政策抓取与智能研判，低成本满足日常合规自查需求",
+        "name": "律航出海 AI 合规助手"
+      }
+    ]
+  },
+  "executionChecklist": {
+    "title": "落地执行清单板块",
+    "items": [
+      {
+        "date": "T+7天内",
+        "owner": "法务部总监",
+        "warn": "逾期可能面临每日5万奈拉滞纳金",
+        "task": "尼日利亚数据处理备案申请",
+        "material": "企业章程、数据架构说明书、DPO委任书"
+      },
+      {
+        "date": "T+15天内",
+        "owner": "财务部主管",
+        "warn": "需严格核对结汇金额与实际贸易金额的一致性",
+        "task": "外汇结汇合规审计",
+        "material": "年度外汇流入明细、CBN备案凭证"
+      },
+      {
+        "date": "T+30天内",
+        "owner": "人力资源负责人",
+        "warn": "修订内容需经当地工会书面确认以避免集体争议",
+        "task": "员工手册本地化修订发布",
+        "material": "现行员工手册、劳动法合规建议稿"
+      },
+      {
+        "date": "T+45天内",
+        "owner": "战略发展部总监",
+        "warn": "未完成注册前不得开展任何本地经营活动",
+        "task": "CAC公司注册及NIPC备案",
+        "material": "母公司营业执照、公司章程、董事身份证明"
+      },
+      {
+        "date": "T+60天内",
+        "owner": "财务部主管",
+        "warn": "逾期登记将产生10%滞纳金及潜在刑事追责",
+        "task": "FIRS税务登记及VAT申报系统对接",
+        "material": "公司注册证书、银行账户信息、业务合同样本"
+      }
+    ]
+  },
+  "basicInfo": {
+    "reportMeta": {
+      "title": "报告元数据",
+      "fields": [
+        {
+          "icon": "LayoutList",
+          "label": "报告编号",
+          "value": "{{REPORT_ID}}"
+        },
+        {
+          "icon": "Calendar",
+          "label": "生成时间",
+          "value": "{{GENERATED_AT}}"
+        },
+        {
+          "icon": "Cpu",
+          "label": "AI版本",
+          "value": "Qwen3-Max"
+        },
+        {
+          "icon": "History",
+          "label": "数据截止日期",
+          "value": "2023-12-31"
+        }
+      ]
+    },
+    "companyBackground": {
+      "title": "企业背景",
+      "fields": [
+        {
+          "icon": "Building2",
+          "label": "企业名称",
+          "value": "天顶星科技有限公司"
+        },
+        {
+          "icon": "Briefcase",
+          "label": "所属行业",
+          "value": "数字基础设施与金融科技"
+        },
+        {
+          "icon": "Users",
+          "label": "企业规模",
+          "value": "500-1000人"
+        },
+        {
+          "icon": "MapPin",
+          "label": "出海目的国",
+          "value": "尼日利亚"
+        },
+        {
+          "icon": "Globe",
+          "label": "出海商业模式",
+          "value": "当地直营 + 跨境电商服务"
+        },
+        {
+          "icon": "Wallet",
+          "label": "预算范围",
+          "value": "50-200万元人民币"
+        }
+      ]
+    },
+    "title": "基础信息板块"
+  }
 }

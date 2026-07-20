@@ -12,10 +12,10 @@
     "reportMeta": {
       "title": "报告元数据",
       "fields": [
-        {"label": "报告编号", "icon": "LayoutList", "value": "AFR-2026-X892-01"},
-        {"label": "生成时间", "icon": "Calendar", "value": "2026-05-12 14:30:22"},
-        {"label": "AI版本", "icon": "Cpu", "value": "Miaoda-Compliance v4.5"},
-        {"label": "数据截止日期", "icon": "History", "value": "2026-05-10"}
+        {"label": "报告编号", "icon": "LayoutList", "value": "{{REPORT_ID}}"},
+        {"label": "生成时间", "icon": "Calendar", "value": "{{GENERATED_AT}}"},
+        {"label": "AI版本", "icon": "Cpu", "value": "{{AI_VERSION}}"},
+        {"label": "数据截止日期", "icon": "History", "value": "{{DATA_CUTOFF_DATE}}"}
       ]
     },
     "companyBackground": {
@@ -25,7 +25,8 @@
         {"label": "所属行业", "icon": "Briefcase", "value": "数字基础设施与金融科技"},
         {"label": "企业规模", "icon": "Users", "value": "500-1000人"},
         {"label": "出海目的国", "icon": "MapPin", "value": "尼日利亚、肯尼亚"},
-        {"label": "出海商业模式", "icon": "Globe", "value": "当地直营 + 跨境电商服务"}
+        {"label": "出海商业模式", "icon": "Globe", "value": "当地直营 + 跨境电商服务"},
+        {"label": "预算范围", "icon": "Wallet", "value": "50-200万元"}
       ]
     }
   },
@@ -123,7 +124,7 @@
         "advantage": "熟悉西非地区税制变化，提供从架构设计到落地的一站式财税服务。"
       },
       {
-        "name": "Miaoda Legal AI Expert",
+        "name": "律航出海 AI 合规助手",
         "business": "法律文本实时监控、合规文档自动生成",
         "advantage": "24/7 实时政策抓取与智能研判，极低成本满足日常合规自查需求。"
       }
@@ -169,7 +170,7 @@
     },
     "dataSources": {
       "title": "数据来源说明",
-      "text": "本报告数据源自：目的国官方政府公报、世界银行(World Bank)非洲地区年度营商环境数据库、国际货币基金组织(IMF)外汇管理政策报告、以及Baker McKenzie非洲实操案例库。AI分析模型通过Miaoda Compliance引擎实时交叉核验。"
+      "text": "本报告基于本次知识库提供的 Nigeria Data Protection Act 2023、CBN Foreign Exchange Manual、Kenya Employment Act 2007（2022修订）、EAC Common External Tariff 及 ECOWAS Regional Trade Liberalization Scheme 生成，数据覆盖截至{{DATA_CUTOFF_DATE}}。未使用输入材料以外的外部数据源。"
     },
     "disclaimer": {
       "title": "专业法律免责声明",
@@ -180,6 +181,6 @@
         "本报告版权归\"中非科创出海科技有限公司\"所有，未经授权不得用于商业转售。"
       ]
     },
-    "copyright": "© 2026 Miaoda Compliance System. All Rights Reserved."
+    "copyright": "© 2026 律航出海"
   }
 }

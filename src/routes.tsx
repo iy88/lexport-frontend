@@ -5,6 +5,7 @@ import VerifyEmailPage from './pages/VerifyEmailPage';
 import LawsPage from './pages/LawsPage';
 import NewsPage from './pages/NewsPage';
 import AgenciesPage from './pages/AgenciesPage';
+import ComplianceDiagnosisPage from './pages/ComplianceDiagnosisPage';
 import type {ReactNode} from 'react';
 
 export interface RouteConfig {
@@ -33,6 +34,12 @@ export const routes: RouteConfig[] = [
         name: '合规报告',
         path: '/report',
         element: <ReportPage/>,
+        public: true,
+    },
+    {
+        name: '合规初诊',
+        path: '/diagnosis',
+        element: <ComplianceDiagnosisPage/>,
         public: true,
     },
     {

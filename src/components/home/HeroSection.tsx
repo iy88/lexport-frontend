@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import {Button} from '@/components/ui/button';
 import {ArrowRight, Sparkles} from 'lucide-react';
 import api from '@/lib/api';
+import {useNavigate} from 'react-router-dom';
 
 const labels: Record<string, string> = {
     countries: '覆盖国家（持续拓展中）',
@@ -11,14 +12,15 @@ const labels: Record<string, string> = {
 };
 
 const fallback = [
-    {id: 'countries', value: '6'},
-    {id: 'laws', value: '19,370'},
-    {id: 'scenes', value: '7'},
-    {id: 'agencies', value: '50+'},
+    {id: 'countries', value: '-'},
+    {id: 'laws', value: '-'},
+    {id: 'scenes', value: '-'},
+    {id: 'agencies', value: '-'},
 ];
 
 const HeroSection = () => {
     const [stats, setStats] = useState(fallback);
+    const navigate = useNavigate();
 
     useEffect(() => {
         api.get('/stats').then(({data}) => {
@@ -71,7 +73,7 @@ const HeroSection = () => {
                         <Button
                             size="lg"
                             className="w-full sm:w-auto text-base font-semibold bg-primary hover:bg-primary/90 px-8 h-12"
-                            onClick={() => scrollToSection('report-section')}
+                            onClick={() => navigate('/diagnosis')}
                         >
                             立即体验合规初诊
                             <ArrowRight className="ml-2 w-4 h-4"/>

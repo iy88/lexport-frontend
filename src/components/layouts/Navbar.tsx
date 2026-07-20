@@ -11,7 +11,7 @@ const navItems = [
     {label: '法规库', href: '/laws', type: 'route' as const},
     {label: '资讯库', href: '/news', type: 'route' as const},
     {label: '机构推荐', href: '/agencies', type: 'route' as const},
-    {label: '合规报告', href: '#report-section', type: 'anchor' as const},
+    {label: '合规报告', href: '/diagnosis', type: 'route' as const},
     {label: '关于我们', href: '#about', type: 'anchor' as const},
 ];
 
