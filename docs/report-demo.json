@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "非洲企业出海合规报告",
+    "description": "非洲企业出海合规报告最终成品展示"
+  },
+  "header": {
+    "title": "非洲企业出海合规报告",
+    "subtitle": "基于AI大模型深度分析及全球实时法务数据库生成的非洲市场准入与经营合规评估。"
+  },
+  "basicInfo": {
+    "title": "基础信息板块",
+    "reportMeta": {
+      "title": "报告元数据",
+      "fields": [
+        {"label": "报告编号", "icon": "LayoutList", "value": "AFR-2026-X892-01"},
+        {"label": "生成时间", "icon": "Calendar", "value": "2026-05-12 14:30:22"},
+        {"label": "AI版本", "icon": "Cpu", "value": "Miaoda-Compliance v4.5"},
+        {"label": "数据截止日期", "icon": "History", "value": "2026-05-10"}
+      ]
+    },
+    "companyBackground": {
+      "title": "企业背景",
+      "fields": [
+        {"label": "企业名称", "icon": "Building2", "value": "中非科创出海科技有限公司"},
+        {"label": "所属行业", "icon": "Briefcase", "value": "数字基础设施与金融科技"},
+        {"label": "企业规模", "icon": "Users", "value": "500-1000人"},
+        {"label": "出海目的国", "icon": "MapPin", "value": "尼日利亚、肯尼亚"},
+        {"label": "出海商业模式", "icon": "Globe", "value": "当地直营 + 跨境电商服务"}
+      ]
+    }
+  },
+  "aiDiagnosis": {
+    "title": "AI 初诊结论板块",
+    "overallRisk": {
+      "level": "中高风险",
+      "levelKey": "HIGH",
+      "badge": "重点关注"
+    },
+    "topRisks": {
+      "title": "核心风险 Top 3",
+      "items": [
+        "外汇强制结汇政策变动导致资金回笼风险",
+        "尼日利亚《数据保护法》(NDPA) 落地引发的跨境传输限制",
+        "肯尼亚当地用工比例（Local Content）政策收紧"
+      ]
+    },
+    "complianceGap": {
+      "title": "当前合规缺口总结",
+      "summary": "企业尚未在目的国建立完善的数据隐私合规体系，且缺乏针对西非/东非地区复杂的外汇管制应对预案。此外，当地员工的福利体系与当地《劳动法》存在约15%的制度性差异，存在潜在的法律追索风险。",
+      "priorityTitle": "优先级行动建议",
+      "actions": [
+        "启动肯尼亚子公司《数据隐私政策》本地化审计",
+        "建立离岸离岸账户资金划转合规路径优化方案",
+        "重新评估当地劳工合同中的保险与补贴条款"
+      ]
+    }
+  },
+  "riskAnalysis": {
+    "title": "分项风险分析板块",
+    "items": [
+      {
+        "title": "市场准入风险",
+        "icon": "Globe",
+        "level": "MEDIUM",
+        "desc": "尼日利亚外商独资政策稳定，但特定行业如电信、石油需特许经营证照，审批周期预计6-12个月。",
+        "impact": "项目落地时间可能超预期。",
+        "action": "提前开展行业准入专项调研。"
+      },
+      {
+        "title": "税务合规风险",
+        "icon": "Wallet",
+        "level": "HIGH",
+        "desc": "东非共同体(EAC)近期调整关税起征点，企业面临双重征税协定应用不熟练导致的成本溢价。",
+        "impact": "预计年度运营成本上升8.5%。",
+        "action": "聘请当地专业税务师进行年度税务筹划。"
+      },
+      {
+        "title": "外汇管制风险",
+        "icon": "Gavel",
+        "level": "CRITICAL",
+        "desc": "尼日利亚央行(CBN)对大额美元汇兑实行额度管理，存在资金无法及时汇回国内的流动性风险。",
+        "impact": "资金安全及供应链支付受阻。",
+        "action": "建立境内外联动支付机制，采用对冲策略。"
+      },
+      {
+        "title": "数据合规风险",
+        "icon": "Database",
+        "level": "HIGH",
+        "desc": "当地政府对用户个人信息存留在境外的监管趋严，违反规定可能面临全球年收入2%的罚款。",
+        "impact": "重大财务损失及品牌声誉损毁。",
+        "action": "实施数据服务器本地化部署或加密传输方案。"
+      },
+      {
+        "title": "劳工用工风险",
+        "icon": "ShieldCheck",
+        "level": "MEDIUM",
+        "desc": "肯尼亚工会力量强大，关于加班费和医疗保险的集体谈判可能引发罢工停产风险。",
+        "impact": "生产线中断，订单交付延期。",
+        "action": "完善员工手册，与当地工会建立预沟通机制。"
+      },
+      {
+        "title": "环保合规风险",
+        "icon": "Leaf",
+        "level": "LOW",
+        "desc": "目前业务主要为互联网技术，对环境直接影响较小，需关注办公场所的能耗及废弃物处理规定。",
+        "impact": "轻微合规负担。",
+        "action": "遵循绿色办公指南，定期进行碳排自测。"
+      }
+    ]
+  },
+  "agencyMatching": {
+    "title": "AI 智能机构匹配结果板块",
+    "columns": ["推荐机构", "适配业务", "核心优势"],
+    "items": [
+      {
+        "name": "Baker McKenzie 非洲分所",
+        "business": "跨境合规、外汇法律、知识产权",
+        "advantage": "全球顶尖法律服务网络，深耕非洲市场30余年，政府关系卓越。"
+      },
+      {
+        "name": "PwC (普华永道) 尼日利亚",
+        "business": "税务筹划、审计评估、市场准入咨询",
+        "advantage": "熟悉西非地区税制变化，提供从架构设计到落地的一站式财税服务。"
+      },
+      {
+        "name": "Miaoda Legal AI Expert",
+        "business": "法律文本实时监控、合规文档自动生成",
+        "advantage": "24/7 实时政策抓取与智能研判，极低成本满足日常合规自查需求。"
+      }
+    ]
+  },
+  "executionChecklist": {
+    "title": "落地执行清单板块",
+    "items": [
+      {
+        "date": "T+7天内",
+        "owner": "法务部总监",
+        "task": "尼日利亚数据处理备案申请",
+        "material": "企业章程、数据架构说明书、DPO委任书",
+        "warn": "如未在规定日期前提交，可能面临每日5万奈拉的滞纳金。"
+      },
+      {
+        "date": "T+15天内",
+        "owner": "财务部主管",
+        "task": "外汇结汇合规审计",
+        "material": "年度外汇流入明细、CBN备案凭证",
+        "warn": "需严格核对结汇金额与实际贸易金额的一致性。"
+      },
+      {
+        "date": "T+30天内",
+        "owner": "人力资源负责人",
+        "task": "员工手册本地化修订发布",
+        "material": "现行员工手册、肯尼亚劳动法合规建议稿",
+        "warn": "修订内容需经当地工会书面确认以避免集体争议。"
+      }
+    ]
+  },
+  "appendix": {
+    "title": "附录板块",
+    "lawReferences": {
+      "title": "引用法规依据列表",
+      "items": [
+        "Nigeria Data Protection Act (NDPA), 2023",
+        "Central Bank of Nigeria (CBN) Foreign Exchange Manual",
+        "Kenya Employment Act, 2007 (Revised 2022)",
+        "East African Community (EAC) Common External Tariff",
+        "ECOWAS Regional Trade Liberalization Scheme"
+      ]
+    },
+    "dataSources": {
+      "title": "数据来源说明",
+      "text": "本报告数据源自：目的国官方政府公报、世界银行(World Bank)非洲地区年度营商环境数据库、国际货币基金组织(IMF)外汇管理政策报告、以及Baker McKenzie非洲实操案例库。AI分析模型通过Miaoda Compliance引擎实时交叉核验。"
+    },
+    "disclaimer": {
+      "title": "专业法律免责声明",
+      "items": [
+        "本报告仅作为企业决策的参考依据，不构成正式的法律、财务或税务建议。在执行任何具体业务前，请咨询当地持牌执业律师及税务专家。",
+        "AI生成内容可能存在一定的时效性滞后，报告中的法规条款应以目的国政府实时公布的官方文件为准。",
+        "因使用本报告所载信息而导致的任何直接或间接投资损失，报告生成机构及平台不承担任何法律责任。",
+        "本报告版权归\"中非科创出海科技有限公司\"所有，未经授权不得用于商业转售。"
+      ]
+    },
+    "copyright": "© 2026 Miaoda Compliance System. All Rights Reserved."
+  }
+}

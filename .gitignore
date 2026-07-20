@@ -28,4 +28,4 @@ package-lock.json
 history/*.json
 .vite_cache
 .claude
-CLAUDE.md
+.playwright-mcp

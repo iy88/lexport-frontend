@@ -3,6 +3,7 @@ import {AlertTriangle, ArrowRight, CheckCircle, FileText, Stethoscope} from 'luc
 import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Dialog, DialogContent, DialogHeader, DialogTitle} from '@/components/ui/dialog';
+import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue,} from '@/components/ui/select';
 
@@ -138,6 +139,8 @@ const ReportSection: React.FC = () => {
     const [diagnoseOpen, setDiagnoseOpen] = useState(false);
     const [diagnoseResult, setDiagnoseResult] = useState<typeof demoLaws>([]);
     const [formData, setFormData] = useState({
+        companyName: '',
+        industry: '',
         country: '',
         size: '',
         scenes: [] as string[],
@@ -243,6 +246,22 @@ const ReportSection: React.FC = () => {
 
                     {diagnoseResult.length === 0 ? (
                         <div className="space-y-5 py-2">
+                            <div>
+                                <Label className="text-sm font-medium mb-2 block">企业名称</Label>
+                                <Input
+                                    value={formData.companyName}
+                                    onChange={(e) => setFormData((p) => ({...p, companyName: e.target.value}))}
+                                    placeholder="请输入企业名称"
+                                />
+                            </div>
+                            <div>
+                                <Label className="text-sm font-medium mb-2 block">所属行业</Label>
+                                <Input
+                                    value={formData.industry}
+                                    onChange={(e) => setFormData((p) => ({...p, industry: e.target.value}))}
+                                    placeholder="如：数字基础设施、纺织制造、光伏"
+                                />
+                            </div>
                             <div>
                                 <Label className="text-sm font-medium mb-2 block">目的国</Label>
                                 <Select value={formData.country}

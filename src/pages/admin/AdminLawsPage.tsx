@@ -43,6 +43,7 @@ export default function AdminLawsPage() {
     const [form, setForm] = useState(empty);
     const [saving, setSaving] = useState(false);
     const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
+    const [existingFile, setExistingFile] = useState<string | null>(null);
     const fileRef = useRef<HTMLInputElement>(null);
 
     const fetchList = useCallback(async () => {
@@ -70,6 +71,7 @@ export default function AdminLawsPage() {
     const openNew = () => {
         setEditId(null);
         setForm(empty);
+        setExistingFile(null);
         if (fileRef.current) fileRef.current.value = '';
         setDlgOpen(true);
     };
@@ -84,6 +86,7 @@ export default function AdminLawsPage() {
             effective_date: item.effective_date || '',
             summary: item.summary || '',
         });
+        setExistingFile(item.filename || null);
         if (fileRef.current) fileRef.current.value = '';
         setDlgOpen(true);
     };
@@ -312,7 +315,11 @@ export default function AdminLawsPage() {
                             ...p,
                             summary: e.target.value
                         }))}/></div>
-                        <div><Label>法规文件</Label><Input type="file" ref={fileRef as any}/></div>
+                        <div>
+                            <Label>法规文件</Label>
+                            {existingFile && <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1"><Upload className="w-3 h-3"/>当前：{existingFile}</p>}
+                            <Input type="file" ref={fileRef as any}/>
+                        </div>
                         <Button className="w-full" onClick={handleSave}
                                 disabled={saving || !form.title_cn || !form.country_id || !form.scene_id}>{saving ? '保存中...' : '保存'}</Button>
                     </div>
