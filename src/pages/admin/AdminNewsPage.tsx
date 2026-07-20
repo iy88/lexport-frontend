@@ -42,6 +42,7 @@ export default function AdminNewsPage() {
     const [statusFilter, setStatusFilter] = useState('all');
     const [typeFilter, setTypeFilter] = useState('all');
     const [countryFilter, setCountryFilter] = useState('all');
+    const [tagFilter, setTagFilter] = useState('all');
     const [dateFrom, setDateFrom] = useState('');
     const [dateTo, setDateTo] = useState('');
     const [keyword, setKeyword] = useState('');
@@ -62,6 +63,7 @@ export default function AdminNewsPage() {
         if (statusFilter !== 'all') params.status = statusFilter;
         if (typeFilter !== 'all') params.type = typeFilter;
         if (countryFilter !== 'all') params.country_id = countryFilter;
+        if (tagFilter !== 'all') params.tag_id = tagFilter;
         if (dateFrom) params.date_from = dateFrom;
         if (dateTo) params.date_to = dateTo;
         if (searchKeyword.trim()) params.keyword = searchKeyword.trim();
@@ -75,7 +77,7 @@ export default function AdminNewsPage() {
             if (data.data.meta?.tags) setTags(data.data.meta.tags);
         }
         setLoading(false);
-    }, [page, statusFilter, typeFilter, countryFilter, dateFrom, dateTo, searchKeyword, size]);
+    }, [page, statusFilter, typeFilter, countryFilter, tagFilter, dateFrom, dateTo, searchKeyword, size]);
 
     useEffect(() => {
         if (ready) fetchList();
@@ -225,6 +227,13 @@ export default function AdminNewsPage() {
                     <SelectContent>
                         <SelectItem value="all">全部国家</SelectItem>
                         {countries.map((c) => <SelectItem key={c.id} value={c.id}>{c.name_zh}</SelectItem>)}
+                    </SelectContent>
+                </Select>
+                <Select value={tagFilter} onValueChange={(v) => { setTagFilter(v); setPage(1); }}>
+                    <SelectTrigger className="w-24 h-8 text-xs"><SelectValue placeholder="标签"/></SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">全部标签</SelectItem>
+                        {tags.map((t) => <SelectItem key={t.id} value={String(t.id)}>{t.name_zh}</SelectItem>)}
                     </SelectContent>
                 </Select>
                 <Input type="date" value={dateFrom} onChange={(e) => { setDateFrom(e.target.value); setPage(1); }}

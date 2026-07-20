@@ -79,6 +79,21 @@ const riskLevelBars = Object.entries(RISK_LEVELS).map(([key, value]) => {
     return {key, label: value.label, color: colors[key] ?? 'bg-gray-500'};
 });
 
+function formatLocalDateTime(value: string): string {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+
+    return new Intl.DateTimeFormat(undefined, {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+    }).format(date);
+}
+
 export default function ComplianceReport({data}: ComplianceReportProps) {
     const d = data;
 
@@ -109,12 +124,15 @@ export default function ComplianceReport({data}: ComplianceReportProps) {
                                     <div className="grid grid-cols-2 gap-y-3 text-sm">
                                         {section.fields.map((f, i) => {
                                             const I = ICONS[f.icon];
+                                            const value = section === d.basicInfo.reportMeta && f.label === '生成时间'
+                                                ? formatLocalDateTime(f.value)
+                                                : f.value;
                                             return (
                                                 <React.Fragment key={i}>
                                                     <div className="text-muted-foreground flex items-center gap-2">
                                                         {I && <I className="w-4 h-4"/>}{f.label}
                                                     </div>
-                                                    <div className="font-medium">{f.value}</div>
+                                                    <div className="font-medium">{value}</div>
                                                 </React.Fragment>
                                             );
                                         })}

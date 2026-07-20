@@ -99,42 +99,4 @@ export const referenceConfigs: RefTableConfig[] = [
             { name: 'sort_order', label: '排序', type: 'number' },
         ],
     },
-    {
-        resourceKey: 'budget-ranges',
-        title: '预算区间',
-        editorAllowed: false,
-        columns: [
-            { key: 'id', label: '代码' },
-            { key: 'label_zh', label: '名称' },
-            { key: 'min_amount', label: '下限(万元)' },
-            { key: 'max_amount', label: '上限(万元)' },
-            { key: 'sort_order', label: '排序' },
-        ],
-        fields: [
-            { name: 'id', label: '代码', type: 'text', required: true },
-            { name: 'label_zh', label: '名称', type: 'text', required: true },
-            { name: 'min_amount', label: '金额下限(万元)', type: 'number' },
-            { name: 'max_amount', label: '金额上限(万元)', type: 'number' },
-            { name: 'sort_order', label: '排序', type: 'number' },
-        ],
-    },
-    {
-        resourceKey: 'company-sizes',
-        title: '企业规模',
-        editorAllowed: false,
-        columns: [
-            { key: 'id', label: '代码' },
-            { key: 'label_zh', label: '名称' },
-            { key: 'min_employees', label: '人数下限' },
-            { key: 'max_employees', label: '人数上限' },
-            { key: 'sort_order', label: '排序' },
-        ],
-        fields: [
-            { name: 'id', label: '代码', type: 'text', required: true },
-            { name: 'label_zh', label: '名称', type: 'text', required: true },
-            { name: 'min_employees', label: '人数下限', type: 'number' },
-            { name: 'max_employees', label: '人数上限', type: 'number' },
-            { name: 'sort_order', label: '排序', type: 'number' },
-        ],
-    },
 ];

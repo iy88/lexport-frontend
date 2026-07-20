@@ -35,11 +35,13 @@ export default function NewsPage() {
     const [loading, setLoading] = useState(true);
     const [activeType, setActiveType] = useState('cooperation');
     const [countryId, setCountryId] = useState<string | null>(null);
+    const [tagId, setTagId] = useState<number | null>(null);
     const [keyword, setKeyword] = useState('');
     const [searchKeyword, setSearchKeyword] = useState('');
     const [page, setPage] = useState(1);
     const [types, setTypes] = useState<{ value: string; label_zh: string }[]>([]);
     const [countries, setCountries] = useState<{ id: string; name_zh: string }[]>([]);
+    const [tags, setTags] = useState<{ id: number; name_zh: string }[]>([]);
     const metaLoaded = useRef(false);
 
     const fetchNews = useCallback(async () => {
@@ -47,6 +49,7 @@ export default function NewsPage() {
         try {
             const params: Record<string, string | number> = {page, per_page: PAGE_SIZE, type: activeType};
             if (countryId) params.country_id = countryId;
+            if (tagId) params.tag_id = tagId;
             if (searchKeyword.trim()) params.keyword = searchKeyword.trim();
             const {data} = await api.get('/news', {params});
             setNews(data.data.news);
@@ -55,11 +58,12 @@ export default function NewsPage() {
                 metaLoaded.current = true;
                 if (data.data.meta.types) setTypes(data.data.meta.types);
                 if (data.data.meta.countries) setCountries(data.data.meta.countries);
+                if (data.data.meta.tags) setTags(data.data.meta.tags);
             }
         } finally {
             setLoading(false);
         }
-    }, [page, activeType, countryId, searchKeyword]);
+    }, [page, activeType, countryId, tagId, searchKeyword]);
 
     useEffect(() => {
         fetchNews();
@@ -119,6 +123,22 @@ export default function NewsPage() {
                             ))}
                         </div>
                     </div>
+
+                    {/* Tag Filter */}
+                    {tags.length > 0 && (
+                        <div className="mb-4">
+                            <div className="flex flex-wrap gap-2">
+                                <Button variant={tagId === null ? 'default' : 'outline'} size="sm" onClick={() => { setTagId(null); setPage(1); }}>
+                                    全部标签
+                                </Button>
+                                {tags.map((t) => (
+                                    <Button key={t.id} variant={tagId === t.id ? 'default' : 'outline'} size="sm" onClick={() => { setTagId(t.id); setPage(1); }}>
+                                        {t.name_zh}
+                                    </Button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Search */}
                     <div className="flex gap-2 mb-6">

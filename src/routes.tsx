@@ -40,7 +40,6 @@ export const routes: RouteConfig[] = [
         name: '合规初诊',
         path: '/diagnosis',
         element: <ComplianceDiagnosisPage/>,
-        public: true,
     },
     {
         name: 'verify email',

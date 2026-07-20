@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate, useSearchParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
@@ -13,6 +13,7 @@ import {clearError, login, register} from '@/store/authSlice';
 
 const LoginPage: React.FC = () => {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
     const dispatch = useDispatch<AppDispatch>();
     const {user, token, loading, error} = useSelector((s: RootState) => s.auth);
 
@@ -28,9 +29,10 @@ const LoginPage: React.FC = () => {
 
     useEffect(() => {
         if (user && token) {
-            navigate('/', {replace: true});
+            const redirect = searchParams.get('redirect');
+            navigate(redirect || '/', { replace: true });
         }
-    }, [user, token, navigate]);
+    }, [user, token, navigate, searchParams]);
 
     useEffect(() => {
         if (error) {

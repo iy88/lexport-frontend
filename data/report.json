@@ -1,0 +1,225 @@
+{
+  "riskAnalysis": {
+    "title": "分项风险分析板块",
+    "items": [
+      {
+        "level": "CRITICAL",
+        "impact": "重大财务损失及业务中断风险",
+        "icon": "Database",
+        "action": "完成DPIA评估并部署数据本地化加密方案",
+        "title": "数据合规风险",
+        "desc": "NDPA 2023要求所有处理尼日利亚公民数据的企业任命DPO、完成数据保护影响评估(DPIA)并向NITDA备案。未合规者面临全球年收入2%的行政罚款。"
+      },
+      {
+        "level": "HIGH",
+        "impact": "数据出境受阻影响跨境业务运营",
+        "icon": "Globe",
+        "action": "建立跨境数据传输合规评估机制",
+        "title": "跨境数据传输风险",
+        "desc": "NDPA 2023第41条规定跨境数据传输需评估接收国数据保护标准是否充分，或采用标准合同条款、绑定公司规则等机制。"
+      },
+      {
+        "level": "HIGH",
+        "impact": "面临监管调查和行政处罚风险",
+        "icon": "Scale",
+        "action": "建立监管沟通机制，定期合规自查",
+        "title": "监管合规风险",
+        "desc": "NDPA 2023设立独立的数据保护委员会，有权对数据控制者和处理者进行监督检查，并发布规章、指令和指导。"
+      },
+      {
+        "level": "MEDIUM",
+        "impact": "跨境争议解决成本和时间增加",
+        "icon": "Gavel",
+        "action": "在合同中约定仲裁条款和适用法律",
+        "title": "争议解决风险",
+        "desc": "尼日利亚《仲裁与调解法》规定外国仲裁裁决可依据纽约公约在尼日利亚执行，但需满足特定条件。"
+      }
+    ]
+  },
+  "appendix": {
+    "copyright": "© 2026 律航出海",
+    "title": "附录板块",
+    "dataSources": {
+      "text": "本报告基于知识库提供的 Nigeria Data Protection Act 2023、Nigeria Data Protection Regulation 2019: Implementation Framework 及 Arbitration and Mediation Act 生成，数据覆盖截至{{DATA_CUTOFF_DATE}}。未使用输入材料以外的外部数据源。",
+      "title": "数据来源说明"
+    },
+    "lawReferences": {
+      "title": "引用法规依据列表",
+      "items": [
+        "Nigeria Data Protection Act (NDPA), 2023",
+        "Nigeria Data Protection Regulation, 2019",
+        "Arbitration and Mediation Act, Nigeria"
+      ]
+    },
+    "disclaimer": {
+      "title": "专业法律免责声明",
+      "items": [
+        "本报告仅作为企业决策的参考依据，不构成正式的法律、财务或税务建议。在执行任何具体业务前，请咨询当地持牌执业律师及税务专家。",
+        "AI生成内容可能存在一定的时效性滞后，报告中的法规条款应以目的国政府实时公布的官方文件为准。",
+        "因使用本报告所载信息而导致的任何直接或间接投资损失，报告生成机构及平台不承担任何法律责任。",
+        "本报告版权归\"天顶星科技有限公司\"所有，未经授权不得用于商业转售。"
+      ]
+    }
+  },
+  "meta": {
+    "description": "天顶星科技有限公司出海合规报告",
+    "title": "天顶星科技有限公司出海合规报告"
+  },
+  "aiDiagnosis": {
+    "topRisks": {
+      "title": "核心风险",
+      "items": [
+        "尼日利亚《数据保护法》(NDPA 2023)要求任命DPO并完成数据处理备案，违规罚款可达全球年收入2%",
+        "NDPA 2023对跨境数据传输设定严格限制，需评估目标国数据保护标准是否充分",
+        "金融科技业务涉及大量个人敏感数据处理，需建立完整的数据保护合规体系"
+      ]
+    },
+    "overallRisk": {
+      "badge": "重点关注",
+      "level": "高风险",
+      "levelKey": "CRITICAL"
+    },
+    "complianceGap": {
+      "summary": "企业尚未依据NDPA 2023建立数据保护合规体系，缺少DPO任命和数据处理备案；跨境数据传输机制未建立，无法满足NDPA对数据出境的合规要求；金融科技业务涉及大量个人敏感数据，数据保护影响评估(DPIA)尚未开展。",
+      "priorityTitle": "优先级行动建议",
+      "title": "当前合规缺口总结",
+      "actions": [
+        "依据NDPA第33条，7日内完成DPO任命并向NITDA备案",
+        "开展数据保护影响评估(DPIA)，识别金融科技业务数据风险",
+        "建立跨境数据传输合规机制，评估数据接收国保护标准",
+        "制定数据泄露应急响应预案，满足NDPA 72小时报告要求"
+      ]
+    },
+    "title": "AI 初诊结论板块"
+  },
+  "header": {
+    "subtitle": "基于AI大模型深度分析及全球实时法务数据库生成的非洲市场准入与经营合规评估。",
+    "title": "天顶星科技有限公司出海合规报告"
+  },
+  "agencyMatching": {
+    "columns": [
+      "推荐机构",
+      "适配业务",
+      "核心优势"
+    ],
+    "title": "AI 智能机构匹配结果板块",
+    "items": [
+      {
+        "business": "审计、税务、合规",
+        "advantage": "国际四大，非洲网络完善，数据合规咨询经验丰富",
+        "name": "KPMG Africa"
+      },
+      {
+        "business": "财务审计、税务合规",
+        "advantage": "国际四大，英语区服务稳定，金融科技行业经验成熟",
+        "name": "EY Africa"
+      },
+      {
+        "business": "跨境税务、审计、制造业咨询",
+        "advantage": "国际四大，跨境业务咨询能力强，数据保护合规服务完善",
+        "name": "PwC Africa"
+      },
+      {
+        "business": "制造业投资架构、公司注册、准入合规、跨境设立",
+        "advantage": "全非最大律所，多国执业，大型项目落地能力强",
+        "name": "ENS (ENSafrica)"
+      }
+    ]
+  },
+  "executionChecklist": {
+    "title": "落地执行清单板块",
+    "items": [
+      {
+        "date": "T+7天内",
+        "owner": "法务部总监",
+        "warn": "逾期可能面临每日5万奈拉滞纳金",
+        "task": "尼日利亚数据处理备案申请",
+        "material": "企业章程、数据架构说明书、DPO委任书"
+      },
+      {
+        "date": "T+15天内",
+        "owner": "数据安全负责人",
+        "warn": "未完成DPIA将面临监管调查风险",
+        "task": "数据保护影响评估(DPIA)",
+        "material": "数据流程图、敏感数据清单、风险评估报告"
+      },
+      {
+        "date": "T+30天内",
+        "owner": "合规部主管",
+        "warn": "违规跨境传输将面临全球年收入2%罚款",
+        "task": "跨境数据传输合规评估",
+        "material": "数据接收方清单、保护标准评估报告、标准合同条款"
+      },
+      {
+        "date": "T+45天内",
+        "owner": "IT安全总监",
+        "warn": "未建立应急机制将违反NDPA 72小时报告义务",
+        "task": "数据泄露应急响应预案制定",
+        "material": "应急预案文档、响应团队名单、演练计划"
+      }
+    ]
+  },
+  "basicInfo": {
+    "reportMeta": {
+      "title": "报告元数据",
+      "fields": [
+        {
+          "icon": "LayoutList",
+          "label": "报告编号",
+          "value": "{{REPORT_ID}}"
+        },
+        {
+          "icon": "Calendar",
+          "label": "生成时间",
+          "value": "{{GENERATED_AT}}"
+        },
+        {
+          "icon": "Cpu",
+          "label": "AI版本",
+          "value": "{{AI_VERSION}}"
+        },
+        {
+          "icon": "History",
+          "label": "数据截止日期",
+          "value": "{{DATA_CUTOFF_DATE}}"
+        }
+      ]
+    },
+    "companyBackground": {
+      "title": "企业背景",
+      "fields": [
+        {
+          "icon": "Building2",
+          "label": "企业名称",
+          "value": "天顶星科技有限公司"
+        },
+        {
+          "icon": "Briefcase",
+          "label": "所属行业",
+          "value": "数字基础设施与金融科技"
+        },
+        {
+          "icon": "Users",
+          "label": "企业规模",
+          "value": "5000-10000人"
+        },
+        {
+          "icon": "MapPin",
+          "label": "出海目的国",
+          "value": "尼日利亚"
+        },
+        {
+          "icon": "Globe",
+          "label": "出海商业模式",
+          "value": "当地直营 + 跨境电商服务"
+        },
+        {
+          "icon": "Wallet",
+          "label": "预算范围",
+          "value": "200万人民币"
+        }
+      ]
+    },
+    "title": "基础信息板块"
+  }
+}

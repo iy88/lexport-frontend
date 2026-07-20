@@ -1,6 +1,6 @@
 import {Link, Outlet, useLocation, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {Building2, Database, FileText, LayoutDashboard, LogOut, Newspaper, Scale, Users} from 'lucide-react';
+import {Building2, ClipboardCheck, Database, FileText, LayoutDashboard, LogOut, Newspaper, Scale, Users} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {logout} from '@/store/authSlice';
 import type {AppDispatch, RootState} from '@/store';
@@ -40,6 +40,13 @@ export default function UserLayout() {
                         <LayoutDashboard className="w-4 h-4"/>
                         仪表盘
                     </Link>
+                    <Link
+                        to="/user/reports"
+                        className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-md transition-colors ${pathname.startsWith('/user/reports') ? 'text-foreground bg-primary/10' : 'text-muted-foreground hover:text-foreground hover:bg-accent'}`}
+                    >
+                        <ClipboardCheck className="w-4 h-4"/>
+                        我的合规报告
+                    </Link>
                     {user?.role === 'admin' && (
                         <>
                             <Link
@@ -66,6 +73,15 @@ export default function UserLayout() {
                                     {label}
                                 </Link>
                             ))}
+                            {user?.role === 'admin' && (
+                                <Link
+                                    to="/admin/reports"
+                                    className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-md transition-colors ${pathname.startsWith('/admin/reports') ? 'text-foreground bg-primary/10' : 'text-muted-foreground hover:text-foreground hover:bg-accent'}`}
+                                >
+                                    <ClipboardCheck className="w-4 h-4"/>
+                                    合规报告管理
+                                </Link>
+                            )}
                         </>
                     )}
                     {showAdmin && (
