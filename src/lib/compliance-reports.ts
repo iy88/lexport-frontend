@@ -160,6 +160,7 @@ export interface ComplianceReportSummary {
 
 export interface ComplianceReportDetail extends ComplianceReportSummary {
     result_text: string | null;
+    query?: string;
 }
 
 export interface ComplianceReportListMeta {

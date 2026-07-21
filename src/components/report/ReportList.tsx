@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, FileText, Loader2, Plus, Trash2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, FileText, Loader2, Plus, RefreshCw, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -164,6 +164,12 @@ export default function ReportList({
                                                 <Link to={`${detailBasePath}/${r.id}`}>
                                                     <Button variant="outline" size="sm">
                                                         查看详情
+                                                    </Button>
+                                                </Link>
+                                                <Link to={`/diagnosis?regenerate=${r.id}`}>
+                                                    <Button variant="ghost" size="icon" title="复用信息重新生成"
+                                                            className="text-muted-foreground hover:text-primary">
+                                                        <RefreshCw className="w-4 h-4"/>
                                                     </Button>
                                                 </Link>
                                                 {onDelete && (

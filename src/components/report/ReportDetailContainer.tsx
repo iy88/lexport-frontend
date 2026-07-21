@@ -413,6 +413,14 @@ function ReportMetaCard({ detail }: { detail: ComplianceReportDetail }) {
                         {REPORT_STATUS_LABELS[detail.status]}
                     </Badge>
                 </div>
+                {detail.query && (
+                    <div className="col-span-2">
+                        <span className="text-muted-foreground block mb-1">用户需求：</span>
+                        <div className="text-sm bg-muted/50 rounded-md p-3 leading-relaxed whitespace-pre-wrap text-muted-foreground">
+                            {detail.query}
+                        </div>
+                    </div>
+                )}
             </CardContent>
         </Card>
     );

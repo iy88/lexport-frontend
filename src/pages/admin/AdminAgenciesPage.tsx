@@ -11,7 +11,7 @@ import type {RootState} from '@/store';
 import {usePageSize} from '@/hooks/use-page-size';
 import {Check, CheckSquare, ChevronLeft, ChevronRight, Clock, Loader2, Pause, Pencil, Plus, Search, Trash2} from 'lucide-react';
 
-const empty = {name_zh: '', scene_id: '', region: '', phone: '', email: '', business: '', advantage: '', highlight: ''};
+const empty = {name: '', scene_id: '', region: '', phone: '', email: '', business: '', advantage: '', highlight: ''};
 
 export default function AdminAgenciesPage() {
     const role = useSelector((s: RootState) => s.auth.user?.role);
@@ -69,7 +69,7 @@ export default function AdminAgenciesPage() {
     const openEdit = (item: any) => {
         setEditId(item.id);
         setForm({
-            name_zh: item.name_zh,
+            name: item.name,
             scene_id: item.scene_id,
             region: item.region || '',
             phone: item.phone || '',
@@ -83,7 +83,7 @@ export default function AdminAgenciesPage() {
 
     const handleSave = async () => {
         if (saving) return;
-        if (!form.name_zh || !form.scene_id) return;
+        if (!form.name || !form.scene_id) return;
         setSaving(true);
         try {
             if (editId) {
@@ -217,7 +217,7 @@ export default function AdminAgenciesPage() {
                             {items.map((item: any) => (
                                 <tr key={item.id} className="border-b hover:bg-muted/30">
                                     {isAdmin && <td className="p-3 w-8">{item.status === 'draft' ? <input type="checkbox" className="w-4 h-4 accent-primary cursor-pointer" checked={selectedIds.has(item.id)} onChange={() => toggleSelect(item.id)}/> : null}</td>}
-                                    <td className="p-3 font-medium">{item.name_zh}</td>
+                                    <td className="p-3 font-medium">{item.name}</td>
                                     <td className="p-3">{scenes.find((s: any) => s.id === item.scene_id)?.label_zh}</td>
                                     <td className="p-3 text-xs text-muted-foreground">{item.region}</td>
                                     <td className="p-3">
@@ -266,9 +266,9 @@ export default function AdminAgenciesPage() {
                 <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto">
                     <DialogHeader><DialogTitle>{editId ? '编辑' : '新建'}机构</DialogTitle></DialogHeader>
                     <div className="space-y-4 py-2">
-                        <div><Label>名称</Label><Input value={form.name_zh} onChange={(e) => setForm((p) => ({
+                        <div><Label>名称</Label><Input value={form.name} onChange={(e) => setForm((p) => ({
                             ...p,
-                            name_zh: e.target.value
+                            name: e.target.value
                         }))}/></div>
                         <div><Label>场景</Label>
                             <Select value={form.scene_id} onValueChange={(v) => setForm((p) => ({...p, scene_id: v}))}>
@@ -302,7 +302,7 @@ export default function AdminAgenciesPage() {
                             highlight: e.target.value
                         }))}/></div>
                         <Button className="w-full" onClick={handleSave}
-                                disabled={saving || !form.name_zh || !form.scene_id}>{saving ? '保存中...' : '保存'}</Button>
+                                disabled={saving || !form.name || !form.scene_id}>{saving ? '保存中...' : '保存'}</Button>
                     </div>
                 </DialogContent>
             </Dialog>

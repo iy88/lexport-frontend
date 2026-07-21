@@ -26,7 +26,7 @@ const PAGE_SIZE = 8;
 
 interface Agency {
     id: number;
-    name_zh: string;
+    name: string;
     scene_id: string;
     region: string;
     phone: string;
@@ -192,7 +192,7 @@ export default function AgenciesPage() {
                                         <Star className="w-4 h-4 text-primary mt-0.5 shrink-0"/>
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center gap-2 mb-1 flex-wrap">
-                                                <span className="font-semibold text-sm">{agency.name_zh}</span>
+                                                <span className="font-semibold text-sm">{agency.name}</span>
                                                 {agency.highlight && <Badge variant="outline"
                                                                             className={`text-[10px] h-5 px-1.5 ${getHighlightVariant(agency.highlight)}`}>{agency.highlight}</Badge>}
                                                 <Badge variant="secondary"
@@ -236,7 +236,7 @@ export default function AgenciesPage() {
                         <>
                             <DialogHeader>
                                 <DialogTitle className="text-xl flex items-center gap-2"><Star
-                                    className="w-5 h-5 text-primary"/>{selectedAgency.name_zh}</DialogTitle>
+                                    className="w-5 h-5 text-primary"/>{selectedAgency.name}</DialogTitle>
                             </DialogHeader>
                             <div className="space-y-5 py-2">
                                 {selectedAgency.highlight && <Badge

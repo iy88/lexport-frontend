@@ -32,7 +32,7 @@ Features:
 | 分页 (每页 6 条) | ✅ |
 | 卡片展示 (中文标题 + law_number + scene badge + summary) | ✅ |
 | 生效年份 (📅 图标 + 年份，固定在卡片底部) | ✅ |
-| 字段: `title_cn`, `title_en`, `law_number`, `country_id`, `scene_id`, `effective_date`, `summary`, `filename` | ✅ |
+| 字段: `title_cn`, `title_en`, `law_number`, `country_id`, `scene_id`, `effective_date`, `summary`, `has_file` | ✅ |
 
 ### 3. 资讯库 (`/news`) — NewsPage
 
@@ -120,8 +120,8 @@ Features:
 | 功能 | 状态 |
 |------|------|
 | 筛选: status(draft/published) + country + scene + keyword | ✅ |
-| 表格: 标题、国家、场景、文件(filename)、状态、更新时间、操作 | ✅ |
-| 创建/编辑 (Dialog 表单, multipart/form-data + 文件上传) | ✅ |
+| 表格: 标题、国家、场景、文件(object_name/pending_object_name)、状态(review_status)、更新时间、操作 | ✅ |
+| 创建/编辑 (Dialog 表单, FormData 文件上传，由浏览器生成 boundary) | ✅ |
 | 删除 (admin 任意 / editor 仅 draft) | ✅ |
 | 审核通过 (admin, 单条) | ✅ |
 | 挂起 (admin, published → draft) | ✅ |
@@ -218,7 +218,7 @@ Editor 角色: 创建/编辑自动进入 draft，不可直接发布。
 - **认证**: Redux Toolkit (`authSlice`), JWT 存在 localStorage, axios 拦截器自动附加 `Authorization` header
 - **401 处理**: response 拦截器自动清 token 并跳转登录
 - **权限**: admin 全部权限, editor 部分受限 (不能管理用户/预算/企业规模, 创建自动 draft)
-- **Multipart**: laws 创建/更新使用 `api-file.ts` (FormData)
+- **FormData**: laws 创建/更新通过 `api` 实例发送 `FormData`（不手动设置 Content-Type），参考 `src/lib/laws.ts`
 - **防重复提交**: 所有管理页面 Dialog 保存按钮均有 `saving` 状态锁
 - **批量操作**: laws/news/agencies 管理页支持 checkbox 多选 + 批量审核
 - **Draft 机制**: editor 创建/修改自动进入 draft; admin 审核通过后对外发布; admin 可挂起回退

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { ClipboardCheck, Loader2, Stethoscope } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { ClipboardCheck, Loader2, RefreshCw, Stethoscope } from 'lucide-react';
 import { toast } from 'sonner';
 import PageMeta from '@/components/common/PageMeta';
 import { Button } from '@/components/ui/button';
@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import AttachmentSelector, { type AttachmentFile } from '@/components/report/AttachmentSelector';
-import { createComplianceReport } from '@/lib/compliance-reports';
+import { createComplianceReport, getComplianceReport } from '@/lib/compliance-reports';
 
 const initialFormData = {
     companyName: '',
@@ -23,9 +23,34 @@ const initialFormData = {
 
 export default function ComplianceDiagnosisPage() {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
     const [formData, setFormData] = useState(initialFormData);
     const [attachments, setAttachments] = useState<AttachmentFile[]>([]);
     const [submitting, setSubmitting] = useState(false);
+    const [regenerating, setRegenerating] = useState(false);
+
+    // Pre-fill form from existing report (regeneration)
+    const regenerateId = searchParams.get('regenerate');
+    useEffect(() => {
+        if (!regenerateId) return;
+        setRegenerating(true);
+        getComplianceReport(Number(regenerateId))
+            .then((detail) => {
+                setFormData({
+                    companyName: detail.company_name || '',
+                    industry: detail.industry || '',
+                    country: detail.country || '',
+                    size: detail.company_size || '',
+                    businessModel: detail.business_model || '',
+                    budget: detail.budget_range || '',
+                    requirements: detail.query || '',
+                });
+            })
+            .catch(() => {
+                toast.error('加载原报告信息失败');
+            })
+            .finally(() => setRegenerating(false));
+    }, [regenerateId]);
 
     const handleDiagnose = async () => {
         // Trim all fields
@@ -109,8 +134,14 @@ export default function ComplianceDiagnosisPage() {
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                         <Stethoscope className="h-6 w-6 text-primary" />
                     </div>
-                    <h1 className="text-3xl font-bold text-foreground md:text-4xl">合规初诊工具</h1>
-                    <p className="mt-3 text-muted-foreground">填写企业基本信息，快速匹配目的国法规要点与风险提示。</p>
+                    <h1 className="text-3xl font-bold text-foreground md:text-4xl">
+                        {regenerateId ? '重新生成合规报告' : '合规初诊工具'}
+                    </h1>
+                    <p className="mt-3 text-muted-foreground">
+                        {regenerateId
+                            ? '已复用原报告的企业信息，请修改后重新提交（附件需重新选择）。'
+                            : '填写企业基本信息，快速匹配目的国法规要点与风险提示。'}
+                    </p>
                 </div>
 
                 <Card className="shadow-card">
@@ -221,17 +252,26 @@ export default function ComplianceDiagnosisPage() {
                             <Button
                                 className="h-11 w-full"
                                 onClick={handleDiagnose}
-                                disabled={submitting}
+                                disabled={submitting || regenerating}
                             >
-                                {submitting ? (
+                                {regenerating ? (
+                                    <>
+                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                        正在加载原报告信息...
+                                    </>
+                                ) : submitting ? (
                                     <>
                                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                         正在提交...
                                     </>
                                 ) : (
                                     <>
-                                        <Stethoscope className="mr-2 h-4 w-4" />
-                                        生成合规初诊报告
+                                        {regenerateId ? (
+                                            <RefreshCw className="mr-2 h-4 w-4" />
+                                        ) : (
+                                            <Stethoscope className="mr-2 h-4 w-4" />
+                                        )}
+                                        {regenerateId ? '重新生成合规报告' : '生成合规初诊报告'}
                                     </>
                                 )}
                             </Button>
