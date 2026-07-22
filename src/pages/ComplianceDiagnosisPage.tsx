@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { ClipboardCheck, Loader2, RefreshCw, Stethoscope } from 'lucide-react';
+import { useSelector } from 'react-redux';
+import { AlertTriangle, ClipboardCheck, Loader2, RefreshCw, Stethoscope } from 'lucide-react';
 import { toast } from 'sonner';
 import PageMeta from '@/components/common/PageMeta';
 import { Button } from '@/components/ui/button';
@@ -10,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import AttachmentSelector, { type AttachmentFile } from '@/components/report/AttachmentSelector';
 import { createComplianceReport, getComplianceReport } from '@/lib/compliance-reports';
+import type { RootState } from '@/store';
 
 const initialFormData = {
     companyName: '',
@@ -24,10 +26,32 @@ const initialFormData = {
 export default function ComplianceDiagnosisPage() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
+    const user = useSelector((s: RootState) => s.auth.user);
     const [formData, setFormData] = useState(initialFormData);
     const [attachments, setAttachments] = useState<AttachmentFile[]>([]);
     const [submitting, setSubmitting] = useState(false);
     const [regenerating, setRegenerating] = useState(false);
+
+    // Idempotency tracking
+    const submissionRef = useRef<{ signature: string; key: string } | null>(null);
+
+    const buildSignature = () => JSON.stringify({
+        companyName: formData.companyName.trim(),
+        industry: formData.industry.trim(),
+        country: formData.country.trim(),
+        size: formData.size.trim(),
+        businessModel: formData.businessModel.trim(),
+        budget: formData.budget.trim(),
+        requirements: formData.requirements.trim(),
+        attachments: attachments.map(({file}) => ({
+            name: file.name,
+            size: file.size,
+            type: file.type,
+            lastModified: file.lastModified,
+        })),
+    });
+
+    const emailVerified = !!user?.email_verified;
 
     // Pre-fill form from existing report (regeneration)
     const regenerateId = searchParams.get('regenerate');
@@ -79,8 +103,27 @@ export default function ComplianceDiagnosisPage() {
         const hasAttachmentError = attachments.some((a) => a.error);
         if (hasAttachmentError) { toast.error('请移除无效的附件后重试'); return; }
 
+        // Email verification gate
+        if (!emailVerified) {
+            toast.error('请先验证邮箱后再创建合规报告');
+            return;
+        }
+
         setSubmitting(true);
         try {
+            // Determine idempotency key
+            const sig = buildSignature();
+            const current = submissionRef.current;
+            let key: string;
+            if (current && current.signature === sig) {
+                // Retry with same key
+                key = current.key;
+            } else {
+                // New or changed submission
+                key = crypto.randomUUID();
+                submissionRef.current = { signature: sig, key };
+            }
+
             const fd = new FormData();
             fd.append('query', requirements);
             fd.append('company_name', companyName);
@@ -93,23 +136,38 @@ export default function ComplianceDiagnosisPage() {
                 fd.append('documents', a.file);
             }
 
-            const result = await createComplianceReport(fd);
+            const result = await createComplianceReport(fd, key);
+            submissionRef.current = null; // Clear on success
             toast.success('报告任务已提交，正在生成');
-
             navigate(`/user/reports/${result.id}`, { replace: true });
         } catch (err: unknown) {
             if (err && typeof err === 'object' && 'response' in err) {
                 const axiosErr = err as {
                     response?: {
                         status?: number;
-                        data?: { error?: { message?: string }; message?: string };
+                        data?: { error?: { code?: string; message?: string }; message?: string };
                     };
                 };
                 const status = axiosErr.response?.status;
-                const msg = axiosErr.response?.data?.error?.message
-                    || axiosErr.response?.data?.message
-                    || '提交失败';
-                if (status === 400) {
+                const code = axiosErr.response?.data?.error?.code;
+                const msg =
+                    axiosErr.response?.data?.error?.message ||
+                    axiosErr.response?.data?.message ||
+                    '提交失败';
+
+                if (code === 'EMAIL_VERIFICATION_REQUIRED') {
+                    toast.error(
+                        <span>
+                            请先验证邮箱后再创建合规报告。
+                            <Link to="/user" className="underline ml-1">前往账户页</Link>
+                        </span>
+                    );
+                } else if (code === 'IDEMPOTENCY_CONFLICT') {
+                    submissionRef.current = null;
+                    toast.error('提交内容已变化，请重新提交');
+                } else if (code === 'RATE_LIMITED' || status === 429) {
+                    toast.error('提交过于频繁，请稍后重试');
+                } else if (status === 400) {
                     toast.error(`提交失败：${msg}`);
                 } else if (status === 413) {
                     toast.error('上传文件总大小超过限制');
@@ -119,6 +177,7 @@ export default function ComplianceDiagnosisPage() {
                     toast.error(msg || '提交失败，请稍后重试');
                 }
             } else {
+                // Network error: keep identity for retry
                 toast.error('网络错误，请检查连接后重试');
             }
         } finally {
@@ -146,6 +205,20 @@ export default function ComplianceDiagnosisPage() {
 
                 <Card className="shadow-card">
                     <CardContent className="p-6 md:p-8">
+                        {!emailVerified && (
+                            <div className="flex items-start gap-2 p-3 mb-4 bg-warning/10 border border-warning/20 rounded-md">
+                                <AlertTriangle className="w-4 h-4 text-warning shrink-0 mt-0.5" />
+                                <div className="text-sm">
+                                    <p className="font-medium text-foreground">邮箱未验证</p>
+                                    <p className="text-muted-foreground text-xs mt-0.5">
+                                        创建合规报告需要验证邮箱。
+                                        <Link to="/user" className="text-primary hover:underline ml-1">
+                                            前往账户页验证
+                                        </Link>
+                                    </p>
+                                </div>
+                            </div>
+                        )}
                         <div className="space-y-5">
                             <div>
                                 <Label className="mb-2 block text-sm font-medium" htmlFor="company-name">

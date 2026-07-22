@@ -1,15 +1,21 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import ReportList from '@/components/report/ReportList';
 import { deleteAdminComplianceReport, listAdminComplianceReports, type ComplianceReportSummary } from '@/lib/compliance-reports';
-import type { RootState } from '@/store';
-
-const PER_PAGE = 20;
+import {usePageSize} from '@/hooks/use-page-size';
 
 export default function AdminReportsPage() {
-    const role = useSelector((s: RootState) => s.auth.user?.role);
+    const {size, ready} = usePageSize({
+        containerSelector: '[data-report-list-viewport]',
+        rowSelector: '[data-report-card]',
+        rowHeight: 116,
+        rowGap: 12,
+        safetyMargin: 24,
+        headerHeight: 0,
+        paginationHeight: 0,
+        min: 1,
+        max: 12,
+    });
     const [reports, setReports] = useState<ComplianceReportSummary[]>([]);
     const [total, setTotal] = useState(0);
     const [page, setPage] = useState(1);
@@ -20,7 +26,12 @@ export default function AdminReportsPage() {
         setLoading(true);
         setError(null);
         try {
-            const data = await listAdminComplianceReports(p, PER_PAGE);
+            const data = await listAdminComplianceReports(p, size);
+            const lastPage = Math.max(1, Math.ceil(data.meta.total / size));
+            if (p > lastPage) {
+                setPage(lastPage);
+                return;
+            }
             setReports(data.reports);
             setTotal(data.meta.total);
             setPage(data.meta.page);
@@ -29,13 +40,11 @@ export default function AdminReportsPage() {
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [size]);
 
     useEffect(() => {
-        if (role === 'admin') {
-            fetch(page);
-        }
-    }, [page, fetch, role]);
+        if (ready) fetch(page);
+    }, [page, fetch, ready]);
 
     const handleRetry = useCallback(() => {
         fetch(page);
@@ -58,16 +67,12 @@ export default function AdminReportsPage() {
         }
     }, []);
 
-    if (role !== 'admin') {
-        return <Navigate to="/user/reports" replace />;
-    }
-
     return (
         <ReportList
             reports={reports}
             total={total}
             page={page}
-            perPage={PER_PAGE}
+            perPage={size}
             loading={loading}
             error={error}
             detailBasePath="/admin/reports"

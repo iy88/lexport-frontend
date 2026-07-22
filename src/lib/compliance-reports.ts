@@ -134,9 +134,10 @@ export type ComplianceReportData = z.infer<typeof complianceReportDataSchema>;
 
 // --- API types ---
 
-export type ReportStatus = 'queued' | 'in_progress' | 'completed' | 'failed' | 'cancelled';
+export type ReportStatus = 'submitting' | 'queued' | 'in_progress' | 'completed' | 'failed' | 'cancelled';
 
 export const REPORT_STATUS_LABELS: Record<ReportStatus, string> = {
+    submitting: '正在提交',
     queued: '排队中',
     in_progress: '生成中',
     completed: '已完成',
@@ -191,8 +192,13 @@ export interface CreateReportResponse {
 // --- API methods ---
 
 /** Create a compliance report (multipart/form-data). Returns the created report info. */
-export async function createComplianceReport(formData: FormData): Promise<CreateReportResponse> {
-    const { data } = await api.post('/compliance-reports', formData);
+export async function createComplianceReport(
+    formData: FormData,
+    idempotencyKey: string,
+): Promise<CreateReportResponse> {
+    const { data } = await api.post('/compliance-reports', formData, {
+        headers: { 'Idempotency-Key': idempotencyKey },
+    });
     return data.data;
 }
 

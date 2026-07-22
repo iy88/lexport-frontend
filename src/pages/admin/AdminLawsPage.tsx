@@ -259,7 +259,7 @@ export default function AdminLawsPage() {
         setActingId(id);
         try {
             await approveAdminLaw(id);
-            toast.success('审核通过');
+            toast.success('已审核通过并发布');
             await fetchList();
         } catch (err: unknown) {
             toast.error(extractLawError(err));
@@ -273,7 +273,7 @@ export default function AdminLawsPage() {
         setActingId(confirmAction.law.id);
         try {
             await suspendAdminLaw(confirmAction.law.id);
-            toast.success('已挂起');
+            toast.success('法规已挂起，可通过“审核通过 / 恢复发布”重新发布');
             setConfirmAction(null);
             await fetchList();
         } catch (err: unknown) {
@@ -735,6 +735,7 @@ export default function AdminLawsPage() {
                                                     <Button
                                                         variant="ghost"
                                                         size="sm"
+                                                        title="编辑法规"
                                                         disabled={batchApproving}
                                                         onClick={() => openEdit(item)}
                                                     >
@@ -747,6 +748,7 @@ export default function AdminLawsPage() {
                                                         <Button
                                                             variant="ghost"
                                                             size="sm"
+                                                            title={item.status === 'draft' ? '审核通过 / 恢复发布' : '审核通过'}
                                                             disabled={
                                                                 batchApproving ||
                                                                 isRowActing(item.id)
@@ -770,6 +772,7 @@ export default function AdminLawsPage() {
                                                         <Button
                                                             variant="ghost"
                                                             size="sm"
+                                                            title="丢弃待审修改"
                                                             disabled={
                                                                 batchApproving ||
                                                                 isRowActing(item.id)
@@ -789,6 +792,7 @@ export default function AdminLawsPage() {
                                                         <Button
                                                             variant="ghost"
                                                             size="sm"
+                                                            title="挂起发布"
                                                             disabled={
                                                                 batchApproving ||
                                                                 isRowActing(item.id)
@@ -803,11 +807,11 @@ export default function AdminLawsPage() {
                                                             <Pause className="w-3.5 h-3.5 text-warning" />
                                                         </Button>
                                                     )}
-                                                {(isAdmin ||
-                                                    item.status === 'draft') && (
+                                                {(isAdmin || item.status === 'draft') && (
                                                     <Button
                                                         variant="ghost"
                                                         size="sm"
+                                                        title={item.status === 'published' ? '永久删除已发布法规' : '永久删除草稿'}
                                                         disabled={
                                                             batchApproving ||
                                                             isRowActing(item.id)
@@ -1114,6 +1118,9 @@ export default function AdminLawsPage() {
                                         挂起「{confirmAction?.law.title_cn}
                                         」后公开详情和下载将不可用。
                                     </p>
+                                    <p>
+                                        挂起后可点击“审核通过 / 恢复发布”重新发布；若之后删除该草稿，则会永久删除且无法恢复。
+                                    </p>
                                     {confirmAction.law.has_draft && (
                                         <p className="font-semibold text-destructive">
                                             该记录存在待审修改，挂起会同时丢弃待审修改！
@@ -1127,7 +1134,7 @@ export default function AdminLawsPage() {
                                     」的待审修改，线上正式版本保持不变。
                                 </p>
                             )}
-                            <p>此操作不可撤销。</p>
+                            {confirmAction?.type !== 'suspend' && <p>此操作不可撤销。</p>}
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>

@@ -8,6 +8,7 @@ import MainLayout from '@/components/layouts/MainLayout';
 
 import {routes} from './routes';
 import RequireAuth from "@/components/common/RequireAuth.tsx";
+import RequireRole from "@/components/common/RequireRole.tsx";
 import UserDashboard from "@/pages/UserDashboard.tsx";
 import UserLayout from "@/components/layouts/UserLayout.tsx";
 import AdminLawsPage from "@/pages/admin/AdminLawsPage.tsx";
@@ -57,13 +58,13 @@ const App: React.FC = () => {
                             <Route path="reports" element={<UserReportsPage/>}/>
                             <Route path="reports/:id" element={<UserReportDetailPage/>}/>
                         </Route>
-                        <Route path="/admin" element={<RequireAuth><UserLayout/></RequireAuth>}>
+                        <Route path="/admin" element={<RequireAuth><RequireRole roles={['admin','editor']}><UserLayout/></RequireRole></RequireAuth>}>
                             <Route path="laws" element={<AdminLawsPage/>}/>
                             <Route path="news" element={<AdminNewsPage/>}/>
                             <Route path="agencies" element={<AdminAgenciesPage/>}/>
-                            <Route path="users" element={<AdminUsersPage/>}/>
-                            <Route path="reports" element={<AdminReportsPage/>}/>
-                            <Route path="reports/:id" element={<AdminReportDetailPage/>}/>
+                            <Route path="users" element={<RequireRole roles={['admin']}><AdminUsersPage/></RequireRole>}/>
+                            <Route path="reports" element={<RequireRole roles={['admin']}><AdminReportsPage/></RequireRole>}/>
+                            <Route path="reports/:id" element={<RequireRole roles={['admin']}><AdminReportDetailPage/></RequireRole>}/>
                             {referenceConfigs.map((c) => (
                                 <Route
                                     key={c.resourceKey}

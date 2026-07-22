@@ -9,13 +9,13 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
 import {ArrowLeft, Eye, EyeOff, Loader2, Scale} from 'lucide-react';
 import {toast} from 'sonner';
 import type {AppDispatch, RootState} from '@/store';
-import {clearError, login, register} from '@/store/authSlice';
+import {clearError, clearRegisterResult, login, register} from '@/store/authSlice';
 
 const LoginPage: React.FC = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const dispatch = useDispatch<AppDispatch>();
-    const {user, token, loading, error} = useSelector((s: RootState) => s.auth);
+    const {user, token, loading, error, registerEmailSent} = useSelector((s: RootState) => s.auth);
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -28,12 +28,23 @@ const LoginPage: React.FC = () => {
     });
 
     useEffect(() => {
-        if (user && token) {
+        if (user && token && registerEmailSent === null) {
+            // Login: navigate immediately
             const redirect = searchParams.get('redirect');
             navigate(redirect || '/', { replace: true });
         }
-    }, [user, token, navigate, searchParams]);
+        if (user && token && registerEmailSent !== null) {
+            if (registerEmailSent) {
+                toast.success('注册成功，请查收验证邮件');
+            } else {
+                toast.warning('账号已创建，但验证邮件发送失败，请在账户页重试');
+            }
+            dispatch(clearRegisterResult());
+            navigate('/user', {replace: true});
+        }
+    }, [user, token, navigate, searchParams, registerEmailSent, dispatch]);
 
+    // Show registration verification status
     useEffect(() => {
         if (error) {
             toast.error(error);
@@ -52,8 +63,8 @@ const LoginPage: React.FC = () => {
 
     const handleRegister = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!registerForm.username || !registerForm.password) {
-            toast.error('请填写用户名和密码');
+        if (!registerForm.username || !registerForm.password || !registerForm.email) {
+            toast.error('请填写所有必填项');
             return;
         }
         if (!/^[a-zA-Z0-9_]{3,50}$/.test(registerForm.username)) {
@@ -72,14 +83,14 @@ const LoginPage: React.FC = () => {
             toast.error('两次输入的密码不一致');
             return;
         }
-        if (registerForm.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(registerForm.email)) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(registerForm.email)) {
             toast.error('请输入正确的邮箱格式');
             return;
         }
         dispatch(register({
             username: registerForm.username,
             password: registerForm.password,
-            email: registerForm.email || undefined,
+            email: registerForm.email,
         }));
     };
 
@@ -167,7 +178,7 @@ const LoginPage: React.FC = () => {
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <div className="space-y-2">
-                                        <Label htmlFor="register-username">用户名</Label>
+                                        <Label htmlFor="register-username">用户名 *</Label>
                                         <Input
                                             id="register-username"
                                             placeholder="3-50位字母、数字或下划线"
@@ -176,17 +187,17 @@ const LoginPage: React.FC = () => {
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <Label htmlFor="register-email">邮箱（可选）</Label>
+                                        <Label htmlFor="register-email">邮箱 *</Label>
                                         <Input
                                             id="register-email"
                                             type="email"
-                                            placeholder="请输入邮箱（选填）"
+                                            placeholder="请输入邮箱"
                                             value={registerForm.email}
                                             onChange={(e) => setRegisterForm((p) => ({...p, email: e.target.value}))}
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <Label htmlFor="register-password">密码</Label>
+                                        <Label htmlFor="register-password">密码 *</Label>
                                         <div className="relative">
                                             <Input
                                                 id="register-password"
@@ -209,7 +220,7 @@ const LoginPage: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className="space-y-2">
-                                        <Label htmlFor="register-confirm">确认密码</Label>
+                                        <Label htmlFor="register-confirm">确认密码 *</Label>
                                         <div className="relative">
                                             <Input
                                                 id="register-confirm"

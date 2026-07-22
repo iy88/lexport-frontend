@@ -16,6 +16,8 @@ interface AuthState {
     loading: boolean;
     error: string | null;
     init: boolean;
+    /** Whether the last register attempt had successful email delivery */
+    registerEmailSent: boolean | null;
 }
 
 const initialState: AuthState = {
@@ -24,6 +26,7 @@ const initialState: AuthState = {
     loading: false,
     error: null,
     init: !localStorage.getItem('token'),
+    registerEmailSent: null,
 };
 
 export const login = createAsyncThunk(
@@ -59,7 +62,7 @@ export const fetchProfile = createAsyncThunk(
 export const register = createAsyncThunk(
     'auth/register',
     async (
-        body: { username: string; password: string; email?: string },
+        body: { username: string; password: string; email: string },
         {rejectWithValue}
     ) => {
         try {
@@ -82,10 +85,17 @@ const authSlice = createSlice({
             state.user = null;
             state.token = null;
             state.error = null;
+            state.registerEmailSent = null;
             localStorage.removeItem('token');
         },
         clearError(state) {
             state.error = null;
+        },
+        clearRegisterResult(state) {
+            state.registerEmailSent = null;
+        },
+        updateUser(state, action: {payload: User}) {
+            state.user = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -93,6 +103,7 @@ const authSlice = createSlice({
             .addCase(login.pending, (state) => {
                 state.loading = true;
                 state.error = null;
+                state.registerEmailSent = null;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.loading = false;
@@ -108,12 +119,14 @@ const authSlice = createSlice({
             .addCase(register.pending, (state) => {
                 state.loading = true;
                 state.error = null;
+                state.registerEmailSent = null;
             })
             .addCase(register.fulfilled, (state, action) => {
                 state.loading = false;
                 state.init = true;
                 state.user = action.payload.user;
                 state.token = action.payload.access_token;
+                state.registerEmailSent = action.payload.verification_email_sent ?? false;
                 localStorage.setItem('token', action.payload.access_token);
             })
             .addCase(register.rejected, (state, action) => {
@@ -138,5 +151,5 @@ const authSlice = createSlice({
     },
 });
 
-export const {logout, clearError} = authSlice.actions;
+export const {logout, clearError, clearRegisterResult, updateUser} = authSlice.actions;
 export default authSlice.reducer;

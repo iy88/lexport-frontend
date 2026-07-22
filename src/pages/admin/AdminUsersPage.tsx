@@ -49,7 +49,7 @@ export default function AdminUsersPage() {
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead>ID</TableHead><TableHead>用户名</TableHead><TableHead>邮箱</TableHead><TableHead>邮箱验证</TableHead><TableHead>角色</TableHead><TableHead>注册时间</TableHead><TableHead>更新时间</TableHead>
+                                <TableHead>ID</TableHead><TableHead>用户名</TableHead><TableHead>邮箱</TableHead><TableHead>邮箱验证</TableHead><TableHead>角色</TableHead><TableHead>注册时间</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -74,8 +74,6 @@ export default function AdminUsersPage() {
                                     </TableCell>
                                     <TableCell
                                         className="text-muted-foreground text-xs">{u.created_at ? new Date(u.created_at).toLocaleString('zh-CN') : '-'}</TableCell>
-                                    <TableCell
-                                        className="text-muted-foreground text-xs">{u.updated_at ? new Date(u.updated_at).toLocaleString('zh-CN') : '-'}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

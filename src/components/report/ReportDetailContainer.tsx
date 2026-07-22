@@ -31,7 +31,7 @@ import {
 import ComplianceReport from '@/components/report/ComplianceReport';
 
 const POLL_INTERVAL = 3000;
-const POLLABLE_STATUSES: ReportStatus[] = ['queued', 'in_progress'];
+const POLLABLE_STATUSES: ReportStatus[] = ['submitting', 'queued', 'in_progress'];
 
 function formatElapsed(seconds: number): string {
     const hours = Math.floor(seconds / 3600);
@@ -47,6 +47,7 @@ function formatElapsed(seconds: number): string {
 }
 
 const STATUS_COLORS: Record<ReportStatus, string> = {
+    submitting: 'bg-gray-500/10 text-gray-600 border-gray-200',
     queued: 'bg-gray-500/10 text-gray-600 border-gray-200',
     in_progress: 'bg-blue-500/10 text-blue-600 border-blue-200',
     completed: 'bg-green-500/10 text-green-600 border-green-200',
@@ -210,14 +211,16 @@ export default function ReportDetailContainer({ backPath, admin }: ReportDetailC
                         <Badge variant="destructive" className="text-xs">已删除</Badge>
                     )}
                     <div className="flex-1" />
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className="text-muted-foreground hover:text-destructive"
-                        onClick={() => setShowDeleteDialog(true)}
-                    >
-                        <Trash2 className="w-4 h-4" />
-                    </Button>
+                    {!detail.deleted && (
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="text-muted-foreground hover:text-destructive"
+                            onClick={() => setShowDeleteDialog(true)}
+                        >
+                            <Trash2 className="w-4 h-4" />
+                        </Button>
+                    )}
                 </div>
                 <ComplianceReport data={reportData} />
                 <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
@@ -289,14 +292,16 @@ export default function ReportDetailContainer({ backPath, admin }: ReportDetailC
                             返回列表
                         </Button>
                     </Link>
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className="text-muted-foreground hover:text-destructive"
-                        onClick={() => setShowDeleteDialog(true)}
-                    >
-                        <Trash2 className="w-4 h-4" />
-                    </Button>
+                    {!detail.deleted && (
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="text-muted-foreground hover:text-destructive"
+                            onClick={() => setShowDeleteDialog(true)}
+                        >
+                            <Trash2 className="w-4 h-4" />
+                        </Button>
+                    )}
                 </div>
 
                 {detail.deleted && (
