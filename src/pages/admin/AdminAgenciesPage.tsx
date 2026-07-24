@@ -51,6 +51,7 @@ export default function AdminAgenciesPage() {
     const metaLoaded = useRef(false);
     const [dlgOpen, setDlgOpen] = useState(false);
     const [editId, setEditId] = useState<number | null>(null);
+    const [editingSharedDraft, setEditingSharedDraft] = useState(false);
     const [form, setForm] = useState(empty);
     const [saving, setSaving] = useState(false);
     const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
@@ -96,6 +97,7 @@ export default function AdminAgenciesPage() {
 
     const openNew = () => {
         setEditId(null);
+        setEditingSharedDraft(false);
         setForm(empty);
         setDlgOpen(true);
     };
@@ -105,6 +107,7 @@ export default function AdminAgenciesPage() {
             const {data} = await api.get(`/admin/agencies/${item.id}`);
             const detail = data.data?.item || item;
             setEditId(item.id);
+            setEditingSharedDraft(detail.status === 'published' && Boolean(detail.has_draft));
             setForm({
                 name: detail.name || '',
                 scene_id: detail.scene_id || '',
@@ -134,7 +137,11 @@ export default function AdminAgenciesPage() {
                 await api.post('/admin/agencies', form);
             }
             setDlgOpen(false);
-            toast.success(editId ? '机构已保存' : '机构已创建');
+            toast.success(
+                editingSharedDraft
+                    ? '机构待审版本已保存，审核通过后发布'
+                    : editId ? '机构已保存' : '机构已创建',
+            );
             await fetchList();
         } catch (error) {
             toast.error(getErrorMessage(error, '机构保存失败'));
@@ -335,10 +342,11 @@ export default function AdminAgenciesPage() {
                                     <td className="p-3 text-xs text-muted-foreground">{item.updated_at ? new Date(item.updated_at).toLocaleString('zh-CN') : '-'}</td>
                                     <td className="p-3">
                                         <div className="flex gap-1">
-                                            {(!isAdmin || item.review_status !== 'pending') && (
-                                                <Button variant="ghost" size="sm" title="编辑机构" disabled={openingId === item.id || actingId === item.id} onClick={() => openEdit(item)}>{openingId === item.id ? <Loader2 className="w-3.5 h-3.5 animate-spin"/> : <Pencil
-                                                    className="w-3.5 h-3.5"/>}</Button>
-                                            )}
+                                            <Button variant="ghost" size="sm"
+                                                    title={item.status === 'published' && item.has_draft ? '编辑待审机构版本' : '编辑机构'}
+                                                    disabled={openingId === item.id || actingId === item.id}
+                                                    onClick={() => openEdit(item)}>{openingId === item.id ? <Loader2 className="w-3.5 h-3.5 animate-spin"/> : <Pencil
+                                                className="w-3.5 h-3.5"/>}</Button>
                                             {isAdmin && item.review_status === 'pending' && <Button variant="ghost" size="sm"
                                                                                            title={item.status === 'draft' ? '审核通过 / 恢复发布' : '审核通过'} disabled={actingId === item.id} onClick={() => handleApprove(item.id)}><Check
                                                 className="w-3.5 h-3.5 text-success"/></Button>}
@@ -379,6 +387,11 @@ export default function AdminAgenciesPage() {
                 <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto">
                     <DialogHeader><DialogTitle>{editId ? '编辑' : '新建'}机构</DialogTitle></DialogHeader>
                     <div className="space-y-4 py-2">
+                        {editingSharedDraft && (
+                            <p className="text-xs text-warning">
+                                当前编辑的是共享待审版本。保存后仍保持待审核，不会影响线上版本。
+                            </p>
+                        )}
                         <div><Label>名称</Label><Input value={form.name} onChange={(e) => setForm((p) => ({
                             ...p,
                             name: e.target.value

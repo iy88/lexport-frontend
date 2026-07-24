@@ -242,7 +242,11 @@ export default function AdminLawsPage() {
             } else {
                 await createAdminLaw(fd);
             }
-            toast.success(editId ? '法规已更新' : '法规已创建');
+            toast.success(
+                editLaw?.status === 'published' && editLaw.has_draft
+                    ? '法规待审版本已保存，审核通过后发布'
+                    : editId ? '法规已更新' : '法规已创建',
+            );
             setDlgOpen(false);
             await fetchList();
         } catch (err: unknown) {
@@ -361,15 +365,6 @@ export default function AdminLawsPage() {
     // --- Render helpers ---
 
     const totalPages = Math.max(1, Math.ceil(total / size));
-
-    const canEdit = (law: AdminLaw): boolean => {
-        if (isAdmin) {
-            // Admin can edit unless there's a pending draft from an editor
-            return !(law.status === 'published' && law.has_draft);
-        }
-        // Editor can always edit (creates/updates draft)
-        return true;
-    };
 
     const fileLabel = (law: AdminLaw) => {
         const canDownload = law.status === 'published' && Boolean(law.object_name);
@@ -731,17 +726,15 @@ export default function AdminLawsPage() {
                                         </td>
                                         <td className="p-3">
                                             <div className="flex gap-1">
-                                                {canEdit(item) && (
-                                                    <Button
-                                                        variant="ghost"
-                                                        size="sm"
-                                                        title="编辑法规"
-                                                        disabled={batchApproving}
-                                                        onClick={() => openEdit(item)}
-                                                    >
-                                                        <Pencil className="w-3.5 h-3.5" />
-                                                    </Button>
-                                                )}
+                                                <Button
+                                                    variant="ghost"
+                                                    size="sm"
+                                                    title={item.status === 'published' && item.has_draft ? '编辑待审法规版本' : '编辑法规'}
+                                                    disabled={batchApproving}
+                                                    onClick={() => openEdit(item)}
+                                                >
+                                                    <Pencil className="w-3.5 h-3.5" />
+                                                </Button>
                                                 {isAdmin &&
                                                     item.review_status ===
                                                         'pending' && (
@@ -1045,13 +1038,11 @@ export default function AdminLawsPage() {
                                 />
                             </div>
 
-                            {/* Warn if admin trying to edit published with draft */}
-                            {isAdmin &&
-                                editLaw &&
+                            {editLaw &&
                                 editLaw.status === 'published' &&
                                 editLaw.has_draft && (
-                                    <p className="text-xs text-destructive">
-                                        该记录有待审修改，请先审核或丢弃草稿后再编辑
+                                    <p className="text-xs text-warning">
+                                        当前编辑的是共享待审版本。保存后仍保持待审核，不会影响线上版本。
                                     </p>
                                 )}
 
@@ -1062,13 +1053,7 @@ export default function AdminLawsPage() {
                                     saving ||
                                     !form.title_cn ||
                                     !form.country_id ||
-                                    !form.scene_id ||
-                                    Boolean(
-                                        isAdmin &&
-                                            editLaw &&
-                                            editLaw.status === 'published' &&
-                                            editLaw.has_draft,
-                                    )
+                                    !form.scene_id
                                 }
                             >
                                 {saving
